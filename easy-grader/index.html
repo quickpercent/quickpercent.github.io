@@ -279,8 +279,24 @@ button{
   margin-bottom:15px;
 }
 
-.chart-header button{
+/* PRINT BUTTON - VISIBLE */
+
+#printBtn{
+  display:inline-block !important;
+  visibility:visible !important;
+  opacity:1 !important;
   background:#e2e8f0;
+  color:#1f2937;
+  padding:11px 15px;
+  border-radius:9px;
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
+  white-space:nowrap;
+}
+
+#printBtn:hover{
+  background:#cbd5e1;
 }
 
 .chart{
@@ -373,6 +389,17 @@ th{
   .card{
     padding:15px;
   }
+
+  .chart-header{
+    align-items:stretch;
+    flex-direction:column;
+  }
+
+  #printBtn{
+    width:100%;
+    display:block !important;
+  }
+
 }
 
 /* PRINT */
@@ -394,6 +421,10 @@ th{
     top:0;
     width:100%;
     box-shadow:none;
+  }
+
+  #printBtn{
+    display:none !important;
   }
 
 }
@@ -965,7 +996,6 @@ totalInput.addEventListener(
 
 /* =========================
    WRONG INPUT
-   MOBILE DECIMAL FIX
 ========================= */
 
 wrongInput.addEventListener(
@@ -974,11 +1004,6 @@ wrongInput.addEventListener(
 
     let raw =
       this.value;
-
-    /*
-      Allow only numbers and one decimal point.
-      We do NOT round while typing.
-    */
 
     raw =
       raw.replace(/[^0-9.]/g,"");
@@ -1000,15 +1025,6 @@ wrongInput.addEventListener(
 
     }
 
-    /*
-      Keep the exact value the user is typing.
-      Examples:
-      2
-      2.
-      2.5
-      3.5
-    */
-
     this.value = raw;
 
     if(
@@ -1029,21 +1045,10 @@ wrongInput.addEventListener(
     const total =
       getTotal();
 
-    /*
-      Only limit the maximum.
-      Never round decimals.
-    */
-
     if(value > total){
 
       this.value =
         String(total);
-
-    }
-
-    if(value < 0){
-
-      this.value = "0";
 
     }
 
@@ -1127,14 +1132,6 @@ function changeWrong(amount){
   if(wrong > total){
     wrong = total;
   }
-
-  /*
-    Half point mode:
-    +/- 0.5
-
-    Normal mode:
-    +/- 1
-  */
 
   wrongInput.value =
     Number(wrong.toFixed(2))
@@ -1587,10 +1584,6 @@ function generateChart(){
       document.createElement("tr");
 
 
-    /*
-      Highlight current score.
-    */
-
     if(
       Math.abs(
         wrong - currentWrong
@@ -1716,7 +1709,7 @@ resetBtn.addEventListener(
 
 
 /* =========================
-   PRINT
+   PRINT CHART
 ========================= */
 
 printBtn.addEventListener(
