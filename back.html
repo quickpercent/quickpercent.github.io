@@ -2,400 +2,1579 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
-<meta name="description" content="QuickPercent - Quick, Easy, Useful Calculators">
-<title>QuickPercent</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Easy Grader Calculator – Free EZ Grader Online | QuickPercent</title>
+<meta name="description" content="Free Easy Grader Calculator & EZ Grader online for tests, quizzes, and exams. Calculate correct answers, percentages, letter grades, pass or fail results, and print grading charts.">
+<meta name="keywords" content="Easy Grader, EZ Grader, Easy Grader Calculator, Test Grade Calculator, Quiz Grade Calculator, Letter Grade Calculator, Printable Grade Chart, QuickPercent">
+
+<meta name="robots" content="index, follow">
+<meta name="author" content="QuickPercent">
+<meta name="theme-color" content="#2563eb">
+<link rel="canonical" href="https://quickpercent.github.io/easy-grader/">
+
+<meta property="og:title" content="Easy Grader – Free EZ Grader Calculator Online | QuickPercent">
+<meta property="og:description" content="Calculate test grades, percentages, letter grades and pass or fail results with this free Easy Grader calculator.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://quickpercent.github.io/easy-grader/">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:#fff;color:#102b55;font-family:Arial,Helvetica,sans-serif}
-body.lock{overflow:hidden}
-button,input,select{font:inherit}button{cursor:pointer}
-
-.header{height:66px;background:#fff;display:flex;align-items:center;padding:0 5%;border-bottom:1px solid #edf1f6;position:sticky;top:0;z-index:10}
-.logo{display:flex;align-items:center;gap:8px;font-size:25px;font-weight:900;letter-spacing:-1px}
-.logo-mark{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#1764df,#16b98a);color:#fff;font-size:22px}
-.logo-blue{color:#102b55}.logo-blue2{color:#1764df}
-.nav{display:flex;gap:38px;margin:auto}
-.nav a{color:#102b55;text-decoration:none;font-size:13px;font-weight:700;padding:23px 0 20px}
-.nav a.active{color:#1764df;border-bottom:2px solid #1764df}
-.header-actions{display:flex;gap:9px}
-.header-action{width:38px;height:38px;border:0;border-radius:50%;background:#f5f8fc;color:#102b55;font-size:18px}
-.menu-btn{display:none;width:38px;height:38px;border:0;border-radius:50%;background:#f5f8fc;color:#102b55;font-size:19px}
-
-.hero{background:linear-gradient(110deg,#edf7ff 0%,#f8fcff 50%,#ecfbf6 100%);text-align:center;padding:23px 20px 27px}
-.badge{display:inline-block;background:#eef9ff;border:1px solid #d3eafb;color:#18519a;border-radius:20px;padding:7px 15px;font-size:12px;font-weight:800;margin-bottom:13px}
-.hero h1{font-size:52px;line-height:1;margin:0 0 10px;letter-spacing:-2.8px;color:#102b55}
-.hero h1 span{color:#1764df}
-.hero h2{font-size:25px;line-height:1.2;margin:0 0 13px;letter-spacing:-.5px}
-.hero p{max-width:700px;margin:0 auto 20px;color:#5f718d;font-size:15px;line-height:1.5}
-
-.search{height:51px;max-width:660px;margin:0 auto;display:flex;align-items:center;background:#fff;border:1px solid #dce6f2;border-radius:28px;padding:0 9px 0 17px;box-shadow:0 5px 18px rgba(20,45,85,.08)}
-.search span{font-size:24px;color:#607794;margin-right:11px}
-.search input{border:0;outline:0;width:100%;font-size:14px;color:#17345e;background:transparent}
-.search button{width:43px;height:43px;border:0;border-radius:50%;background:#1764df;color:#fff;font-size:19px}
-
-.features{max-width:1060px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);padding:22px 0 5px}
-.feature{display:flex;align-items:center;justify-content:center;gap:9px;border-right:1px solid #dfe7ef;text-align:left}
-.feature:last-child{border-right:0}
-.feature .fi{width:39px;height:39px;border-radius:50%;display:grid;place-items:center;font-size:20px;font-weight:900}
-.feature:nth-child(1) .fi{background:#dff9ec;color:#13b975}.feature:nth-child(2) .fi{background:#fff4d8;color:#f0aa00}.feature:nth-child(3) .fi{background:#e4f4ff;color:#1764df}.feature:nth-child(4) .fi{background:#e4f4ff;color:#1764df}
-.feature b{display:block;font-size:13px;margin-bottom:3px}.feature small{display:block;color:#657793;font-size:11px}
-
-.wrap{max-width:1160px;margin:auto;padding:29px 30px 42px}
-.section-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:19px}
-.section-title-left{display:flex;align-items:center;gap:11px}
-.section-icon{font-size:24px;color:#1764df}.section-title h2{font-size:27px;margin:0 0 3px;letter-spacing:-.5px}.section-title p{margin:0;color:#63738b;font-size:13px}
-.view-all{border:0;background:#edf7ff;color:#1764df;font-weight:800;border-radius:20px;padding:9px 15px;font-size:12px}
-
-#cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:17px}
-.card{border:1px solid #e1e9f1;border-radius:14px;padding:15px 17px 15px;min-height:182px;position:relative;box-shadow:0 4px 15px rgba(30,55,95,.025);margin:0}
-.card:nth-child(1){background:#f0f7ff}.card:nth-child(2){background:#f0fbf7}.card:nth-child(3){background:#f6f3ff}.card:nth-child(4){background:#fff3f4}
-.card:nth-child(5){background:#fff8ee}.card:nth-child(6){background:#eefbfb}.card:nth-child(7){background:#f2f4ff}.card:nth-child(8){background:#f3f6fa}
-.card:nth-child(n+9){display:none}
-.card-head{display:block}
-.icon{width:47px;height:47px;border-radius:12px;display:grid;place-items:center;color:#fff;font-size:24px;font-weight:800;margin-bottom:10px}
-.blue{background:#1764df}.orange{background:#ff8e12}.cyan{background:#27b4ca}.purple{background:#7048df}.green{background:#14b879}.red{background:#ef4d58}.slate{background:#64758c}
-.card h2{font-size:15px;margin:0 0 8px;letter-spacing:-.1px}.card p{font-size:11px;line-height:1.5;color:#5f718d;margin:0;padding-right:8px;max-width:220px}
-.open{position:absolute;right:16px;bottom:15px;width:31px;height:31px;border:0;border-radius:50%;display:grid;place-items:center;background:rgba(23,100,223,.10);color:#1764df;font-size:18px;font-weight:800;padding:0}
-.card:nth-child(2) .open{background:rgba(20,184,121,.10);color:#079b78}
-.card:nth-child(3) .open,.card:nth-child(7) .open{background:rgba(112,72,223,.10);color:#7048df}
-.card:nth-child(4) .open{background:rgba(239,77,88,.10);color:#ef4d58}
-.card:nth-child(5) .open{background:rgba(255,142,18,.10);color:#ff8e12}
-.card:nth-child(6) .open{background:rgba(39,180,202,.10);color:#168fa7}
-.more-card{display:block!important}
-.more-card .open{background:rgba(100,117,140,.11);color:#52657c}
-.calculator{display:none;margin-top:14px;padding:15px;border-radius:13px;background:#fff;border:1px solid #dfe7f0}
-.calculator.active{display:block}
-.calculator h3{font-size:18px;margin:0 0 14px}
-label{display:block;font-size:12px;font-weight:800;margin:11px 0 6px}
-input,select{width:100%;height:43px;border:1px solid #ccd5e2;border-radius:10px;background:#fff;padding:0 11px;color:#17345e}
-.calc-btn{width:100%;min-height:43px;border:0;border-radius:10px;background:#1764df;color:#fff;font-weight:800;margin-top:12px}
-.result{display:none;margin-top:13px;padding:12px;border-radius:10px;background:#eaf2ff;font-size:14px;line-height:1.55}
-.result.show{display:block}
-.modes{display:flex;gap:5px;flex-wrap:wrap;margin-bottom:10px}.modes button{border:1px solid #ccd5e2;background:#fff;border-radius:9px;padding:7px 8px;font-size:11px}.modes button.sel{background:#1764df;color:#fff;border-color:#1764df}
-
-.suggest{margin:18px 0 0;background:linear-gradient(100deg,#0750ad,#1764df);color:#fff;border-radius:13px;padding:15px 23px;display:flex;align-items:center;justify-content:space-between}
-.suggest-left{display:flex;align-items:center;gap:14px}.suggest-icon{width:42px;height:42px;border-radius:50%;background:rgba(31,140,255,.35);display:grid;place-items:center;font-size:23px}
-.suggest h2{margin:0 0 4px;font-size:17px}.suggest p{margin:0;font-size:11px;opacity:.92}
-.suggest:after{content:"Suggest a Tool   →";border:1px solid rgba(255,255,255,.8);border-radius:22px;padding:9px 17px;font-size:12px;font-weight:800}
-
-footer{background:#102b55;color:#fff;padding:17px 5%;display:flex;align-items:center;justify-content:space-between;font-size:11px}
-.footer-brand{display:flex;align-items:center;gap:7px}.footer-brand .logo-mark{width:31px;height:31px;font-size:17px}.footer-brand b{font-size:20px}.footer-brand b span{color:#20c49b}
-.footer-nav{display:flex;gap:20px}.footer-nav a{color:#fff;text-decoration:none}
-.footer-social{display:flex;gap:13px;font-size:12px}
-
-.overlay{position:fixed;inset:0;background:rgba(13,31,57,.48);opacity:0;pointer-events:none;transition:.25s;z-index:20}
-.overlay.show{opacity:1;pointer-events:auto}
-.sheet{position:fixed;left:50%;bottom:0;width:min(760px,100%);background:#fff;border-radius:26px 26px 0 0;padding:15px 24px 28px;transform:translate(-50%,105%);transition:.3s;z-index:21;max-height:86vh;overflow:auto}
-.sheet.show{transform:translate(-50%,0)}
-.handle{width:58px;height:6px;border-radius:20px;background:#b8c1cf;margin:0 auto 22px}.sheet h2{font-size:22px;margin:0 0 20px}
-.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 18px}.item{display:flex;align-items:center;gap:11px;border:0;background:none;text-align:left;color:#172f55;padding:5px 0}.item .mini{width:48px;height:48px;border-radius:13px;display:grid;place-items:center;color:#fff;font-size:23px}.item b{font-size:15px}
-.more{margin-top:20px;padding-top:16px;border-top:1px solid #e3e7ee;display:flex;justify-content:space-between;align-items:center}.more button{border:0;background:none;text-align:left;color:#17345e}.more b{font-size:16px}.more span{color:#8995a8}.more-tools{display:none;margin-top:13px}.more-tools.show{display:grid}
-
-@media(max-width:900px){
-.nav{gap:20px}#cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+*{
+  box-sizing:border-box;
 }
-@media(max-width:600px){
-.header{height:61px;padding:0 15px}.logo{font-size:21px}.logo-mark{width:33px;height:33px;font-size:18px}.nav,.header-actions{display:none}.menu-btn{display:block}
-.hero{padding:20px 14px 24px}.hero h1{font-size:41px}.hero h2{font-size:20px}.hero p{font-size:13px}.search{height:49px}
-.features{grid-template-columns:repeat(2,1fr);padding:18px 8px 2px;gap:13px 0}.feature{border-right:0;justify-content:flex-start}.feature b{font-size:11px}.feature small{font-size:9px}.feature .fi{width:34px;height:34px;font-size:17px}
-.wrap{padding:24px 14px 34px}.section-title h2{font-size:21px}.section-title p{font-size:11px}.view-all{font-size:10px;padding:8px 10px}
-#cards{grid-template-columns:1fr 1fr;gap:11px}.card{min-height:176px;padding:13px}.icon{width:41px;height:41px;font-size:21px}.card h2{font-size:13px}.card p{font-size:10px}.open{right:11px;bottom:11px;width:29px;height:29px}
-.suggest{display:block;padding:15px}.suggest:after{display:inline-block;margin-top:11px}
-footer{display:block;text-align:center;line-height:1.8}.footer-nav{justify-content:center;margin-top:7px}.footer-social{justify-content:center;margin-top:7px}
-}
-</style>
 
+body{
+  margin:0;
+  font-family:'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background:#f8fafc;
+  color:#1e293b;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
-<style id="individual-card-expand-fix">
-/* Individual card expansion: only the clicked card grows. */
-#cards{
-  align-items:start !important;
-  grid-auto-rows:max-content !important;
+header{
+  background:#ffffff;
+  border-bottom:1px solid #e2e8f0;
+  padding:14px 24px;
+  position:sticky;
+  top:0;
+  z-index:100;
 }
-#cards .card{
-  align-self:start !important;
-  height:max-content !important;
+
+.header-container{
+  max-width:1200px;
+  margin:0 auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
 }
-#cards .card .calculator{
+
+.brand-logo{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  text-decoration:none;
+}
+
+.brand-icon{
+  width:36px;
+  height:36px;
+  background:#2563eb;
+  color:#ffffff;
+  border-radius:10px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:800;
+  font-size:18px;
+}
+
+.brand-name{
+  font-size:22px;
+  font-weight:800;
+  color:#0f172a;
+}
+
+.brand-name span{
+  color:#2563eb;
+}
+
+nav{
+  display:flex;
+  align-items:center;
+  gap:28px;
+}
+
+nav a{
+  color:#475569;
+  text-decoration:none;
+  font-weight:600;
+  font-size:14px;
+  transition:color 0.2s;
+}
+
+nav a:hover, nav a.active{
+  color:#2563eb;
+}
+
+.header-actions{
+  display:flex;
+  align-items:center;
+  gap:12px;
+}
+
+.icon-btn{
+  width:38px;
+  height:38px;
+  border-radius:50%;
+  border:1px solid #e2e8f0;
+  background:#fff;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  cursor:pointer;
+  color:#64748b;
+  font-size:14px;
+}
+
+.hero-section{
+  background: linear-gradient(180deg, #eff6ff 0%, #f8fafc 100%);
+  padding:50px 20px 40px;
+  text-align:center;
+}
+
+.hero-badge{
+  display:inline-block;
+  background:#dbeafe;
+  color:#1e40af;
+  font-size:12px;
+  font-weight:700;
+  padding:5px 14px;
+  border-radius:20px;
+  margin-bottom:16px;
+  letter-spacing:0.5px;
+}
+
+.hero-title{
+  font-size:38px;
+  font-weight:800;
+  color:#0f172a;
+  margin:0 0 10px;
+}
+
+.hero-subtitle{
+  font-size:16px;
+  color:#64748b;
+  max-width:600px;
+  margin:0 auto 28px;
+  line-height:1.5;
+}
+
+.search-box{
+  max-width:600px;
+  margin:0 auto 35px;
+  position:relative;
+  display:flex;
+  align-items:center;
+}
+
+.search-input{
   width:100%;
+  padding:16px 20px 16px 48px;
+  border-radius:30px;
+  border:1px solid #cbd5e1;
+  font-size:15px;
+  box-shadow:0 4px 20px rgba(0,0,0,0.04);
+  outline:none;
 }
-#cards .card.expanded{
-  z-index:2;
-}
-</style>
 
-<style id="final-tool-grid-patch">
-#cards{align-items:start!important;grid-auto-rows:max-content!important}
-#cards .card{align-self:start!important;height:max-content!important}
-#cards .card.expanded{z-index:2}
-#cards .card:nth-child(4n+1){background:#f0f7ff}
-#cards .card:nth-child(4n+2){background:#f0fbf7}
-#cards .card:nth-child(4n+3){background:#f6f3ff}
-#cards .card:nth-child(4n){background:#fff3f4}
-#cards .card:nth-child(5n){background:#fff8ee}
+.search-icon{
+  position:absolute;
+  left:18px;
+  color:#94a3b8;
+  font-size:16px;
+}
+
+.search-btn{
+  position:absolute;
+  right:6px;
+  background:#2563eb;
+  color:#fff;
+  border:0;
+  padding:10px 22px;
+  border-radius:24px;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.features-pills{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
+  max-width:900px;
+  margin:0 auto;
+}
+
+.pill{
+  background:#ffffff;
+  border:1px solid #e2e8f0;
+  padding:10px 18px;
+  border-radius:12px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  box-shadow:0 2px 6px rgba(0,0,0,0.02);
+}
+
+.pill-icon{
+  width:24px;
+  height:24px;
+  border-radius:6px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:12px;
+  font-weight:bold;
+}
+
+.pill-text h4{
+  margin:0;
+  font-size:13px;
+  font-weight:700;
+  color:#0f172a;
+  text-align:left;
+}
+
+.pill-text p{
+  margin:0;
+  font-size:11px;
+  color:#64748b;
+  text-align:left;
+}
+
+.container{
+  max-width:1000px;
+  margin:40px auto;
+  padding:0 20px;
+  flex:1;
+}
+
+.card{
+  background:#ffffff;
+  border-radius:16px;
+  padding:28px;
+  margin-bottom:28px;
+  box-shadow:0 4px 20px rgba(0,0,0,0.04);
+  border:1px solid #e2e8f0;
+}
+
+.section-title{
+  font-size:22px;
+  font-weight:800;
+  margin-bottom:20px;
+  color:#0f172a;
+}
+
+.controls{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+}
+
+.field{
+  display:flex;
+  flex-direction:column;
+}
+
+.field label{
+  font-weight:700;
+  margin-bottom:8px;
+  color:#334155;
+  font-size:14px;
+}
+
+.input-row{
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+input, select{
+  width:100%;
+  padding:12px 14px;
+  border:1px solid #cbd5e1;
+  border-radius:10px;
+  font-size:15px;
+  background:#fff;
+  color:#0f172a;
+  font-family:inherit;
+}
+
+.small-btn{
+  width:44px;
+  min-width:44px;
+  height:44px;
+  border:0;
+  border-radius:10px;
+  background:#f1f5f9;
+  font-size:20px;
+  font-weight:bold;
+  cursor:pointer;
+  color:#334155;
+  transition:background 0.2s;
+}
+
+.small-btn:hover{
+  background:#e2e8f0;
+}
+
+.quick-select{
+  display:flex;
+  flex-wrap:wrap;
+  gap:10px;
+  margin-top:18px;
+}
+
+.quick-select button{
+  border:0;
+  padding:10px 16px;
+  border-radius:10px;
+  background:#f1f5f9;
+  cursor:pointer;
+  font-weight:700;
+  color:#334155;
+  font-size:14px;
+  transition:all 0.2s;
+}
+
+.quick-select button:hover{
+  background:#2563eb;
+  color:#ffffff;
+}
+
+.options{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+  margin-top:22px;
+}
+
+.scale-buttons{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.scale-btn{
+  border:1px solid #cbd5e1;
+  background:#fff;
+  padding:10px 16px;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:700;
+  color:#334155;
+  font-size:13px;
+}
+
+.scale-btn.active{
+  background:#0f172a;
+  color:#fff;
+  border-color:#0f172a;
+}
+
+.custom-box{
+  display:none;
+  margin-top:15px;
+  padding:16px;
+  border-radius:12px;
+  background:#f8fafc;
+  border:1px solid #e2e8f0;
+}
+
+.custom-box.show{
+  display:block;
+}
+
+.custom-grid{
+  display:grid;
+  grid-template-columns:repeat(5,1fr);
+  gap:8px;
+}
+
+.custom-grid label{
+  font-size:12px;
+  font-weight:700;
+}
+
+.custom-grid input{
+  margin-top:4px;
+  padding:8px;
+}
+
+.checkbox-row{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-top:20px;
+  color:#334155;
+  font-weight:600;
+  font-size:14px;
+}
+
+.checkbox-row input{
+  width:18px;
+  height:18px;
+}
+
+.calculate-btn{
+  width:100%;
+  border:0;
+  padding:15px;
+  border-radius:12px;
+  background:#2563eb;
+  color:#fff;
+  font-size:16px;
+  font-weight:700;
+  cursor:pointer;
+  margin-top:22px;
+  box-shadow:0 4px 12px rgba(37,99,235,0.25);
+  transition:background 0.2s;
+}
+
+.calculate-btn:hover{
+  background:#1d4ed8;
+}
+
+.result{
+  margin-top:22px;
+  padding:20px;
+  border-radius:14px;
+  background:#f8fafc;
+  border:1px solid #e2e8f0;
+  text-align:center;
+}
+
+.result-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:12px;
+}
+
+.result-item{
+  padding:14px;
+  background:#fff;
+  border-radius:10px;
+  border:1px solid #e2e8f0;
+}
+
+.result-label{
+  font-size:12px;
+  color:#64748b;
+  margin-bottom:6px;
+  font-weight:600;
+  text-transform:uppercase;
+  letter-spacing:0.5px;
+}
+
+.result-value{
+  font-size:24px;
+  font-weight:800;
+}
+
+.pass{
+  color:#16a34a;
+}
+
+.fail{
+  color:#dc2626;
+}
+
+.chart-header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  margin-bottom:18px;
+}
+
+.chart-title{
+  font-size:20px;
+  font-weight:800;
+  color:#0f172a;
+}
+
+#printBtn{
+  display:inline-block !important;
+  visibility:visible !important;
+  opacity:1 !important;
+  background:#f1f5f9;
+  color:#1e293b;
+  padding:10px 18px;
+  border-radius:10px;
+  font-size:14px;
+  font-weight:700;
+  cursor:pointer;
+  white-space:nowrap;
+  border:1px solid #cbd5e1;
+}
+
+#printBtn:hover{
+  background:#e2e8f0;
+}
+
+.chart{
+  width:100%;
+  border-collapse:collapse;
+}
+
+.chart th, .chart td{
+  border:1px solid #e2e8f0;
+  padding:11px;
+  text-align:center;
+  font-size:14px;
+}
+
+.chart th{
+  background:#f8fafc;
+  color:#334155;
+  font-weight:700;
+}
+
+.chart tr.current{
+  background:#eff6ff;
+  font-weight:bold;
+}
+
+.reset-btn{
+  width:100%;
+  padding:14px;
+  border:0;
+  border-radius:10px;
+  background:#f1f5f9;
+  font-weight:700;
+  cursor:pointer;
+  color:#334155;
+  font-size:15px;
+}
+
+.reset-btn:hover{
+  background:#e2e8f0;
+}
+
+.seo-content h2, .faq h2{
+  font-size:22px;
+  margin:10px 0 14px;
+  color:#0f172a;
+  font-weight:800;
+}
+
+.seo-content p, .seo-content ul, .seo-content ol{
+  line-height:1.7;
+  color:#475569;
+  margin:0 0 18px;
+  font-size:15px;
+}
+
+.seo-content ul, .seo-content ol{
+  padding-left:22px;
+}
+
+.seo-content h2:not(:first-child){
+  margin-top:28px;
+}
+
+.faq-item{
+  margin-bottom:18px;
+  padding-bottom:16px;
+  border-bottom:1px solid #f1f5f9;
+}
+
+.faq-item:last-child{
+  border-bottom:none;
+}
+
+.faq-item strong{
+  display:block;
+  margin-bottom:8px;
+  color:#0f172a;
+  font-size:16px;
+  font-weight:700;
+}
+
+.faq-item p{
+  margin:0;
+  color:#475569;
+  line-height:1.6;
+  font-size:14px;
+}
+
+.cta-banner{
+  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
+  border-radius:16px;
+  padding:24px 30px;
+  color:#ffffff;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:30px;
+}
+
+.cta-text h3{
+  margin:0 0 6px;
+  font-size:18px;
+  font-weight:800;
+}
+
+.cta-text p{
+  margin:0;
+  font-size:13px;
+  opacity:0.9;
+}
+
+.cta-btn{
+  background:#ffffff;
+  color:#2563eb;
+  border:0;
+  padding:12px 20px;
+  border-radius:10px;
+  font-weight:700;
+  font-size:14px;
+  cursor:pointer;
+  white-space:nowrap;
+}
+
+footer{
+  background:#0f172a;
+  color:#94a3b8;
+  padding:50px 20px 24px;
+  margin-top:auto;
+}
+
+.footer-container{
+  max-width:1100px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:40px;
+}
+
+.footer-brand .brand-name{
+  color:#ffffff;
+  margin-bottom:12px;
+}
+
+.footer-brand p{
+  line-height:1.6;
+  font-size:14px;
+  color:#94a3b8;
+  margin-top:10px;
+}
+
+.footer-links h4{
+  color:#ffffff;
+  font-size:15px;
+  margin:0 0 16px;
+  font-weight:700;
+}
+
+.footer-links ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+.footer-links li{
+  margin-bottom:10px;
+}
+
+.footer-links a{
+  color:#94a3b8;
+  text-decoration:none;
+  font-size:14px;
+  transition:color 0.2s;
+}
+
+.footer-links a:hover{
+  color:#38bdf8;
+}
+
+.footer-bottom{
+  max-width:1100px;
+  margin:40px auto 0;
+  padding-top:24px;
+  border-top:1px solid #1e293b;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-size:13px;
+}
+
+.footer-nav a{
+  color:#94a3b8;
+  text-decoration:none;
+  margin-left:18px;
+}
+
+@media(max-width:768px){
+  .footer-container{
+    grid-template-columns:1fr;
+    gap:30px;
+  }
+  .footer-bottom{
+    flex-direction:column;
+    gap:12px;
+    text-align:center;
+  }
+  .cta-banner{
+    flex-direction:column;
+    text-align:center;
+    gap:18px;
+  }
+}
+
+@media(max-width:650px){
+  .container{
+    padding:0 12px;
+  }
+  .hero-title{
+    font-size:28px;
+  }
+  .controls, .options{
+    grid-template-columns:1fr;
+  }
+  .result-grid{
+    grid-template-columns:1fr 1fr;
+  }
+  .custom-grid{
+    grid-template-columns:1fr 1fr;
+  }
+  .chart-header{
+    flex-direction:column;
+    align-items:stretch;
+  }
+  #printBtn{
+    width:100%;
+  }
+  nav{
+    display:none;
+  }
+}
+
+@media print{
+  header, footer, nav, .hero-section, .seo-content, .faq, .reset-btn, .cta-banner{
+    display:none !important;
+  }
+
+  body *{
+    visibility:hidden;
+  }
+
+  #chartCard, #chartCard *{
+    visibility:visible;
+  }
+
+  #chartCard{
+    position:absolute;
+    left:0;
+    top:0;
+    width:100%;
+    box-shadow:none;
+  }
+
+  #printBtn{
+    display:none !important;
+  }
+}
 </style>
 </head>
+
 <body>
-<header class="header">
-<div class="logo"><span class="logo-mark">%</span><span class="logo-blue">Quick<span class="logo-blue2">Percent</span></span></div>
-<nav class="nav"><a class="active" href="#">Home</a><a href="#cards">Calculators</a><a href="#cards">Tools</a><a href="#footer">About</a></nav>
-<div class="header-actions"><button class="header-action" aria-label="Search" onclick="document.getElementById('search').focus()">⌕</button><button class="header-action" aria-label="Dark mode">◐</button></div>
-<button class="menu-btn" aria-label="Open menu" onclick="openMenu()">☰</button>
+
+<header>
+  <div class="header-container">
+    <a href="#" class="brand-logo">
+      <div class="brand-icon">%</div>
+      <div class="brand-name">Quick<span>Percent</span></div>
+    </a>
+    <nav>
+      <a href="#" class="active">Home</a>
+      <a href="#calculator">Calculators</a>
+      <a href="#about">Tools</a>
+      <a href="#faq">About</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" title="Search">&#128269;</button>
+      <button class="icon-btn" title="Theme">&#9728;</button>
+    </div>
+  </div>
 </header>
 
-<main class="wrap">
-<section class="hero">
-<div class="badge">Fast &nbsp;•&nbsp; Accurate &nbsp;•&nbsp; Free</div>
-<h1>Quick<span>Percent</span></h1>
-<h2>Your All-in-One Calculator &amp; Tools Hub</h2>
-<p>Calculate percentages, convert units, check your BMI, plan your finances<br>and much more — all in one place, Free and easy to use.</p>
-<div class="search"><span>⌕</span><input id="search" oninput="filterCards()" placeholder="Search for a calculator or tool..."><button aria-label="Search" onclick="filterCards()">Search</button></div>
+<section class="hero-section">
+  <div class="hero-badge">Fast &bull; Accurate &bull; Free</div>
+  <h1 class="hero-title">QuickPercent</h1>
+  <p class="hero-subtitle">Your All-in-One Calculator & Tools Hub<br>Calculate percentages, convert units, check test grades, and much more — all in one place. Free and easy to use.</p>
+  
+  <div class="search-box">
+    <span class="search-icon">&#128269;</span>
+    <input type="text" class="search-input" placeholder="Search for a calculator or tool...">
+    <button class="search-btn">Search</button>
+  </div>
+
+  <div class="features-pills">
+    <div class="pill">
+      <div class="pill-icon" style="background:#dcfce7; color:#15803d;">&#10003;</div>
+      <div class="pill-text">
+        <h4>100% Free</h4>
+        <p>No registration needed</p>
+      </div>
+    </div>
+    <div class="pill">
+      <div class="pill-icon" style="background:#fef9c3; color:#a16207;">&#9889;</div>
+      <div class="pill-text">
+        <h4>Instant Results</h4>
+        <p>Get results in seconds</p>
+      </div>
+    </div>
+    <div class="pill">
+      <div class="pill-icon" style="background:#dbeafe; color:#1d4ed8;">&#9755;</div>
+      <div class="pill-text">
+        <h4>Easy to Use</h4>
+        <p>Simple & clean interface</p>
+      </div>
+    </div>
+    <div class="pill">
+      <div class="pill-icon" style="background:#f3e8ff; color:#7e22ce;">&#128187;</div>
+      <div class="pill-text">
+        <h4>Works on All Devices</h4>
+        <p>Mobile, Tablet & Desktop</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<div class="features">
-<div class="feature"><span class="fi">✓</span><div><b>100% Free</b><small>No registration needed</small></div></div>
-<div class="feature"><span class="fi">ϟ</span><div><b>Instant Results</b><small>Get results in seconds</small></div></div>
-<div class="feature"><span class="fi">➤</span><div><b>Easy to Use</b><small>Simple &amp; clean interface</small></div></div>
-<div class="feature"><span class="fi">▣</span><div><b>Works on All Devices</b><small>Mobile, Tablet &amp; Desktop</small></div></div>
+<div class="container">
+
+<div class="card" id="calculator">
+<div class="section-title">Easy Grader Calculator – Free EZ Grader</div>
+
+<div class="controls">
+<div class="field">
+<label for="totalQuestions">Total Questions</label>
+<div class="input-row">
+<button type="button" class="small-btn" id="totalMinus">-</button>
+<input type="number" id="totalQuestions" min="1" max="500" value="25">
+<button type="button" class="small-btn" id="totalPlus">+</button>
 </div>
-<div class="section-title"><div class="section-title-left"><span class="section-icon">▦</span><div><h2>Our Calculators &amp; Tools</h2><p>Choose a calculator or tool below to get started.</p></div></div><button class="view-all" onclick="openMenu()">View All Tools&nbsp; →</button></div>
-<div id="cards">
+</div>
 
-<!-- 1 PERCENTAGE -->
-<article class="card tool-card" data-name="percentage calculator">
-<div class="card-head"><div class="icon blue">%</div><div><h2>Percentage Calculator</h2><p>Find percentages, increase or decrease</p></div></div>
-<button class="open" aria-label="Open calculator" onclick="toggleCalc('percentage')">→</button>
-<div id="percentage" class="calculator"><h3>Percentage Calculator</h3>
-<div class="modes"><button id="pm1" class="sel" onclick="pmode(1)">X% of Y</button><button id="pm2" onclick="pmode(2)">X is what %?</button><button id="pm3" onclick="pmode(3)">Increase / Decrease</button></div>
-<div id="p1"><label>Percentage (%)</label><input id="p1a" type="number" placeholder="e.g. 20"><label>Number</label><input id="p1b" type="number" placeholder="e.g. 500"></div>
-<div id="p2" style="display:none"><label>Value</label><input id="p2a" type="number"><label>Total</label><input id="p2b" type="number"></div>
-<div id="p3" style="display:none"><label>Original value</label><input id="p3a" type="number"><label>New value</label><input id="p3b" type="number"></div>
-<button class="calc-btn" onclick="calcPercent()">Calculate</button><div id="presult" class="result"></div></div></article>
+<div class="field">
+<label for="wrongAnswers">Wrong Answers</label>
+<div class="input-row">
+<button type="button" class="small-btn" id="wrongMinus">-</button>
+<input type="text" id="wrongAnswers" inputmode="decimal" value="0" autocomplete="off">
+<button type="button" class="small-btn" id="wrongPlus">+</button>
+</div>
+</div>
+</div>
 
-<!-- 2 GRADE -->
-<article class="card tool-card" data-name="grade calculator">
-<div class="card-head"><div class="icon purple">A</div><div><h2>Grade Calculator</h2><p>Calculate your grade from marks</p></div></div>
-<button class="open" aria-label="Open calculator" onclick="toggleCalc('grade')">→</button>
-<div id="grade" class="calculator"><h3>Grade Calculator</h3><label>Marks obtained</label><input id="gmarks" type="number" placeholder="e.g. 82"><label>Total marks</label><input id="gtotal" type="number" placeholder="e.g. 100"><button class="calc-btn" onclick="calcGrade()">Calculate</button><div id="graderesult" class="result"></div></div></article>
+<div class="quick-select">
+<button type="button" data-total="10">10</button>
+<button type="button" data-total="20">20</button>
+<button type="button" data-total="25">25</button>
+<button type="button" data-total="30">30</button>
+<button type="button" data-total="50">50</button>
+<button type="button" data-total="100">100</button>
+</div>
 
-<!-- 3 GPA -->
-<article class="card tool-card" data-name="gpa calculator">
-<div class="card-head"><div class="icon green">G</div><div><h2>GPA Calculator</h2><p>Calculate GPA from course grades</p></div></div>
-<button class="open" aria-label="Open calculator" onclick="toggleCalc('gpa')">→</button>
-<div id="gpa" class="calculator"><h3>GPA Calculator</h3><label>Grade points (comma separated)</label><input id="gpavalues" type="text" placeholder="e.g. 4, 3.5, 3, 4"><label>Credit hours (comma separated)</label><input id="gpacredits" type="text" placeholder="e.g. 3, 3, 3, 3"><button class="calc-btn" onclick="calcGPA()">Calculate GPA</button><div id="gparesult" class="result"></div></div></article>
+<div class="options">
+<div>
+<label><strong>Grading Scale</strong></label>
+<div class="scale-buttons">
+<button type="button" class="scale-btn active" data-scale="standard">Standard</button>
+<button type="button" class="scale-btn" data-scale="plus">Plus-Minus</button>
+<button type="button" class="scale-btn" data-scale="custom">Custom</button>
+</div>
 
-<!-- 4 CGPA -->
-<article class="card tool-card" data-name="cgpa calculator">
-<div class="card-head"><div class="icon blue">C</div><div><h2>CGPA Calculator</h2><p>Calculate cumulative GPA</p></div></div>
-<button class="open" aria-label="Open calculator" onclick="toggleCalc('cgpa')">→</button>
-<div id="cgpa" class="calculator"><h3>CGPA Calculator</h3><label>Semester GPAs (comma separated)</label><input id="cgpavalues" type="text" placeholder="e.g. 3.2, 3.5, 3.7"><label>Credit hours (optional, comma separated)</label><input id="cgpacredits" type="text" placeholder="e.g. 15, 18, 16"><button class="calc-btn" onclick="calcCGPA()">Calculate CGPA</button><div id="cgparesult" class="result"></div></div></article>
+<div id="customBox" class="custom-box">
+<div class="custom-grid">
+<div><label>A</label><input type="number" id="customA" value="93"></div>
+<div><label>B</label><input type="number" id="customB" value="85"></div>
+<div><label>C</label><input type="number" id="customC" value="75"></div>
+<div><label>D</label><input type="number" id="customD" value="65"></div>
+<div><label>F</label><input type="number" id="customF" value="0"></div>
+</div>
+</div>
+</div>
 
-<!-- 5 ATTENDANCE -->
-<article class="card tool-card" data-name="attendance calculator">
-<div class="card-head"><div class="icon cyan">✓</div><div><h2>Attendance Calculator</h2><p>Check attendance percentage</p></div></div>
-<button class="open" aria-label="Open calculator" onclick="toggleCalc('attendance')">→</button>
-<div id="attendance" class="calculator"><h3>Attendance Calculator</h3><label>Classes attended</label><input id="attended" type="number"><label>Total classes</label><input id="totalclasses" type="number"><button class="calc-btn" onclick="calcAttendance()">Calculate</button><div id="attresult" class="result"></div></div></article>
+<div>
+<label for="passingGrade"><strong>Passing Grade</strong></label>
+<select id="passingGrade">
+<option value="60">60%</option>
+<option value="65">65%</option>
+<option value="70">70%</option>
+<option value="75">75%</option>
+<option value="80">80%</option>
+<option value="85">85%</option>
+<option value="90">90%</option>
+</select>
+</div>
 
-<!-- 6 REQUIRED MARKS -->
-<article class="card tool-card" data-name="required marks calculator">
-<div class="card-head"><div class="icon orange">★</div><div><h2>Required Marks Calculator</h2><p>Find marks needed to reach a target</p></div></div>
-<button class="open" aria-label="Open calculator" onclick="toggleCalc('required')">→</button>
-<div id="required" class="calculator"><h3>Required Marks</h3><label>Current marks</label><input id="r_current" type="number"><label>Marks already possible</label><input id="r_done" type="number"><label>Remaining marks</label><input id="r_remaining" type="number"><label>Target percentage</label><input id="r_target" type="number" placeholder="e.g. 80"><button class="calc-btn" onclick="calcRequired()">Calculate</button><div id="reqresult" class="result"></div></div></article>
+<div>
+<label for="decimals"><strong>Percentage Decimals</strong></label>
+<select id="decimals">
+<option value="2">2 decimals</option>
+<option value="1">1 decimal</option>
+<option value="0">0 decimals</option>
+</select>
+</div>
+</div>
 
-<!-- 7 AVERAGE -->
-<article class="card tool-card" data-name="average calculator">
-<div class="card-head"><div class="icon purple">x̄</div><div><h2>Average Calculator</h2><p>Calculate the average of values</p></div></div>
-<button class="open" aria-label="Open calculator" onclick="toggleCalc('average')">→</button>
-<div id="average" class="calculator"><h3>Average Calculator</h3><label>Numbers (comma separated)</label><input id="avgvalues" type="text" placeholder="e.g. 10, 20, 30, 40"><button class="calc-btn" onclick="calcAverage()">Calculate</button><div id="avgresult" class="result"></div></div></article>
+<div class="checkbox-row">
+<input type="checkbox" id="halfPoints">
+<label for="halfPoints">Allow half points (0.5)</label>
+</div>
 
-<!-- 8 EXAM COUNTDOWN -->
-<article class="card tool-card" data-name="exam countdown">
-<div class="card-head"><div class="icon red">⏱</div><div><h2>Exam Countdown</h2><p>See time remaining until your exam</p></div></div>
-<button class="open" aria-label="Open calculator" onclick="toggleCalc('exam')">→</button>
-<div id="exam" class="calculator"><h3>Exam Countdown</h3><label>Exam date</label><input id="examdate" type="datetime-local"><button class="calc-btn" onclick="calcExam()">Check Countdown</button><div id="examresult" class="result"></div></div></article>
+<button type="button" class="calculate-btn" id="calculateBtn">Calculate Grade</button>
 
-<!-- 9 DISCOUNT -->
-<article class="card tool-card" data-name="discount calculator">
-<div class="card-head"><div class="icon orange">◇</div><div><h2>Discount Calculator</h2><p>Calculate sale price and savings</p></div></div>
-<button class="open" aria-label="Open calculator" onclick="toggleCalc('discount')">→</button>
-<div id="discount" class="calculator"><h3>Discount Calculator</h3><label>Original price</label><input id="dprice" type="number"><label>Discount (%)</label><input id="drate" type="number"><button class="calc-btn" onclick="calcDiscount()">Calculate</button><div id="dresult" class="result"></div></div></article>
+<div class="result" id="result">
+<div class="result-grid">
+<div class="result-item">
+<div class="result-label">Correct</div>
+<div class="result-value" id="correctResult">0</div>
+</div>
+<div class="result-item">
+<div class="result-label">Percentage</div>
+<div class="result-value" id="percentageResult">0%</div>
+</div>
+<div class="result-item">
+<div class="result-label">Grade</div>
+<div class="result-value" id="gradeResult">F</div>
+</div>
+<div class="result-item">
+<div class="result-label">Status</div>
+<div class="result-value" id="statusResult">Fail</div>
+</div>
+</div>
+</div>
+</div>
 
-<!-- 10 LOAN -->
-<article class="card tool-card" data-name="loan calculator">
-<div class="card-head"><div class="icon purple">♜</div><div><h2>Loan Calculator</h2><p>Estimate monthly loan payments</p></div></div>
-<button class="open" aria-label="Open calculator" onclick="toggleCalc('loan')">→</button>
-<div id="loan" class="calculator"><h3>Loan Calculator</h3><label>Loan amount</label><input id="lamount" type="number"><label>Annual interest (%)</label><input id="lrate" type="number"><label>Term (years)</label><input id="lyears" type="number"><button class="calc-btn" onclick="calcLoan()">Calculate</button><div id="loanresult" class="result"></div></div></article>
+<div class="card" id="chartCard">
+<div class="chart-header">
+<div class="chart-title">Easy Grader Chart</div>
+<button type="button" id="printBtn">Print Chart</button>
+</div>
 
-<!-- 11 CURRENCY -->
-<article class="card tool-card" data-name="currency converter">
-<div class="card-head"><div class="icon green">⇄</div><div><h2>Currency Converter</h2><p>Convert common currencies instantly</p></div></div>
-<button class="open" aria-label="Open calculator" onclick="toggleCalc('currency')">→</button>
-<div id="currency" class="calculator"><h3>Currency Converter</h3><label>Amount</label><input id="camount" type="number"><label>From</label><select id="cfrom"><option>USD</option><option>EUR</option><option>GBP</option><option>PKR</option><option>AED</option><option>SAR</option><option>INR</option></select><label>To</label><select id="cto"><option>PKR</option><option>USD</option><option>EUR</option><option>GBP</option><option>AED</option><option>SAR</option><option>INR</option></select><button class="calc-btn" onclick="calcCurrency()">Convert</button><div id="currencyresult" class="result"></div></div></article>
+<table class="chart">
+<thead>
+<tr>
+<th>Wrong</th>
+<th>Correct</th>
+<th>Percentage</th>
+<th>Grade</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody id="chartBody"></tbody>
+</table>
+</div>
 
-<!-- 12 AGE -->
-<article class="card tool-card" data-name="age calculator">
-<div class="card-head"><div class="icon cyan">□</div><div><h2>Age Calculator</h2><p>Calculate your exact age</p></div></div>
-<button class="open" aria-label="Open calculator" onclick="toggleCalc('age')">→</button>
-<div id="age" class="calculator"><h3>Age Calculator</h3><label>Date of birth</label><input id="dob" type="date"><button class="calc-btn" onclick="calcAge()">Calculate</button><div id="ageresult" class="result"></div></div></article>
+<div class="card">
+<button type="button" class="reset-btn" id="resetBtn">Reset Calculator</button>
+</div>
 
-<!-- 13 BMI -->
-<article class="card tool-card" data-name="bmi calculator">
-<div class="card-head"><div class="icon purple">♙</div><div><h2>BMI Calculator</h2><p>Check your body mass index</p></div></div>
-<button class="open" aria-label="Open calculator" onclick="toggleCalc('bmi')">→</button>
-<div id="bmi" class="calculator"><h3>BMI Calculator</h3><label>Weight (kg)</label><input id="bweight" type="number"><label>Height (cm)</label><input id="bheight" type="number"><button class="calc-btn" onclick="calcBMI()">Calculate</button><div id="bmiresult" class="result"></div></div></article>
+<div class="cta-banner">
+  <div class="cta-text">
+    <h3>Need something else?</h3>
+    <p>We're constantly adding new calculators and tools to make your life easier.</p>
+  </div>
+  <button class="cta-btn">Suggest a Tool &rarr;</button>
+</div>
 
-<!-- 14 UNIT -->
-<article class="card tool-card" data-name="unit converter">
-<div class="card-head"><div class="icon blue">⌁</div><div><h2>Unit Converter</h2><p>Convert length, weight and temperature</p></div></div>
-<button class="open" aria-label="Open calculator" onclick="toggleCalc('unit')">→</button>
-<div id="unit" class="calculator"><h3>Unit Converter</h3><label>Category</label><select id="ucat" onchange="units()"><option value="length">Length</option><option value="weight">Weight</option><option value="temp">Temperature</option></select><label>Value</label><input id="uvalue" type="number"><label>From</label><select id="ufrom"></select><label>To</label><select id="uto"></select><button class="calc-btn" onclick="calcUnit()">Convert</button><div id="unitresult" class="result"></div></div></article>
+<div class="card seo-content" id="about">
+<h2>Free Easy Grader Calculator</h2>
+<p>
+Our free <strong>Easy Grader Calculator</strong> is a simple way to turn the number of questions and wrong answers on a test, quiz, or exam into a percentage, correct-answer count, letter grade, and pass-or-fail result. Instead of calculating every score by hand, enter the test details and get the result immediately.
+</p>
+<p>
+The calculator is designed for the common situation where you know how many questions are on an assessment and how many answers were incorrect. It can be used by teachers checking a class, students checking a test score, tutors reviewing practice work, or parents helping with schoolwork.
+</p>
+
+<h2>What Is an Easy Grader?</h2>
+<p>
+An <strong>Easy Grader</strong> is a grading reference and calculator that makes test scoring faster. You enter the total number of questions and the number of wrong answers. The tool determines how many answers were correct, calculates the percentage, and matches the percentage to the selected grading scale.
+</p>
+<p>
+You may also see this type of tool called an <strong>EZ Grader</strong>, <strong>EZ Grader Calculator</strong>, <strong>Easy Grading Calculator</strong>, or <strong>Test Grade Calculator</strong>. The basic purpose is the same: quickly convert test results into a useful grade.
+</p>
+
+<h2>How Does the EZ Grader Work?</h2>
+<p>
+The process is straightforward. First, enter the total number of questions. Next, enter how many questions were wrong. The calculator subtracts the wrong answers from the total to determine the correct answers. It then converts the correct-answer count into a percentage and applies the selected grading scale.
+</p>
+<ol>
+<li>Enter the total number of questions.</li>
+<li>Enter the number of wrong answers.</li>
+<li>Choose a grading scale if you want something other than the default scale.</li>
+<li>Choose a passing percentage when your class uses a different pass mark.</li>
+<li>Select <strong>Calculate Grade</strong> to see the result and grading chart.</li>
+</ol>
+
+<h2>Easy Grader Formula</h2>
+<p>
+The percentage calculation is based on the number of correct answers. The formula is: <strong>Percentage = (Correct Answers ÷ Total Questions) × 100</strong>. Correct answers are found by subtracting wrong answers from total questions.
+</p>
+<p>
+For example, if a test has 25 questions and 5 are wrong, the student has 20 correct answers. The calculation is 20 ÷ 25 × 100 = <strong>80%</strong>. The letter grade then depends on the selected grading scale.
+</p>
+
+<h2>Easy Grader Examples</h2>
+<p>
+On a 20-question test, 2 wrong answers means 18 correct answers. The score is 18 ÷ 20 × 100 = <strong>90%</strong>. On a 50-question test, 5 wrong answers means 45 correct answers, which is also <strong>90%</strong>.
+</p>
+<p>
+The same number of mistakes does not always produce the same percentage. Missing 3 questions on a 10-question test gives 70%, while missing 3 questions on a 100-question test gives 97%. That is why the total number of questions matters when grading a test.
+</p>
+
+<h2>Easy Grader Chart</h2>
+<p>
+The built-in <strong>Easy Grader Chart</strong> provides a quick reference for the selected test size. Each row shows the number of wrong answers, correct answers, percentage, letter grade, and pass-or-fail status. This can be useful when grading multiple papers with the same number of questions.
+</p>
+<p>
+You can also use the print option to create a paper reference for a test or quiz. Change the total number of questions and the chart updates to match the assessment.
+</p>
+
+<h2>Grading Scale and Letter Grades</h2>
+<p>
+A percentage does not automatically have the same letter grade at every school. Some schools use a simple A, B, C, D, F scale, while others use plus and minus grades. This calculator lets you choose a standard scale, a plus-minus scale, or a custom scale so the displayed letter grade can match the grading rules you are using.
+</p>
+
+<h2>How to Calculate a Test Grade from Wrong Answers</h2>
+<p>
+If you know the total number of questions and the number of incorrect answers, you can calculate the test grade without entering every individual question. Subtract wrong answers from total questions to find correct answers, then divide correct answers by total questions and multiply by 100.
+</p>
+
+<h2>Using Half Points in an Easy Grader</h2>
+<p>
+Some assessments use partial or half-point deductions. When <strong>Allow half points</strong> is enabled, the calculator can work with values such as 2.5 wrong answers. This is useful when a grading method allows a half-point deduction instead of whole-question errors.
+</p>
+
+<h2>Custom Grading Scales</h2>
+<p>
+Different classrooms and institutions may use different grade boundaries. The custom grading option lets you enter your own minimum percentage thresholds for the main letter grades.
+</p>
+
+<h2>Why Use an Online Easy Grader?</h2>
+<ul>
+<li><strong>Fast:</strong> Get percentages and grades without repeated manual calculations.</li>
+<li><strong>Simple:</strong> Enter total questions and wrong answers to get started immediately.</li>
+<li><strong>Flexible:</strong> Supports Standard, Plus-Minus, and Custom grading scales.</li>
+<li><strong>Mobile friendly:</strong> Fully responsive design on phones, tablets, and computers.</li>
+<li><strong>Printable:</strong> Generate and print grading reference charts in seconds.</li>
+</ul>
+</div>
+
+<div class="card faq" id="faq">
+<h2>Easy Grader Frequently Asked Questions</h2>
+
+<div class="faq-item">
+<strong>1. What is an Easy Grader?</strong>
+<p>An Easy Grader is a calculator that converts total questions and wrong answers into correct answers, a percentage, a letter grade, and a pass-or-fail result.</p>
+</div>
+
+<div class="faq-item">
+<strong>2. What is an EZ Grader?</strong>
+<p>EZ Grader is another common name for an easy grading calculator used to quickly score tests, quizzes, and exams.</p>
+</div>
+
+<div class="faq-item">
+<strong>3. How do I use the Easy Grader Calculator?</strong>
+<p>Enter the total number of questions, enter the wrong answers, choose the grading options you need, and select Calculate Grade.</p>
+</div>
+
+<div class="faq-item">
+<strong>4. How do I calculate a grade from wrong answers?</strong>
+<p>Subtract the number of wrong answers from the total questions to find correct answers. Divide correct answers by total questions and multiply by 100 to get the percentage.</p>
+</div>
+
+<div class="faq-item">
+<strong>5. What is the formula for an Easy Grader?</strong>
+<p>The percentage formula is (Correct Answers ÷ Total Questions) × 100. Correct answers equal Total Questions − Wrong Answers.</p>
+</div>
+
+<div class="faq-item">
+<strong>6. What grade is 90 percent?</strong>
+<p>On the standard scale used by this calculator, 90% falls in the A range. A different school or custom grading policy may use different boundaries.</p>
+</div>
+
+<div class="faq-item">
+<strong>7. What grade is 80 percent?</strong>
+<p>On the standard scale used by this calculator, 80% falls in the B range. Check your school's grading policy if its boundaries are different.</p>
+</div>
+
+<div class="faq-item">
+<strong>8. What grade is 70 percent?</strong>
+<p>On the standard scale used by this calculator, 70% falls in the C range.</p>
+</div>
+
+<div class="faq-item">
+<strong>9. Can I use an Easy Grader for a 10-question test?</strong>
+<p>Yes. Enter 10 as the total number of questions. The chart will show the possible scores for that test size.</p>
+</div>
+
+<div class="faq-item">
+<strong>10. Can I use an Easy Grader for a 20-question test?</strong>
+<p>Yes. Enter 20 total questions and the number of wrong answers. The calculator will calculate the percentage and grade.</p>
+</div>
+
+<div class="faq-item">
+<strong>11. Can I use an Easy Grader for a 50-question test?</strong>
+<p>Yes. The calculator can be used for 50-question tests and other assessment sizes within the calculator's supported range.</p>
+</div>
+
+<div class="faq-item">
+<strong>12. Can I use half points?</strong>
+<p>Yes. Turn on Allow half points to work with values such as 2.5 wrong answers.</p>
+</div>
+
+<div class="faq-item">
+<strong>13. Can I use a plus-minus grading scale?</strong>
+<p>Yes. Select the Plus-Minus scale to display grades such as A+, A-, B+, B-, C+, C-, D+, and D-.</p>
+</div>
+
+<div class="faq-item">
+<strong>14. Can I create a custom grading scale?</strong>
+<p>Yes. Select Custom and enter your own minimum percentage thresholds for A, B, C, D, and F.</p>
+</div>
+
+<div class="faq-item">
+<strong>15. Can I change the passing grade?</strong>
+<p>Yes. Select the passing percentage that matches your test or classroom requirements.</p>
+</div>
+
+<div class="faq-item">
+<strong>16. Can I print the Easy Grader chart?</strong>
+<p>Yes. Select Print Chart to print the grading chart for the selected number of questions and grading settings.</p>
+</div>
+
+<div class="faq-item">
+<strong>17. Can I use the Easy Grader on my phone?</strong>
+<p>Yes. The calculator is designed to work in a mobile browser as well as on tablets and desktop computers.</p>
+</div>
+
+<div class="faq-item">
+<strong>18. Can teachers use the Easy Grader?</strong>
+<p>Yes. Teachers can use it to quickly check percentages and letter grades for quizzes, tests, and exams.</p>
+</div>
+
+<div class="faq-item">
+<strong>19. Can students use the Easy Grader?</strong>
+<p>Yes. Students can use it to understand what a test score means and check the percentage and letter grade.</p>
+</div>
+
+<div class="faq-item">
+<strong>20. Does the Easy Grader calculate correct answers?</strong>
+<p>Yes. It subtracts wrong answers from total questions and displays the resulting number of correct answers.</p>
+</div>
+
+<div class="faq-item">
+<strong>21. Does the Easy Grader calculate test percentages?</strong>
+<p>Yes. It calculates the percentage from correct answers and total questions.</p>
+</div>
+
+<div class="faq-item">
+<strong>22. Can I use this for quizzes and exams?</strong>
+<p>Yes. It can be used for quizzes, classroom tests, exams, and other question-based assessments.</p>
+</div>
+
+<div class="faq-item">
+<strong>23. Does this calculator calculate weighted course grades?</strong>
+<p>No. This Easy Grader is focused on question-based test, quiz, and exam scoring rather than weighted semester or course grades.</p>
+</div>
+
+<div class="faq-item">
+<strong>24. Why can the same number of wrong answers produce different percentages?</strong>
+<p>Because the total number of questions changes the value of each question. Three wrong answers on a 10-question test have a much larger percentage impact than three wrong answers on a 100-question test.</p>
+</div>
+
+<div class="faq-item">
+<strong>25. Is the Easy Grader Calculator free?</strong>
+<p>Yes. This Easy Grader Calculator is free to use in a web browser.</p>
+</div>
 
 </div>
-</main>
 
-<div class="suggest"><div class="suggest-left"><div class="suggest-icon">✧</div><div><h2>Need something else?</h2><p>We’re constantly adding new calculators and tools to make your life easier.</p></div></div></div>
-<footer id="footer">
-<div class="footer-brand"><span class="logo-mark">%</span><b>Quick<span>Percent</span></b></div>
-<div>© 2025 QuickPercent. All rights reserved.</div>
-<div class="footer-nav"><a href="#">Home</a><a href="#cards">Calculators</a><a href="#cards">Tools</a><a href="#footer">About</a></div>
-<div class="footer-social">f &nbsp;♥ &nbsp;▶ &nbsp;in</div>
+</div>
+
+<footer>
+  <div class="footer-container">
+    <div class="footer-brand">
+      <a href="#" class="brand-logo">
+        <div class="brand-icon">%</div>
+        <div class="brand-name">Quick<span>Percent</span></div>
+      </a>
+      <p>Your ultimate free online calculator and utility hub. Calculate test grades, percentages, GPA, conversion factors, and more in seconds.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Calculators</h4>
+      <ul>
+        <li><a href="#">Percentage Calculator</a></li>
+        <li><a href="#">Grade Calculator</a></li>
+        <li><a href="#">GPA Calculator</a></li>
+        <li><a href="#">Attendance Calculator</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Calculators</a></li>
+        <li><a href="#">Tools</a></li>
+        <li><a href="#">About Us</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2026 QuickPercent. All rights reserved.</p>
+    <div class="footer-nav">
+      <a href="#">Home</a>
+      <a href="#">Calculators</a>
+      <a href="#">Tools</a>
+      <a href="#">About</a>
+    </div>
+  </div>
 </footer>
 
-<div id="overlay" class="overlay" onclick="closeMenu()"></div>
-<div id="sheet" class="sheet" role="dialog" aria-modal="true">
-<div class="handle"></div>
-<h2>All Calculators</h2>
-<div class="grid">
-<button class="item" onclick="go('percentage')"><span class="mini blue">%</span><b>Percentage</b></button>
-<button class="item" onclick="go('grade')"><span class="mini purple">A</span><b>Grade</b></button>
-<button class="item" onclick="go('gpa')"><span class="mini green">G</span><b>GPA</b></button>
-<button class="item" onclick="go('cgpa')"><span class="mini blue">C</span><b>CGPA</b></button>
-<button class="item" onclick="go('attendance')"><span class="mini cyan">✓</span><b>Attendance</b></button>
-<button class="item" onclick="go('required')"><span class="mini orange">★</span><b>Required Marks</b></button>
-<button class="item" onclick="go('average')"><span class="mini purple">x̄</span><b>Average</b></button>
-<button class="item" onclick="go('exam')"><span class="mini red">⏱</span><b>Exam Countdown</b></button>
-<button class="item" onclick="go('discount')"><span class="mini orange">◇</span><b>Discount</b></button>
-<button class="item" onclick="go('loan')"><span class="mini purple">♜</span><b>Loan</b></button>
-<button class="item" onclick="go('currency')"><span class="mini green">⇄</span><b>Currency</b></button>
-<button class="item" onclick="go('age')"><span class="mini cyan">□</span><b>Age</b></button>
-<button class="item" onclick="go('bmi')"><span class="mini purple">♙</span><b>BMI</b></button>
-<button class="item" onclick="go('unit')"><span class="mini blue">⌁</span><b>Unit Converter</b></button>
-</div>
-</div>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Easy Grader Calculator",
+  "alternateName": "EZ Grader Online",
+  "url": "https://quickpercent.github.io/easy-grader/",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "description": "Free Easy Grader and EZ Grader calculator for tests, quizzes and exams."
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type": "Question", "name": "What is an Easy Grader?", "acceptedAnswer": {"@type": "Answer", "text": "An Easy Grader is a calculator that converts total questions and wrong answers into correct answers, a percentage, a letter grade, and a pass-or-fail result."}},
+    {"@type": "Question", "name": "What is an EZ Grader?", "acceptedAnswer": {"@type": "Answer", "text": "EZ Grader is another common name for an easy grading calculator used to quickly score tests, quizzes, and exams."}},
+    {"@type": "Question", "name": "How do I use the Easy Grader Calculator?", "acceptedAnswer": {"@type": "Answer", "text": "Enter the total number of questions, enter the wrong answers, choose the grading options you need, and select Calculate Grade."}},
+    {"@type": "Question", "name": "How do I calculate a grade from wrong answers?", "acceptedAnswer": {"@type": "Answer", "text": "Subtract the number of wrong answers from the total questions to find correct answers. Divide correct answers by total questions and multiply by 100 to get the percentage."}},
+    {"@type": "Question", "name": "What is the formula for an Easy Grader?", "acceptedAnswer": {"@type": "Answer", "text": "The percentage formula is (Correct Answers ÷ Total Questions) × 100. Correct answers equal Total Questions − Wrong Answers."}},
+    {"@type": "Question", "name": "What grade is 90 percent?", "acceptedAnswer": {"@type": "Answer", "text": "On the standard scale used by this calculator, 90% falls in the A range."}},
+    {"@type": "Question", "name": "What grade is 80 percent?", "acceptedAnswer": {"@type": "Answer", "text": "On the standard scale used by this calculator, 80% falls in the B range."}},
+    {"@type": "Question", "name": "What grade is 70 percent?", "acceptedAnswer": {"@type": "Answer", "text": "On the standard scale used by this calculator, 70% falls in the C range."}},
+    {"@type": "Question", "name": "Can I use an Easy Grader for a 10-question test?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Enter 10 as the total number of questions."}},
+    {"@type": "Question", "name": "Can I use an Easy Grader for a 20-question test?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Enter 20 total questions and the number of wrong answers."}},
+    {"@type": "Question", "name": "Can I use an Easy Grader for a 50-question test?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The calculator can be used for 50-question tests and other assessment sizes."}},
+    {"@type": "Question", "name": "Can I use half points?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Turn on Allow half points to work with values such as 2.5 wrong answers."}},
+    {"@type": "Question", "name": "Can I use a plus-minus grading scale?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Select the Plus-Minus scale to display grades such as A+, A-, B+, etc."}},
+    {"@type": "Question", "name": "Can I create a custom grading scale?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Select Custom and enter your own minimum percentage thresholds."}},
+    {"@type": "Question", "name": "Can I change the passing grade?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Select the passing percentage that matches your requirements."}},
+    {"@type": "Question", "name": "Can I print the Easy Grader chart?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Select Print Chart to print the grading chart."}},
+    {"@type": "Question", "name": "Can I use the Easy Grader on my phone?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. The calculator is designed to work in a mobile browser."}},
+    {"@type": "Question", "name": "Can teachers use the Easy Grader?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Teachers can use it to quickly check percentages and letter grades."}},
+    {"@type": "Question", "name": "Can students use the Easy Grader?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Students can use it to check their percentage and letter grade."}},
+    {"@type": "Question", "name": "Does the Easy Grader calculate correct answers?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. It subtracts wrong answers from total questions."}},
+    {"@type": "Question", "name": "Does the Easy Grader calculate test percentages?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. It calculates the percentage from correct answers and total questions."}},
+    {"@type": "Question", "name": "Can I use this for quizzes and exams?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. It can be used for quizzes, classroom tests, exams, and assessments."}},
+    {"@type": "Question", "name": "Does this calculator calculate weighted course grades?", "acceptedAnswer": {"@type": "Answer", "text": "No. This Easy Grader is focused on question-based test, quiz, and exam scoring."}},
+    {"@type": "Question", "name": "Why can the same number of wrong answers produce different percentages?", "acceptedAnswer": {"@type": "Answer", "text": "Because the total number of questions changes the percentage value of each question."}},
+    {"@type": "Question", "name": "Is the Easy Grader Calculator free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. This Easy Grader Calculator is free to use in a web browser."}}
+  ]
+}
+</script>
 
 <script>
-function $(id){return document.getElementById(id)}
-function show(id,text){$(id).innerHTML=text;$(id).classList.add('show')}
-function toggleCalc(id){
-  const target=$(id), card=target?target.closest('.card'):null;
-  document.querySelectorAll('#cards .calculator.active').forEach(c=>{
-    if(c!==target){c.classList.remove('active'); const owner=c.closest('.card'); if(owner) owner.classList.remove('expanded');}
+const totalInput = document.getElementById("totalQuestions");
+const wrongInput = document.getElementById("wrongAnswers");
+const totalMinus = document.getElementById("totalMinus");
+const totalPlus = document.getElementById("totalPlus");
+const wrongMinus = document.getElementById("wrongMinus");
+const wrongPlus = document.getElementById("wrongPlus");
+const calculateBtn = document.getElementById("calculateBtn");
+const correctResult = document.getElementById("correctResult");
+const percentageResult = document.getElementById("percentageResult");
+const gradeResult = document.getElementById("gradeResult");
+const statusResult = document.getElementById("statusResult");
+const chartBody = document.getElementById("chartBody");
+const resetBtn = document.getElementById("resetBtn");
+const halfPoints = document.getElementById("halfPoints");
+const passingGrade = document.getElementById("passingGrade");
+const decimals = document.getElementById("decimals");
+const customBox = document.getElementById("customBox");
+const printBtn = document.getElementById("printBtn");
+
+const standardScale = [
+  {grade:"A",min:90},
+  {grade:"B",min:80},
+  {grade:"C",min:70},
+  {grade:"D",min:60},
+  {grade:"F",min:0}
+];
+
+const plusScale = [
+  {grade:"A+",min:97},
+  {grade:"A",min:93},
+  {grade:"A-",min:90},
+  {grade:"B+",min:87},
+  {grade:"B",min:83},
+  {grade:"B-",min:80},
+  {grade:"C+",min:77},
+  {grade:"C",min:73},
+  {grade:"C-",min:70},
+  {grade:"D+",min:67},
+  {grade:"D",min:63},
+  {grade:"D-",min:60},
+  {grade:"F",min:0}
+];
+
+let currentScale = "standard";
+
+function getTotal(){
+  let value = parseInt(totalInput.value,10);
+  if(isNaN(value) || value < 1){ value = 1; }
+  if(value > 500){ value = 500; }
+  return value;
+}
+
+function getWrong(){
+  const raw = wrongInput.value.trim();
+  if(raw === "" || raw === "." || raw === "-"){ return 0; }
+  let value = parseFloat(raw);
+  if(isNaN(value)){ return 0; }
+  const total = getTotal();
+  if(value < 0){ value = 0; }
+  if(value > total){ value = total; }
+  return value;
+}
+
+function changeTotal(amount){
+  let total = getTotal();
+  total += amount;
+  if(total < 1){ total = 1; }
+  if(total > 500){ total = 500; }
+  totalInput.value = total;
+  const wrong = getWrong();
+  if(wrong > total){ wrongInput.value = String(total); }
+  calculate();
+}
+
+totalMinus.addEventListener("click", function(){ changeTotal(-1); });
+totalPlus.addEventListener("click", function(){ changeTotal(1); });
+
+document.querySelectorAll("[data-total]").forEach(function(button){
+  button.addEventListener("click", function(){
+    const total = parseInt(this.dataset.total, 10);
+    totalInput.value = total;
+    const wrong = getWrong();
+    if(wrong > total){ wrongInput.value = String(total); }
+    calculate();
   });
-  if(!target)return;
-  const opening=!target.classList.contains('active');
-  target.classList.toggle('active', opening);
-  if(card)card.classList.toggle('expanded', opening);
-  if(opening)setTimeout(()=>target.scrollIntoView({behavior:'smooth',block:'center'}),50);
-}
-function openMenu(){$('overlay').classList.add('show');$('sheet').classList.add('show');document.body.classList.add('lock')}
-function closeMenu(){$('overlay').classList.remove('show');$('sheet').classList.remove('show');document.body.classList.remove('lock')}
-function go(id){closeMenu();toggleCalc(id)}
-function fmt(n){return Number(n).toLocaleString(undefined,{maximumFractionDigits:2})}
-function pmode(n){['p1','p2','p3'].forEach((x,i)=>$(x).style.display=i===n-1?'block':'none');['pm1','pm2','pm3'].forEach((x,i)=>$(x).classList.toggle('sel',i===n-1));$('presult').classList.remove('show')}
-function calcPercent(){
-let r;
-if($('p1').style.display!=='none'){let a=+$('p1a').value,b=+$('p1b').value;r=isFinite(a)&&isFinite(b)?fmt(a*b/100):'Enter valid values.'}
-else if($('p2').style.display!=='none'){let a=+$('p2a').value,b=+$('p2b').value;r=b?fmt(a/b*100)+'%':'Enter a valid total.'}
-else{let a=+$('p3a').value,b=+$('p3b').value;r=a?fmt((b-a)/Math.abs(a)*100)+'% '+(b>=a?'increase':'decrease'):'Enter a valid original value.'}
-show('presult','Result: <strong>'+r+'</strong>')}
+});
 
-function calcGrade(){
-  let m=+$('gmarks').value,t=+$('gtotal').value;
-  if(!isFinite(m)||!isFinite(t)||t<=0){show('graderesult','Enter valid marks.');return}
-  let p=m/t*100,grade=p>=90?'A+':p>=80?'A':p>=70?'B':p>=60?'C':p>=50?'D':'F';
-  show('graderesult','Percentage: <strong>'+fmt(p)+'%</strong><br>Grade: <strong>'+grade+'</strong>');
-}
-function parseNums(id){
-  return $(id).value.split(',').map(x=>Number(x.trim())).filter(x=>isFinite(x));
-}
-function calcGPA(){
-  let g=parseNums('gpavalues'),c=parseNums('gpacredits');
-  if(!g.length||g.length!==c.length||c.some(x=>x<=0)){show('gparesult','Enter matching grade points and credit hours.');return}
-  let tc=c.reduce((a,b)=>a+b,0),sum=g.reduce((s,x,i)=>s+x*c[i],0);
-  show('gparesult','GPA: <strong>'+fmt(sum/tc)+'</strong>');
-}
-function calcCGPA(){
-  let g=parseNums('cgpavalues'),c=parseNums('cgpacredits');
-  if(!g.length){show('cgparesult','Enter semester GPAs.');return}
-  if(c.length){
-    if(g.length!==c.length||c.some(x=>x<=0)){show('cgparesult','Enter matching credit hours.');return}
-    let tc=c.reduce((a,b)=>a+b,0),sum=g.reduce((s,x,i)=>s+x*c[i],0); show('cgparesult','CGPA: <strong>'+fmt(sum/tc)+'</strong>');
-  }else show('cgparesult','CGPA: <strong>'+fmt(g.reduce((a,b)=>a+b,0)/g.length)+'</strong>');
-}
-function calcAttendance(){
-  let a=+$('attended').value,t=+$('totalclasses').value;
-  if(!isFinite(a)||!isFinite(t)||t<=0){show('attresult','Enter valid class counts.');return}
-  show('attresult','Attendance: <strong>'+fmt(a/t*100)+'%</strong>');
-}
-function calcRequired(){
-  let cur=+$('r_current').value,done=+$('r_done').value,rem=+$('r_remaining').value,target=+$('r_target').value;
-  if(!isFinite(cur)||!isFinite(done)||!isFinite(rem)||!isFinite(target)||done+rem<=0){show('reqresult','Enter valid values.');return}
-  let needed=target/100*(done+rem)-cur;
-  show('reqresult','Required marks: <strong>'+fmt(needed)+'</strong> out of '+fmt(rem));
-}
-function calcAverage(){
-  let a=parseNums('avgvalues');
-  if(!a.length){show('avgresult','Enter valid numbers.');return}
-  show('avgresult','Average: <strong>'+fmt(a.reduce((x,y)=>x+y,0)/a.length)+'</strong>');
-}
-function calcExam(){
-  let d=new Date($('examdate').value),now=new Date();
-  if(isNaN(d)){show('examresult','Please select an exam date and time.');return}
-  let ms=d-now;
-  if(ms<=0){show('examresult','The exam date/time has passed.');return}
-  let days=Math.floor(ms/86400000),hours=Math.floor(ms%86400000/3600000),mins=Math.floor(ms%3600000/60000);
-  show('examresult','Time remaining: <strong>'+days+' days, '+hours+' hours, '+mins+' minutes</strong>');
+function changeWrong(amount){
+  let wrong = getWrong();
+  wrong += amount;
+  if(wrong < 0){ wrong = 0; }
+  const total = getTotal();
+  if(wrong > total){ wrong = total; }
+  wrongInput.value = Number(wrong.toFixed(2)).toString();
+  calculate();
 }
 
-function calcDiscount(){let p=+$('dprice').value,r=+$('drate').value,s=p*r/100;show('dresult','Savings: <strong>'+fmt(s)+'</strong><br>Sale price: <strong>'+fmt(p-s)+'</strong>')}
-function calcAge(){let d=new Date($('dob').value),n=new Date();if(isNaN(d)){show('ageresult','Please enter your date of birth.');return}let y=n.getFullYear()-d.getFullYear(),m=n.getMonth()-d.getMonth(),day=n.getDate()-d.getDate();if(day<0)m--;if(m<0){y--;m+=12}show('ageresult','Exact age: <strong>'+y+' years, '+m+' months</strong>')}
-function calcBMI(){let w=+$('bweight').value,h=+$('bheight').value/100;if(!w||!h){show('bmiresult','Enter valid weight and height.');return}let b=w/(h*h),cat=b<18.5?'Underweight':b<25?'Normal':b<30?'Overweight':'Obesity';show('bmiresult','BMI: <strong>'+fmt(b)+'</strong><br>Category: <strong>'+cat+'</strong>')}
-function loanPay(P,rate,months){let r=rate/100/12;return r?P*r*Math.pow(1+r,months)/(Math.pow(1+r,months)-1):P/months}
-function calcLoan(){let P=+$('lamount').value,r=+$('lrate').value,n=+$('lyears').value*12;if(!P||!n){show('loanresult','Enter valid values.');return}let m=loanPay(P,r,n);show('loanresult','Monthly payment: <strong>'+fmt(m)+'</strong><br>Total payment: '+fmt(m*n))}
-const rates={USD:1,EUR:0.855,GBP:0.735,PKR:280,AED:3.6725,SAR:3.75,INR:83.8}
-function calcCurrency(){let a=+$('camount').value,f=$('cfrom').value,t=$('cto').value;if(!a){show('currencyresult','Enter an amount.');return}let out=a/rates[f]*rates[t];show('currencyresult',fmt(a)+' '+f+' ≈ <strong>'+fmt(out)+' '+t+'</strong><br><small>Indicative built-in rates; not live market rates.</small>')}
-function units(){let cat=$('ucat').value,sets={length:['m','km','cm','ft','in'],weight:['kg','g','lb','oz'],temp:['C','F','K']},arr=sets[cat];$('ufrom').innerHTML=arr.map(x=>'<option>'+x+'</option>').join('');$('uto').innerHTML=arr.map(x=>'<option>'+x+'</option>').join('')}
-function unitVal(v,u){let m={m:1,km:1000,cm:.01,ft:.3048,in:.0254,kg:1,g:.001,lb:.453592,oz:.0283495};return m[u]?v*m[u]:v}
-function calcUnit(){let v=+$('uvalue').value,f=$('ufrom').value,t=$('uto').value,cat=$('ucat').value;if(cat==='temp'){let c=f==='C'?v:f==='F'?(v-32)*5/9:v-273.15;let o=t==='C'?c:t==='F'?c*9/5+32:c+273.15;show('unitresult','Result: <strong>'+fmt(o)+' '+t+'</strong>');return}show('unitresult','Result: <strong>'+fmt(unitVal(v,f)/unitVal(1,t))+' '+t+'</strong>')}
-function sci(type){let n=+$('snum').value,r=type==='sqrt'?Math.sqrt(n):type==='square'?n*n:type==='log'?Math.log10(n):Math.sin(n*Math.PI/180);show('sresult','Result: <strong>'+fmt(r)+'</strong>')}
-function calcEMI(){let p=+$('eprincipal').value,r=+$('erate').value/1200,n=+$('emonths').value;if(!p||!n){show('emiresult','Enter valid values.');return}let m=r?p*r*Math.pow(1+r,n)/(Math.pow(1+r,n)-1):p/n;show('emiresult','Monthly EMI: <strong>'+fmt(m)+'</strong><br>Total payment: '+fmt(m*n))}
-function calcInvestment(){let p=+$('iinvest').value,r=+$('irate').value/100,n=+$('iyears').value;if(!p||!n){show('investmentresult','Enter valid values.');return}let f=p*Math.pow(1+r,n);show('investmentresult','Future value: <strong>'+fmt(f)+'</strong><br>Estimated gain: '+fmt(f-p))}
-function calcChange(){let a=+$('oldv').value,b=+$('newv').value;if(!a){show('changeresult','Old value cannot be zero.');return}let x=(b-a)/Math.abs(a)*100;show('changeresult','Percentage change: <strong>'+fmt(x)+'%</strong>')}
-function calcTip(){let b=+$('tbill').value,r=+$('trate').value,p=Math.max(1,+$('tpeople').value||1),tip=b*r/100,total=b+tip;show('tipresult','Tip amount: <strong>'+fmt(tip)+'</strong><br>Total bill: '+fmt(total)+'<br>Per person: '+fmt(total/p))}
-function filterCards(){let q=$('search').value.toLowerCase();document.querySelectorAll('.tool-card').forEach(c=>c.style.display=c.dataset.name.includes(q)?'block':'none')}
-units();
+wrongMinus.addEventListener("click", function(){
+  const step = halfPoints.checked ? 0.5 : 1;
+  changeWrong(-step);
+});
+
+wrongPlus.addEventListener("click", function(){
+  const step = halfPoints.checked ? 0.5 : 1;
+  changeWrong(step);
+});
+
+wrongInput.addEventListener("input", function(){
+  let raw = this.value;
+  raw = raw.replace(/[^0-9.]/g, "");
+  const firstDot = raw.indexOf(".");
+  if(firstDot !== -1){
+    raw = raw.substring(0, firstDot + 1) + raw.substring(firstDot + 1).replace(/\./g,"");
+  }
+  this.value = raw;
+  if(raw === "" || raw === "."){ calculate(); return; }
+  const value = parseFloat(raw);
+  if(isNaN(value)){ return; }
+  const total = getTotal();
+  if(value > total){ this.value = String(total); }
+  calculate();
+});
+
+totalInput.addEventListener("input", function(){
+  let value = parseInt(this.value, 10);
+  if(isNaN(value)){ calculate(); return; }
+  if(value < 1){ value = 1; }
+  if(value > 500){ value = 500; }
+  this.value = value;
+  const wrong = getWrong();
+  if(wrong > value){ wrongInput.value = String(value); }
+  calculate();
+});
+
+function getScale(){
+  if(currentScale === "plus"){ return plusScale; }
+  if(currentScale === "custom"){ return parseCustomScale(); }
+  return standardScale;
+}
+
+function parseCustomScale(){
+  let A = parseFloat(document.getElementById("customA").value);
+  let B = parseFloat(document.getElementById("customB").value);
+  let C = parseFloat(document.getElementById("customC").value);
+  let D = parseFloat(document.getElementById("customD").value);
+  let F = parseFloat(document.getElementById("customF").value);
+
+  if(isNaN(A)) A = 93;
+  if(isNaN(B)) B = 85;
+  if(isNaN(C)) C = 75;
+  if(isNaN(D)) D = 65;
+  if(isNaN(F)) F = 0;
+
+  return [
+    {grade:"A",min:A},
+    {grade:"B",min:B},
+    {grade:"C",min:C},
+    {grade:"D",min:D},
+    {grade:"F",min:F}
+  ].sort(function(a,b){ return b.min - a.min; });
+}
+
+function getGrade(percent){
+  const scale = getScale();
+  for(let i = 0; i < scale.length; i++){
+    if(percent >= scale[i].min){ return scale[i].grade; }
+  }
+  return "F";
+}
+
+function getPassingGrade(){
+  const value = parseFloat(passingGrade.value);
+  if(isNaN(value)){ return 60; }
+  return value;
+}
+
+function getDecimals(){
+  const value = parseInt(decimals.value, 10);
+  if(isNaN(value)){ return 2; }
+  return value;
+}
+
+function formatPercent(value){
+  return value.toFixed(getDecimals()) + "%";
+}
+
+function calculateGrade(){
+  const total = getTotal();
+  const wrong = getWrong();
+  const correct = total - wrong;
+  const percent = total > 0 ? (correct / total) * 100 : 0;
+  const grade = getGrade(percent);
+  const pass = percent >= getPassingGrade();
+
+  correctResult.textContent = Number(correct.toFixed(2)).toString();
+  percentageResult.textContent = formatPercent(percent);
+  gradeResult.textContent = grade;
+  statusResult.textContent = pass ? "Pass" : "Fail";
+  statusResult.className = "result-value " + (pass ? "pass" : "fail");
+
+  generateChart(total, wrong);
+}
+
+function calculate(){ calculateGrade(); }
+
+calculateBtn.addEventListener("click", calculateGrade);
+
+document.querySelectorAll(".scale-btn").forEach(function(button){
+  button.addEventListener("click", function(){
+    document.querySelectorAll(".scale-btn").forEach(function(btn){ btn.classList.remove("active"); });
+    this.classList.add("active");
+    currentScale = this.dataset.scale;
+    if(currentScale === "custom"){ customBox.classList.add("show"); }
+    else{ customBox.classList.remove("show"); }
+    calculate();
+  });
+});
+
+["customA","customB","customC","customD","customF"].forEach(function(id){
+  document.getElementById(id).addEventListener("input", function(){ calculate(); });
+});
+
+halfPoints.addEventListener("change", function(){ calculate(); });
+passingGrade.addEventListener("change", calculate);
+decimals.addEventListener("change", calculate);
+
+function generateChart(total, currentWrong){
+  chartBody.innerHTML = "";
+  const step = halfPoints.checked ? 0.5 : 1;
+
+  for(let wrong = 0; wrong <= total; wrong += step){
+    wrong = Number(wrong.toFixed(2));
+    const correct = total - wrong;
+    const percent = total > 0 ? (correct / total) * 100 : 0;
+    const grade = getGrade(percent);
+    const pass = percent >= getPassingGrade();
+
+    const row = document.createElement("tr");
+    if(Math.abs(wrong - currentWrong) < 0.001){ row.classList.add("current"); }
+
+    row.innerHTML = `
+      <td>${Number(wrong.toFixed(2))}</td>
+      <td>${Number(correct.toFixed(2))}</td>
+      <td>${formatPercent(percent)}</td>
+      <td>${grade}</td>
+      <td class="${pass ? "pass" : "fail"}">${pass ? "Pass" : "Fail"}</td>
+    `;
+    chartBody.appendChild(row);
+  }
+}
+
+function resetCalculator(){
+  totalInput.value = 25;
+  wrongInput.value = 0;
+  passingGrade.value = 60;
+  decimals.value = 2;
+  halfPoints.checked = false;
+
+  document.getElementById("customA").value = 93;
+  document.getElementById("customB").value = 85;
+  document.getElementById("customC").value = 75;
+  document.getElementById("customD").value = 65;
+  document.getElementById("customF").value = 0;
+
+  currentScale = "standard";
+  document.querySelectorAll(".scale-btn").forEach(function(btn){ btn.classList.remove("active"); });
+  document.querySelector('[data-scale="standard"]').classList.add("active");
+  customBox.classList.remove("show");
+
+  calculate();
+}
+
+resetBtn.addEventListener("click", resetCalculator);
+printBtn.addEventListener("click", function(){ window.print(); });
+
+document.addEventListener("keydown", function(event){
+  const tag = document.activeElement.tagName;
+  if(tag === "INPUT" || tag === "SELECT" || tag === "TEXTAREA"){ return; }
+
+  if(event.key === "w" || event.key === "W"){
+    const step = halfPoints.checked ? 0.5 : 1;
+    changeWrong(step);
+  }
+  if(event.key === "z" || event.key === "Z"){
+    const step = halfPoints.checked ? 0.5 : 1;
+    changeWrong(-step);
+  }
+});
+
+calculateGrade();
 </script>
 
-<script id="individual-card-expand-js">
-(function(){
-  const oldToggle = window.toggleCalc;
-  if (typeof oldToggle !== 'function') return;
-  window.toggleCalc = function(id){
-    oldToggle(id);
-    document.querySelectorAll('#cards .card').forEach(card => {
-      card.classList.remove('expanded');
-    });
-    const el = document.getElementById(id);
-    if (el) {
-      const card = el.closest('.card');
-      if (card && el.classList.contains('active')) card.classList.add('expanded');
-    }
-  };
-})();
-</script>
-<script id="unit-init">document.addEventListener('DOMContentLoaded',function(){if(typeof units==='function')units();});</script>
 </body>
 </html>
