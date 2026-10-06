@@ -7,7 +7,24 @@
 
 <title>Easy Grader – Free EZ Grader Calculator Online</title>
 
-<meta name="description" content="Free Easy Grader and EZ Grader calculator. Calculate test grades, percentages, pass or fail results, and print an easy grading chart online.">
+<meta name="description" content="Free Easy Grader and EZ Grader calculator for tests, quizzes and exams. Calculate percentage, letter grade, pass or fail results, and view or print a grading chart.">
+
+<meta name="robots" content="index, follow">
+
+<meta name="author" content="Easy Grader">
+
+<meta name="theme-color" content="#2563eb">
+
+<link rel="canonical" href="https://quickpercent.github.io/easy-grader/">
+
+<meta property="og:title" content="Easy Grader – Free EZ Grader Calculator Online">
+
+<meta property="og:description" content="Calculate test grades, percentages, letter grades and pass or fail results with this free Easy Grader calculator.">
+
+<meta property="og:type" content="website">
+
+<meta property="og:url" content="https://quickpercent.github.io/easy-grader/">
+
 
 <style>
 
@@ -326,6 +343,21 @@ select{
   margin-bottom:5px;
 }
 
+.seo-content h2{
+  font-size:22px;
+  margin:8px 0 10px;
+}
+
+.seo-content p{
+  line-height:1.7;
+  color:#475569;
+  margin:0 0 20px;
+}
+
+.seo-content h2:not(:first-child){
+  margin-top:24px;
+}
+
 @media(max-width:650px){
 
   .container{
@@ -406,11 +438,16 @@ select{
 Free EZ Grader for tests, quizzes and exams
 </p>
 
+
 <div class="card">
 
-<div class="section-title">Test Details</div>
+<div class="section-title">
+Test Details
+</div>
+
 
 <div class="controls">
+
 
 <div class="field">
 
@@ -424,7 +461,9 @@ Total Questions
 type="button"
 class="small-btn"
 id="totalMinus"
->-</button>
+>
+-
+</button>
 
 <input
 type="number"
@@ -438,7 +477,9 @@ value="25"
 type="button"
 class="small-btn"
 id="totalPlus"
->+</button>
+>
++
+</button>
 
 </div>
 
@@ -457,7 +498,9 @@ Wrong Answers
 type="button"
 class="small-btn"
 id="wrongMinus"
->-</button>
+>
+-
+</button>
 
 <input
 type="text"
@@ -471,7 +514,9 @@ autocomplete="off"
 type="button"
 class="small-btn"
 id="wrongPlus"
->+</button>
+>
++
+</button>
 
 </div>
 
@@ -482,21 +527,41 @@ id="wrongPlus"
 
 <div class="quick-select">
 
-<button type="button" data-total="10">10</button>
-<button type="button" data-total="20">20</button>
-<button type="button" data-total="25">25</button>
-<button type="button" data-total="30">30</button>
-<button type="button" data-total="50">50</button>
-<button type="button" data-total="100">100</button>
+<button type="button" data-total="10">
+10
+</button>
+
+<button type="button" data-total="20">
+20
+</button>
+
+<button type="button" data-total="25">
+25
+</button>
+
+<button type="button" data-total="30">
+30
+</button>
+
+<button type="button" data-total="50">
+50
+</button>
+
+<button type="button" data-total="100">
+100
+</button>
 
 </div>
 
 
 <div class="options">
 
+
 <div>
 
-<label><strong>Grading Scale</strong></label>
+<label>
+<strong>Grading Scale</strong>
+</label>
 
 <div class="scale-buttons">
 
@@ -535,48 +600,67 @@ class="custom-box"
 <div class="custom-grid">
 
 <div>
+
 <label>A</label>
+
 <input
 type="number"
 id="customA"
 value="93"
 >
+
 </div>
 
+
 <div>
+
 <label>B</label>
+
 <input
 type="number"
 id="customB"
 value="85"
 >
+
 </div>
 
+
 <div>
+
 <label>C</label>
+
 <input
 type="number"
 id="customC"
 value="75"
 >
+
 </div>
 
+
 <div>
+
 <label>D</label>
+
 <input
 type="number"
 id="customD"
 value="65"
 >
+
 </div>
 
+
 <div>
+
 <label>F</label>
+
 <input
 type="number"
 id="customF"
 value="0"
 >
+
 </div>
 
 </div>
@@ -594,13 +678,33 @@ value="0"
 
 <select id="passingGrade">
 
-<option value="60">60%</option>
-<option value="65">65%</option>
-<option value="70">70%</option>
-<option value="75">75%</option>
-<option value="80">80%</option>
-<option value="85">85%</option>
-<option value="90">90%</option>
+<option value="60">
+60%
+</option>
+
+<option value="65">
+65%
+</option>
+
+<option value="70">
+70%
+</option>
+
+<option value="75">
+75%
+</option>
+
+<option value="80">
+80%
+</option>
+
+<option value="85">
+85%
+</option>
+
+<option value="90">
+90%
+</option>
 
 </select>
 
@@ -615,9 +719,17 @@ value="0"
 
 <select id="decimals">
 
-<option value="2">2 decimals</option>
-<option value="1">1 decimal</option>
-<option value="0">0 decimals</option>
+<option value="2">
+2 decimals
+</option>
+
+<option value="1">
+1 decimal
+</option>
+
+<option value="0">
+0 decimals
+</option>
 
 </select>
 
@@ -655,6 +767,7 @@ id="result"
 >
 
 <div class="result-grid">
+
 
 <div class="result-item">
 
@@ -719,6 +832,7 @@ Fail
 
 </div>
 
+
 </div>
 
 </div>
@@ -746,6 +860,7 @@ Print Chart
 
 </div>
 
+
 <table class="chart">
 
 <thead>
@@ -753,16 +868,21 @@ Print Chart
 <tr>
 
 <th>Wrong</th>
+
 <th>Correct</th>
+
 <th>Percentage</th>
+
 <th>Grade</th>
+
 <th>Status</th>
 
 </tr>
 
 </thead>
 
-<tbody id="chartBody"></tbody>
+<tbody id="chartBody">
+</tbody>
 
 </table>
 
@@ -782,40 +902,120 @@ Reset Calculator
 </div>
 
 
+<div class="card seo-content">
+
+<h2>
+Free Easy Grader Calculator
+</h2>
+
+<p>
+This free <strong>Easy Grader</strong> calculator helps teachers,
+students, tutors, and anyone grading a test quickly turn correct and
+wrong answers into a percentage, letter grade, and pass or fail result.
+It also works as an <strong>EZ Grader</strong> for quizzes and exams.
+</p>
+
+
+<h2>
+How to Use the Easy Grader
+</h2>
+
+<p>
+Enter the total number of questions and the number of wrong answers.
+Choose a grading scale and passing grade, then select
+<strong>Calculate Grade</strong>. The calculator shows the number
+correct, percentage, letter grade, and pass or fail status.
+Turn on half points when you need values such as 2.5 or 3.5 wrong answers.
+</p>
+
+
+<h2>
+Easy Grader Chart
+</h2>
+
+<p>
+The grading chart shows every possible wrong-answer count for the
+selected number of questions. Each row includes correct answers,
+percentage, letter grade, and pass or fail status. You can print the
+chart for classroom or study use.
+</p>
+
+
+<h2>
+Grading Scales
+</h2>
+
+<p>
+Use the standard scale for A through F grades, the plus-minus scale
+for grades such as A+, A-, B+, and B-, or choose the custom scale to
+enter your own grade thresholds. The passing-grade setting can also
+be changed to match your requirements.
+</p>
+
+
+<h2>
+Why Use an EZ Grader?
+</h2>
+
+<p>
+An online EZ Grader saves time when checking quizzes and exams.
+Instead of calculating each percentage manually, enter the test
+details and get the result instantly. The calculator is free to use
+and works on phones, tablets, and desktop browsers.
+</p>
+
+</div>
+
+
 <div class="card faq">
 
-<h2>Easy Grader FAQ</h2>
+<h2>
+Easy Grader FAQ
+</h2>
+
 
 <div class="faq-item">
 
-<strong>What is an Easy Grader?</strong>
+<strong>
+What is an Easy Grader?
+</strong>
 
-Easy Grader is a quick grading calculator that converts the number of correct and wrong answers into a percentage, letter grade and pass or fail result.
+Easy Grader is a quick grading calculator that converts the number
+of correct and wrong answers into a percentage, letter grade and
+pass or fail result.
 
 </div>
 
 
 <div class="faq-item">
 
-<strong>What is an EZ Grader?</strong>
+<strong>
+What is an EZ Grader?
+</strong>
 
-EZ Grader is another common name for an easy grading calculator used by teachers and students to grade tests quickly.
-
-</div>
-
-
-<div class="faq-item">
-
-<strong>Can I use half points?</strong>
-
-Yes. Turn on the half-point option to calculate grades using values such as 2.5 or 3.5 wrong answers.
+EZ Grader is another common name for an easy grading calculator
+used by teachers and students to grade tests quickly.
 
 </div>
 
 
 <div class="faq-item">
 
-<strong>Can I print the grading chart?</strong>
+<strong>
+Can I use half points?
+</strong>
+
+Yes. Turn on the half-point option to calculate grades using values
+such as 2.5 or 3.5 wrong answers.
+
+</div>
+
+
+<div class="faq-item">
+
+<strong>
+Can I print the grading chart?
+</strong>
 
 Yes. Use the Print Chart button to print the Easy Grader chart.
 
@@ -826,7 +1026,78 @@ Yes. Use the Print Chart button to print the Easy Grader chart.
 </div>
 
 
+<script type="application/ld+json">
+
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Easy Grader Calculator",
+  "alternateName": "EZ Grader",
+  "url": "https://quickpercent.github.io/easy-grader/",
+  "applicationCategory": "EducationalApplication",
+  "operatingSystem": "Any",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "description": "Free Easy Grader and EZ Grader calculator for tests, quizzes and exams."
+}
+
+</script>
+
+
+<script type="application/ld+json">
+
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+
+    {
+      "@type": "Question",
+      "name": "What is an Easy Grader?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Easy Grader is a grading calculator that converts correct and wrong answers into a percentage, letter grade and pass or fail result."
+      }
+    },
+
+    {
+      "@type": "Question",
+      "name": "What is an EZ Grader?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "EZ Grader is another common name for an easy grading calculator used to grade tests and quizzes quickly."
+      }
+    },
+
+    {
+      "@type": "Question",
+      "name": "Can I use half points?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Enable the half-point option to calculate grades using values such as 2.5 or 3.5 wrong answers."
+      }
+    },
+
+    {
+      "@type": "Question",
+      "name": "Can I print the grading chart?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. Use the Print Chart button to print the Easy Grader chart."
+      }
+    }
+
+  ]
+}
+
+</script>
+
+
 <script>
+
 
 const totalInput =
 document.getElementById("totalQuestions");
@@ -883,10 +1154,6 @@ const printBtn =
 document.getElementById("printBtn");
 
 
-/* =========================
-   GRADING SCALES
-========================= */
-
 const standardScale = [
 
   {grade:"A",min:90},
@@ -924,10 +1191,6 @@ const plusScale = [
 let currentScale = "standard";
 
 
-/* =========================
-   GET TOTAL
-========================= */
-
 function getTotal(){
 
   let value =
@@ -949,22 +1212,10 @@ function getTotal(){
 }
 
 
-/* =========================
-   GET WRONG
-========================= */
-
 function getWrong(){
 
   const raw =
     wrongInput.value.trim();
-
-  /*
-    IMPORTANT:
-    Do not destroy values such as
-    2.
-    2.5
-    while the user is typing.
-  */
 
   if(
     raw === "" ||
@@ -996,10 +1247,6 @@ function getWrong(){
 
 }
 
-
-/* =========================
-   TOTAL CONTROLS
-========================= */
 
 function changeTotal(amount){
 
@@ -1054,10 +1301,6 @@ totalPlus.addEventListener(
 );
 
 
-/* =========================
-   QUICK SELECT
-========================= */
-
 document
 .querySelectorAll("[data-total]")
 .forEach(
@@ -1094,10 +1337,6 @@ document
   }
 );
 
-
-/* =========================
-   WRONG CONTROLS
-========================= */
 
 function changeWrong(amount){
 
@@ -1157,10 +1396,6 @@ wrongPlus.addEventListener(
 );
 
 
-/* =========================
-   MANUAL WRONG INPUT
-========================= */
-
 wrongInput.addEventListener(
   "input",
   function(){
@@ -1192,11 +1427,6 @@ wrongInput.addEventListener(
 
     this.value =
       raw;
-
-    /*
-      Do not modify the input while
-      user is typing a decimal.
-    */
 
     if(
       raw === "" ||
@@ -1231,10 +1461,6 @@ wrongInput.addEventListener(
   }
 );
 
-
-/* =========================
-   TOTAL INPUT
-========================= */
 
 totalInput.addEventListener(
   "input",
@@ -1278,10 +1504,6 @@ totalInput.addEventListener(
 );
 
 
-/* =========================
-   GET SCALE
-========================= */
-
 function getScale(){
 
   if(currentScale === "plus"){
@@ -1290,22 +1512,16 @@ function getScale(){
 
   }
 
-
   if(currentScale === "custom"){
 
     return parseCustomScale();
 
   }
 
-
   return standardScale;
 
 }
 
-
-/* =========================
-   CUSTOM SCALE
-========================= */
 
 function parseCustomScale(){
 
@@ -1361,26 +1577,10 @@ function parseCustomScale(){
 }
 
 
-/* =========================
-   GET GRADE
-========================= */
-
 function getGrade(percent){
 
   const scale =
     getScale();
-
-  /*
-    IMPORTANT FIX:
-    Always check from the highest
-    minimum score to the lowest.
-    
-    Example:
-    83.33 with Standard scale:
-    83.33 >= 90 ? No
-    83.33 >= 80 ? YES
-    Result = B
-  */
 
   for(
     let i = 0;
@@ -1403,10 +1603,6 @@ function getGrade(percent){
 }
 
 
-/* =========================
-   PASSING GRADE
-========================= */
-
 function getPassingGrade(){
 
   const value =
@@ -1422,10 +1618,6 @@ function getPassingGrade(){
 
 }
 
-
-/* =========================
-   DECIMALS
-========================= */
 
 function getDecimals(){
 
@@ -1444,10 +1636,6 @@ function getDecimals(){
 }
 
 
-/* =========================
-   FORMAT PERCENT
-========================= */
-
 function formatPercent(value){
 
   return value.toFixed(
@@ -1456,10 +1644,6 @@ function formatPercent(value){
 
 }
 
-
-/* =========================
-   CALCULATE
-========================= */
 
 function calculateGrade(){
 
@@ -1518,19 +1702,16 @@ function calculateGrade(){
 }
 
 
-/* =========================
-   CALCULATE BUTTON
-========================= */
+function calculate(){
+  calculateGrade();
+}
+
 
 calculateBtn.addEventListener(
   "click",
   calculateGrade
 );
 
-
-/* =========================
-   SCALE BUTTONS
-========================= */
 
 document
 .querySelectorAll(".scale-btn")
@@ -1585,10 +1766,6 @@ document
 );
 
 
-/* =========================
-   CUSTOM INPUTS
-========================= */
-
 [
   "customA",
   "customB",
@@ -1614,10 +1791,6 @@ document
 );
 
 
-/* =========================
-   HALF POINTS
-========================= */
-
 halfPoints.addEventListener(
   "change",
   function(){
@@ -1627,10 +1800,6 @@ halfPoints.addEventListener(
   }
 );
 
-
-/* =========================
-   OTHER OPTIONS
-========================= */
 
 passingGrade.addEventListener(
   "change",
@@ -1642,10 +1811,6 @@ decimals.addEventListener(
   calculate
 );
 
-
-/* =========================
-   GENERATE CHART
-========================= */
 
 function generateChart(
   total,
@@ -1726,10 +1891,6 @@ function generateChart(
 
 }
 
-
-/* =========================
-   RESET
-========================= */
 
 function resetCalculator(){
 
@@ -1812,10 +1973,6 @@ resetBtn.addEventListener(
 );
 
 
-/* =========================
-   PRINT
-========================= */
-
 printBtn.addEventListener(
   "click",
   function(){
@@ -1825,10 +1982,6 @@ printBtn.addEventListener(
   }
 );
 
-
-/* =========================
-   KEYBOARD SHORTCUTS
-========================= */
 
 document.addEventListener(
   "keydown",
@@ -1880,10 +2033,6 @@ document.addEventListener(
   }
 );
 
-
-/* =========================
-   INITIAL LOAD
-========================= */
 
 calculateGrade();
 
