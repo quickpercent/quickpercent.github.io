@@ -4,17 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>GPA Calculator – Calculate Your High School & College GPA Online</title>
-<meta name="description" content="Free online GPA Calculator to easily calculate your high school, college, or university GPA. Convert letter grades and credit hours into accurate GPA results instantly.">
-<meta name="keywords" content="GPA Calculator, College GPA Calculator, High School GPA Calculator, Cumulative GPA, Grade Point Average, Calculate GPA">
+<title>GPA Calculator – Free High School & College GPA Calculator</title>
+<meta name="description" content="Free online GPA Calculator for high school, college, and university students. Easily calculate semester GPA, convert letter grades, and credit hours using the standard 4.0 scale.">
+<meta name="keywords" content="GPA Calculator, College GPA Calculator, High School GPA Calculator, Cumulative GPA, Semester GPA Calculator, 4.0 GPA Scale, Weighted GPA Calculator, Grade Point Average">
 
 <meta name="robots" content="index, follow">
 <meta name="author" content="Easy Grader">
 <meta name="theme-color" content="#2563eb">
 <link rel="canonical" href="https://quickpercent.github.io/gpa-calculator/">
 
-<meta property="og:title" content="GPA Calculator – Calculate Your High School & College GPA Online">
-<meta property="og:description" content="Free online GPA Calculator. Convert letter grades and credit hours into accurate GPA results instantly.">
+<meta property="og:title" content="GPA Calculator – Free High School & College GPA Calculator">
+<meta property="og:description" content="Free online GPA Calculator. Convert letter grades and credit hours into accurate semester GPA results instantly.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://quickpercent.github.io/gpa-calculator/">
 
@@ -87,91 +87,96 @@ footer{background:#0f172a;color:#94a3b8;padding:40px 20px;margin-top:auto;}
 
 <div class="container">
   <div class="card">
-    <div class="title">GPA Calculator</div>
+    <h1 class="title">College & High School GPA Calculator</h1>
     <div id="courseContainer">
       <div class="course-row">
         <input type="text" placeholder="Course Name (Optional)">
         <select class="grade">
-          <option value="4.0">A (4.0)</option>
-          <option value="3.7">A- (3.7)</option>
-          <option value="3.3">B+ (3.3)</option>
-          <option value="3.0">B (3.0)</option>
-          <option value="2.7">B- (2.7)</option>
-          <option value="2.3">C+ (2.3)</option>
-          <option value="2.0">C (2.0)</option>
-          <option value="1.7">C- (1.7)</option>
-          <option value="1.0">D (1.0)</option>
-          <option value="0.0">F (0.0)</option>
+          <option value="4.0">A (4.0 Points)</option>
+          <option value="3.7">A- (3.7 Points)</option>
+          <option value="3.3">B+ (3.3 Points)</option>
+          <option value="3.0">B (3.0 Points)</option>
+          <option value="2.7">B- (2.7 Points)</option>
+          <option value="2.3">C+ (2.3 Points)</option>
+          <option value="2.0">C (2.0 Points)</option>
+          <option value="1.7">C- (1.7 Points)</option>
+          <option value="1.0">D (1.0 Point)</option>
+          <option value="0.0">F (0.0 Points)</option>
         </select>
-        <input type="number" class="credits" placeholder="Credits" value="3" min="1">
+        <input type="number" class="credits" placeholder="Credit Hours" value="3" min="1">
         <button class="btn-remove" onclick="removeRow(this)">X</button>
       </div>
     </div>
 
     <button class="btn-add" onclick="addRow()">+ Add Course</button>
-    <button class="calc-btn" onclick="calculateGPA()">Calculate GPA</button>
+    <button class="calc-btn" onclick="calculateGPA()">Calculate Semester GPA</button>
 
     <div class="result-box">
-      <div style="font-size:14px; font-weight:600; color:#64748b;">YOUR GPA</div>
+      <div style="font-size:14px; font-weight:600; color:#64748b;">YOUR SEMESTER GPA</div>
       <div class="result-score" id="gpaScore">0.00</div>
     </div>
   </div>
 
-  <!-- SEO CONTENT CARD -->
+  <!-- KEYWORD-OPTIMIZED SEO CONTENT CARD -->
   <div class="card seo-content">
-    <h2>Free Online GPA Calculator</h2>
-    <p>Our free <strong>GPA Calculator</strong> helps high school, college, and university students calculate their Grade Point Average (GPA) accurately for any term or semester. Enter your course grades and credit hours to generate your calculated GPA instantly.</p>
+    <h2>Free Online College & High School GPA Calculator</h2>
+    <p>Our free <strong>GPA Calculator</strong> is designed to help college, university, and high school students accurately compute their Grade Point Average (GPA) for any academic semester or term. Whether you need a <strong>college GPA calculator</strong> or a <strong>high school GPA calculator</strong>, our tool automatically converts your letter grades and course credit hours into an accurate score based on the standard 4.0 GPA scale.</p>
 
-    <h2>How to Calculate Your GPA</h2>
-    <p>Calculating your GPA requires multiplying your grade point values by credit hours. Follow these simple steps:</p>
+    <h2>How to Calculate Semester GPA with Credit Hours</h2>
+    <p>Calculating your grade point average requires multiplying the numeric point value of your letter grade by the credit hours assigned to each course. Follow these easy steps to use our <strong>semester GPA calculator</strong>:</p>
     <ol>
-      <li>Enter your course name (optional).</li>
-      <li>Select your earned letter grade for each course.</li>
-      <li>Enter the credit hours assigned to each course.</li>
-      <li>Click <strong>Calculate GPA</strong> to get your instant results.</li>
+      <li><strong>Add Your Courses:</strong> Enter your course titles or leave them blank.</li>
+      <li><strong>Select Letter Grades:</strong> Choose your earned grade (A, B, C, D, or F) for each course.</li>
+      <li><strong>Input Credit Hours:</strong> Enter the credit hours (weight) assigned to each subject.</li>
+      <li><strong>Calculate:</strong> Click <strong>Calculate Semester GPA</strong> to get your instant results.</li>
     </ol>
 
-    <h2>GPA Calculation Formula</h2>
-    <p>The core standard GPA formula is: <strong>GPA = Total Grade Points ÷ Total Credit Hours</strong>.</p>
-    <p>Course Grade Points are calculated by: <strong>Course Points = Grade Scale Value × Credit Hours</strong>.</p>
-
-    <h2>Standard 4.0 Scale Reference</h2>
+    <h2>The Standard 4.0 GPA Scale Chart</h2>
+    <p>Most high schools and colleges in the US and internationally use the unweighted <strong>4.0 GPA scale</strong> to evaluate academic performance:</p>
     <ul>
-      <li><strong>A (4.0 Points):</strong> Excellent Performance (90% - 100%)</li>
-      <li><strong>B (3.0 Points):</strong> Above Average (80% - 89%)</li>
-      <li><strong>C (2.0 Points):</strong> Average Performance (70% - 79%)</li>
-      <li><strong>D (1.0 Point):</strong> Below Average (60% - 69%)</li>
-      <li><strong>F (0.0 Points):</strong> Failing Grade (Below 60%)</li>
+      <li><strong>A (4.0 Points):</strong> 90% – 100% (Excellent)</li>
+      <li><strong>A- (3.7 Points):</strong> 87% – 89%</li>
+      <li><strong>B+ (3.3 Points):</strong> 83% – 86%</li>
+      <li><strong>B (3.0 Points):</strong> 80% – 82% (Above Average)</li>
+      <li><strong>B- (2.7 Points):</strong> 77% – 79%</li>
+      <li><strong>C+ (2.3 Points):</strong> 73% – 76%</li>
+      <li><strong>C (2.0 Points):</strong> 70% – 72% (Average)</li>
+      <li><strong>D (1.0 Point):</strong> 60% – 69% (Below Average)</li>
+      <li><strong>F (0.0 Points):</strong> Below 60% (Failing Grade)</li>
     </ul>
+
+    <h2>Formula Used by Our Semester GPA Calculator</h2>
+    <p>The calculation uses the standard formula: <strong>GPA = Total Grade Points ÷ Total Attempted Credit Hours</strong>.</p>
+    <p>For example, if you earn an 'A' (4.0) in a 3-credit class, your grade points for that class equal 4.0 × 3 = 12 total grade points.</p>
   </div>
 
-  <!-- FAQS CARD -->
+  <!-- TARGETED FAQS CARD -->
   <div class="card faq">
-    <h2>GPA Calculator FAQs</h2>
+    <h2>GPA Calculator Frequently Asked Questions</h2>
 
     <div class="faq-item">
-      <strong>1. What is a GPA?</strong>
-      <p>GPA stands for Grade Point Average. It is a standard numerical score representing academic performance on a 0.0 to 4.0 scale.</p>
+      <strong>1. What is the difference between an unweighted and weighted GPA calculator?</strong>
+      <p>An unweighted GPA calculator measures grades on a strict 0.0 to 4.0 scale regardless of class difficulty. A weighted GPA calculator factors in AP, IB, or Honors classes, scaling up to 5.0 for advanced subjects.</p>
     </div>
 
     <div class="faq-item">
-      <strong>2. How do credit hours affect my GPA?</strong>
-      <p>Courses with higher credit hours carry greater weight in calculating your final GPA. Getting an A in a 4-credit course raises your GPA more than an A in a 1-credit course.</p>
+      <strong>2. How do credit hours affect my college GPA calculation?</strong>
+      <p>Courses with higher credit hours carry more weight. For instance, getting an 'A' in a 4-credit science lab impacts your total GPA significantly more than getting an 'A' in a 1-credit seminar.</p>
     </div>
 
     <div class="faq-item">
-      <strong>3. What is considered a good GPA?</strong>
-      <p>Generally, a GPA of 3.0 or higher is considered good in high school and college, while 3.5+ often qualifies for honors and scholarships.</p>
+      <strong>3. What is considered a good college GPA?</strong>
+      <p>A GPA of 3.0 (B average) or higher is generally considered good in college. A GPA of 3.5 or above is often required for Dean's List recognition, honors, and competitive graduate school admissions.</p>
     </div>
 
     <div class="faq-item">
       <strong>4. What is the difference between GPA and CGPA?</strong>
-      <p>GPA reflects performance in a single semester or term, whereas CGPA (Cumulative GPA) measures overall performance across all completed semesters.</p>
+      <p>GPA measures academic performance for a single semester or term, whereas CGPA (Cumulative GPA) measures your overall average across all completed semesters combined.</p>
     </div>
 
     <div class="faq-item">
-      <strong>5. Can I use this calculator for high school and college?</strong>
-      <p>Yes! This GPA calculator uses the universal standard 4.0 grading scale used by most high schools, colleges, and universities.</p>
+      <strong>5. Can I use this tool as a high school GPA calculator?</strong>
+      <p>Yes, this tool works perfectly for high school students using the standard 4.0 scale to calculate term grades and GPA averages.</p>
     </div>
   </div>
 </div>
@@ -193,7 +198,7 @@ footer{background:#0f172a;color:#94a3b8;padding:40px 20px;margin-top:auto;}
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
-  "name": "GPA Calculator",
+  "name": "College & High School GPA Calculator",
   "url": "https://quickpercent.github.io/gpa-calculator/",
   "applicationCategory": "EducationalApplication",
   "operatingSystem": "Any",
@@ -211,11 +216,11 @@ footer{background:#0f172a;color:#94a3b8;padding:40px 20px;margin-top:auto;}
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-    {"@type": "Question", "name": "What is a GPA?", "acceptedAnswer": {"@type": "Answer", "text": "GPA stands for Grade Point Average. It represents academic performance on a scale from 0.0 to 4.0."}},
-    {"@type": "Question", "name": "How do credit hours affect my GPA?", "acceptedAnswer": {"@type": "Answer", "text": "Courses with higher credit hours carry more weight in your GPA calculation."}},
-    {"@type": "Question", "name": "What is considered a good GPA?", "acceptedAnswer": {"@type": "Answer", "text": "Generally, a GPA of 3.0 or higher is considered good."}},
-    {"@type": "Question", "name": "What is the difference between GPA and CGPA?", "acceptedAnswer": {"@type": "Answer", "text": "GPA measures a single term, while CGPA measures overall performance across all terms."}},
-    {"@type": "Question", "name": "Can I use this calculator for high school and college?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, this calculator works for both high school and college using the standard 4.0 scale."}}
+    {"@type": "Question", "name": "What is the difference between an unweighted and weighted GPA calculator?", "acceptedAnswer": {"@type": "Answer", "text": "An unweighted GPA calculator measures grades on a strict 0.0 to 4.0 scale. A weighted GPA calculator factors in AP, IB, or Honors classes up to 5.0."}},
+    {"@type": "Question", "name": "How do credit hours affect my college GPA calculation?", "acceptedAnswer": {"@type": "Answer", "text": "Courses with higher credit hours carry more weight in calculating your total GPA."}},
+    {"@type": "Question", "name": "What is considered a good college GPA?", "acceptedAnswer": {"@type": "Answer", "text": "A GPA of 3.0 or higher is generally considered good, while 3.5+ qualifies for honors."}},
+    {"@type": "Question", "name": "What is the difference between GPA and CGPA?", "acceptedAnswer": {"@type": "Answer", "text": "GPA measures a single semester, while CGPA measures cumulative overall performance across all terms."}},
+    {"@type": "Question", "name": "Can I use this tool as a high school GPA calculator?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, this tool works for high school students using the standard 4.0 scale."}}
   ]
 }
 </script>
@@ -227,18 +232,18 @@ function addRow(){
   div.innerHTML = `
     <input type="text" placeholder="Course Name (Optional)">
     <select class="grade">
-      <option value="4.0">A (4.0)</option>
-      <option value="3.7">A- (3.7)</option>
-      <option value="3.3">B+ (3.3)</option>
-      <option value="3.0">B (3.0)</option>
-      <option value="2.7">B- (2.7)</option>
-      <option value="2.3">C+ (2.3)</option>
-      <option value="2.0">C (2.0)</option>
-      <option value="1.7">C- (1.7)</option>
-      <option value="1.0">D (1.0)</option>
-      <option value="0.0">F (0.0)</option>
+      <option value="4.0">A (4.0 Points)</option>
+      <option value="3.7">A- (3.7 Points)</option>
+      <option value="3.3">B+ (3.3 Points)</option>
+      <option value="3.0">B (3.0 Points)</option>
+      <option value="2.7">B- (2.7 Points)</option>
+      <option value="2.3">C+ (2.3 Points)</option>
+      <option value="2.0">C (2.0 Points)</option>
+      <option value="1.7">C- (1.7 Points)</option>
+      <option value="1.0">D (1.0 Point)</option>
+      <option value="0.0">F (0.0 Points)</option>
     </select>
-    <input type="number" class="credits" placeholder="Credits" value="3" min="1">
+    <input type="number" class="credits" placeholder="Credit Hours" value="3" min="1">
     <button class="btn-remove" onclick="removeRow(this)">X</button>
   `;
   document.getElementById("courseContainer").appendChild(div);
