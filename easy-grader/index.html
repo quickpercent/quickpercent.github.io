@@ -3,8 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Easy Grader – Free EZ Grader Calculator Online</title>
-<meta name="description" content="Use this free Easy Grader calculator to instantly calculate test grades from total questions and wrong answers.">
+
+<meta name="description" content="Use this free Easy Grader calculator to calculate test grades, generate an EZ Grader chart, and choose standard, plus-minus, or custom grading scales.">
 
 <style>
 *{box-sizing:border-box}
@@ -71,12 +73,13 @@ color:#172033;
 margin:0
 }
 
-input{
+input,select{
 width:100%;
 padding:13px;
 border:1px solid #ccc;
 border-radius:9px;
-font-size:17px
+font-size:16px;
+background:white
 }
 
 .quick-title{
@@ -114,6 +117,36 @@ color:white
 
 .reset{
 background:#555
+}
+
+.scale-buttons{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:8px
+}
+
+.scale-buttons button{
+margin:0;
+background:#eef3ff;
+color:#2454c6;
+border:1px solid #d5dff8
+}
+
+.scale-buttons button.active{
+background:#2563eb;
+color:white
+}
+
+.custom-box{
+display:none;
+margin-top:15px;
+padding:15px;
+background:#f7f9fc;
+border-radius:10px
+}
+
+.custom-box p{
+font-size:14px
 }
 
 .result{
@@ -202,6 +235,10 @@ font-size:27px
 grid-template-columns:repeat(3,1fr)
 }
 
+.scale-buttons{
+grid-template-columns:1fr
+}
+
 .result-grid{
 grid-template-columns:repeat(2,1fr)
 }
@@ -251,14 +288,21 @@ display:none!important
 
 <p>
 Quickly calculate test grades using total questions and wrong answers.
-Use the EZ Grader chart to grade an entire test in seconds.
+Generate a complete EZ Grader chart using the grading scale that matches your school.
 </p>
 
 <label class="label">Total Questions</label>
 
 <div class="input-row">
 <button class="step" onclick="changeTotal(-1)">−</button>
-<input type="number" id="total" min="1" value="25" oninput="updateWrongLimit()">
+
+<input
+type="number"
+id="total"
+min="1"
+value="25"
+oninput="updateWrongLimit()">
+
 <button class="step" onclick="changeTotal(1)">+</button>
 </div>
 
@@ -273,16 +317,73 @@ Use the EZ Grader chart to grade an entire test in seconds.
 <button onclick="setTotal(100)">100</button>
 </div>
 
+
 <label class="label">Wrong Answers</label>
 
 <div class="input-row">
+
 <button class="step" onclick="changeWrong(-1)">−</button>
-<input type="number" id="wrong" min="0" value="4">
+
+<input
+type="number"
+id="wrong"
+min="0"
+value="4">
+
 <button class="step" onclick="changeWrong(1)">+</button>
+
 </div>
 
-<button onclick="calculateGrade()">Calculate Grade</button>
-<button class="reset" onclick="resetCalculator()">Reset</button>
+
+<label class="label">Grading Scale</label>
+
+<div class="scale-buttons">
+
+<button id="standardBtn" class="active" onclick="setScale('standard')">
+Standard
+</button>
+
+<button id="plusBtn" onclick="setScale('plus')">
+Plus / Minus
+</button>
+
+<button id="customBtn" onclick="setScale('custom')">
+Custom
+</button>
+
+</div>
+
+
+<div class="custom-box" id="customBox">
+
+<strong>Custom Grading Scale</strong>
+
+<p>
+Enter the minimum percentage required for each grade.
+Example: A 93, B 85, C 75, D 65, F 0
+</p>
+
+<input
+type="text"
+id="customScale"
+value="A 90, B 80, C 70, D 60, F 0"
+placeholder="A 90, B 80, C 70, D 60, F 0">
+
+<button onclick="applyCustomScale()">
+Apply Custom Scale
+</button>
+
+</div>
+
+
+<button onclick="calculateGrade()">
+Calculate Grade
+</button>
+
+<button class="reset" onclick="resetCalculator()">
+Reset
+</button>
+
 
 <div class="result" id="result">
 
@@ -310,7 +411,9 @@ Use the EZ Grader chart to grade an entire test in seconds.
 
 </div>
 
-<div class="pass" id="passFail">Pass</div>
+<div class="pass" id="passFail">
+Pass
+</div>
 
 </div>
 
@@ -322,7 +425,7 @@ Use the EZ Grader chart to grade an entire test in seconds.
 <h2>EZ Grader Chart</h2>
 
 <p>
-Complete grading chart for your selected number of questions.
+Complete grading chart for your selected number of questions and grading scale.
 </p>
 
 <div class="table-wrap">
@@ -344,7 +447,9 @@ Complete grading chart for your selected number of questions.
 
 </div>
 
-<button class="no-print" onclick="window.print()">Print Chart</button>
+<button class="no-print" onclick="window.print()">
+Print Chart
+</button>
 
 </div>
 
@@ -354,13 +459,13 @@ Complete grading chart for your selected number of questions.
 <h2>What Is an Easy Grader?</h2>
 
 <p>
-An Easy Grader, also called an EZ Grader, converts the number of correct and wrong answers into a percentage and letter grade.
+An Easy Grader, also called an EZ Grader, converts correct or wrong answers into a percentage and letter grade.
 </p>
 
 <h2>How to Use the Easy Grader</h2>
 
 <p>
-Enter the total number of questions and the number of wrong answers. The calculator instantly shows the correct answers, percentage, letter grade, and pass or fail result.
+Enter the total number of questions, enter the number of wrong answers, select your grading scale, and calculate the result.
 </p>
 
 <h2>Easy Grader Formula</h2>
@@ -373,34 +478,34 @@ Correct Answers = Total Questions − Wrong Answers
 Percentage = (Correct Answers ÷ Total Questions) × 100
 </p>
 
-<h2>Standard Grading Scale</h2>
-
-<p>A = 90–100%</p>
-<p>B = 80–89%</p>
-<p>C = 70–79%</p>
-<p>D = 60–69%</p>
-<p>F = Below 60%</p>
-
 <h2>Frequently Asked Questions</h2>
 
 <div class="faq">
 <strong>What is an Easy Grader?</strong>
-<p>An Easy Grader is a tool that quickly converts wrong answers into a percentage and letter grade.</p>
+<p>
+An Easy Grader is a grading tool that converts the number of wrong answers into a percentage and letter grade.
+</p>
 </div>
 
 <div class="faq">
 <strong>Is Easy Grader the same as EZ Grader?</strong>
-<p>Yes. Easy Grader and EZ Grader are commonly used names for the same type of grading tool.</p>
+<p>
+Yes. Easy Grader and EZ Grader are commonly used names for this type of grading calculator and chart.
+</p>
 </div>
 
 <div class="faq">
-<strong>Can I print the Easy Grader chart?</strong>
-<p>Yes. Use the Print Chart button to print the grading chart or save it as a PDF through your browser's print options.</p>
+<strong>Can I use a custom grading scale?</strong>
+<p>
+Yes. Select Custom and enter the minimum percentage required for each letter grade.
+</p>
 </div>
 
 <div class="faq">
-<strong>Is this Easy Grader free?</strong>
-<p>Yes. This calculator is free to use online.</p>
+<strong>Can I print the EZ Grader chart?</strong>
+<p>
+Yes. Click Print Chart to print the chart or save it as a PDF through your browser.
+</p>
 </div>
 
 </div>
@@ -410,17 +515,76 @@ Percentage = (Correct Answers ÷ Total Questions) × 100
 
 <script>
 
+let currentScale="standard";
+
+let customGrades=[
+{grade:"A",min:90},
+{grade:"B",min:80},
+{grade:"C",min:70},
+{grade:"D",min:60},
+{grade:"F",min:0}
+];
+
+
 function getGrade(percent){
-if(percent>=90)return"A";
-if(percent>=80)return"B";
-if(percent>=70)return"C";
-if(percent>=60)return"D";
-return"F";
+
+let grades;
+
+if(currentScale==="standard"){
+
+grades=[
+{grade:"A",min:90},
+{grade:"B",min:80},
+{grade:"C",min:70},
+{grade:"D",min:60},
+{grade:"F",min:0}
+];
+
 }
+
+else if(currentScale==="plus"){
+
+grades=[
+{grade:"A+",min:97},
+{grade:"A",min:93},
+{grade:"A-",min:90},
+{grade:"B+",min:87},
+{grade:"B",min:83},
+{grade:"B-",min:80},
+{grade:"C+",min:77},
+{grade:"C",min:73},
+{grade:"C-",min:70},
+{grade:"D+",min:67},
+{grade:"D",min:63},
+{grade:"D-",min:60},
+{grade:"F",min:0}
+];
+
+}
+
+else{
+
+grades=customGrades;
+
+}
+
+for(let i=0;i<grades.length;i++){
+
+if(percent>=grades[i].min){
+return grades[i].grade;
+}
+
+}
+
+return "F";
+
+}
+
 
 function changeTotal(amount){
 
 let input=document.getElementById("total");
+
 let value=parseInt(input.value)||1;
 
 value+=amount;
@@ -430,9 +594,11 @@ if(value<1)value=1;
 input.value=value;
 
 updateWrongLimit();
-generateChart(value);
+
+calculateGrade();
 
 }
+
 
 function setTotal(value){
 
@@ -440,19 +606,23 @@ document.getElementById("total").value=value;
 
 updateWrongLimit();
 
-generateChart(value);
+calculateGrade();
 
 }
+
 
 function changeWrong(amount){
 
 let total=parseInt(document.getElementById("total").value)||1;
+
 let input=document.getElementById("wrong");
+
 let value=parseInt(input.value)||0;
 
 value+=amount;
 
 if(value<0)value=0;
+
 if(value>total)value=total;
 
 input.value=value;
@@ -461,9 +631,11 @@ calculateGrade();
 
 }
 
+
 function updateWrongLimit(){
 
 let total=parseInt(document.getElementById("total").value)||1;
+
 let wrong=document.getElementById("wrong");
 
 if(parseInt(wrong.value)>total){
@@ -474,36 +646,130 @@ generateChart(total);
 
 }
 
+
+function setScale(scale){
+
+currentScale=scale;
+
+document.getElementById("standardBtn").classList.remove("active");
+document.getElementById("plusBtn").classList.remove("active");
+document.getElementById("customBtn").classList.remove("active");
+
+if(scale==="standard"){
+document.getElementById("standardBtn").classList.add("active");
+}
+
+if(scale==="plus"){
+document.getElementById("plusBtn").classList.add("active");
+}
+
+if(scale==="custom"){
+document.getElementById("customBtn").classList.add("active");
+}
+
+document.getElementById("customBox").style.display=
+scale==="custom"?"block":"none";
+
+calculateGrade();
+
+}
+
+
+function applyCustomScale(){
+
+let text=document.getElementById("customScale").value;
+
+let parts=text.split(",");
+
+let grades=[];
+
+for(let i=0;i<parts.length;i++){
+
+let item=parts[i].trim();
+
+let match=item.match(/^(.+?)\s+(\d+(?:\.\d+)?)$/);
+
+if(match){
+
+grades.push({
+grade:match[1].trim(),
+min:parseFloat(match[2])
+});
+
+}
+
+}
+
+grades.sort(function(a,b){
+return b.min-a.min;
+});
+
+if(grades.length<2){
+
+alert("Please enter a valid grading scale.");
+return;
+
+}
+
+customGrades=grades;
+
+currentScale="custom";
+
+generateChart(parseInt(document.getElementById("total").value)||1);
+
+calculateGrade();
+
+alert("Custom grading scale applied.");
+
+}
+
+
 function calculateGrade(){
 
 let total=parseInt(document.getElementById("total").value);
+
 let wrong=parseInt(document.getElementById("wrong").value);
 
 if(!total || total<1){
+
 alert("Please enter the total number of questions.");
+
 return;
+
 }
 
 if(isNaN(wrong) || wrong<0 || wrong>total){
+
 alert("Please enter a valid number of wrong answers.");
+
 return;
+
 }
 
 let correct=total-wrong;
+
 let percentage=(correct/total)*100;
+
 let grade=getGrade(percentage);
 
 document.getElementById("correct").textContent=correct;
+
 document.getElementById("wrongResult").textContent=wrong;
-document.getElementById("percentage").textContent=percentage.toFixed(2)+"%";
+
+document.getElementById("percentage").textContent=
+percentage.toFixed(2)+"%";
+
 document.getElementById("grade").textContent=grade;
-document.getElementById("passFail").textContent=percentage>=60?"Pass":"Fail";
+
+document.getElementById("passFail").textContent=
+percentage>=60?"Pass":"Fail";
 
 document.getElementById("result").style.display="block";
 
 generateChart(total);
 
 }
+
 
 function generateChart(total){
 
@@ -512,7 +778,9 @@ let chart="";
 for(let wrong=0;wrong<=total;wrong++){
 
 let correct=total-wrong;
+
 let percentage=(correct/total)*100;
+
 let grade=getGrade(percentage);
 
 chart+=`
@@ -530,16 +798,33 @@ document.getElementById("chart").innerHTML=chart;
 
 }
 
+
 function resetCalculator(){
 
 document.getElementById("total").value=25;
+
 document.getElementById("wrong").value=0;
 
-document.getElementById("result").style.display="none";
+currentScale="standard";
 
-generateChart(25);
+customGrades=[
+{grade:"A",min:90},
+{grade:"B",min:80},
+{grade:"C",min:70},
+{grade:"D",min:60},
+{grade:"F",min:0}
+];
+
+document.getElementById("standardBtn").classList.add("active");
+document.getElementById("plusBtn").classList.remove("active");
+document.getElementById("customBtn").classList.remove("active");
+
+document.getElementById("customBox").style.display="none";
+
+calculateGrade();
 
 }
+
 
 generateChart(25);
 calculateGrade();
@@ -547,4 +832,4 @@ calculateGrade();
 </script>
 
 </body>
-</html>
+  </html>
