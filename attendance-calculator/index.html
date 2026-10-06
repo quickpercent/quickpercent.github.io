@@ -2,307 +2,154 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Attendance Calculator – Calculate Attendance Percentage | QuickPercent</title>
+<title>Attendance Calculator – Calculate Class Attendance Percentage Online</title>
+<meta name="description" content="Free online Attendance Calculator. Calculate your attendance percentage, how many classes you can miss, or how many classes you need to attend to reach your target attendance.">
+<meta name="keywords" content="Attendance Calculator, Class Attendance Calculator, College Attendance Calculator, Safe Bunk Calculator">
 
-<meta name="description" content="Free Attendance Calculator to calculate your attendance percentage and find how many classes you can miss or need to attend to reach your target.">
 <meta name="robots" content="index, follow">
+<meta name="author" content="Easy Grader">
+<meta name="theme-color" content="#2563eb">
 <link rel="canonical" href="https://quickpercent.github.io/attendance-calculator/">
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Attendance Calculator | QuickPercent">
-<meta property="og:description" content="Calculate attendance percentage and check classes needed to reach your target attendance.">
-<meta property="og:url" content="https://quickpercent.github.io/attendance-calculator/">
-<meta property="og:site_name" content="QuickPercent">
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-*{box-sizing:border-box}
-body{
-margin:0;background:#fff;color:#102b55;
-font-family:Arial,Helvetica,sans-serif
-}
-button,input{font:inherit}
-button{cursor:pointer}
-.header{
-height:66px;background:#fff;display:flex;align-items:center;
-padding:0 5%;border-bottom:1px solid #edf1f6;
-position:sticky;top:0;z-index:10
-}
-.logo{display:flex;align-items:center;gap:8px;font-size:25px;font-weight:900}
-.logo-mark{
-width:38px;height:38px;border-radius:50%;display:grid;
-place-items:center;background:linear-gradient(135deg,#1764df,#16b98a);
-color:#fff;font-size:18px
-}
-.logo-blue{color:#102b55}.logo-blue2{color:#1764df}
-.nav{display:flex;gap:38px;margin:auto}
-.nav a{
-color:#102b55;text-decoration:none;font-size:13px;font-weight:700;
-padding:23px 0 20px
-}
-.nav a.active{color:#1764df;border-bottom:2px solid #1764df}
-.page{max-width:900px;margin:auto;padding:28px 20px 45px}
-.breadcrumb{font-size:12px;color:#63738b;margin:0 0 18px}
-.breadcrumb a{color:#1764df;text-decoration:none}
-.content-card{
-background:#fff;border:1px solid #e1e9f1;border-radius:14px;
-padding:22px;box-shadow:0 4px 15px rgba(30,55,95,.025);
-margin-bottom:18px
-}
-.content-card h1{font-size:34px;margin:0 0 10px}
-.content-card h2{font-size:22px;margin:0 0 10px}
-.content-card p,.content-card li{
-color:#5f718d;font-size:14px;line-height:1.7
-}
-.content-card ol{padding-left:22px}
-.calc-box{
-background:#f8fbff;border:1px solid #dfe7f0;
-border-radius:13px;padding:18px
-}
-label{display:block;font-size:12px;font-weight:800;margin:11px 0 6px}
-input{
-width:100%;height:43px;border:1px solid #ccd5e2;
-border-radius:10px;background:#fff;padding:0 11px;color:#17345e
-}
-.calc-btn{
-width:100%;min-height:43px;border:0;border-radius:10px;
-background:#1764df;color:#fff;font-weight:800;margin-top:14px
-}
-.result{
-display:none;margin-top:13px;padding:14px;border-radius:10px;
-background:#eaf2ff;font-size:14px;line-height:1.7
-}
-.result.show{display:block}
-.formula{
-background:#f0f7ff;border-left:4px solid #1764df;
-padding:13px 15px;border-radius:8px;color:#17345e;margin:12px 0
-}
-.example{
-background:#f6f8fb;padding:13px 15px;border-radius:8px;color:#17345e
-}
-footer{
-background:#102b55;color:#fff;padding:17px 5%;display:flex;
-align-items:center;justify-content:space-between;font-size:11px
-}
-.footer-brand{display:flex;align-items:center;gap:7px}
-.footer-brand .logo-mark{width:31px;height:31px;font-size:15px}
-.footer-brand b{font-size:20px}
-.footer-brand b span{color:#20c49b}
-.footer-nav{display:flex;gap:20px}
-.footer-nav a{color:#fff;text-decoration:none}
+*{box-sizing:border-box;}
+body{margin:0;font-family:'Inter', sans-serif;background:#f8fafc;color:#1e293b;display:flex;flex-direction:column;min-height:100vh;}
+header{background:#ffffff;border-bottom:1px solid #e2e8f0;padding:14px 24px;position:sticky;top:0;z-index:100;}
+.header-container{max-width:1200px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;}
+.brand-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.brand-icon{width:38px;height:38px;background:linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);color:#fff;border-radius:10px;display:flex;align-items:center;justify-content:center;font-weight:800;}
+.brand-name{font-size:22px;font-weight:800;color:#0f172a;}
+.brand-name span{color:#2563eb;}
+nav{display:flex;gap:24px;}
+nav a{color:#475569;text-decoration:none;font-weight:600;font-size:14px;}
+nav a:hover, nav a.active{color:#2563eb;}
+
+.container{max-width:800px;margin:40px auto;padding:0 20px;flex:1;}
+.card{background:#fff;border-radius:16px;padding:28px;margin-bottom:28px;border:1px solid #e2e8f0;box-shadow:0 4px 20px rgba(0,0,0,0.03);}
+.title{font-size:24px;font-weight:800;color:#0f172a;margin-bottom:20px;}
+
+.field{display:flex;flex-direction:column;margin-bottom:16px;}
+.field label{font-weight:700;margin-bottom:8px;color:#334155;font-size:14px;}
+input{padding:12px;border:1px solid #cbd5e1;border-radius:8px;font-size:15px;outline:none;}
+input:focus{border-color:#2563eb;}
+
+.calc-btn{width:100%;background:#2563eb;color:#fff;border:0;padding:15px;border-radius:10px;font-size:16px;font-weight:700;cursor:pointer;margin-top:10px;}
+.result-box{margin-top:24px;background:#f8fafc;border:1px solid #e2e8f0;padding:20px;border-radius:12px;text-align:center;}
+.result-score{font-size:36px;font-weight:800;color:#2563eb;margin-top:5px;}
+.result-status{margin-top:10px;font-size:15px;font-weight:600;color:#475569;}
+
+footer{background:#0f172a;color:#94a3b8;padding:40px 20px;margin-top:auto;}
+.footer-container{max-width:1100px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;}
+.footer-container a{color:#94a3b8;text-decoration:none;margin-left:15px;}
+
 @media(max-width:600px){
-.header{height:61px;padding:0 15px}
-.logo{font-size:21px}.logo-mark{width:33px;height:33px}
-.nav{display:none}
-.page{padding:20px 14px 34px}
-.content-card{padding:17px}
-.content-card h1{font-size:28px}
-footer{display:block;text-align:center;line-height:1.8}
-.footer-nav{justify-content:center;margin-top:7px}
+  nav{display:none;}
 }
 </style>
 </head>
-
 <body>
 
-<header class="header">
-<div class="logo">
-<span class="logo-mark">Q</span>
-<span class="logo-blue">Quick<span class="logo-blue2">Percent</span></span>
-</div>
-
-<nav class="nav">
-<a href="https://quickpercent.github.io/">Home</a>
-<a class="active" href="https://quickpercent.github.io/">Calculators</a>
-<a href="https://quickpercent.github.io/">Tools</a>
-</nav>
+<header>
+  <div class="header-container">
+    <a href="https://quickpercent.github.io/" class="brand-logo">
+      <div class="brand-icon">EG</div>
+      <div class="brand-name">Easy<span>Grader</span></div>
+    </a>
+    <nav>
+      <a href="https://quickpercent.github.io/">Easy Grader</a>
+      <a href="https://quickpercent.github.io/gpa-calculator/">GPA Calculator</a>
+      <a href="https://quickpercent.github.io/cgpa-calculator/">CGPA Calculator</a>
+      <a href="https://quickpercent.github.io/attendance-calculator/" class="active">Attendance Calculator</a>
+    </nav>
+  </div>
 </header>
 
-<main class="page">
+<div class="container">
+  <div class="card">
+    <div class="title">Class Attendance Calculator</div>
 
-<div class="breadcrumb">
-<a href="https://quickpercent.github.io/">Home</a>
-→ Calculators → Attendance Calculator
+    <div class="field">
+      <label for="presentClasses">Classes Attended (Present)</label>
+      <input type="number" id="presentClasses" placeholder="e.g. 45" min="0">
+    </div>
+
+    <div class="field">
+      <label for="totalClasses">Total Classes Held So Far</label>
+      <input type="number" id="totalClasses" placeholder="e.g. 50" min="1">
+    </div>
+
+    <div class="field">
+      <label for="targetPercent">Required Attendance Goal (%)</label>
+      <input type="number" id="targetPercent" value="75" min="1" max="100">
+    </div>
+
+    <button class="calc-btn" onclick="calculateAttendance()">Calculate Attendance</button>
+
+    <div class="result-box">
+      <div style="font-size:14px; font-weight:600; color:#64748b;">CURRENT ATTENDANCE</div>
+      <div class="result-score" id="attendancePercent">0%</div>
+      <div class="result-status" id="attendanceStatus">Enter your class details above.</div>
+    </div>
+  </div>
 </div>
-
-<section class="content-card">
-
-<h1>Attendance Calculator</h1>
-
-<p>
-Calculate your attendance percentage instantly. Enter the classes
-attended and total classes to find your current attendance and check
-how many future classes you need to attend to reach your target.
-</p>
-
-<div class="calc-box">
-
-<label>Classes Attended</label>
-<input id="attended" type="number" min="0" placeholder="e.g. 42">
-
-<label>Total Classes</label>
-<input id="total" type="number" min="1" placeholder="e.g. 50">
-
-<label>Target Attendance (%)</label>
-<input id="target" type="number" min="0" max="100" placeholder="e.g. 75">
-
-<button class="calc-btn" onclick="calculateAttendance()">
-Calculate Attendance
-</button>
-
-<div id="result" class="result"></div>
-
-</div>
-</section>
-
-<section class="content-card">
-
-<h2>How to use the Attendance Calculator</h2>
-
-<ol>
-<li>Enter the number of classes you attended.</li>
-<li>Enter the total number of classes.</li>
-<li>Enter your desired target attendance percentage.</li>
-<li>Tap Calculate Attendance.</li>
-<li>Your current attendance and required classes will appear.</li>
-</ol>
-
-</section>
-
-<section class="content-card">
-
-<h2>Attendance calculation formula</h2>
-
-<div class="formula">
-<strong>Attendance % =</strong>
-(Classes Attended ÷ Total Classes) × 100
-</div>
-
-<p>
-To reach a target attendance, the calculator determines how many
-consecutive classes you need to attend.
-</p>
-
-</section>
-
-<section class="content-card">
-
-<h2>Example</h2>
-
-<div class="example">
-<strong>Classes attended:</strong> 42<br>
-<strong>Total classes:</strong> 50<br>
-<strong>Current attendance:</strong> 84%
-<br><br>
-If your target is 90%, you need to attend additional classes until
-your attendance reaches the target.
-</div>
-
-</section>
-
-<section class="content-card">
-
-<h2>Frequently asked questions</h2>
-
-<p>
-<strong>How is attendance percentage calculated?</strong><br>
-Divide classes attended by total classes and multiply by 100.
-</p>
-
-<p>
-<strong>Can I find how many classes I need to attend?</strong><br>
-Yes. Enter your target attendance and the calculator will calculate
-the additional classes required.
-</p>
-
-<p>
-<strong>Can I use this for school, college or university?</strong><br>
-Yes. The calculator can be used for any class attendance calculation.
-</p>
-
-</section>
-
-<section class="content-card">
-<h2>More calculators</h2>
-<p>
-<a href="https://quickpercent.github.io/"
-style="color:#1764df;font-weight:800;text-decoration:none">
-Explore all QuickPercent calculators →
-</a>
-</p>
-</section>
-
-</main>
 
 <footer>
-
-<div class="footer-brand">
-<span class="logo-mark">Q</span>
-<b>Quick<span>Percent</span></b>
-</div>
-
-<div>© 2025 QuickPercent. All rights reserved.</div>
-
-<div class="footer-nav">
-<a href="https://quickpercent.github.io/">Home</a>
-<a href="https://quickpercent.github.io/">Calculators</a>
-</div>
-
+  <div class="footer-container">
+    <p>&copy; 2026 Easy Grader. All rights reserved.</p>
+    <div>
+      <a href="https://quickpercent.github.io/">Easy Grader</a>
+      <a href="https://quickpercent.github.io/attendance-calculator/">Attendance Calculator</a>
+    </div>
+  </div>
 </footer>
 
 <script>
 function calculateAttendance(){
+  const present = parseFloat(document.getElementById("presentClasses").value);
+  const total = parseFloat(document.getElementById("totalClasses").value);
+  const target = parseFloat(document.getElementById("targetPercent").value);
 
-let attended = parseFloat(document.getElementById("attended").value);
-let total = parseFloat(document.getElementById("total").value);
-let target = parseFloat(document.getElementById("target").value);
-let result = document.getElementById("result");
+  if(isNaN(present) || isNaN(total) || total <= 0 || present < 0 || present > total){
+    document.getElementById("attendancePercent").textContent = "0%";
+    document.getElementById("attendanceStatus").textContent = "Please enter valid number of classes.";
+    return;
+  }
 
-if(isNaN(attended) || isNaN(total) || isNaN(target)){
-result.innerHTML="Please enter all values.";
-result.classList.add("show");
-return;
-}
+  const currentPercent = (present / total) * 100;
+  document.getElementById("attendancePercent").textContent = currentPercent.toFixed(2) + "%";
 
-if(total <= 0 || attended < 0 || attended > total){
-result.innerHTML="Please enter valid class numbers.";
-result.classList.add("show");
-return;
-}
+  const statusEl = document.getElementById("attendanceStatus");
 
-if(target < 0 || target > 100){
-result.innerHTML="Target attendance must be between 0% and 100%.";
-result.classList.add("show");
-return;
-}
-
-let percentage = (attended / total) * 100;
-
-let message =
-"<strong>Current Attendance:</strong> " + percentage.toFixed(2) + "%";
-
-if(percentage >= target){
-message += "<br><strong>Target:</strong> You have already reached your target.";
-}else{
-
-let needed = Math.ceil(
-((target / 100) * total - attended) / (1 - target / 100)
-);
-
-if(target === 100){
-needed = total - attended;
-}
-
-message +=
-"<br><strong>Target:</strong> " + target + "%" +
-"<br><strong>Classes to attend:</strong> " + needed;
-}
-
-result.innerHTML = message;
-result.classList.add("show");
+  if(currentPercent >= target){
+    // Student can afford to miss some classes
+    let maxAbsents = 0;
+    while(((present) / (total + maxAbsents + 1)) * 100 >= target){
+      maxAbsents++;
+    }
+    if(maxAbsents > 0){
+      statusEl.textContent = `Great! You can safely miss (bunk) next ${maxAbsents} class(es) and still keep ${target}% attendance.`;
+      statusEl.style.color = "#16a34a";
+    } else {
+      statusEl.textContent = `You are exactly at target! Do not miss the next class to stay above ${target}%.`;
+      statusEl.style.color = "#d97706";
+    }
+  } else {
+    // Student needs to attend more classes
+    let neededClasses = 0;
+    while(((present + neededClasses) / (total + neededClasses)) * 100 < target){
+      neededClasses++;
+    }
+    statusEl.textContent = `Warning: You need to attend next ${neededClasses} class(es) continuously to reach ${target}% attendance.`;
+    statusEl.style.color = "#dc2626";
+  }
 }
 </script>
-
 </body>
 </html>
