@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Easy Grader Calculator – Free EZ Grader Online</title>
-<meta name="description" content="Free Easy Grader Calculator and EZ Grader online for tests, quizzes, and exams. Quickly calculate test grades, correct answers, percentages, letter grades, and print your custom grading scale chart.">
-<meta name="keywords" content="Easy Grader, EZ Grader, Easy Grader Calculator, Test Grade Calculator, Quiz Grade Calculator, Letter Grade Calculator, Grading Chart, EZ Grader Online, Printable Easy Grader">
+<meta name="description" content="Free Easy Grader Calculator & EZ Grader online for tests, quizzes, and exams. Calculate correct answers, percentages, letter grades, pass/fail status, and print grading charts easily.">
+<meta name="keywords" content="Easy Grader, EZ Grader, Easy Grader Calculator, Test Grade Calculator, Quiz Grade Calculator, Letter Grade Calculator, Printable Easy Grader Chart, Teacher Grading Scale">
 
 <meta name="robots" content="index, follow">
 <meta name="author" content="Easy Grader">
@@ -25,41 +25,91 @@
 
 body{
   margin:0;
-  font-family:Arial,Helvetica,sans-serif;
-  background:#f1f5f9;
-  color:#1f2937;
+  font-family:-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background:#f8fafc;
+  color:#1e293b;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header{
+  background:#ffffff;
+  border-bottom:1px solid #e2e8f0;
+  padding:15px 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.header-container{
+  max-width:1100px;
+  margin:0 auto;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:22px;
+  font-weight:800;
+  color:#2563eb;
+  text-decoration:none;
+  display:flex;
+  align-items:center;
+  gap:8px;
+}
+
+.logo span{
+  color:#0f172a;
+}
+
+nav a{
+  color:#475569;
+  text-decoration:none;
+  font-weight:600;
+  font-size:15px;
+  margin-left:20px;
+  transition:color 0.2s;
+}
+
+nav a:hover{
+  color:#2563eb;
 }
 
 .container{
   max-width:900px;
-  margin:auto;
-  padding:20px;
+  margin:30px auto;
+  padding:0 20px;
+  flex:1;
 }
 
 h1{
   text-align:center;
   margin:10px 0 8px;
   font-size:32px;
+  color:#0f172a;
 }
 
 .subtitle{
   text-align:center;
   color:#64748b;
   margin-bottom:25px;
+  font-size:16px;
 }
 
 .card{
   background:#fff;
   border-radius:14px;
-  padding:20px;
-  margin-bottom:20px;
-  box-shadow:0 3px 12px rgba(0,0,0,.08);
+  padding:24px;
+  margin-bottom:24px;
+  box-shadow:0 4px 14px rgba(0,0,0,.05);
+  border:1px solid #f1f5f9;
 }
 
 .section-title{
   font-size:20px;
   font-weight:bold;
   margin-bottom:15px;
+  color:#0f172a;
 }
 
 .controls{
@@ -76,6 +126,7 @@ h1{
 .field label{
   font-weight:bold;
   margin-bottom:7px;
+  color:#334155;
 }
 
 .input-row{
@@ -92,6 +143,7 @@ select{
   border-radius:9px;
   font-size:16px;
   background:#fff;
+  color:#0f172a;
 }
 
 .small-btn{
@@ -104,6 +156,7 @@ select{
   font-size:22px;
   font-weight:bold;
   cursor:pointer;
+  color:#334155;
 }
 
 .small-btn:hover{
@@ -124,6 +177,7 @@ select{
   background:#e2e8f0;
   cursor:pointer;
   font-weight:bold;
+  color:#334155;
 }
 
 .quick-select button:hover{
@@ -150,11 +204,13 @@ select{
   border-radius:9px;
   cursor:pointer;
   font-weight:bold;
+  color:#334155;
 }
 
 .scale-btn.active{
   background:#1f2937;
   color:#fff;
+  border-color:#1f2937;
 }
 
 .custom-box{
@@ -190,6 +246,8 @@ select{
   align-items:center;
   gap:8px;
   margin-top:15px;
+  color:#334155;
+  font-weight:600;
 }
 
 .checkbox-row input{
@@ -207,6 +265,7 @@ select{
   font-weight:bold;
   cursor:pointer;
   margin-top:20px;
+  transition:background 0.2s;
 }
 
 .calculate-btn:hover{
@@ -315,28 +374,17 @@ select{
   background:#e2e8f0;
   font-weight:bold;
   cursor:pointer;
+  color:#334155;
 }
 
 .reset-btn:hover{
   background:#cbd5e1;
 }
 
-.faq h2{
+.seo-content h2, .faq h2{
   font-size:22px;
-}
-
-.faq-item{
-  margin-bottom:15px;
-}
-
-.faq-item strong{
-  display:block;
-  margin-bottom:5px;
-}
-
-.seo-content h2{
-  font-size:22px;
-  margin:8px 0 10px;
+  margin:8px 0 12px;
+  color:#0f172a;
 }
 
 .seo-content p, .seo-content ul, .seo-content ol{
@@ -353,13 +401,105 @@ select{
   margin-top:24px;
 }
 
+.faq-item{
+  margin-bottom:15px;
+  border-bottom:1px solid #f1f5f9;
+  padding-bottom:12px;
+}
+
+.faq-item:last-child{
+  border-bottom:none;
+}
+
+.faq-item strong{
+  display:block;
+  margin-bottom:6px;
+  color:#1e293b;
+  font-size:16px;
+}
+
+.faq-item p{
+  margin:0;
+  color:#475569;
+  line-height:1.6;
+}
+
+footer{
+  background:#0f172a;
+  color:#94a3b8;
+  padding:40px 20px 20px;
+  margin-top:auto;
+}
+
+.footer-container{
+  max-width:1100px;
+  margin:0 auto;
+  display:grid;
+  grid-template-columns:2fr 1fr 1fr;
+  gap:40px;
+}
+
+.footer-brand h3{
+  color:#fff;
+  font-size:20px;
+  margin:0 0 12px;
+}
+
+.footer-brand p{
+  line-height:1.6;
+  font-size:14px;
+}
+
+.footer-links h4{
+  color:#fff;
+  font-size:16px;
+  margin:0 0 15px;
+}
+
+.footer-links ul{
+  list-style:none;
+  padding:0;
+  margin:0;
+}
+
+.footer-links li{
+  margin-bottom:10px;
+}
+
+.footer-links a{
+  color:#94a3b8;
+  text-decoration:none;
+  font-size:14px;
+  transition:color 0.2s;
+}
+
+.footer-links a:hover{
+  color:#38bdf8;
+}
+
+.footer-bottom{
+  max-width:1100px;
+  margin:30px auto 0;
+  padding-top:20px;
+  border-top:1px solid #1e293b;
+  text-align:center;
+  font-size:13px;
+}
+
+@media(max-width:768px){
+  .footer-container{
+    grid-template-columns:1fr;
+    gap:25px;
+  }
+}
+
 @media(max-width:650px){
   .container{
-    padding:12px;
+    padding:0 12px;
   }
 
   h1{
-    font-size:27px;
+    font-size:26px;
   }
 
   .controls,
@@ -396,6 +536,10 @@ select{
 }
 
 @media print{
+  header, footer, nav, .seo-content, .faq, .reset-btn{
+    display:none !important;
+  }
+
   body *{
     visibility:hidden;
   }
@@ -422,12 +566,24 @@ select{
 
 <body>
 
+<header>
+  <div class="header-container">
+    <a href="#" class="logo">Easy Grader <span>Calculator</span></a>
+    <nav>
+      <a href="#calculator">Calculator</a>
+      <a href="#chartCard">Chart</a>
+      <a href="#about">About</a>
+      <a href="#faq">FAQs</a>
+    </nav>
+  </div>
+</header>
+
 <div class="container">
 
-<h1>Easy Grader Calculator – Free EZ Grader</h1>
+<h1 id="calculator">Easy Grader Calculator – Free EZ Grader</h1>
 
 <p class="subtitle">
-Free EZ Grader for tests, quizzes and exams
+Free EZ Grader for tests, quizzes, and exams
 </p>
 
 <div class="card">
@@ -559,233 +715,103 @@ Free EZ Grader for tests, quizzes and exams
 </div>
 
 <!-- EXTENDED SEO CONTENT -->
-<div class="card seo-content">
+<div class="card seo-content" id="about">
 <h2>Free Easy Grader Calculator</h2>
 <p>
 Our free <strong>Easy Grader Calculator</strong> is a simple way to turn the number of questions and wrong answers on a test, quiz, or exam into a percentage, correct-answer count, letter grade, and pass-or-fail result. Instead of calculating every score by hand, enter the test details and get the result immediately.
 </p>
-<p>
-The calculator is designed for the common situation where you know how many questions are on an assessment and how many answers were incorrect. It can be used by teachers checking a class, students checking a test score, tutors reviewing practice work, or parents helping with schoolwork.
-</p>
 
 <h2>What Is an Easy Grader?</h2>
 <p>
-An <strong>Easy Grader</strong> is a grading reference and calculator that makes test scoring faster. You enter the total number of questions and the number of wrong answers. The tool determines how many answers were correct, calculates the percentage, and matches the percentage to the selected grading scale.
-</p>
-<p>
-You may also see this type of tool called an <strong>EZ Grader</strong>, <strong>EZ Grader Calculator</strong>, <strong>Easy Grading Calculator</strong>, or <strong>Test Grade Calculator</strong>. The basic purpose is the same: quickly convert test results into a useful grade.
+An <strong>Easy Grader</strong> is a grading reference and calculator that makes test scoring faster. You enter the total number of questions and the number of wrong answers. The tool determines how many answers were correct, calculates the percentage, and matches the percentage to the selected grading scale. You may also see this type of tool called an <strong>EZ Grader</strong>, <strong>EZ Grader Calculator</strong>, <strong>Test Grade Calculator</strong>, or <strong>Quiz Grade Calculator</strong>.
 </p>
 
 <h2>How Does the EZ Grader Work?</h2>
 <p>
-The process is straightforward. First, enter the total number of questions. Next, enter how many questions were wrong. The calculator subtracts the wrong answers from the total to determine the correct answers. It then converts the correct-answer count into a percentage and applies the selected grading scale.
-</p>
-<ol>
-<li>Enter the total number of questions.</li>
-<li>Enter the number of wrong answers.</li>
-<li>Choose a grading scale if you want something other than the default scale.</li>
-<li>Choose a passing percentage when your class uses a different pass mark.</li>
-<li>Select <strong>Calculate Grade</strong> to see the result and grading chart.</li>
-</ol>
-
-<h2>Easy Grader Formula & Calculation</h2>
-<p>
-The percentage calculation is based on the number of correct answers. The formula is: <strong>Percentage = (Correct Answers ÷ Total Questions) × 100</strong>. Correct answers are found by subtracting wrong answers from total questions.
-</p>
-<p>
-For example, if a test has 25 questions and 5 are wrong, the student has 20 correct answers. The calculation is 20 ÷ 25 × 100 = <strong>80%</strong>. The letter grade then depends on the selected grading scale.
+The process is straightforward: enter total questions, enter wrong answers, select a grading scale, and hit calculate. The percentage calculation uses the formula: <strong>Percentage = (Correct Answers ÷ Total Questions) × 100</strong>.
 </p>
 
-<h2>Easy Grader Examples</h2>
-<p>
-On a 20-question test, 2 wrong answers means 18 correct answers. The score is 18 ÷ 20 × 100 = <strong>90%</strong>. On a 50-question test, 5 wrong answers means 45 correct answers, which is also <strong>90%</strong>.
-</p>
-<p>
-The same number of mistakes does not always produce the same percentage. Missing 3 questions on a 10-question test gives 70%, while missing 3 questions on a 10-question test gives 97%. That is why the total number of questions matters when grading a test.
-</p>
-
-<h2>Easy Grader Chart & Printable Grading Table</h2>
-<p>
-The built-in <strong>Easy Grader Chart</strong> provides a quick reference for the selected test size. Each row shows the number of wrong answers, correct answers, percentage, letter grade, and pass-or-fail status. This can be useful when grading multiple papers with the same number of questions.
-</p>
-<p>
-You can also use the print option to create a paper reference for a test or quiz. Change the total number of questions and the chart updates to match the assessment.
-</p>
-
-<h2>Key Supporting Tools & Features Included</h2>
-<p>
-This comprehensive <strong>Test Grade Calculator</strong> offers versatile options tailored to modern classroom needs:
-</p>
+<h2>Key Features of Our Test Grade Calculator</h2>
 <ul>
-<li><strong>EZ Grader Online:</strong> Instant calculation without installing additional software or mobile apps.</li>
-<li><strong>Quiz Grade Calculator:</strong> Perfect for small assessments ranging from 5 to 30 items.</li>
+<li><strong>EZ Grader Online:</strong> Fast grading calculations in your browser without app installation.</li>
 <li><strong>Letter Grade Calculator:</strong> Supports Standard, Plus/Minus (A+, A-), and Custom letter grade boundaries.</li>
-<li><strong>Half-Point Partial Credit:</strong> Toggle 0.5-point step deductions for partial credit scoring.</li>
-<li><strong>Keyboard Shortcuts:</strong> Press <code>W</code> to add wrong answers and <code>Z</code> to subtract wrong answers for rapid paper grading.</li>
-</ul>
-
-<h2>Grading Scale and Letter Grades</h2>
-<p>
-A percentage does not automatically have the same letter grade at every school. Some schools use a simple A, B, C, D, F scale, while others use plus and minus grades. This calculator lets you choose a standard scale, a plus-minus scale, or a custom scale so the displayed letter grade can match the grading rules you are using.
-</p>
-
-<h2>How to Calculate a Test Grade from Wrong Answers</h2>
-<p>
-If you know the total number of questions and the number of incorrect answers, you can calculate the test grade without entering every individual question. Subtract wrong answers from total questions to find correct answers, then divide correct answers by total questions and multiply by 100.
-</p>
-
-<h2>Custom Grading Scales for Teachers</h2>
-<p>
-Different classrooms and institutions may use different grade boundaries. The custom grading option lets you enter your own minimum percentage thresholds for the main letter grades. This is helpful when the standard scale does not match your class policy.
-</p>
-
-<h2>Why Use an Online Easy Grader?</h2>
-<ul>
-<li><strong>Fast:</strong> Get the percentage and grade without repeated manual calculations.</li>
-<li><strong>Simple:</strong> Enter total questions and wrong answers to get started.</li>
-<li><strong>Flexible:</strong> Use standard, plus-minus, or custom grading scales.</li>
-<li><strong>Useful for charts:</strong> See the possible scores for the selected test size.</li>
-<li><strong>Mobile friendly:</strong> Use the calculator from a phone, tablet, or computer browser.</li>
-<li><strong>Printable:</strong> Print the grading chart when a paper reference is useful.</li>
+<li><strong>Half-Point Credit:</strong> Enable 0.5-point deductions for partial credit scoring.</li>
+<li><strong>Printable Grade Chart:</strong> Print reference grading charts instantly for any total question count.</li>
 </ul>
 </div>
 
-<!-- FAQs CARD -->
-<div class="card faq">
+<!-- FAQS CARD WITH SCHEMA COMPATIBILITY -->
+<div class="card faq" id="faq">
 <h2>Easy Grader Frequently Asked Questions</h2>
 
 <div class="faq-item">
 <strong>1. What is an Easy Grader?</strong>
-An Easy Grader is a calculator that converts total questions and wrong answers into correct answers, a percentage, a letter grade, and a pass-or-fail result.
+<p>An Easy Grader is an online calculator and reference tool that converts total test questions and wrong answers into correct answers, percentages, letter grades, and pass-or-fail results.</p>
 </div>
 
 <div class="faq-item">
 <strong>2. What is an EZ Grader?</strong>
-EZ Grader is another common name for an easy grading calculator used to quickly score tests, quizzes, and exams.
+<p>EZ Grader is a widely used name for quick grading tools designed for teachers, students, and tutors to score test papers and quizzes without manual calculations.</p>
 </div>
 
 <div class="faq-item">
-<strong>3. How do I use the Easy Grader Calculator?</strong>
-Enter the total number of questions, enter the wrong answers, choose the grading options you need, and select Calculate Grade.
+<strong>3. How do I calculate a test grade from wrong answers?</strong>
+<p>Subtract wrong answers from total questions to find correct answers. Divide correct answers by total questions and multiply by 100 to get the score percentage.</p>
 </div>
 
 <div class="faq-item">
-<strong>4. How do I calculate a grade from wrong answers?</strong>
-Subtract the number of wrong answers from the total questions to find correct answers. Divide correct answers by total questions and multiply by 100 to get the percentage.
+<strong>4. What is the formula used by the Easy Grader Calculator?</strong>
+<p>The percentage formula is <code>(Correct Answers ÷ Total Questions) × 100</code>, where <code>Correct Answers = Total Questions - Wrong Answers</code>.</p>
 </div>
 
 <div class="faq-item">
-<strong>5. What is the formula for an Easy Grader?</strong>
-The percentage formula is (Correct Answers ÷ Total Questions) × 100. Correct answers equal Total Questions − Wrong Answers.
+<strong>5. Can I use half points for grading?</strong>
+<p>Yes. Simply enable the "Allow half points (0.5)" checkbox to calculate partial deductions like 1.5 or 2.5 wrong answers.</p>
 </div>
 
 <div class="faq-item">
-<strong>6. What grade is 90 percent?</strong>
-On the standard scale used by this calculator, 90% falls in the A range. A different school or custom grading policy may use different boundaries.
+<strong>6. Is this Easy Grader Calculator free to use?</strong>
+<p>Yes, this online EZ Grader calculator is completely free to use on desktop, tablet, and mobile devices without registration.</p>
+</div>
 </div>
 
-<div class="faq-item">
-<strong>7. What grade is 80 percent?</strong>
-On the standard scale used by this calculator, 80% falls in the B range. Check your school's grading policy if its boundaries are different.
 </div>
 
-<div class="faq-item">
-<strong>8. What grade is 70 percent?</strong>
-On the standard scale used by this calculator, 70% falls in the C range.
-</div>
-
-<div class="faq-item">
-<strong>9. Can I use an Easy Grader for a 10-question test?</strong>
-Yes. Enter 10 as the total number of questions. The chart will show the possible scores for that test size.
-</div>
-
-<div class="faq-item">
-<strong>10. Can I use an Easy Grader for a 20-question test?</strong>
-Yes. Enter 20 total questions and the number of wrong answers. The calculator will calculate the percentage and grade.
-</div>
-
-<div class="faq-item">
-<strong>11. Can I use an Easy Grader for a 50-question test?</strong>
-Yes. The calculator can be used for 50-question tests and other assessment sizes within the calculator's supported range.
-</div>
-
-<div class="faq-item">
-<strong>12. Can I use half points?</strong>
-Yes. Turn on Allow half points to work with values such as 2.5 wrong answers.
-</div>
-
-<div class="faq-item">
-<strong>13. Can I use a plus-minus grading scale?</strong>
-Yes. Select the Plus-Minus scale to display grades such as A+, A-, B+, B-, C+, C-, D+, and D-.
-</div>
-
-<div class="faq-item">
-<strong>14. Can I create a custom grading scale?</strong>
-Yes. Select Custom and enter your own minimum percentage thresholds for A, B, C, D, and F.
-</div>
-
-<div class="faq-item">
-<strong>15. Can I change the passing grade?</strong>
-Yes. Select the passing percentage that matches your test or classroom requirements.
-</div>
-
-<div class="faq-item">
-<strong>16. Can I print the Easy Grader chart?</strong>
-Yes. Select Print Chart to print the grading chart for the selected number of questions and grading settings.
-</div>
-
-<div class="faq-item">
-<strong>17. Can I use the Easy Grader on my phone?</strong>
-Yes. The calculator is designed to work in a mobile browser as well as on tablets and desktop computers.
-</div>
-
-<div class="faq-item">
-<strong>18. Can teachers use the Easy Grader?</strong>
-Yes. Teachers can use it to quickly check percentages and letter grades for quizzes, tests, and exams.
-</div>
-
-<div class="faq-item">
-<strong>19. Can students use the Easy Grader?</strong>
-Yes. Students can use it to understand what a test score means and check the percentage and letter grade.
-</div>
-
-<div class="faq-item">
-<strong>20. Does the Easy Grader calculate correct answers?</strong>
-Yes. It subtracts wrong answers from total questions and displays the resulting number of correct answers.
-</div>
-
-<div class="faq-item">
-<strong>21. Does the Easy Grader calculate test percentages?</strong>
-Yes. It calculates the percentage from correct answers and total questions.
-</div>
-
-<div class="faq-item">
-<strong>22. Can I use this for quizzes and exams?</strong>
-Yes. It can be used for quizzes, classroom tests, exams, and other question-based assessments.
-</div>
-
-<div class="faq-item">
-<strong>23. Does this calculator calculate weighted course grades?</strong>
-No. This Easy Grader is focused on question-based test, quiz, and exam scoring rather than weighted semester or course grades.
-</div>
-
-<div class="faq-item">
-<strong>24. Why can the same number of wrong answers produce different percentages?</strong>
-Because the total number of questions changes the value of each question. Three wrong answers on a 10-question test have a much larger percentage impact than three wrong answers on a 100-question test.
-</div>
-
-<div class="faq-item">
-<strong>25. Is the Easy Grader Calculator free?</strong>
-Yes. This Easy Grader Calculator is free to use in a web browser.
-</div>
-</div>
+<footer>
+  <div class="footer-container">
+    <div class="footer-brand">
+      <h3>Easy Grader Calculator</h3>
+      <p>The ultimate free online EZ Grader for teachers, professors, tutors, and students. Score tests, exams, and quizzes quickly with printable charts and customizable grading scales.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="#calculator">Grade Calculator</a></li>
+        <li><a href="#chartCard">Grading Chart</a></li>
+        <li><a href="#about">About EZ Grader</a></li>
+        <li><a href="#faq">FAQs</a></li>
+      </ul>
+    </div>
+    <div class="footer-links">
+      <h4>Legal & Info</h4>
+      <ul>
+        <li><a href="#">Privacy Policy</a></li>
+        <li><a href="#">Terms of Service</a></li>
+        <li><a href="#">Contact Support</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 Easy Grader Calculator. All rights reserved.</p>
+  </div>
+</footer>
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
   "name": "Easy Grader Calculator",
-  "alternateName": "EZ Grader",
+  "alternateName": "EZ Grader Online",
   "url": "https://quickpercent.github.io/easy-grader/",
   "applicationCategory": "EducationalApplication",
   "operatingSystem": "Any",
@@ -808,7 +834,7 @@ Yes. This Easy Grader Calculator is free to use in a web browser.
       "name": "What is an Easy Grader?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "An Easy Grader is a calculator that converts total questions and wrong answers into correct answers, a percentage, a letter grade, and a pass-or-fail result."
+        "text": "An Easy Grader is an online calculator and reference tool that converts total test questions and wrong answers into correct answers, percentages, letter grades, and pass-or-fail results."
       }
     },
     {
@@ -816,191 +842,39 @@ Yes. This Easy Grader Calculator is free to use in a web browser.
       "name": "What is an EZ Grader?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "EZ Grader is another common name for an easy grading calculator used to quickly score tests, quizzes, and exams."
+        "text": "EZ Grader is a widely used name for quick grading tools designed for teachers, students, and tutors to score test papers and quizzes without manual calculations."
       }
     },
     {
       "@type": "Question",
-      "name": "How do I use the Easy Grader Calculator?",
+      "name": "How do I calculate a test grade from wrong answers?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Enter the total number of questions, enter the wrong answers, choose the grading options you need, and select Calculate Grade."
+        "text": "Subtract wrong answers from total questions to find correct answers. Divide correct answers by total questions and multiply by 100 to get the score percentage."
       }
     },
     {
       "@type": "Question",
-      "name": "How do I calculate a grade from wrong answers?",
+      "name": "What is the formula used by the Easy Grader Calculator?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Subtract the number of wrong answers from the total questions to find correct answers. Divide correct answers by total questions and multiply by 100 to get the percentage."
+        "text": "The percentage formula is (Correct Answers ÷ Total Questions) × 100, where Correct Answers = Total Questions - Wrong Answers."
       }
     },
     {
       "@type": "Question",
-      "name": "What is the formula for an Easy Grader?",
+      "name": "Can I use half points for grading?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "The percentage formula is (Correct Answers ÷ Total Questions) × 100. Correct answers equal Total Questions − Wrong Answers."
+        "text": "Yes. Simply enable the 'Allow half points (0.5)' checkbox to calculate partial deductions like 1.5 or 2.5 wrong answers."
       }
     },
     {
       "@type": "Question",
-      "name": "What grade is 90 percent?",
+      "name": "Is this Easy Grader Calculator free to use?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "On the standard scale used by this calculator, 90% falls in the A range. A different school or custom grading policy may use different boundaries."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What grade is 80 percent?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "On the standard scale used by this calculator, 80% falls in the B range. Check your school's grading policy if its boundaries are different."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "What grade is 70 percent?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "On the standard scale used by this calculator, 70% falls in the C range."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I use an Easy Grader for a 10-question test?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Enter 10 as the total number of questions. The chart will show the possible scores for that test size."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I use an Easy Grader for a 20-question test?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Enter 20 total questions and the number of wrong answers. The calculator will calculate the percentage and grade."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I use an Easy Grader for a 50-question test?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. The calculator can be used for 50-question tests and other assessment sizes within the calculator's supported range."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I use half points?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Turn on Allow half points to work with values such as 2.5 wrong answers."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I use a plus-minus grading scale?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Select the Plus-Minus scale to display grades such as A+, A-, B+, B-, C+, C-, D+, and D-."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I create a custom grading scale?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Select Custom and enter your own minimum percentage thresholds for A, B, C, D, and F."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I change the passing grade?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Select the passing percentage that matches your test or classroom requirements."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I print the Easy Grader chart?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Select Print Chart to print the grading chart for the selected number of questions and grading settings."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I use the Easy Grader on my phone?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. The calculator is designed to work in a mobile browser as well as on tablets and desktop computers."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can teachers use the Easy Grader?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Teachers can use it to quickly check percentages and letter grades for quizzes, tests, and exams."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can students use the Easy Grader?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. Students can use it to understand what a test score means and check the percentage and letter grade."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does the Easy Grader calculate correct answers?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. It subtracts wrong answers from total questions and displays the resulting number of correct answers."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does the Easy Grader calculate test percentages?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. It calculates the percentage from correct answers and total questions."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I use this for quizzes and exams?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. It can be used for quizzes, classroom tests, exams, and other question-based assessments."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Does this calculator calculate weighted course grades?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "No. This Easy Grader is focused on question-based test, quiz, and exam scoring rather than weighted semester or course grades."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Why can the same number of wrong answers produce different percentages?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Because the total number of questions changes the value of each question. Three wrong answers on a 10-question test have a much larger percentage impact than three wrong answers on a 100-question test."
-      }
-    },
-    {
-      "@type": "Question",
-      "name": "Is the Easy Grader Calculator free?",
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": "Yes. This Easy Grader Calculator is free to use in a web browser."
+        "text": "Yes, this online EZ Grader calculator is completely free to use on desktop, tablet, and mobile devices without registration."
       }
     }
   ]
@@ -1300,6 +1174,5 @@ document.addEventListener("keydown", function(event){
 calculateGrade();
 </script>
 
-</div>
 </body>
 </html>
