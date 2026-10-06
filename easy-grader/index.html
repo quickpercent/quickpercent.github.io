@@ -1,1614 +1,1297 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Easy Grader – Free EZ Grader Calculator Online</title>
-  <meta name="description" content="Easy Grader is a free EZ Grader calculator for teachers and students. Calculate test grades, percentages, pass/fail results and grading charts instantly.">
-  <meta name="keywords" content="Easy Grader, EZ Grader, Easy Grader Calculator, EZ Grader Calculator, Easy Grading Calculator, Test Grade Calculator, Test Grading Calculator">
+<title>Easy Grader – Free EZ Grader Calculator Online</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<meta name="description" content="Easy Grader is a free EZ Grader calculator for teachers and students. Calculate test grades, percentages and pass or fail results instantly.">
 
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f5f7fb;
-      color: #1f2937;
-      line-height: 1.5;
-    }
+<style>
+*{box-sizing:border-box}
 
-    .container {
-      width: 100%;
-      max-width: 1050px;
-      margin: auto;
-      padding: 20px;
-    }
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#f5f7fb;
+color:#1f2937;
+line-height:1.5
+}
 
-    header {
-      text-align: center;
-      margin-bottom: 20px;
-    }
+.container{
+max-width:1000px;
+margin:auto;
+padding:18px
+}
 
-    header h1 {
-      margin: 0 0 8px;
-      font-size: 34px;
-      color: #111827;
-    }
+header{
+text-align:center;
+margin-bottom:20px
+}
 
-    header p {
-      margin: 0;
-      color: #6b7280;
-      font-size: 16px;
-    }
+h1{
+margin:0 0 6px;
+font-size:32px
+}
 
-    .card {
-      background: #fff;
-      border-radius: 14px;
-      padding: 20px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 18px rgba(0,0,0,0.06);
-    }
+header p{
+margin:0;
+color:#6b7280
+}
 
-    .card h2 {
-      margin-top: 0;
-      font-size: 21px;
-    }
+.card{
+background:#fff;
+border-radius:14px;
+padding:20px;
+margin-bottom:18px;
+box-shadow:0 3px 15px rgba(0,0,0,.06)
+}
 
-    .controls-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-    }
+h2{
+margin-top:0;
+font-size:21px
+}
 
-    .control-group {
-      margin-bottom: 5px;
-    }
+.grid{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:15px
+}
 
-    label {
-      display: block;
-      font-weight: 700;
-      margin-bottom: 7px;
-      font-size: 14px;
-    }
+label{
+display:block;
+font-weight:bold;
+font-size:14px;
+margin-bottom:6px
+}
 
-    input,
-    select {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #d1d5db;
-      border-radius: 9px;
-      font-size: 16px;
-      background: white;
-      color: #111827;
-    }
+input,select{
+width:100%;
+padding:11px;
+border:1px solid #d1d5db;
+border-radius:8px;
+font-size:16px;
+background:#fff
+}
 
-    input:focus,
-    select:focus {
-      outline: none;
-      border-color: #6b7280;
-    }
+.number{
+display:flex;
+gap:7px
+}
 
-    .number-control {
-      display: flex;
-      gap: 8px;
-    }
+.number input{
+flex:1;
+min-width:0
+}
 
-    .number-control input {
-      flex: 1;
-      min-width: 0;
-    }
+button{
+border:0;
+border-radius:8px;
+padding:11px 15px;
+font-size:15px;
+font-weight:bold;
+cursor:pointer;
+background:#111827;
+color:white
+}
 
-    button {
-      border: 0;
-      border-radius: 9px;
-      padding: 11px 15px;
-      font-size: 15px;
-      font-weight: 700;
-      cursor: pointer;
-      background: #111827;
-      color: white;
-      transition: 0.15s;
-    }
+button:active{
+transform:scale(.98)
+}
 
-    button:hover {
-      opacity: 0.88;
-    }
+.small{
+width:45px;
+padding:10px
+}
 
-    button:active {
-      transform: scale(0.98);
-    }
+.quick{
+display:flex;
+flex-wrap:wrap;
+gap:7px;
+margin-top:8px
+}
 
-    .small-btn {
-      min-width: 45px;
-      padding: 10px;
-    }
+.quick button{
+background:#374151
+}
 
-    .quick-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
+.quick button.active{
+background:#111827
+}
 
-    .quick-buttons button {
-      background: #374151;
-    }
+.calculate{
+width:100%;
+margin-top:16px;
+font-size:17px;
+padding:13px
+}
 
-    .quick-buttons button.active {
-      background: #111827;
-    }
+.result{
+text-align:center
+}
 
-    .calculate-btn {
-      width: 100%;
-      font-size: 18px;
-      padding: 14px;
-      margin-top: 8px;
-      background: #111827;
-    }
+.results{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:10px
+}
 
-    .result {
-      text-align: center;
-      border: 2px solid #e5e7eb;
-      background: #fafafa;
-    }
+.result-box{
+border:1px solid #e5e7eb;
+border-radius:10px;
+padding:13px
+}
 
-    .result h2 {
-      margin-bottom: 8px;
-    }
+.result-box span{
+display:block;
+font-size:13px;
+color:#6b7280
+}
 
-    .result-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 10px;
-      margin-top: 15px;
-    }
+.result-box strong{
+display:block;
+font-size:22px;
+margin-top:3px
+}
 
-    .result-item {
-      background: white;
-      border: 1px solid #e5e7eb;
-      border-radius: 10px;
-      padding: 15px 8px;
-    }
+.pass{
+color:#15803d!important
+}
 
-    .result-item span {
-      display: block;
-      color: #6b7280;
-      font-size: 13px;
-      margin-bottom: 4px;
-    }
+.fail{
+color:#b91c1c!important
+}
 
-    .result-item strong {
-      display: block;
-      font-size: 22px;
-      color: #111827;
-    }
+.checkbox{
+display:flex;
+align-items:center;
+gap:8px;
+margin-top:14px
+}
 
-    .pass {
-      color: #166534 !important;
-    }
+.checkbox input{
+width:auto
+}
 
-    .fail {
-      color: #b91c1c !important;
-    }
+.custom{
+display:none;
+margin-top:15px;
+padding:15px;
+border:1px solid #ddd;
+border-radius:10px;
+background:#fafafa
+}
 
-    .settings-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 16px;
-    }
+.custom.show{
+display:block
+}
 
-    .checkbox-row {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      margin-top: 8px;
-    }
+.scale{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:8px
+}
 
-    .checkbox-row input {
-      width: auto;
-      transform: scale(1.2);
-    }
+.scale input{
+text-align:center
+}
 
-    .custom-scale-box {
-      display: none;
-      margin-top: 15px;
-      padding: 15px;
-      border: 1px solid #d1d5db;
-      border-radius: 10px;
-      background: #f9fafb;
-    }
+.actions{
+display:flex;
+gap:8px;
+flex-wrap:wrap;
+margin-bottom:12px
+}
 
-    .custom-scale-box.show {
-      display: block;
-    }
+.actions button{
+background:#374151
+}
 
-    .scale-grid {
-      display: grid;
-      grid-template-columns: repeat(5, 1fr);
-      gap: 8px;
-    }
+.table-wrap{
+overflow-x:auto;
+border:1px solid #e5e7eb;
+border-radius:9px
+}
 
-    .scale-grid input {
-      text-align: center;
-    }
+table{
+width:100%;
+border-collapse:collapse;
+min-width:600px
+}
 
-    .scale-note {
-      margin-top: 10px;
-      font-size: 13px;
-      color: #6b7280;
-    }
+th,td{
+padding:8px;
+text-align:center;
+border-bottom:1px solid #e5e7eb;
+font-size:14px
+}
 
-    .chart-actions {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      margin-bottom: 15px;
-    }
+th{
+background:#f3f4f6
+}
 
-    .chart-actions button {
-      background: #374151;
-    }
+tr.current{
+background:#e5e7eb;
+font-weight:bold
+}
 
-    .chart-wrapper {
-      overflow-x: auto;
-      border: 1px solid #e5e7eb;
-      border-radius: 10px;
-      background: white;
-    }
+.faq{
+border-bottom:1px solid #e5e7eb;
+padding:12px 0
+}
 
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      min-width: 650px;
-    }
+.faq:last-child{
+border-bottom:0
+}
 
-    th,
-    td {
-      padding: 9px 8px;
-      text-align: center;
-      border-bottom: 1px solid #e5e7eb;
-      font-size: 14px;
-    }
+.question{
+font-weight:bold
+}
 
-    th {
-      background: #f3f4f6;
-      font-weight: 700;
-      position: sticky;
-      top: 0;
-    }
+.answer{
+font-size:14px;
+color:#4b5563;
+margin-top:3px
+}
 
-    tr.current {
-      background: #e5e7eb;
-      font-weight: 700;
-    }
+footer{
+text-align:center;
+color:#6b7280;
+font-size:13px;
+padding-bottom:25px
+}
 
-    tr:last-child td {
-      border-bottom: 0;
-    }
+@media(max-width:650px){
+.container{padding:12px}
 
-    .faq-item {
-      border-bottom: 1px solid #e5e7eb;
-      padding: 13px 0;
-    }
+h1{font-size:28px}
 
-    .faq-item:last-child {
-      border-bottom: 0;
-    }
+.grid{
+grid-template-columns:1fr
+}
 
-    .faq-question {
-      font-weight: 700;
-      margin-bottom: 5px;
-    }
+.results{
+grid-template-columns:1fr 1fr
+}
 
-    .faq-answer {
-      color: #4b5563;
-      font-size: 14px;
-    }
+.scale{
+grid-template-columns:1fr 1fr
+}
 
-    footer {
-      text-align: center;
-      color: #6b7280;
-      font-size: 13px;
-      padding: 10px 0 30px;
-    }
+.card{
+padding:15px
+}
+}
 
-    @media (max-width: 700px) {
-      .container {
-        padding: 14px;
-      }
+@media print{
+body *{
+visibility:hidden
+}
 
-      header h1 {
-        font-size: 28px;
-      }
+#chartCard,
+#chartCard *{
+visibility:visible
+}
 
-      .controls-grid,
-      .settings-grid {
-        grid-template-columns: 1fr;
-      }
+#chartCard{
+position:absolute;
+left:0;
+top:0;
+width:100%;
+box-shadow:none
+}
 
-      .result-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .scale-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
-
-      .card {
-        padding: 16px;
-      }
-    }
-
-    @media print {
-      body * {
-        visibility: hidden;
-      }
-
-      #chartCard,
-      #chartCard * {
-        visibility: visible;
-      }
-
-      #chartCard {
-        position: absolute;
-        left: 0;
-        top: 0;
-        width: 100%;
-        box-shadow: none;
-      }
-
-      .chart-actions {
-        display: none;
-      }
-    }
-  </style>
+.actions{
+display:none
+}
+}
+</style>
 </head>
 
 <body>
 
 <div class="container">
 
-  <header>
-    <h1>Easy Grader Calculator</h1>
-    <p>Free EZ Grader calculator for quick test grading</p>
-  </header>
+<header>
+<h1>Easy Grader Calculator</h1>
+<p>Free EZ Grader Calculator for quick and easy test grading</p>
+</header>
 
-  <section class="card">
-
-    <h2>Test Details</h2>
 
-    <div class="control-group">
-      <label>Quick Select Total Questions</label>
+<!-- CALCULATOR -->
 
-      <div class="quick-buttons">
-        <button type="button" data-total="10">10</button>
-        <button type="button" data-total="20">20</button>
-        <button type="button" data-total="25">25</button>
-        <button type="button" data-total="30">30</button>
-        <button type="button" data-total="50">50</button>
-        <button type="button" data-total="100">100</button>
-      </div>
-    </div>
+<section class="card">
 
-    <br>
+<h2>Test Details</h2>
 
-    <div class="controls-grid">
+<label>Quick Select Total Questions</label>
 
-      <div class="control-group">
-        <label for="totalQuestions">Total Questions</label>
+<div class="quick">
 
-        <div class="number-control">
-          <button type="button" class="small-btn" id="totalMinus">−</button>
+<button type="button" data-total="10">10</button>
+<button type="button" data-total="20">20</button>
+<button type="button" data-total="25">25</button>
+<button type="button" data-total="30">30</button>
+<button type="button" data-total="50">50</button>
+<button type="button" data-total="100">100</button>
 
-          <input
-            type="number"
-            id="totalQuestions"
-            min="1"
-            max="500"
-            step="1"
-            value="25"
-            inputmode="numeric"
-          >
+</div>
 
-          <button type="button" class="small-btn" id="totalPlus">+</button>
-        </div>
-      </div>
+<br>
 
-      <div class="control-group">
-        <label for="wrongAnswers">Wrong Answers</label>
+<div class="grid">
 
-        <div class="number-control">
-          <button type="button" class="small-btn" id="wrongMinus">−</button>
+<div>
+<label for="total">Total Questions</label>
 
-          <input
-            type="number"
-            id="wrongAnswers"
-            min="0"
-            max="25"
-            step="any"
-            value="0"
-            inputmode="decimal"
-          >
+<div class="number">
 
-          <button type="button" class="small-btn" id="wrongPlus">+</button>
-        </div>
-      </div>
+<button type="button" class="small" id="totalMinus">−</button>
 
-    </div>
+<input
+id="total"
+type="number"
+min="1"
+max="500"
+step="1"
+value="25"
+inputmode="numeric">
 
-    <div class="checkbox-row">
-      <input type="checkbox" id="halfPoints">
-      <label for="halfPoints" style="margin:0;">
-        Enable Half-Point / 0.5 Answers
-      </label>
-    </div>
+<button type="button" class="small" id="totalPlus">+</button>
 
-    <button type="button" class="calculate-btn" id="calculateBtn">
-      Calculate Grade
-    </button>
+</div>
+</div>
 
-  </section>
 
+<div>
+<label for="wrong">Wrong Answers</label>
 
-  <section class="card result">
+<div class="number">
 
-    <h2>Your Result</h2>
+<button type="button" class="small" id="wrongMinus">−</button>
 
-    <div class="result-grid">
+<input
+id="wrong"
+type="number"
+min="0"
+step="any"
+value="0"
+inputmode="decimal">
 
-      <div class="result-item">
-        <span>Correct</span>
-        <strong id="correctResult">25</strong>
-      </div>
+<button type="button" class="small" id="wrongPlus">+</button>
 
-      <div class="result-item">
-        <span>Percentage</span>
-        <strong id="percentResult">100%</strong>
-      </div>
+</div>
+</div>
 
-      <div class="result-item">
-        <span>Grade</span>
-        <strong id="gradeResult">A</strong>
-      </div>
+</div>
 
-      <div class="result-item">
-        <span>Status</span>
-        <strong id="statusResult" class="pass">Pass</strong>
-      </div>
 
-    </div>
+<div class="checkbox">
 
-  </section>
+<input type="checkbox" id="half">
 
+<label for="half">Enable Half-Point / 0.5 Answers</label>
 
-  <section class="card">
+</div>
 
-    <h2>Grading Settings</h2>
 
-    <div class="settings-grid">
+<button type="button" class="calculate" id="calculate">
+Calculate Grade
+</button>
 
-      <div class="control-group">
-        <label for="scaleSelect">Grading Scale</label>
+</section>
 
-        <select id="scaleSelect">
-          <option value="standard">Standard</option>
-          <option value="plusminus">Plus / Minus</option>
-          <option value="custom">Custom</option>
-        </select>
-      </div>
 
-      <div class="control-group">
-        <label for="passingGrade">Passing Grade (%)</label>
+<!-- RESULT -->
 
-        <input
-          type="number"
-          id="passingGrade"
-          min="0"
-          max="100"
-          step="0.1"
-          value="60"
-          inputmode="decimal"
-        >
-      </div>
+<section class="card result">
 
-      <div class="control-group">
-        <label for="decimalPlaces">Percentage Decimals</label>
+<h2>Your Result</h2>
 
-        <select id="decimalPlaces">
-          <option value="2">2 Decimals</option>
-          <option value="1">1 Decimal</option>
-          <option value="0">0 Decimals</option>
-        </select>
-      </div>
+<div class="results">
 
-    </div>
+<div class="result-box">
+<span>Correct</span>
+<strong id="correct">25</strong>
+</div>
 
+<div class="result-box">
+<span>Percentage</span>
+<strong id="percentage">100.00%</strong>
+</div>
 
-    <div class="custom-scale-box" id="customScaleBox">
+<div class="result-box">
+<span>Grade</span>
+<strong id="grade">A</strong>
+</div>
 
-      <strong>Custom Grading Scale</strong>
+<div class="result-box">
+<span>Status</span>
+<strong id="status" class="pass">Pass</strong>
+</div>
 
-      <div class="scale-grid" style="margin-top:10px;">
+</div>
 
-        <div>
-          <label for="customA">A</label>
-          <input id="customA" type="number" value="93" min="0" max="100" step="0.1">
-        </div>
+</section>
 
-        <div>
-          <label for="customB">B</label>
-          <input id="customB" type="number" value="85" min="0" max="100" step="0.1">
-        </div>
 
-        <div>
-          <label for="customC">C</label>
-          <input id="customC" type="number" value="75" min="0" max="100" step="0.1">
-        </div>
+<!-- SETTINGS -->
 
-        <div>
-          <label for="customD">D</label>
-          <input id="customD" type="number" value="65" min="0" max="100" step="0.1">
-        </div>
+<section class="card">
 
-        <div>
-          <label for="customF">F</label>
-          <input id="customF" type="number" value="0" min="0" max="100" step="0.1">
-        </div>
+<h2>Grading Settings</h2>
 
-      </div>
+<div class="grid">
 
-      <div class="scale-note">
-        Enter the minimum percentage required for each grade.
-      </div>
+<div>
+<label for="scaleSelect">Grading Scale</label>
 
-    </div>
+<select id="scaleSelect">
 
-  </section>
+<option value="standard">Standard</option>
 
+<option value="plus">Plus / Minus</option>
 
-  <section class="card" id="chartCard">
+<option value="custom">Custom</option>
 
-    <h2>EZ Grader Chart</h2>
+</select>
+</div>
 
-    <div class="chart-actions">
-      <button type="button" id="printChart">Print Chart</button>
-      <button type="button" id="resetBtn">Reset Calculator</button>
-    </div>
 
-    <div class="chart-wrapper">
+<div>
+<label for="passing">Passing Grade (%)</label>
 
-      <table>
+<input
+id="passing"
+type="number"
+min="0"
+max="100"
+step="0.1"
+value="60"
+inputmode="decimal">
+</div>
 
-        <thead>
-          <tr>
-            <th>Total</th>
-            <th>Wrong</th>
-            <th>Correct</th>
-            <th>Percentage</th>
-            <th>Grade</th>
-            <th>Status</th>
-          </tr>
-        </thead>
 
-        <tbody id="chartBody"></tbody>
+<div>
+<label for="decimals">Percentage Decimals</label>
 
-      </table>
+<select id="decimals">
 
-    </div>
+<option value="2">2 Decimals</option>
+<option value="1">1 Decimal</option>
+<option value="0">0 Decimals</option>
 
-  </section>
+</select>
+</div>
 
+</div>
 
-  <section class="card">
 
-    <h2>About Easy Grader</h2>
+<!-- CUSTOM SCALE -->
 
-    <p>
-      Easy Grader is a free online EZ Grader calculator that helps teachers,
-      students and educators quickly calculate test percentages, letter grades
-      and pass/fail results.
-    </p>
+<div class="custom" id="customBox">
 
-    <p>
-      Enter the total number of questions and wrong answers to instantly see
-      the correct answers, percentage and grade. You can also use half-point
-      answers, custom grading scales and different rounding options.
-    </p>
+<strong>Custom Grading Scale</strong>
 
-  </section>
+<div class="scale">
 
+<div>
+<label>A</label>
+<input id="a" type="number" value="93" min="0" max="100" step="0.1">
+</div>
 
-  <section class="card">
+<div>
+<label>B</label>
+<input id="b" type="number" value="85" min="0" max="100" step="0.1">
+</div>
 
-    <h2>Frequently Asked Questions</h2>
+<div>
+<label>C</label>
+<input id="c" type="number" value="75" min="0" max="100" step="0.1">
+</div>
 
-    <div class="faq-item">
-      <div class="faq-question">What is an Easy Grader?</div>
-      <div class="faq-answer">
-        An Easy Grader is a grading tool that converts the number of correct
-        and incorrect answers into a percentage and letter grade.
-      </div>
-    </div>
+<div>
+<label>D</label>
+<input id="d" type="number" value="65" min="0" max="100" step="0.1">
+</div>
 
-    <div class="faq-item">
-      <div class="faq-question">What is an EZ Grader?</div>
-      <div class="faq-answer">
-        EZ Grader is another common name for an easy grading calculator used
-        to grade tests quickly.
-      </div>
-    </div>
+<div>
+<label>F</label>
+<input id="f" type="number" value="0" min="0" max="100" step="0.1">
+</div>
 
-    <div class="faq-item">
-      <div class="faq-question">Can I use decimal wrong answers?</div>
-      <div class="faq-answer">
-        Yes. Enable Half-Point mode to use values such as 0.5, 1.5, 2.5,
-        3.5 and other half-point values.
-      </div>
-    </div>
+</div>
 
-    <div class="faq-item">
-      <div class="faq-question">Can I create my own grading scale?</div>
-      <div class="faq-answer">
-        Yes. Select Custom grading scale and enter the minimum percentage
-        required for A, B, C, D and F.
-      </div>
-    </div>
+</div>
 
-    <div class="faq-item">
-      <div class="faq-question">Is Easy Grader free?</div>
-      <div class="faq-answer">
-        Yes. This Easy Grader calculator is designed to be free to use online.
-      </div>
-    </div>
+</section>
 
-  </section>
 
+<!-- CHART -->
 
-  <footer>
-    Easy Grader – Free EZ Grader Calculator Online
-  </footer>
+<section class="card" id="chartCard">
+
+<h2>EZ Grader Chart</h2>
+
+<div class="actions">
+
+<button type="button" id="print">Print Chart</button>
+
+<button type="button" id="reset">Reset Calculator</button>
+
+</div>
+
+<div class="table-wrap">
+
+<table>
+
+<thead>
+
+<tr>
+<th>Total</th>
+<th>Wrong</th>
+<th>Correct</th>
+<th>Percentage</th>
+<th>Grade</th>
+<th>Status</th>
+</tr>
+
+</thead>
+
+<tbody id="chart"></tbody>
+
+</table>
+
+</div>
+
+</section>
+
+
+<!-- SEO CONTENT -->
+
+<section class="card">
+
+<h2>Easy Grader</h2>
+
+<p>
+Easy Grader is a free online EZ Grader calculator for teachers, students
+and educators. Enter the number of questions and wrong answers to quickly
+calculate the correct answers, test percentage, letter grade and pass or
+fail result.
+</p>
+
+<p>
+This Easy Grader Calculator also supports half-point answers, custom grading
+scales, plus and minus grades, percentage rounding and a complete EZ Grader
+chart.
+</p>
+
+</section>
+
+
+<!-- FAQ -->
+
+<section class="card">
+
+<h2>Frequently Asked Questions</h2>
+
+<div class="faq">
+
+<div class="question">
+What is an Easy Grader?
+</div>
+
+<div class="answer">
+An Easy Grader is a grading calculator that converts correct and incorrect
+test answers into a percentage and letter grade.
+</div>
+
+</div>
+
+
+<div class="faq">
+
+<div class="question">
+What is an EZ Grader?
+</div>
+
+<div class="answer">
+EZ Grader is another common name for an easy grading calculator used to
+grade tests quickly.
+</div>
+
+</div>
+
+
+<div class="faq">
+
+<div class="question">
+Can I enter 2.5 wrong answers?
+</div>
+
+<div class="answer">
+Yes. Enable Half-Point mode and you can enter values such as 0.5, 1.5,
+2.5 and 3.5.
+</div>
+
+</div>
+
+
+<div class="faq">
+
+<div class="question">
+Can I use my own grading scale?
+</div>
+
+<div class="answer">
+Yes. Select Custom grading scale and enter your minimum percentage for
+A, B, C, D and F.
+</div>
+
+</div>
+
+
+<div class="faq">
+
+<div class="question">
+Is Easy Grader free?
+</div>
+
+<div class="answer">
+Yes. This Easy Grader calculator is free to use online.
+</div>
+
+</div>
+
+</section>
+
+
+<footer>
+Easy Grader – Free EZ Grader Calculator Online
+</footer>
 
 </div>
 
 
 <script>
 
-  /* ================================
-     GRADING SCALE DATA
-  ================================= */
-
-  const standardScale = [
-    { grade: "A", min: 90 },
-    { grade: "B", min: 80 },
-    { grade: "C", min: 70 },
-    { grade: "D", min: 60 },
-    { grade: "F", min: 0 }
-  ];
+const totalInput = document.getElementById("total");
+const wrongInput = document.getElementById("wrong");
 
-  const plusScale = [
-    { grade: "A+", min: 97 },
-    { grade: "A",  min: 93 },
-    { grade: "A-", min: 90 },
+const correctOutput = document.getElementById("correct");
+const percentageOutput = document.getElementById("percentage");
+const gradeOutput = document.getElementById("grade");
+const statusOutput = document.getElementById("status");
 
-    { grade: "B+", min: 87 },
-    { grade: "B",  min: 83 },
-    { grade: "B-", min: 80 },
+const scaleSelect = document.getElementById("scaleSelect");
+const passingInput = document.getElementById("passing");
+const decimalsSelect = document.getElementById("decimals");
 
-    { grade: "C+", min: 77 },
-    { grade: "C",  min: 73 },
-    { grade: "C-", min: 70 },
+const halfInput = document.getElementById("half");
 
-    { grade: "D+", min: 67 },
-    { grade: "D",  min: 63 },
-    { grade: "D-", min: 60 },
+const customBox = document.getElementById("customBox");
 
-    { grade: "F", min: 0 }
-  ];
+const chartBody = document.getElementById("chart");
 
 
-  /* ================================
-     ELEMENTS
-  ================================= */
+const standardScale = [
+{grade:"A",min:90},
+{grade:"B",min:80},
+{grade:"C",min:70},
+{grade:"D",min:60},
+{grade:"F",min:0}
+];
 
-  const totalInput = document.getElementById("totalQuestions");
-  const wrongInput = document.getElementById("wrongAnswers");
 
-  const totalMinus = document.getElementById("totalMinus");
-  const totalPlus = document.getElementById("totalPlus");
+const plusScale = [
+{grade:"A+",min:97},
+{grade:"A",min:93},
+{grade:"A-",min:90},
 
-  const wrongMinus = document.getElementById("wrongMinus");
-  const wrongPlus = document.getElementById("wrongPlus");
+{grade:"B+",min:87},
+{grade:"B",min:83},
+{grade:"B-",min:80},
 
-  const calculateBtn = document.getElementById("calculateBtn");
+{grade:"C+",min:77},
+{grade:"C",min:73},
+{grade:"C-",min:70},
 
-  const correctResult = document.getElementById("correctResult");
-  const percentResult = document.getElementById("percentResult");
-  const gradeResult = document.getElementById("gradeResult");
-  const statusResult = document.getElementById("statusResult");
+{grade:"D+",min:67},
+{grade:"D",min:63},
+{grade:"D-",min:60},
 
-  const scaleSelect = document.getElementById("scaleSelect");
-  const passingGrade = document.getElementById("passingGrade");
-  const decimalPlaces = document.getElementById("decimalPlaces");
+{grade:"F",min:0}
+];
 
-  const halfPoints = document.getElementById("halfPoints");
 
-  const customScaleBox = document.getElementById("customScaleBox");
+function getTotal(){
 
-  const customA = document.getElementById("customA");
-  const customB = document.getElementById("customB");
-  const customC = document.getElementById("customC");
-  const customD = document.getElementById("customD");
-  const customF = document.getElementById("customF");
+let n=parseInt(totalInput.value,10);
 
-  const chartBody = document.getElementById("chartBody");
+if(isNaN(n)) return 1;
 
-  const printChart = document.getElementById("printChart");
-  const resetBtn = document.getElementById("resetBtn");
+if(n<1)n=1;
 
+if(n>500)n=500;
 
-  /* ================================
-     CUSTOM SCALE
-  ================================= */
+return n;
 
-  function getCustomScale() {
+}
 
-    let values = [
-      {
-        grade: "A",
-        min: parseFloat(customA.value)
-      },
-      {
-        grade: "B",
-        min: parseFloat(customB.value)
-      },
-      {
-        grade: "C",
-        min: parseFloat(customC.value)
-      },
-      {
-        grade: "D",
-        min: parseFloat(customD.value)
-      },
-      {
-        grade: "F",
-        min: parseFloat(customF.value)
-      }
-    ];
 
-    values = values.filter(item => !isNaN(item.min));
+function getWrong(){
 
-    values.sort((a, b) => b.min - a.min);
+const raw=wrongInput.value;
 
-    return values;
-  }
+if(raw==="" || raw==="." || raw.endsWith(".")){
+return null;
+}
 
+let n=parseFloat(raw);
 
-  /* ================================
-     GET CURRENT SCALE
-  ================================= */
+if(isNaN(n))return 0;
 
-  function getScale() {
+const total=getTotal();
 
-    if (scaleSelect.value === "plusminus") {
-      return plusScale;
-    }
+if(n<0)n=0;
 
-    if (scaleSelect.value === "custom") {
-      return getCustomScale();
-    }
+if(n>total)n=total;
 
-    return standardScale;
-  }
+return n;
 
+}
 
-  /* ================================
-     GET GRADE
-  ================================= */
 
-  function getGrade(percent) {
+function getCustomScale(){
 
-    const scale = getScale();
+const values=[
 
-    for (let i = 0; i < scale.length; i++) {
+{
+grade:"A",
+min:parseFloat(document.getElementById("a").value)
+},
 
-      if (percent >= scale[i].min) {
-        return scale[i].grade;
-      }
+{
+grade:"B",
+min:parseFloat(document.getElementById("b").value)
+},
 
-    }
+{
+grade:"C",
+min:parseFloat(document.getElementById("c").value)
+},
 
-    return "F";
-  }
+{
+grade:"D",
+min:parseFloat(document.getElementById("d").value)
+},
 
+{
+grade:"F",
+min:parseFloat(document.getElementById("f").value)
+}
 
-  /* ================================
-     GET PASSING GRADE
-  ================================= */
+];
 
-  function getPassingGrade() {
+return values
+.filter(x=>!isNaN(x.min))
+.sort((x,y)=>y.min-x.min);
 
-    let value = parseFloat(passingGrade.value);
+}
 
-    if (isNaN(value)) {
-      value = 60;
-    }
 
-    if (value < 0) {
-      value = 0;
-    }
+function getScale(){
 
-    if (value > 100) {
-      value = 100;
-    }
+if(scaleSelect.value==="plus"){
+return plusScale;
+}
 
-    return value;
-  }
+if(scaleSelect.value==="custom"){
+return getCustomScale();
+}
 
+return standardScale;
 
-  /* ================================
-     DECIMAL FORMAT
-  ================================= */
+}
 
-  function formatPercent(value) {
 
-    const decimals = parseInt(decimalPlaces.value, 10);
+function getGrade(percent){
 
-    return value.toFixed(decimals) + "%";
-  }
+const scale=getScale();
 
+for(const item of scale){
 
-  /* ================================
-     GET TOTAL
-  ================================= */
+if(percent>=item.min){
+return item.grade;
+}
 
-  function getTotal() {
+}
 
-    let total = parseFloat(totalInput.value);
+return "F";
 
-    if (isNaN(total)) {
-      total = 1;
-    }
+}
 
-    total = Math.round(total);
 
-    if (total < 1) {
-      total = 1;
-    }
+function getPassing(){
 
-    if (total > 500) {
-      total = 500;
-    }
+let n=parseFloat(passingInput.value);
 
-    return total;
-  }
+if(isNaN(n))n=60;
 
+if(n<0)n=0;
 
-  /* ================================
-     GET WRONG
-  ================================= */
+if(n>100)n=100;
 
-  function getWrong() {
+return n;
 
-    let raw = wrongInput.value;
+}
 
-    /*
-      Important:
-      Do NOT destroy an unfinished decimal input.
-      This allows mobile typing:
-      2 → 2. → 2.5
-    */
 
-    if (raw === "" || raw === "." || raw.endsWith(".")) {
-      return null;
-    }
+function formatPercent(n){
 
-    let wrong = parseFloat(raw);
+const places=parseInt(decimalsSelect.value,10);
 
-    if (isNaN(wrong)) {
-      return 0;
-    }
+return n.toFixed(places)+"%";
 
-    const total = getTotal();
+}
 
-    if (wrong < 0) {
-      wrong = 0;
-    }
 
-    if (wrong > total) {
-      wrong = total;
-    }
+function calculate(){
 
-    return wrong;
-  }
+const total=getTotal();
 
+const wrong=getWrong();
 
-  /* ================================
-     HANDLE TOTAL INPUT
-  ================================= */
+if(wrong===null){
+return;
+}
 
-  function handleTotalInput() {
+let correct=total-wrong;
 
-    let raw = totalInput.value;
+if(correct<0)correct=0;
 
-    if (raw === "") {
-      return;
-    }
+const percent=(correct/total)*100;
 
-    let total = parseInt(raw, 10);
+const grade=getGrade(percent);
 
-    if (isNaN(total)) {
-      return;
-    }
+const passed=percent>=getPassing();
 
-    if (total < 1) {
-      total = 1;
-    }
 
-    if (total > 500) {
-      total = 500;
-    }
+correctOutput.textContent=
+Number.isInteger(correct)
+?correct
+:correct.toFixed(1);
 
-    totalInput.value = total;
 
-    let wrong = parseFloat(wrongInput.value);
+percentageOutput.textContent=formatPercent(percent);
 
-    if (!isNaN(wrong) && wrong > total) {
-      wrongInput.value = total;
-    }
+gradeOutput.textContent=grade;
 
-    calculateGrade();
-  }
+statusOutput.textContent=passed?"Pass":"Fail";
 
 
-  /* ================================
-     HANDLE WRONG INPUT
-  ================================= */
+statusOutput.classList.remove("pass","fail");
 
-  function handleWrongInput() {
+statusOutput.classList.add(
+passed?"pass":"fail"
+);
 
-    const raw = wrongInput.value;
 
-    /*
-      Keep unfinished decimal values.
-    */
+generateChart();
 
-    if (
-      raw === "" ||
-      raw === "." ||
-      raw.endsWith(".")
-    ) {
-      return;
-    }
+}
 
-    let wrong = parseFloat(raw);
 
-    if (isNaN(wrong)) {
-      return;
-    }
+function changeTotal(amount){
 
-    const total = getTotal();
+let total=getTotal()+amount;
 
-    if (wrong < 0) {
-      wrong = 0;
-    }
+if(total<1)total=1;
 
-    if (wrong > total) {
-      wrong = total;
-    }
+if(total>500)total=500;
 
-    /*
-      In half-point mode, normalize typed values
-      to nearest 0.5.
-    */
+totalInput.value=total;
 
-    if (halfPoints.checked) {
+const wrong=parseFloat(wrongInput.value);
 
-      wrong = Math.round(wrong * 2) / 2;
+if(!isNaN(wrong) && wrong>total){
+wrongInput.value=total;
+}
 
-    }
+calculate();
 
-    wrongInput.value = wrong;
+}
 
-    calculateGrade();
-  }
 
+function changeWrong(amount){
 
-  /* ================================
-     CHANGE TOTAL
-  ================================= */
+const total=getTotal();
 
-  function changeTotal(amount) {
+let wrong=parseFloat(wrongInput.value);
 
-    let total = getTotal();
+if(isNaN(wrong))wrong=0;
 
-    total += amount;
+wrong+=amount;
 
-    if (total < 1) {
-      total = 1;
-    }
+if(halfInput.checked){
+wrong=Math.round(wrong*2)/2;
+}else{
+wrong=Math.round(wrong);
+}
 
-    if (total > 500) {
-      total = 500;
-    }
+if(wrong<0)wrong=0;
 
-    totalInput.value = total;
+if(wrong>total)wrong=total;
 
-    let wrong = parseFloat(wrongInput.value);
+wrongInput.value=wrong;
 
-    if (!isNaN(wrong) && wrong > total) {
-      wrongInput.value = total;
-    }
+calculate();
 
-    calculateGrade();
-  }
+}
 
 
-  /* ================================
-     CHANGE WRONG
-  ================================= */
+function generateChart(){
 
-  function changeWrong(amount) {
+const total=getTotal();
 
-    const total = getTotal();
+const current=parseFloat(wrongInput.value);
 
-    let wrong = parseFloat(wrongInput.value);
+const step=halfInput.checked?0.5:1;
 
-    if (isNaN(wrong)) {
-      wrong = 0;
-    }
+chartBody.innerHTML="";
 
-    wrong += amount;
 
-    if (halfPoints.checked) {
-      wrong = Math.round(wrong * 2) / 2;
-    } else {
-      wrong = Math.round(wrong);
-    }
+for(
+let wrong=0;
+wrong<=total+0.001;
+wrong+=step
+){
 
-    if (wrong < 0) {
-      wrong = 0;
-    }
+wrong=Math.round(wrong*10)/10;
 
-    if (wrong > total) {
-      wrong = total;
-    }
+const correct=total-wrong;
 
-    wrongInput.value = wrong;
+const percent=(correct/total)*100;
 
-    calculateGrade();
-  }
+const grade=getGrade(percent);
 
+const passed=percent>=getPassing();
 
-  /* ================================
-     CALCULATE GRADE
-  ================================= */
 
-  function calculateGrade() {
+const row=document.createElement("tr");
 
-    const total = getTotal();
 
-    const wrong = getWrong();
+if(!isNaN(current) &&
+Math.abs(wrong-current)<0.001){
 
-    /*
-      If user is currently typing an unfinished
-      decimal such as "2.", don't calculate yet.
-    */
+row.classList.add("current");
 
-    if (wrong === null) {
-      return;
-    }
+}
 
-    let correct = total - wrong;
 
-    if (correct < 0) {
-      correct = 0;
-    }
+const values=[
 
-    let percent = 0;
+total,
 
-    if (total > 0) {
-      percent = (correct / total) * 100;
-    }
+Number.isInteger(wrong)
+?wrong
+:wrong.toFixed(1),
 
-    const grade = getGrade(percent);
+Number.isInteger(correct)
+?correct
+:correct.toFixed(1),
 
-    const passing = getPassingGrade();
+formatPercent(percent),
 
-    const passed = percent >= passing;
+grade,
 
-    correctResult.textContent =
-      Number.isInteger(correct)
-        ? correct
-        : correct.toFixed(1);
+passed?"Pass":"Fail"
 
-    percentResult.textContent = formatPercent(percent);
+];
 
-    gradeResult.textContent = grade;
 
-    statusResult.textContent = passed ? "Pass" : "Fail";
+values.forEach((value,index)=>{
 
-    statusResult.classList.remove("pass", "fail");
+const td=document.createElement("td");
 
-    if (passed) {
-      statusResult.classList.add("pass");
-    } else {
-      statusResult.classList.add("fail");
-    }
+td.textContent=value;
 
-    generateChart();
-  }
+if(index===5){
 
+td.classList.add(
+passed?"pass":"fail"
+);
 
-  /* ================================
-     SET TOTAL
-  ================================= */
+}
 
-  function setTotal(total) {
+row.appendChild(td);
 
-    total = parseInt(total, 10);
+});
 
-    if (isNaN(total)) {
-      return;
-    }
 
-    if (total < 1) {
-      total = 1;
-    }
+chartBody.appendChild(row);
 
-    if (total > 500) {
-      total = 500;
-    }
+}
 
-    totalInput.value = total;
+}
 
-    let wrong = parseFloat(wrongInput.value);
 
-    if (!isNaN(wrong) && wrong > total) {
-      wrongInput.value = total;
-    }
+function setTotal(value){
 
-    document
-      .querySelectorAll("[data-total]")
-      .forEach(button => {
-        button.classList.remove("active");
-      });
+totalInput.value=value;
 
-    const activeButton =
-      document.querySelector('[data-total="' + total + '"]');
+document
+.querySelectorAll("[data-total]")
+.forEach(btn=>{
+btn.classList.remove("active");
+});
 
-    if (activeButton) {
-      activeButton.classList.add("active");
-    }
 
-    calculateGrade();
-  }
+const active=document.querySelector(
+'[data-total="'+value+'"]'
+);
 
+if(active){
+active.classList.add("active");
+}
 
-  /* ================================
-     HALF POINTS
-  ================================= */
+calculate();
 
-  function toggleHalfPoints() {
+}
 
-    const wrong = parseFloat(wrongInput.value);
 
-    if (!isNaN(wrong)) {
+document
+.querySelectorAll("[data-total]")
+.forEach(button=>{
 
-      if (halfPoints.checked) {
+button.addEventListener("click",()=>{
 
-        wrongInput.step = "0.5";
+setTotal(button.dataset.total);
 
-        const rounded = Math.round(wrong * 2) / 2;
+});
 
-        wrongInput.value = rounded;
+});
 
-      } else {
 
-        wrongInput.step = "1";
+document.getElementById("totalMinus")
+.addEventListener("click",()=>{
+changeTotal(-1);
+});
 
-        const rounded = Math.round(wrong);
 
-        wrongInput.value = rounded;
+document.getElementById("totalPlus")
+.addEventListener("click",()=>{
+changeTotal(1);
+});
 
-      }
 
-    }
+document.getElementById("wrongMinus")
+.addEventListener("click",()=>{
 
-    generateChart();
-    calculateGrade();
-  }
+changeWrong(
+halfInput.checked?-0.5:-1
+);
 
+});
 
-  /* ================================
-     GENERATE CHART
-  ================================= */
 
-  function generateChart() {
+document.getElementById("wrongPlus")
+.addEventListener("click",()=>{
 
-    const total = getTotal();
+changeWrong(
+halfInput.checked?0.5:1
+);
 
-    const currentWrongRaw = parseFloat(wrongInput.value);
+});
 
-    const currentWrong =
-      isNaN(currentWrongRaw)
-        ? -1
-        : currentWrongRaw;
 
-    let step = halfPoints.checked ? 0.5 : 1;
+totalInput.addEventListener("input",()=>{
 
-    chartBody.innerHTML = "";
+if(totalInput.value!==""){
+calculate();
+}
 
-    /*
-      For very large tests, cap chart rows
-      so the page remains fast.
-    */
+});
 
-    const maxRows =
-      halfPoints.checked
-        ? Math.min(Math.floor(total * 2) + 1, 1001)
-        : Math.min(total + 1, 501);
 
-    let rowsCreated = 0;
+wrongInput.addEventListener("input",()=>{
 
-    for (
-      let wrong = 0;
-      wrong <= total + 0.0001 && rowsCreated < maxRows;
-      wrong += step
-    ) {
+const raw=wrongInput.value;
 
-      wrong = Math.round(wrong * 10) / 10;
+if(
+raw==="" ||
+raw==="." ||
+raw.endsWith(".")
+){
+return;
+}
 
-      let correct = total - wrong;
+let n=parseFloat(raw);
 
-      if (correct < 0) {
-        correct = 0;
-      }
+if(isNaN(n))return;
 
-      const percent = (correct / total) * 100;
+const total=getTotal();
 
-      const grade = getGrade(percent);
+if(n>total){
+n=total;
+}
 
-      const passed = percent >= getPassingGrade();
+if(n<0){
+n=0;
+}
 
-      const row = document.createElement("tr");
+if(halfInput.checked){
+n=Math.round(n*2)/2;
+}
 
-      /*
-        Highlight current row.
-      */
+wrongInput.value=n;
 
-      if (
-        Math.abs(wrong - currentWrong) < 0.001
-      ) {
-        row.classList.add("current");
-      }
+calculate();
 
-      const totalCell = document.createElement("td");
-      totalCell.textContent = total;
+});
 
-      const wrongCell = document.createElement("td");
-      wrongCell.textContent =
-        Number.isInteger(wrong)
-          ? wrong
-          : wrong.toFixed(1);
 
-      const correctCell = document.createElement("td");
-      correctCell.textContent =
-        Number.isInteger(correct)
-          ? correct
-          : correct.toFixed(1);
+document.getElementById("calculate")
+.addEventListener("click",calculate);
 
-      const percentCell = document.createElement("td");
-      percentCell.textContent = formatPercent(percent);
 
-      const gradeCell = document.createElement("td");
-      gradeCell.textContent = grade;
+scaleSelect.addEventListener("change",()=>{
 
-      const statusCell = document.createElement("td");
-      statusCell.textContent = passed ? "Pass" : "Fail";
+if(scaleSelect.value==="custom"){
+customBox.classList.add("show");
+}else{
+customBox.classList.remove("show");
+}
 
-      if (passed) {
-        statusCell.classList.add("pass");
-      } else {
-        statusCell.classList.add("fail");
-      }
+calculate();
 
-      row.appendChild(totalCell);
-      row.appendChild(wrongCell);
-      row.appendChild(correctCell);
-      row.appendChild(percentCell);
-      row.appendChild(gradeCell);
-      row.appendChild(statusCell);
+});
 
-      chartBody.appendChild(row);
 
-      rowsCreated++;
-    }
-  }
+passingInput.addEventListener(
+"input",
+calculate
+);
 
 
-  /* ================================
-     SCALE CHANGE
-  ================================= */
+decimalsSelect.addEventListener(
+"change",
+calculate
+);
 
-  function setScale() {
 
-    if (scaleSelect.value === "custom") {
+halfInput.addEventListener("change",()=>{
 
-      customScaleBox.classList.add("show");
+wrongInput.step=
+halfInput.checked
+?"0.5"
+:"1";
 
-    } else {
+const current=parseFloat(wrongInput.value);
 
-      customScaleBox.classList.remove("show");
+if(!isNaN(current)){
 
-    }
+if(halfInput.checked){
+wrongInput.value=Math.round(current*2)/2;
+}else{
+wrongInput.value=Math.round(current);
+}
 
-    calculateGrade();
-  }
+}
 
+calculate();
 
-  /* ================================
-     PRINT
-  ================================= */
+});
 
-  function printCurrentChart() {
 
-    window.print();
+[
+"a",
+"b",
+"c",
+"d",
+"f"
+].forEach(id=>{
 
-  }
+document
+.getElementById(id)
+.addEventListener("input",calculate);
 
+});
 
-  /* ================================
-     RESET
-  ================================= */
 
-  function resetCalculator() {
+document.getElementById("print")
+.addEventListener("click",()=>{
+window.print();
+});
 
-    totalInput.value = 25;
 
-    wrongInput.value = 0;
+document.getElementById("reset")
+.addEventListener("click",()=>{
 
-    wrongInput.step = "1";
+totalInput.value=25;
 
-    halfPoints.checked = false;
+wrongInput.value=0;
 
-    scaleSelect.value = "standard";
+wrongInput.step="1";
 
-    passingGrade.value = 60;
+halfInput.checked=false;
 
-    decimalPlaces.value = 2;
+scaleSelect.value="standard";
 
-    customA.value = 93;
-    customB.value = 85;
-    customC.value = 75;
-    customD.value = 65;
-    customF.value = 0;
+passingInput.value=60;
 
-    customScaleBox.classList.remove("show");
+decimalsSelect.value=2;
 
-    document
-      .querySelectorAll("[data-total]")
-      .forEach(button => {
-        button.classList.remove("active");
-      });
+document.getElementById("a").value=93;
+document.getElementById("b").value=85;
+document.getElementById("c").value=75;
+document.getElementById("d").value=65;
+document.getElementById("f").value=0;
 
-    const defaultButton =
-      document.querySelector('[data-total="25"]');
+customBox.classList.remove("show");
 
-    if (defaultButton) {
-      defaultButton.classList.add("active");
-    }
+document
+.querySelectorAll("[data-total]")
+.forEach(btn=>{
+btn.classList.remove("active");
+});
 
-    calculateGrade();
+document
+.querySelector('[data-total="25"]')
+.classList.add("active");
 
-  }
+calculate();
 
+});
 
-  /* ================================
-     EVENT LISTENERS
-  ================================= */
 
-  totalMinus.addEventListener(
-    "click",
-    function() {
-      changeTotal(-1);
-    }
-  );
+document.addEventListener("keydown",event=>{
 
-  totalPlus.addEventListener(
-    "click",
-    function() {
-      changeTotal(1);
-    }
-  );
+const tag=document.activeElement
+?document.activeElement.tagName
+:"";
 
+if(
+tag==="INPUT" ||
+tag==="SELECT" ||
+tag==="TEXTAREA"
+){
+return;
+}
 
-  wrongMinus.addEventListener(
-    "click",
-    function() {
+if(event.key.toLowerCase()==="w"){
+changeWrong(halfInput.checked?0.5:1);
+}
 
-      changeWrong(
-        halfPoints.checked ? -0.5 : -1
-      );
+if(event.key.toLowerCase()==="z"){
+changeWrong(halfInput.checked?-0.5:-1);
+}
 
-    }
-  );
+});
 
 
-  wrongPlus.addEventListener(
-    "click",
-    function() {
-
-      changeWrong(
-        halfPoints.checked ? 0.5 : 1
-      );
-
-    }
-  );
-
-
-  totalInput.addEventListener(
-    "input",
-    handleTotalInput
-  );
-
-
-  wrongInput.addEventListener(
-    "input",
-    handleWrongInput
-  );
-
-
-  calculateBtn.addEventListener(
-    "click",
-    calculateGrade
-  );
-
-
-  scaleSelect.addEventListener(
-    "change",
-    setScale
-  );
-
-
-  passingGrade.addEventListener(
-    "input",
-    calculateGrade
-  );
-
-
-  decimalPlaces.addEventListener(
-    "change",
-    calculateGrade
-  );
-
-
-  halfPoints.addEventListener(
-    "change",
-    toggleHalfPoints
-  );
-
-
-  customA.addEventListener(
-    "input",
-    calculateGrade
-  );
-
-  customB.addEventListener(
-    "input",
-    calculateGrade
-  );
-
-  customC.addEventListener(
-    "input",
-    calculateGrade
-  );
-
-  customD.addEventListener(
-    "input",
-    calculateGrade
-  );
-
-  customF.addEventListener(
-    "input",
-    calculateGrade
-  );
-
-
-  printChart.addEventListener(
-    "click",
-    printCurrentChart
-  );
-
-
-  resetBtn.addEventListener(
-    "click",
-    resetCalculator
-  );
-
-
-  /* ================================
-     QUICK SELECT BUTTONS
-  ================================= */
-
-  document
-    .querySelectorAll("[data-total]")
-    .forEach(button => {
-
-      button.addEventListener(
-        "click",
-        function() {
-
-          const total =
-            this.getAttribute("data-total");
-
-          setTotal(total);
-
-        }
-      );
-
-    });
-
-
-  /* ================================
-     KEYBOARD SHORTCUTS
-     
-     W = +1 wrong
-     Z = -1 wrong
-  ================================= */
-
-  document.addEventListener(
-    "keydown",
-    function(event) {
-
-      const active =
-        document.activeElement;
-
-      const tag =
-        active ? active.tagName : "";
-
-      /*
-        Don't trigger shortcuts while
-        user is typing inside inputs/selects.
-      */
-
-      if (
-        tag === "INPUT" ||
-        tag === "SELECT" ||
-        tag === "TEXTAREA"
-      ) {
-        return;
-      }
-
-      if (event.key.toLowerCase() === "w") {
-
-        changeWrong(
-          halfPoints.checked ? 0.5 : 1
-        );
-
-      }
-
-      if (event.key.toLowerCase() === "z") {
-
-        changeWrong(
-          halfPoints.checked ? -0.5 : -1
-        );
-
-      }
-
-    }
-  );
-
-
-  /* ================================
-     INITIAL LOAD
-  ================================= */
-
-  setTotal(25);
-
-  calculateGrade();
+setTotal(25);
 
 </script>
 
