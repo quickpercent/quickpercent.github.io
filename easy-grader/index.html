@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Easy Grader – Free EZ Grader Calculator Online</title>
+<meta name="description" content="Use this free Easy Grader calculator to instantly calculate test grades from total questions and wrong answers. Get your percentage, letter grade, and EZ Grader chart online.">
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;background:#f5f7fb;color:#172033}
+.container{max-width:900px;margin:auto;padding:20px}
+.card{background:#fff;border-radius:14px;padding:24px;margin:18px 0;box-shadow:0 3px 15px rgba(0,0,0,.08)}
+h1{text-align:center;margin:10px 0}
+h2{margin-top:30px}
+p{line-height:1.7}
+label{display:block;font-weight:bold;margin:14px 0 6px}
+input,button{width:100%;padding:13px;border-radius:8px;font-size:16px}
+input{border:1px solid #ccc}
+button{border:0;background:#2563eb;color:white;font-weight:bold;margin-top:15px;cursor:pointer}
+button.reset{background:#555}
+.result{display:none;margin-top:20px;padding:18px;background:#eef4ff;border-radius:10px}
+.result div{padding:6px 0;font-size:17px}
+.grade{font-size:28px!important;font-weight:bold}
+.table-wrap{overflow-x:auto}
+table{width:100%;border-collapse:collapse;margin-top:15px}
+th,td{border:1px solid #ddd;padding:10px;text-align:center}
+th{font-weight:bold}
+.faq{border-bottom:1px solid #ddd;padding:12px 0}
+@media(max-width:600px){
+.container{padding:12px}
+.card{padding:18px}
+h1{font-size:27px}
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<div class="card">
+<h1>Easy Grader Calculator</h1>
+<p>Use this free Easy Grader to quickly calculate a test score from the total number of questions and wrong answers.</p>
+
+<label for="total">Total Questions</label>
+<input type="number" id="total" min="1" placeholder="Example: 25">
+
+<label for="wrong">Wrong Answers</label>
+<input type="number" id="wrong" min="0" placeholder="Example: 4">
+
+<button onclick="calculateGrade()">Calculate Grade</button>
+<button class="reset" onclick="resetCalculator()">Reset</button>
+
+<div class="result" id="result">
+<div>Correct Answers: <strong id="correct"></strong></div>
+<div>Wrong Answers: <strong id="wrongResult"></strong></div>
+<div>Percentage: <strong id="percentage"></strong></div>
+<div class="grade">Grade: <strong id="grade"></strong></div>
+<div>Result: <strong id="passFail"></strong></div>
+</div>
+</div>
+
+<div class="card">
+<h2>EZ Grader Chart</h2>
+<p>Enter the total number of questions above to generate a complete Easy Grader chart.</p>
+<div class="table-wrap">
+<table>
+<thead>
+<tr>
+<th>Wrong</th>
+<th>Correct</th>
+<th>Percentage</th>
+<th>Grade</th>
+</tr>
+</thead>
+<tbody id="chart"></tbody>
+</table>
+</div>
+</div>
+
+<div class="card">
+<h2>What Is an Easy Grader?</h2>
+<p>An Easy Grader, also known as an EZ Grader, helps teachers and students quickly convert the number of correct and incorrect answers into a percentage and letter grade.</p>
+
+<h2>How to Use the Easy Grader</h2>
+<p>Enter the total number of questions, enter the number of wrong answers, and click Calculate Grade. The calculator instantly shows the correct answers, percentage, letter grade, and result.</p>
+
+<h2>Easy Grader Formula</h2>
+<p>Correct Answers = Total Questions − Wrong Answers</p>
+<p>Percentage = (Correct Answers ÷ Total Questions) × 100</p>
+
+<h2>Standard Grading Scale</h2>
+<p>A = 90–100%</p>
+<p>B = 80–89%</p>
+<p>C = 70–79%</p>
+<p>D = 60–69%</p>
+<p>F = Below 60%</p>
+
+<h2>Frequently Asked Questions</h2>
+
+<div class="faq">
+<strong>What is an Easy Grader?</strong>
+<p>An Easy Grader calculates test percentages and letter grades from the number of questions answered correctly or incorrectly.</p>
+</div>
+
+<div class="faq">
+<strong>Is Easy Grader the same as EZ Grader?</strong>
+<p>Yes. EZ Grader is another common name for an Easy Grader.</p>
+</div>
+
+<div class="faq">
+<strong>How do I calculate a test grade?</strong>
+<p>Enter the total questions and wrong answers. The calculator determines the correct answers, percentage, and letter grade.</p>
+</div>
+
+<div class="faq">
+<strong>Is this Easy Grader free?</strong>
+<p>Yes. This Easy Grader is free to use online.</p>
+</div>
+
+</div>
+</div>
+
+<script>
+function getGrade(percent){
+if(percent>=90)return"A";
+if(percent>=80)return"B";
+if(percent>=70)return"C";
+if(percent>=60)return"D";
+return"F";
+}
+
+function calculateGrade(){
+const total=parseInt(document.getElementById("total").value);
+const wrong=parseInt(document.getElementById("wrong").value);
+
+if(!total || total<1){
+alert("Please enter the total number of questions.");
+return;
+}
+
+if(isNaN(wrong) || wrong<0 || wrong>total){
+alert("Please enter a valid number of wrong answers.");
+return;
+}
+
+const correct=total-wrong;
+const percentage=(correct/total)*100;
+const grade=getGrade(percentage);
+
+document.getElementById("correct").textContent=correct;
+document.getElementById("wrongResult").textContent=wrong;
+document.getElementById("percentage").textContent=percentage.toFixed(2)+"%";
+document.getElementById("grade").textContent=grade;
+document.getElementById("passFail").textContent=percentage>=60?"Pass":"Fail";
+document.getElementById("result").style.display="block";
+
+generateChart(total);
+}
+
+function generateChart(total){
+let chart="";
+for(let wrong=0;wrong<=total;wrong++){
+const correct=total-wrong;
+const percentage=(correct/total)*100;
+const grade=getGrade(percentage);
+
+chart+=`<tr>
+<td>${wrong}</td>
+<td>${correct}</td>
+<td>${percentage.toFixed(2)}%</td>
+<td>${grade}</td>
+</tr>`;
+}
+document.getElementById("chart").innerHTML=chart;
+}
+
+function resetCalculator(){
+document.getElementById("total").value="";
+document.getElementById("wrong").value="";
+document.getElementById("result").style.display="none";
+document.getElementById("chart").innerHTML="";
+}
+</script>
+
+</body>
+</html>
