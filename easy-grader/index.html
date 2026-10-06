@@ -62,19 +62,16 @@ align-items:center
 flex:1
 }
 
-.input-row .step{
-width:52px;
-flex:none
-}
-
 .step{
+width:52px;
 padding:13px 5px;
 font-size:22px;
 font-weight:bold;
 border:1px solid #ccc;
 background:#f1f3f6;
 color:#172033;
-margin:0
+margin:0;
+flex:none
 }
 
 input,select{
@@ -153,25 +150,37 @@ border-radius:10px
 font-size:14px
 }
 
-.settings-row{
+.settings{
+margin-top:15px;
 display:grid;
 grid-template-columns:1fr 1fr;
-gap:10px;
-margin-top:12px
+gap:10px
 }
 
-.setting-box{
-background:#fff;
+.setting{
+background:white;
 border:1px solid #ddd;
 border-radius:10px;
 padding:12px
 }
 
-.setting-box label{
+.setting label{
 font-size:14px;
 font-weight:bold;
 display:block;
 margin-bottom:7px
+}
+
+.check-row{
+display:flex;
+align-items:center;
+gap:10px;
+padding:5px 0
+}
+
+.check-row input{
+width:20px;
+height:20px
 }
 
 .result{
@@ -237,6 +246,11 @@ th{
 background:#f1f4f8
 }
 
+.current-row{
+background:#e8f0ff;
+font-weight:bold
+}
+
 .faq{
 border-bottom:1px solid #ddd;
 padding:12px 0
@@ -264,7 +278,7 @@ grid-template-columns:repeat(3,1fr)
 grid-template-columns:1fr
 }
 
-.settings-row{
+.settings{
 grid-template-columns:1fr
 }
 
@@ -272,7 +286,7 @@ grid-template-columns:1fr
 grid-template-columns:repeat(2,1fr)
 }
 
-.input-row .step{
+.step{
 width:48px
 }
 }
@@ -360,6 +374,7 @@ oninput="handleInput()">
 type="number"
 id="wrong"
 min="0"
+step="0.5"
 value="0"
 oninput="handleInput()">
 
@@ -402,13 +417,11 @@ id="customScale"
 value="A 93, B 85, C 75, D 65, F 0"
 placeholder="A 93, B 85, C 75, D 65, F 0">
 
-<div class="settings-row">
+<div class="settings">
 
-<div class="setting-box">
+<div class="setting">
 
-<label for="passingGrade">
-Passing Grade %
-</label>
+<label>Passing Grade %</label>
 
 <input
 type="number"
@@ -420,11 +433,9 @@ value="60">
 
 </div>
 
-<div class="setting-box">
+<div class="setting">
 
-<label for="rounding">
-Percentage Display
-</label>
+<label>Percentage Decimals</label>
 
 <select id="rounding">
 <option value="2">2 Decimals</option>
@@ -439,6 +450,24 @@ Percentage Display
 <button onclick="applyCustomScale()">
 Apply Custom Scale
 </button>
+
+</div>
+
+
+<div class="setting" style="margin-top:15px">
+
+<div class="check-row">
+
+<input
+type="checkbox"
+id="halfPoints"
+onchange="toggleHalfPoints()">
+
+<label for="halfPoints">
+Allow Half Points
+</label>
+
+</div>
 
 </div>
 
@@ -569,9 +598,16 @@ Yes. Select Custom and enter the minimum percentage required for each letter gra
 </div>
 
 <div class="faq">
-<strong>Can I set my own passing grade?</strong>
+<strong>Can I use half points?</strong>
 <p>
-Yes. Custom mode lets you choose the percentage required to pass.
+Yes. Turn on Allow Half Points to grade tests where a partially correct answer counts as half of a wrong answer.
+</p>
+</div>
+
+<div class="faq">
+<strong>Can I choose decimal precision?</strong>
+<p>
+Yes. You can display percentages with zero, one, or two decimal places.
 </p>
 </div>
 
@@ -591,6 +627,8 @@ Yes. Click Print Chart to print the chart or save it as a PDF through your brows
 
 let currentScale="standard";
 
+let customPassingGrade=60;
+
 let customGrades=[
 {grade:"A",min:90},
 {grade:"B",min:80},
@@ -599,11 +637,9 @@ let customGrades=[
 {grade:"F",min:0}
 ];
 
-let customPassingGrade=60;
-
 
 /* -----------------------------
-   GRADING SCALES
+   GET GRADING SCALE
 ----------------------------- */
 
 function getGrades(){
@@ -646,7 +682,7 @@ return customGrades;
 
 
 /* -----------------------------
-   GET LETTER GRADE
+   GET GRADE
 ----------------------------- */
 
 function getGrade(percent){
@@ -669,7 +705,7 @@ return grades[grades.length-1].grade;
 
 
 /* -----------------------------
-   GET PASSING GRADE
+   PASSING GRADE
 ----------------------------- */
 
 function getPassingGrade(){
@@ -681,6 +717,17 @@ return customPassingGrade;
 }
 
 return 60;
+
+}
+
+
+/* -----------------------------
+   HALF POINT CHECK
+----------------------------- */
+
+function isHalfPointMode(){
+
+return document.getElementById("halfPoints").checked;
 
 }
 
@@ -735,13 +782,46 @@ let total=parseInt(document.getElementById("total").value)||1;
 
 let input=document.getElementById("wrong");
 
-let value=parseInt(input.value)||0;
+let value=parseFloat(input.value)||0;
 
-value+=amount;
+let step=isHalfPointMode()?0.5:1;
+
+value+=amount*step;
 
 if(value<0)value=0;
 
 if(value>total)value=total;
+
+value=Math.round(value*2)/2;
+
+input.value=value;
+
+calculateGrade();
+
+}
+
+
+/* -----------------------------
+   HALF POINT TOGGLE
+----------------------------- */
+
+function toggleHalfPoints(){
+
+let input=document.getElementById("wrong");
+
+let value=parseFloat(input.value)||0;
+
+if(!isHalfPointMode()){
+
+value=Math.round(value);
+
+input.step="1";
+
+}else{
+
+input.step="0.5";
+
+}
 
 input.value=value;
 
@@ -764,12 +844,14 @@ calculateGrade();
 
 
 /* -----------------------------
-   WRONG LIMIT
+   UPDATE LIMIT
 ----------------------------- */
 
 function updateWrongLimit(){
 
-let total=parseInt(document.getElementById("total").value)||1;
+let total=parseInt(
+document.getElementById("total").value
+)||1;
 
 if(total<1)total=1;
 
@@ -779,21 +861,21 @@ document.getElementById("total").value=total;
 
 let wrong=document.getElementById("wrong");
 
-let wrongValue=parseInt(wrong.value);
+let value=parseFloat(wrong.value);
 
-if(isNaN(wrongValue)){
-wrongValue=0;
+if(isNaN(value))value=0;
+
+if(value<0)value=0;
+
+if(!isHalfPointMode()){
+
+value=Math.round(value);
+
 }
 
-if(wrongValue<0){
-wrongValue=0;
-}
+if(value>total)value=total;
 
-if(wrongValue>total){
-wrongValue=total;
-}
-
-wrong.value=wrongValue;
+wrong.value=value;
 
 generateChart(total);
 
@@ -801,37 +883,48 @@ generateChart(total);
 
 
 /* -----------------------------
-   SCALE BUTTONS
+   SCALE
 ----------------------------- */
 
 function setScale(scale){
 
 currentScale=scale;
 
-document.getElementById("standardBtn").classList.remove("active");
-document.getElementById("plusBtn").classList.remove("active");
-document.getElementById("customBtn").classList.remove("active");
+document.getElementById("standardBtn")
+.classList.remove("active");
+
+document.getElementById("plusBtn")
+.classList.remove("active");
+
+document.getElementById("customBtn")
+.classList.remove("active");
+
 
 if(scale==="standard"){
 
-document.getElementById("standardBtn").classList.add("active");
+document.getElementById("standardBtn")
+.classList.add("active");
 
 }
 
 if(scale==="plus"){
 
-document.getElementById("plusBtn").classList.add("active");
+document.getElementById("plusBtn")
+.classList.add("active");
 
 }
 
 if(scale==="custom"){
 
-document.getElementById("customBtn").classList.add("active");
+document.getElementById("customBtn")
+.classList.add("active");
 
 }
 
+
 document.getElementById("customBox").style.display=
-scale==="custom" ? "block" : "none";
+scale==="custom"?"block":"none";
+
 
 generateChart(
 parseInt(document.getElementById("total").value)||1
@@ -848,7 +941,8 @@ calculateGrade();
 
 function applyCustomScale(){
 
-let text=document.getElementById("customScale").value.trim();
+let text=document.getElementById("customScale")
+.value.trim();
 
 let parts=text.split(",");
 
@@ -862,7 +956,9 @@ let match=item.match(/^(.+?)\s+(\d+(?:\.\d+)?)$/);
 
 if(!match){
 
-alert("Invalid format. Example: A 93, B 85, C 75, D 65, F 0");
+alert(
+"Invalid format. Example: A 93, B 85, C 75, D 65, F 0"
+);
 
 return;
 
@@ -888,25 +984,6 @@ min:min
 }
 
 
-/* Remove duplicate grades */
-
-let gradeNames=grades.map(function(item){
-return item.grade.toUpperCase();
-});
-
-let uniqueGrades=new Set(gradeNames);
-
-if(uniqueGrades.size!==grades.length){
-
-alert("Please do not use duplicate grade names.");
-
-return;
-
-}
-
-
-/* Sort highest first */
-
 grades.sort(function(a,b){
 
 return b.min-a.min;
@@ -914,22 +991,22 @@ return b.min-a.min;
 });
 
 
-/* Lowest grade must start at 0 */
-
 let hasZero=grades.some(function(item){
+
 return item.min===0;
+
 });
 
 if(!hasZero){
 
-alert("Please include a lowest grade with 0. Example: F 0");
+alert(
+"Please include a lowest grade with 0. Example: F 0"
+);
 
 return;
 
 }
 
-
-/* Passing grade */
 
 let passing=parseFloat(
 document.getElementById("passingGrade").value
@@ -937,7 +1014,9 @@ document.getElementById("passingGrade").value
 
 if(isNaN(passing) || passing<0 || passing>100){
 
-alert("Passing grade must be between 0 and 100.");
+alert(
+"Passing grade must be between 0 and 100."
+);
 
 return;
 
@@ -951,39 +1030,45 @@ customPassingGrade=passing;
 currentScale="custom";
 
 
-document.getElementById("standardBtn").classList.remove("active");
-document.getElementById("plusBtn").classList.remove("active");
-document.getElementById("customBtn").classList.add("active");
+document.getElementById("standardBtn")
+.classList.remove("active");
+
+document.getElementById("plusBtn")
+.classList.remove("active");
+
+document.getElementById("customBtn")
+.classList.add("active");
 
 
-document.getElementById("customBox").style.display="block";
-
-
-let total=parseInt(document.getElementById("total").value)||1;
-
-generateChart(total);
+generateChart(
+parseInt(document.getElementById("total").value)||1
+);
 
 calculateGrade();
 
-alert("Custom grading scale applied successfully.");
+alert(
+"Custom grading scale applied successfully."
+);
 
 }
 
 
 /* -----------------------------
-   CALCULATE GRADE
+   CALCULATE
 ----------------------------- */
 
 function calculateGrade(){
 
-let total=parseInt(document.getElementById("total").value);
+let total=parseInt(
+document.getElementById("total").value
+);
 
-let wrong=parseInt(document.getElementById("wrong").value);
+let wrong=parseFloat(
+document.getElementById("wrong").value
+);
 
 
 if(!total || total<1){
-
-alert("Please enter the total number of questions.");
 
 return;
 
@@ -1013,6 +1098,17 @@ wrong=0;
 }
 
 
+if(!isHalfPointMode()){
+
+wrong=Math.round(wrong);
+
+}else{
+
+wrong=Math.round(wrong*2)/2;
+
+}
+
+
 if(wrong>total){
 
 wrong=total;
@@ -1035,44 +1131,61 @@ let decimals=parseInt(
 document.getElementById("rounding").value
 );
 
-if(isNaN(decimals)){
-decimals=2;
-}
+if(isNaN(decimals))decimals=2;
 
 
-document.getElementById("correct").textContent=correct;
+document.getElementById("correct").textContent=
+formatNumber(correct);
 
-document.getElementById("wrongResult").textContent=wrong;
+document.getElementById("wrongResult").textContent=
+formatNumber(wrong);
 
 document.getElementById("percentage").textContent=
 percentage.toFixed(decimals)+"%";
 
-document.getElementById("grade").textContent=grade;
+document.getElementById("grade").textContent=
+grade;
 
+
+let pass=document.getElementById("passFail");
 
 if(percentage>=passingGrade){
 
-document.getElementById("passFail").textContent=
-"Pass";
+pass.textContent="Pass";
 
-document.getElementById("passFail").style.color=
-"#16803a";
+pass.style.color="#16803a";
 
 }else{
 
-document.getElementById("passFail").textContent=
-"Fail";
+pass.textContent="Fail";
 
-document.getElementById("passFail").style.color=
-"#c62828";
+pass.style.color="#c62828";
 
 }
 
 
-document.getElementById("result").style.display="block";
+document.getElementById("result")
+.style.display="block";
 
 
 generateChart(total);
+
+}
+
+
+/* -----------------------------
+   FORMAT NUMBER
+----------------------------- */
+
+function formatNumber(value){
+
+if(Number.isInteger(value)){
+
+return value;
+
+}
+
+return value.toFixed(1);
 
 }
 
@@ -1083,20 +1196,51 @@ generateChart(total);
 
 function generateChart(total){
 
-if(!total || total<1){
-return;
-}
+if(!total || total<1)return;
+
 
 let chart="";
 
 let decimals=parseInt(
-document.getElementById("rounding")?.value || 2
+document.getElementById("rounding")?.value||2
 );
 
-if(isNaN(decimals)){
-decimals=2;
+if(isNaN(decimals))decimals=2;
+
+
+let currentWrong=parseFloat(
+document.getElementById("wrong")?.value||0
+);
+
+
+if(isHalfPointMode()){
+
+for(let wrong=0;wrong<=total;wrong+=0.5){
+
+let correct=total-wrong;
+
+let percentage=(correct/total)*100;
+
+let grade=getGrade(percentage);
+
+let active=
+Math.abs(wrong-currentWrong)<0.001
+?" class=\"current-row\""
+:"";
+
+
+chart+=`
+<tr${active}>
+<td>${formatNumber(wrong)}</td>
+<td>${formatNumber(correct)}</td>
+<td>${percentage.toFixed(decimals)}%</td>
+<td>${grade}</td>
+</tr>
+`;
+
 }
 
+}else{
 
 for(let wrong=0;wrong<=total;wrong++){
 
@@ -1106,8 +1250,14 @@ let percentage=(correct/total)*100;
 
 let grade=getGrade(percentage);
 
+let active=
+Math.abs(wrong-currentWrong)<0.001
+?" class=\"current-row\""
+:"";
+
+
 chart+=`
-<tr>
+<tr${active}>
 <td>${wrong}</td>
 <td>${correct}</td>
 <td>${percentage.toFixed(decimals)}%</td>
@@ -1117,10 +1267,24 @@ chart+=`
 
 }
 
+}
+
 
 document.getElementById("chart").innerHTML=chart;
 
 }
+
+
+/* -----------------------------
+   ROUNDING CHANGE
+----------------------------- */
+
+document.getElementById("rounding")
+.addEventListener("change",function(){
+
+calculateGrade();
+
+});
 
 
 /* -----------------------------
@@ -1133,12 +1297,14 @@ document.getElementById("total").value=25;
 
 document.getElementById("wrong").value=0;
 
+document.getElementById("halfPoints").checked=false;
+
+document.getElementById("rounding").value=2;
+
 document.getElementById("customScale").value=
 "A 93, B 85, C 75, D 65, F 0";
 
 document.getElementById("passingGrade").value=60;
-
-document.getElementById("rounding").value=2;
 
 
 currentScale="standard";
@@ -1154,13 +1320,17 @@ customGrades=[
 ];
 
 
-document.getElementById("standardBtn").classList.add("active");
+document.getElementById("standardBtn")
+.classList.add("active");
 
-document.getElementById("plusBtn").classList.remove("active");
+document.getElementById("plusBtn")
+.classList.remove("active");
 
-document.getElementById("customBtn").classList.remove("active");
+document.getElementById("customBtn")
+.classList.remove("active");
 
-document.getElementById("customBox").style.display="none";
+document.getElementById("customBox")
+.style.display="none";
 
 
 calculateGrade();
@@ -1169,17 +1339,31 @@ calculateGrade();
 
 
 /* -----------------------------
-   ROUNDING CHANGE
+   KEYBOARD SHORTCUTS
 ----------------------------- */
 
-document.getElementById("rounding").addEventListener(
-"change",
-function(){
+document.addEventListener("keydown",function(event){
 
-calculateGrade();
+if(event.target.tagName==="INPUT" ||
+event.target.tagName==="SELECT"){
+
+return;
 
 }
-);
+
+if(event.key.toLowerCase()==="w"){
+
+changeWrong(1);
+
+}
+
+if(event.key.toLowerCase()==="z"){
+
+changeWrong(-1);
+
+}
+
+});
 
 
 /* -----------------------------
@@ -1193,4 +1377,4 @@ calculateGrade();
 </script>
 
 </body>
-</html>
+   </html>
