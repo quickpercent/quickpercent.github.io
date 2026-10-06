@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>Easy Grader – Free EZ Grader Calculator Online</title>
 
@@ -10,243 +10,46 @@
 
 <style>
 *{box-sizing:border-box}
-
-body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#f5f7fb;
-color:#172033
-}
-
-.container{
-max-width:900px;
-margin:auto;
-padding:16px
-}
-
-.card{
-background:#fff;
-border-radius:16px;
-padding:22px;
-margin:16px 0;
-box-shadow:0 4px 18px rgba(0,0,0,.08)
-}
-
-h1{
-text-align:center;
-margin:5px 0 8px;
-font-size:30px
-}
-
+body{margin:0;font-family:Arial,sans-serif;background:#f5f7fb;color:#172033}
+.container{max-width:900px;margin:auto;padding:16px}
+.card{background:#fff;border-radius:16px;padding:22px;margin:16px 0;box-shadow:0 4px 18px rgba(0,0,0,.08)}
+h1{text-align:center;margin:5px 0 8px;font-size:30px}
 h2{margin-top:30px}
-
 p{line-height:1.65}
-
-.label{
-font-weight:bold;
-margin:18px 0 7px;
-display:block
-}
-
-.input-row{
-display:flex;
-gap:8px;
-align-items:center
-}
-
+.label{font-weight:bold;margin:18px 0 7px;display:block}
+.input-row{display:flex;gap:8px;align-items:center}
 .input-row input{flex:1}
-
-.step{
-width:52px;
-padding:13px 5px;
-font-size:22px;
-font-weight:bold;
-border:1px solid #ccc;
-background:#f1f3f6;
-color:#172033;
-margin:0;
-flex:none
-}
-
-input,select{
-width:100%;
-padding:13px;
-border:1px solid #ccc;
-border-radius:9px;
-font-size:16px;
-background:white
-}
-
-.quick-title{
-font-weight:bold;
-margin:20px 0 8px
-}
-
-.quick-buttons{
-display:grid;
-grid-template-columns:repeat(6,1fr);
-gap:7px
-}
-
-.quick-buttons button{
-padding:10px 5px;
-margin:0;
-background:#eef3ff;
-color:#2454c6;
-border:1px solid #d5dff8;
-font-weight:bold
-}
-
-button{
-width:100%;
-padding:13px;
-border:0;
-border-radius:9px;
-font-size:16px;
-font-weight:bold;
-cursor:pointer;
-margin-top:14px;
-background:#2563eb;
-color:white
-}
-
+.step{width:52px;padding:13px 5px;font-size:22px;font-weight:bold;border:1px solid #ccc;background:#f1f3f6;color:#172033;margin:0;flex:none}
+input,select{width:100%;padding:13px;border:1px solid #ccc;border-radius:9px;font-size:16px;background:white}
+.quick-title{font-weight:bold;margin:20px 0 8px}
+.quick-buttons{display:grid;grid-template-columns:repeat(6,1fr);gap:7px}
+.quick-buttons button{padding:10px 5px;margin:0;background:#eef3ff;color:#2454c6;border:1px solid #d5dff8;font-weight:bold}
+button{width:100%;padding:13px;border:0;border-radius:9px;font-size:16px;font-weight:bold;cursor:pointer;margin-top:14px;background:#2563eb;color:white}
 .reset{background:#555}
-
-.scale-buttons{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:8px
-}
-
-.scale-buttons button{
-margin:0;
-background:#eef3ff;
-color:#2454c6;
-border:1px solid #d5dff8
-}
-
-.scale-buttons button.active{
-background:#2563eb;
-color:white
-}
-
-.custom-box{
-display:none;
-margin-top:15px;
-padding:15px;
-background:#f7f9fc;
-border-radius:10px
-}
-
-.custom-box p{
-font-size:14px
-}
-
-.settings{
-margin-top:15px;
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:10px
-}
-
-.setting{
-background:white;
-border:1px solid #ddd;
-border-radius:10px;
-padding:12px
-}
-
-.setting label{
-font-size:14px;
-font-weight:bold;
-display:block;
-margin-bottom:7px
-}
-
-.check-row{
-display:flex;
-align-items:center;
-gap:10px;
-padding:5px 0
-}
-
-.check-row input{
-width:20px;
-height:20px
-}
-
-.result{
-display:none;
-margin-top:20px;
-padding:18px;
-border-radius:12px;
-background:#eef4ff
-}
-
-.result-grid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:10px
-}
-
-.result-box{
-background:white;
-padding:14px;
-border-radius:10px;
-text-align:center
-}
-
-.result-label{
-font-size:13px;
-color:#666;
-margin-bottom:5px
-}
-
-.result-value{
-font-size:23px;
-font-weight:bold
-}
-
+.scale-buttons{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.scale-buttons button{margin:0;background:#eef3ff;color:#2454c6;border:1px solid #d5dff8}
+.scale-buttons button.active{background:#2563eb;color:white}
+.custom-box{display:none;margin-top:15px;padding:15px;background:#f7f9fc;border-radius:10px}
+.custom-box p{font-size:14px}
+.settings{margin-top:15px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.setting{background:white;border:1px solid #ddd;border-radius:10px;padding:12px}
+.setting label{font-size:14px;font-weight:bold;display:block;margin-bottom:7px}
+.check-row{display:flex;align-items:center;gap:10px;padding:5px 0}
+.check-row input{width:20px;height:20px}
+.result{display:none;margin-top:20px;padding:18px;border-radius:12px;background:#eef4ff}
+.result-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.result-box{background:white;padding:14px;border-radius:10px;text-align:center}
+.result-label{font-size:13px;color:#666;margin-bottom:5px}
+.result-value{font-size:23px;font-weight:bold}
 .main-grade{font-size:38px}
-
-.pass{
-margin-top:14px;
-text-align:center;
-font-weight:bold;
-font-size:18px
-}
-
+.pass{margin-top:14px;text-align:center;font-weight:bold;font-size:18px}
 .table-wrap{overflow-x:auto}
-
-table{
-width:100%;
-border-collapse:collapse;
-margin-top:15px
-}
-
-th,td{
-border:1px solid #ddd;
-padding:10px;
-text-align:center
-}
-
+table{width:100%;border-collapse:collapse;margin-top:15px}
+th,td{border:1px solid #ddd;padding:10px;text-align:center}
 th{background:#f1f4f8}
-
-.current-row{
-background:#e8f0ff;
-font-weight:bold
-}
-
-.faq{
-border-bottom:1px solid #ddd;
-padding:12px 0
-}
-
-.help-text{
-font-size:13px;
-color:#666;
-margin-top:6px
-}
+.current-row{background:#e8f0ff;font-weight:bold}
+.faq{border-bottom:1px solid #ddd;padding:12px 0}
+.help-text{font-size:13px;color:#666;margin-top:6px}
 
 @media(max-width:600px){
 .container{padding:10px}
@@ -262,20 +65,8 @@ h1{font-size:27px}
 @media print{
 body{background:white}
 body *{visibility:hidden}
-
-#chartCard,
-#chartCard *{
-visibility:visible
-}
-
-#chartCard{
-position:absolute;
-left:0;
-top:0;
-width:100%;
-box-shadow:none
-}
-
+#chartCard,#chartCard *{visibility:visible}
+#chartCard{position:absolute;left:0;top:0;width:100%;box-shadow:none}
 .no-print{display:none!important}
 }
 </style>
@@ -317,14 +108,12 @@ oninput="handleTotalInput()"
 <div class="quick-title">Quick Select</div>
 
 <div class="quick-buttons">
-
 <button onclick="setTotal(10)">10</button>
 <button onclick="setTotal(20)">20</button>
 <button onclick="setTotal(25)">25</button>
 <button onclick="setTotal(30)">30</button>
 <button onclick="setTotal(50)">50</button>
 <button onclick="setTotal(100)">100</button>
-
 </div>
 
 <label class="label">Wrong Answers</label>
@@ -338,7 +127,7 @@ type="number"
 id="wrong"
 min="0"
 max="500"
-step="1"
+step="any"
 value="0"
 inputmode="decimal"
 oninput="handleWrongInput()"
@@ -356,18 +145,15 @@ Half Points ON hone par 0.5, 1.5, 2.5, 3.5 etc. manually enter kar sakte hain.
 
 <div class="scale-buttons">
 
-<button id="standardBtn" class="active"
-onclick="setScale('standard')">
+<button id="standardBtn" class="active" onclick="setScale('standard')">
 Standard
 </button>
 
-<button id="plusBtn"
-onclick="setScale('plus')">
+<button id="plusBtn" onclick="setScale('plus')">
 Plus / Minus
 </button>
 
-<button id="customBtn"
-onclick="setScale('custom')">
+<button id="customBtn" onclick="setScale('custom')">
 Custom
 </button>
 
@@ -411,11 +197,9 @@ value="60"
 <label>Percentage Decimals</label>
 
 <select id="rounding">
-
 <option value="2">2 Decimals</option>
 <option value="1">1 Decimal</option>
 <option value="0">Whole Number</option>
-
 </select>
 
 </div>
@@ -499,14 +283,12 @@ Complete grading chart for your selected number of questions and grading scale.
 <table>
 
 <thead>
-
 <tr>
 <th>Wrong</th>
 <th>Correct</th>
 <th>Percentage</th>
 <th>Grade</th>
 </tr>
-
 </thead>
 
 <tbody id="chart"></tbody>
@@ -548,44 +330,38 @@ Percentage = (Correct Answers ÷ Total Questions) × 100
 <h2>Frequently Asked Questions</h2>
 
 <div class="faq">
-
 <strong>What is an Easy Grader?</strong>
-
-<p>
-An Easy Grader is a grading tool that converts the number of wrong answers into a percentage and letter grade.
-</p>
-
+<p>An Easy Grader is a grading tool that converts the number of wrong answers into a percentage and letter grade.</p>
 </div>
 
 <div class="faq">
-
 <strong>Is Easy Grader the same as EZ Grader?</strong>
-
-<p>
-Yes. Easy Grader and EZ Grader are commonly used names for this type of grading calculator.
-</p>
-
+<p>Yes. Easy Grader and EZ Grader are commonly used names for this type of grading calculator.</p>
 </div>
 
 <div class="faq">
-
 <strong>Can I use a custom grading scale?</strong>
-
-<p>
-Yes. Select Custom and enter the minimum percentage required for each letter grade.
-</p>
-
+<p>Yes. Select Custom and enter the minimum percentage required for each letter grade.</p>
 </div>
 
 <div class="faq">
-
 <strong>Can I use half points?</strong>
+<p>Yes. Turn on Allow Half Points to grade tests where a partial answer counts as half a point.</p>
+</div>
 
-<p><!DOCTYPE html>
+<div class="faq">
+<strong>Can I enter half points manually?</strong>
+<p>Yes. When Allow Half Points is enabled, you can manually enter values such as 0.5, 1.5, 2.5 or 3.5.</p>
+</div>
+
+<div class="faq">
+<strong>Can I choose decimal precision?</strong>
+<p>Yes. You can display percentages with zero, one, or two decimal places.</p>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 
 <title>Easy Grader – Free EZ Grader Calculator Online</title>
 
@@ -593,243 +369,46 @@ Yes. Select Custom and enter the minimum percentage required for each letter gra
 
 <style>
 *{box-sizing:border-box}
-
-body{
-margin:0;
-font-family:Arial,sans-serif;
-background:#f5f7fb;
-color:#172033
-}
-
-.container{
-max-width:900px;
-margin:auto;
-padding:16px
-}
-
-.card{
-background:#fff;
-border-radius:16px;
-padding:22px;
-margin:16px 0;
-box-shadow:0 4px 18px rgba(0,0,0,.08)
-}
-
-h1{
-text-align:center;
-margin:5px 0 8px;
-font-size:30px
-}
-
+body{margin:0;font-family:Arial,sans-serif;background:#f5f7fb;color:#172033}
+.container{max-width:900px;margin:auto;padding:16px}
+.card{background:#fff;border-radius:16px;padding:22px;margin:16px 0;box-shadow:0 4px 18px rgba(0,0,0,.08)}
+h1{text-align:center;margin:5px 0 8px;font-size:30px}
 h2{margin-top:30px}
-
 p{line-height:1.65}
-
-.label{
-font-weight:bold;
-margin:18px 0 7px;
-display:block
-}
-
-.input-row{
-display:flex;
-gap:8px;
-align-items:center
-}
-
+.label{font-weight:bold;margin:18px 0 7px;display:block}
+.input-row{display:flex;gap:8px;align-items:center}
 .input-row input{flex:1}
-
-.step{
-width:52px;
-padding:13px 5px;
-font-size:22px;
-font-weight:bold;
-border:1px solid #ccc;
-background:#f1f3f6;
-color:#172033;
-margin:0;
-flex:none
-}
-
-input,select{
-width:100%;
-padding:13px;
-border:1px solid #ccc;
-border-radius:9px;
-font-size:16px;
-background:white
-}
-
-.quick-title{
-font-weight:bold;
-margin:20px 0 8px
-}
-
-.quick-buttons{
-display:grid;
-grid-template-columns:repeat(6,1fr);
-gap:7px
-}
-
-.quick-buttons button{
-padding:10px 5px;
-margin:0;
-background:#eef3ff;
-color:#2454c6;
-border:1px solid #d5dff8;
-font-weight:bold
-}
-
-button{
-width:100%;
-padding:13px;
-border:0;
-border-radius:9px;
-font-size:16px;
-font-weight:bold;
-cursor:pointer;
-margin-top:14px;
-background:#2563eb;
-color:white
-}
-
+.step{width:52px;padding:13px 5px;font-size:22px;font-weight:bold;border:1px solid #ccc;background:#f1f3f6;color:#172033;margin:0;flex:none}
+input,select{width:100%;padding:13px;border:1px solid #ccc;border-radius:9px;font-size:16px;background:white}
+.quick-title{font-weight:bold;margin:20px 0 8px}
+.quick-buttons{display:grid;grid-template-columns:repeat(6,1fr);gap:7px}
+.quick-buttons button{padding:10px 5px;margin:0;background:#eef3ff;color:#2454c6;border:1px solid #d5dff8;font-weight:bold}
+button{width:100%;padding:13px;border:0;border-radius:9px;font-size:16px;font-weight:bold;cursor:pointer;margin-top:14px;background:#2563eb;color:white}
 .reset{background:#555}
-
-.scale-buttons{
-display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:8px
-}
-
-.scale-buttons button{
-margin:0;
-background:#eef3ff;
-color:#2454c6;
-border:1px solid #d5dff8
-}
-
-.scale-buttons button.active{
-background:#2563eb;
-color:white
-}
-
-.custom-box{
-display:none;
-margin-top:15px;
-padding:15px;
-background:#f7f9fc;
-border-radius:10px
-}
-
-.custom-box p{
-font-size:14px
-}
-
-.settings{
-margin-top:15px;
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:10px
-}
-
-.setting{
-background:white;
-border:1px solid #ddd;
-border-radius:10px;
-padding:12px
-}
-
-.setting label{
-font-size:14px;
-font-weight:bold;
-display:block;
-margin-bottom:7px
-}
-
-.check-row{
-display:flex;
-align-items:center;
-gap:10px;
-padding:5px 0
-}
-
-.check-row input{
-width:20px;
-height:20px
-}
-
-.result{
-display:none;
-margin-top:20px;
-padding:18px;
-border-radius:12px;
-background:#eef4ff
-}
-
-.result-grid{
-display:grid;
-grid-template-columns:repeat(2,1fr);
-gap:10px
-}
-
-.result-box{
-background:white;
-padding:14px;
-border-radius:10px;
-text-align:center
-}
-
-.result-label{
-font-size:13px;
-color:#666;
-margin-bottom:5px
-}
-
-.result-value{
-font-size:23px;
-font-weight:bold
-}
-
+.scale-buttons{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.scale-buttons button{margin:0;background:#eef3ff;color:#2454c6;border:1px solid #d5dff8}
+.scale-buttons button.active{background:#2563eb;color:white}
+.custom-box{display:none;margin-top:15px;padding:15px;background:#f7f9fc;border-radius:10px}
+.custom-box p{font-size:14px}
+.settings{margin-top:15px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.setting{background:white;border:1px solid #ddd;border-radius:10px;padding:12px}
+.setting label{font-size:14px;font-weight:bold;display:block;margin-bottom:7px}
+.check-row{display:flex;align-items:center;gap:10px;padding:5px 0}
+.check-row input{width:20px;height:20px}
+.result{display:none;margin-top:20px;padding:18px;border-radius:12px;background:#eef4ff}
+.result-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.result-box{background:white;padding:14px;border-radius:10px;text-align:center}
+.result-label{font-size:13px;color:#666;margin-bottom:5px}
+.result-value{font-size:23px;font-weight:bold}
 .main-grade{font-size:38px}
-
-.pass{
-margin-top:14px;
-text-align:center;
-font-weight:bold;
-font-size:18px
-}
-
+.pass{margin-top:14px;text-align:center;font-weight:bold;font-size:18px}
 .table-wrap{overflow-x:auto}
-
-table{
-width:100%;
-border-collapse:collapse;
-margin-top:15px
-}
-
-th,td{
-border:1px solid #ddd;
-padding:10px;
-text-align:center
-}
-
+table{width:100%;border-collapse:collapse;margin-top:15px}
+th,td{border:1px solid #ddd;padding:10px;text-align:center}
 th{background:#f1f4f8}
-
-.current-row{
-background:#e8f0ff;
-font-weight:bold
-}
-
-.faq{
-border-bottom:1px solid #ddd;
-padding:12px 0
-}
-
-.help-text{
-font-size:13px;
-color:#666;
-margin-top:6px
-}
+.current-row{background:#e8f0ff;font-weight:bold}
+.faq{border-bottom:1px solid #ddd;padding:12px 0}
+.help-text{font-size:13px;color:#666;margin-top:6px}
 
 @media(max-width:600px){
 .container{padding:10px}
@@ -845,20 +424,8 @@ h1{font-size:27px}
 @media print{
 body{background:white}
 body *{visibility:hidden}
-
-#chartCard,
-#chartCard *{
-visibility:visible
-}
-
-#chartCard{
-position:absolute;
-left:0;
-top:0;
-width:100%;
-box-shadow:none
-}
-
+#chartCard,#chartCard *{visibility:visible}
+#chartCard{position:absolute;left:0;top:0;width:100%;box-shadow:none}
 .no-print{display:none!important}
 }
 </style>
@@ -900,14 +467,12 @@ oninput="handleTotalInput()"
 <div class="quick-title">Quick Select</div>
 
 <div class="quick-buttons">
-
 <button onclick="setTotal(10)">10</button>
 <button onclick="setTotal(20)">20</button>
 <button onclick="setTotal(25)">25</button>
 <button onclick="setTotal(30)">30</button>
 <button onclick="setTotal(50)">50</button>
 <button onclick="setTotal(100)">100</button>
-
 </div>
 
 <label class="label">Wrong Answers</label>
@@ -921,7 +486,7 @@ type="number"
 id="wrong"
 min="0"
 max="500"
-step="1"
+step="any"
 value="0"
 inputmode="decimal"
 oninput="handleWrongInput()"
@@ -939,18 +504,15 @@ Half Points ON hone par 0.5, 1.5, 2.5, 3.5 etc. manually enter kar sakte hain.
 
 <div class="scale-buttons">
 
-<button id="standardBtn" class="active"
-onclick="setScale('standard')">
+<button id="standardBtn" class="active" onclick="setScale('standard')">
 Standard
 </button>
 
-<button id="plusBtn"
-onclick="setScale('plus')">
+<button id="plusBtn" onclick="setScale('plus')">
 Plus / Minus
 </button>
 
-<button id="customBtn"
-onclick="setScale('custom')">
+<button id="customBtn" onclick="setScale('custom')">
 Custom
 </button>
 
@@ -994,11 +556,9 @@ value="60"
 <label>Percentage Decimals</label>
 
 <select id="rounding">
-
 <option value="2">2 Decimals</option>
 <option value="1">1 Decimal</option>
 <option value="0">Whole Number</option>
-
 </select>
 
 </div>
@@ -1082,14 +642,12 @@ Complete grading chart for your selected number of questions and grading scale.
 <table>
 
 <thead>
-
 <tr>
 <th>Wrong</th>
 <th>Correct</th>
 <th>Percentage</th>
 <th>Grade</th>
 </tr>
-
 </thead>
 
 <tbody id="chart"></tbody>
@@ -1131,73 +689,38 @@ Percentage = (Correct Answers ÷ Total Questions) × 100
 <h2>Frequently Asked Questions</h2>
 
 <div class="faq">
-
 <strong>What is an Easy Grader?</strong>
-
-<p>
-An Easy Grader is a grading tool that converts the number of wrong answers into a percentage and letter grade.
-</p>
-
+<p>An Easy Grader is a grading tool that converts the number of wrong answers into a percentage and letter grade.</p>
 </div>
 
 <div class="faq">
-
 <strong>Is Easy Grader the same as EZ Grader?</strong>
-
-<p>
-Yes. Easy Grader and EZ Grader are commonly used names for this type of grading calculator.
-</p>
-
+<p>Yes. Easy Grader and EZ Grader are commonly used names for this type of grading calculator.</p>
 </div>
 
 <div class="faq">
-
 <strong>Can I use a custom grading scale?</strong>
-
-<p>
-Yes. Select Custom and enter the minimum percentage required for each letter grade.
-</p>
-
+<p>Yes. Select Custom and enter the minimum percentage required for each letter grade.</p>
 </div>
 
 <div class="faq">
-
 <strong>Can I use half points?</strong>
-
-<p>
-Yes. Turn on Allow Half Points to grade tests where a partial answer counts as half a point.
-</p>
-
+<p>Yes. Turn on Allow Half Points to grade tests where a partial answer counts as half a point.</p>
 </div>
 
 <div class="faq">
-
 <strong>Can I enter half points manually?</strong>
-
-<p>
-Yes. When Allow Half Points is enabled, you can manually enter values such as 0.5, 1.5, 2.5 or 3.5.
-</p>
-
+<p>Yes. When Allow Half Points is enabled, you can manually enter values such as 0.5, 1.5, 2.5 or 3.5.</p>
 </div>
 
 <div class="faq">
-
 <strong>Can I choose decimal precision?</strong>
-
-<p>
-Yes. You can display percentages with zero, one, or two decimal places.
-</p>
-
+<p>Yes. You can display percentages with zero, one, or two decimal places.</p>
 </div>
 
 <div class="faq">
-
 <strong>Can I print the EZ Grader chart?</strong>
-
-<p>
-Yes. Click Print Chart to print the chart or save it as a PDF through your browser.
-</p>
-
+<p>Yes. Click Print Chart to print the chart or save it as a PDF through your browser.</p>
 </div>
 
 </div>
@@ -1205,39 +728,11 @@ Yes. Click Print Chart to print the chart or save it as a PDF through your brows
 </div>
 
 <script>
-Yes. Turn on Allow Half Points to grade tests where a partial answer counts as half a point.
-</p>
-
-</div>
+   
 
 <div class="faq">
-
-<strong>Can I enter half points manually?</strong>
-
-<p>
-Yes. When Allow Half Points is enabled, you can manually enter values such as 0.5, 1.5, 2.5 or 3.5.
-</p>
-
-</div>
-
-<div class="faq">
-
-<strong>Can I choose decimal precision?</strong>
-
-<p>
-Yes. You can display percentages with zero, one, or two decimal places.
-</p>
-
-</div>
-
-<div class="faq">
-
 <strong>Can I print the EZ Grader chart?</strong>
-
-<p>
-Yes. Click Print Chart to print the chart or save it as a PDF through your browser.
-</p>
-
+<p>Yes. Click Print Chart to print the chart or save it as a PDF through your browser.</p>
 </div>
 
 </div>
@@ -1245,343 +740,564 @@ Yes. Click Print Chart to print the chart or save it as a PDF through your brows
 </div>
 
 <script>
-   let currentScale="standard";
-let customPassingGrade=60;
+   <script>
 
-let customGrades=[
-{grade:"A",min:90},
-{grade:"B",min:80},
-{grade:"C",min:70},
-{grade:"D",min:60},
-{grade:"F",min:0}
+let currentScale = "standard";
+
+const standardScale = [
+  ["A",90],
+  ["B",80],
+  ["C",70],
+  ["D",60],
+  ["F",0]
 ];
 
-function getGrades(){
-if(currentScale==="standard")
-return[
-{grade:"A",min:90},
-{grade:"B",min:80},
-{grade:"C",min:70},
-{grade:"D",min:60},
-{grade:"F",min:0}
+const plusScale = [
+  ["A+",97],
+  ["A",93],
+  ["A-",90],
+  ["B+",87],
+  ["B",83],
+  ["B-",80],
+  ["C+",77],
+  ["C",73],
+  ["C-",70],
+  ["D+",67],
+  ["D",63],
+  ["D-",60],
+  ["F",0]
 ];
 
-if(currentScale==="plus")
-return[
-{grade:"A+",min:97},
-{grade:"A",min:93},
-{grade:"A-",min:90},
-{grade:"B+",min:87},
-{grade:"B",min:83},
-{grade:"B-",min:80},
-{grade:"C+",min:77},
-{grade:"C",min:73},
-{grade:"C-",min:70},
-{grade:"D+",min:67},
-{grade:"D",min:63},
-{grade:"D-",min:60},
-{grade:"F",min:0}
+let customScaleData = [
+  ["A",93],
+  ["B",85],
+  ["C",75],
+  ["D",65],
+  ["F",0]
 ];
 
-return customGrades;
+function getTotal(){
+  let v = Number(document.getElementById("total").value);
+  if(!Number.isFinite(v) || v < 1) v = 1;
+  if(v > 500) v = 500;
+  return v;
 }
 
-function getGrade(p){
-for(let g of getGrades())
-if(p>=g.min)return g.grade;
-return"F";
+function halfEnabled(){
+  return document.getElementById("halfPoints").checked;
 }
 
-function getPassingGrade(){
-return currentScale==="custom"?customPassingGrade:60;
+function normalizeWrong(v){
+  if(!Number.isFinite(v)) return 0;
+
+  let total = getTotal();
+
+  if(v < 0) v = 0;
+  if(v > total) v = total;
+
+  if(halfEnabled()){
+    v = Math.round(v * 2) / 2;
+  }else{
+    v = Math.round(v);
+  }
+
+  if(v < 0) v = 0;
+  if(v > total) v = total;
+
+  return v;
 }
 
-function half(){
-return document.getElementById("halfPoints").checked;
-}
+function getWrong(){
+  let raw = document.getElementById("wrong").value.trim();
 
-function fmt(v){
-return Math.abs(v-Math.round(v))<.000001?
-String(Math.round(v)):v.toFixed(1);
-}
+  if(raw === "" || raw === "." || raw.endsWith(".")){
+    return null;
+  }
 
-function normWrong(v){
-let total=parseFloat(document.getElementById("total").value)||1;
+  let v = Number(raw);
 
-if(v<0)v=0;
-if(v>total)v=total;
+  if(!Number.isFinite(v)) return null;
 
-return half()?Math.round(v*2)/2:Math.round(v);
-}
+  let total = getTotal();
 
-function changeTotal(n){
-let x=parseInt(document.getElementById("total").value)||1;
-x=Math.max(1,Math.min(500,x+n));
-document.getElementById("total").value=x;
-keepWrong();
-calculateGrade();
+  if(v < 0) v = 0;
+  if(v > total) v = total;
+
+  return v;
 }
 
 function handleTotalInput(){
-let x=parseInt(document.getElementById("total").value);
-if(isNaN(x))return;
+  let input = document.getElementById("total");
+  let v = Number(input.value);
 
-x=Math.max(1,Math.min(500,x));
-document.getElementById("total").value=x;
+  if(!Number.isFinite(v)) return;
 
-keepWrong();
-calculateGrade();
-}
+  if(v < 1) v = 1;
+  if(v > 500) v = 500;
 
-function setTotal(x){
-document.getElementById("total").value=x;
-keepWrong();
-calculateGrade();
-}
+  input.value = Math.round(v);
 
-function changeWrong(n){
-let input=document.getElementById("wrong");
-let x=parseFloat(input.value)||0;
-x+=n*(half()?.5:1);
-x=normWrong(x);
-input.value=fmt(x);
-calculateGrade();
+  let wrong = getWrong();
+
+  if(wrong !== null && wrong > v){
+    document.getElementById("wrong").value = v;
+  }
+
+  calculateGrade();
+  generateChart();
 }
 
 function handleWrongInput(){
-let input=document.getElementById("wrong");
-let x=parseFloat(input.value);
 
-if(isNaN(x))return;
+  let input = document.getElementById("wrong");
+  let raw = input.value.trim();
 
-x=normWrong(x);
-input.value=fmt(x);
-calculateGrade();
+  /*
+    Important:
+    While the user is typing "2.5", the browser briefly
+    has the value "2.".
+    We do NOT overwrite that value.
+  */
+
+  if(raw === "" || raw === "." || raw.endsWith(".")){
+    return;
+  }
+
+  let v = Number(raw);
+
+  if(!Number.isFinite(v)) return;
+
+  let total = getTotal();
+
+  if(v < 0){
+    input.value = "0";
+    v = 0;
+  }
+
+  if(v > total){
+    input.value = total;
+    v = total;
+  }
+
+  calculateGrade();
+  generateChart();
 }
 
-function keepWrong(){
-let input=document.getElementById("wrong");
-let x=parseFloat(input.value)||0;
+function changeTotal(amount){
 
-x=normWrong(x);
-input.value=fmt(x);
+  let total = getTotal();
+  total += amount;
+
+  if(total < 1) total = 1;
+  if(total > 500) total = 500;
+
+  document.getElementById("total").value = total;
+
+  let wrong = getWrong();
+
+  if(wrong !== null && wrong > total){
+    document.getElementById("wrong").value = total;
+  }
+
+  calculateGrade();
+  generateChart();
 }
 
-function toggleHalfPoints(){
-let input=document.getElementById("wrong");
-let x=parseFloat(input.value)||0;
+function setTotal(value){
 
-input.step=half()?".5":"1";
+  document.getElementById("total").value = value;
 
-x=normWrong(x);
-input.value=fmt(x);
+  let wrong = getWrong();
 
-calculateGrade();
+  if(wrong !== null && wrong > value){
+    document.getElementById("wrong").value = value;
+  }
+
+  calculateGrade();
+  generateChart();
 }
 
-function setScale(s){
-currentScale=s;
+function changeWrong(amount){
 
-document.getElementById("standardBtn").classList.toggle("active",s==="standard");
-document.getElementById("plusBtn").classList.toggle("active",s==="plus");
-document.getElementById("customBtn").classList.toggle("active",s==="custom");
+  let current = getWrong();
 
-document.getElementById("customBox").style.display=
-s==="custom"?"block":"none";
+  if(current === null) current = 0;
 
-calculateGrade();
+  let step = halfEnabled() ? 0.5 : 1;
+
+  current += amount * step;
+
+  current = normalizeWrong(current);
+
+  document.getElementById("wrong").value = current;
+
+  calculateGrade();
+  generateChart();
 }
 
-function applyCustomScale(){
-let text=document.getElementById("customScale").value.trim();
-let grades=[];
+function getScale(){
 
-for(let item of text.split(",")){
-let m=item.trim().match(/^(.+?)\s+(\d+(?:\.\d+)?)$/);
+  if(currentScale === "plus"){
+    return plusScale;
+  }
 
-if(!m){
-alert("Invalid format. Example: A 93, B 85, C 75, D 65, F 0");
-return;
+  if(currentScale === "custom"){
+    return customScaleData;
+  }
+
+  return standardScale;
 }
 
-let min=parseFloat(m[2]);
+function getGrade(percent){
 
-if(min<0||min>100){
-alert("Grade percentages must be between 0 and 100.");
-return;
+  let scale = getScale();
+
+  for(let i = 0; i < scale.length; i++){
+
+    if(percent >= scale[i][1]){
+      return scale[i][0];
+    }
+
+  }
+
+  return "F";
 }
 
-grades.push({grade:m[1].trim(),min:min});
+function getPassingGrade(){
+
+  if(currentScale === "custom"){
+    let v = Number(document.getElementById("passingGrade").value);
+
+    if(!Number.isFinite(v)) v = 60;
+
+    if(v < 0) v = 0;
+    if(v > 100) v = 100;
+
+    return v;
+  }
+
+  return 60;
 }
 
-grades.sort((a,b)=>b.min-a.min);
+function getDecimals(){
 
-if(!grades.some(g=>g.min===0)){
-alert("Please include a lowest grade with 0. Example: F 0");
-return;
+  let v = Number(document.getElementById("rounding").value);
+
+  if(!Number.isFinite(v)) return 2;
+
+  return v;
 }
 
-let passing=parseFloat(
-document.getElementById("passingGrade").value
-);
+function formatPercent(v){
 
-if(isNaN(passing)||passing<0||passing>100){
-alert("Passing grade must be between 0 and 100.");
-return;
-}
+  return v.toFixed(getDecimals()) + "%";
 
-customGrades=grades;
-customPassingGrade=passing;
-
-setScale("custom");
-
-alert("Custom grading scale applied successfully.");
 }
 
 function calculateGrade(){
-let total=parseFloat(
-document.getElementById("total").value
-);
 
-let wrong=parseFloat(
-document.getElementById("wrong").value
-);
+  let total = getTotal();
+  let wrong = getWrong();
 
-if(isNaN(total)||total<1)return;
-if(isNaN(wrong))wrong=0;
+  if(wrong === null){
+    return;
+  }
 
-wrong=normWrong(wrong);
+  if(wrong < 0) wrong = 0;
+  if(wrong > total) wrong = total;
 
-document.getElementById("wrong").value=fmt(wrong);
+  let correct = total - wrong;
 
-let correct=total-wrong;
+  let percentage = (correct / total) * 100;
 
-/* Exact percentage for grade calculation */
-let percentage=(correct/total)*100;
+  let grade = getGrade(percentage);
 
-let grade=getGrade(percentage);
-let passing=getPassingGrade();
+  let passing = getPassingGrade();
 
-let decimals=parseInt(
-document.getElementById("rounding").value
-);
+  document.getElementById("correct").textContent =
+    Number.isInteger(correct) ? correct : correct.toFixed(1);
 
-if(isNaN(decimals))decimals=2;
+  document.getElementById("wrongResult").textContent =
+    Number.isInteger(wrong) ? wrong : wrong.toFixed(1);
 
-document.getElementById("correct").textContent=fmt(correct);
-document.getElementById("wrongResult").textContent=fmt(wrong);
+  document.getElementById("percentage").textContent =
+    formatPercent(percentage);
 
-document.getElementById("percentage").textContent=
-percentage.toFixed(decimals)+"%";
+  document.getElementById("grade").textContent = grade;
 
-document.getElementById("grade").textContent=grade;
+  let passBox = document.getElementById("passFail");
 
-let pass=document.getElementById("passFail");
+  if(percentage >= passing){
+    passBox.textContent = "PASS";
+    passBox.style.color = "#16803c";
+  }else{
+    passBox.textContent = "FAIL";
+    passBox.style.color = "#c62828";
+  }
 
-if(percentage>=passing){
-pass.textContent="Pass";
-pass.style.color="#16803a";
-}else{
-pass.textContent="Fail";
-pass.style.color="#c62828";
+  document.getElementById("result").style.display = "block";
+
 }
 
-document.getElementById("result").style.display="block";
+function setScale(scale){
 
-generateChart();
+  currentScale = scale;
+
+  document.getElementById("standardBtn").classList.remove("active");
+  document.getElementById("plusBtn").classList.remove("active");
+  document.getElementById("customBtn").classList.remove("active");
+
+  if(scale === "standard"){
+    document.getElementById("standardBtn").classList.add("active");
+    document.getElementById("customBox").style.display = "none";
+  }
+
+  if(scale === "plus"){
+    document.getElementById("plusBtn").classList.add("active");
+    document.getElementById("customBox").style.display = "none";
+  }
+
+  if(scale === "custom"){
+    document.getElementById("customBtn").classList.add("active");
+    document.getElementById("customBox").style.display = "block";
+  }
+
+  calculateGrade();
+  generateChart();
+}
+
+function parseCustomScale(){
+
+  let text = document.getElementById("customScale").value.trim();
+
+  if(!text){
+    return null;
+  }
+
+  let parts = text.split(",");
+
+  let data = [];
+
+  for(let part of parts){
+
+    let match = part.trim().match(/^(.+?)\s+(\d+(?:\.\d+)?)$/);
+
+    if(!match) continue;
+
+    let grade = match[1].trim();
+    let percent = Number(match[2]);
+
+    if(
+      grade &&
+      Number.isFinite(percent) &&
+      percent >= 0 &&
+      percent <= 100
+    ){
+      data.push([grade,percent]);
+    }
+
+  }
+
+  if(data.length === 0){
+    return null;
+  }
+
+  data.sort(function(a,b){
+    return b[1] - a[1];
+  });
+
+  return data;
+}
+
+function applyCustomScale(){
+
+  let data = parseCustomScale();
+
+  if(!data){
+    alert("Please enter a valid grading scale.");
+    return;
+  }
+
+  customScaleData = data;
+  currentScale = "custom";
+
+  setScale("custom");
+
+  alert("Custom grading scale applied.");
+
+}
+
+function toggleHalfPoints(){
+
+  let input = document.getElementById("wrong");
+  let raw = input.value.trim();
+
+  if(raw === "" || raw === "." || raw.endsWith(".")){
+    generateChart();
+    return;
+  }
+
+  let v = Number(raw);
+
+  if(Number.isFinite(v)){
+
+    v = normalizeWrong(v);
+
+    input.value = v;
+
+  }
+
+  calculateGrade();
+  generateChart();
+
 }
 
 function generateChart(){
-let total=parseInt(
-document.getElementById("total").value
-);
 
-if(isNaN(total)||total<1)return;
+  let total = getTotal();
+  let chart = document.getElementById("chart");
 
-let decimals=parseInt(
-document.getElementById("rounding").value
-)||2;
+  chart.innerHTML = "";
 
-let currentWrong=parseFloat(
-document.getElementById("wrong").value
-)||0;
+  let currentWrong = getWrong();
 
-let step=half()?.5:1;
-let html="";
+  if(currentWrong === null){
+    currentWrong = 0;
+  }
 
-for(let w=0;w<=total+.0001;w+=step){
+  let step = halfEnabled() ? 0.5 : 1;
 
-w=Math.round(w*2)/2;
+  for(
+    let wrong = 0;
+    wrong <= total + 0.0001;
+    wrong += step
+  ){
 
-let correct=total-w;
-let percentage=(correct/total)*100;
-let grade=getGrade(percentage);
+    wrong = Math.round(wrong * 2) / 2;
 
-let active=
-Math.abs(w-currentWrong)<.001?
-' class="current-row"':"";
+    let correct = total - wrong;
 
-html+=
-`<tr${active}>
-<td>${fmt(w)}</td>
-<td>${fmt(correct)}</td>
-<td>${percentage.toFixed(decimals)}%</td>
-<td>${grade}</td>
-</tr>`;
+    let percentage = (correct / total) * 100;
+
+    let grade = getGrade(percentage);
+
+    let tr = document.createElement("tr");
+
+    if(Math.abs(wrong - currentWrong) < 0.0001){
+      tr.className = "current-row";
+    }
+
+    let wrongText =
+      Number.isInteger(wrong)
+      ? wrong
+      : wrong.toFixed(1);
+
+    let correctText =
+      Number.isInteger(correct)
+      ? correct
+      : correct.toFixed(1);
+
+    tr.innerHTML =
+      "<td>" + wrongText + "</td>" +
+      "<td>" + correctText + "</td>" +
+      "<td>" + formatPercent(percentage) + "</td>" +
+      "<td>" + grade + "</td>";
+
+    chart.appendChild(tr);
+
+  }
+
 }
-
-document.getElementById("chart").innerHTML=html;
-}
-
-document.getElementById("rounding")
-.addEventListener("change",calculateGrade);
 
 function resetCalculator(){
 
-document.getElementById("total").value=25;
-document.getElementById("wrong").value=0;
+  currentScale = "standard";
+  customScaleData = [
+    ["A",93],
+    ["B",85],
+    ["C",75],
+    ["D",65],
+    ["F",0]
+  ];
 
-document.getElementById("halfPoints").checked=false;
-document.getElementById("wrong").step="1";
+  document.getElementById("total").value = 25;
+  document.getElementById("wrong").value = 0;
 
-document.getElementById("rounding").value="2";
+  document.getElementById("customScale").value =
+    "A 93, B 85, C 75, D 65, F 0";
 
-document.getElementById("customScale").value=
-"A 93, B 85, C 75, D 65, F 0";
+  document.getElementById("passingGrade").value = 60;
+  document.getElementById("rounding").value = 2;
+  document.getElementById("halfPoints").checked = false;
 
-document.getElementById("passingGrade").value=60;
+  document.getElementById("customBox").style.display = "none";
 
-currentScale="standard";
-customPassingGrade=60;
+  document.getElementById("standardBtn").classList.add("active");
+  document.getElementById("plusBtn").classList.remove("active");
+  document.getElementById("customBtn").classList.remove("active");
 
-customGrades=[
-{grade:"A",min:90},
-{grade:"B",min:80},
-{grade:"C",min:70},
-{grade:"D",min:60},
-{grade:"F",min:0}
-];
+  document.getElementById("result").style.display = "none";
 
-setScale("standard");
+  calculateGrade();
+  generateChart();
+
 }
 
 document.addEventListener("keydown",function(e){
 
-if(
-e.target.tagName==="INPUT"||
-e.target.tagName==="SELECT"||
-e.target.tagName==="TEXTAREA"
-)return;
+  let tag = document.activeElement.tagName;
 
-if(e.key.toLowerCase()==="w")changeWrong(1);
-if(e.key.toLowerCase()==="z")changeWrong(-1);
+  if(
+    tag === "INPUT" ||
+    tag === "SELECT" ||
+    tag === "TEXTAREA"
+  ){
+    return;
+  }
+
+  if(e.key.toLowerCase() === "w"){
+    changeWrong(1);
+  }
+
+  if(e.key.toLowerCase() === "z"){
+    changeWrong(-1);
+  }
 
 });
 
-document.getElementById("wrong").step="1";
+document.getElementById("rounding").addEventListener(
+  "change",
+  function(){
+    calculateGrade();
+    generateChart();
+  }
+);
 
-generateChart();
+document.getElementById("passingGrade").addEventListener(
+  "input",
+  function(){
+    calculateGrade();
+    generateChart();
+  }
+);
+
+document.getElementById("customScale").addEventListener(
+  "input",
+  function(){
+    if(currentScale === "custom"){
+      let data = parseCustomScale();
+
+      if(data){
+        customScaleData = data;
+        calculateGrade();
+        generateChart();
+      }
+    }
+  }
+);
+
 calculateGrade();
+generateChart();
 
 </script>
 
