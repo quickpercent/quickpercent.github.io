@@ -1,80 +1,354 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 <title>Easy Grader – Free EZ Grader Calculator Online</title>
 
 <meta name="description" content="Free Easy Grader calculator for test scores. Calculate percentage, letter grade and generate an EZ Grader chart using standard, plus-minus or custom grading scales.">
 
+<meta name="keywords" content="Easy Grader, EZ Grader, Easy Grader Calculator, EZ Grader Calculator, Easy Grading Calculator, Test Grade Calculator, Test Grading Calculator">
+
 <style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f5f7fb;color:#172033}
-.container{max-width:900px;margin:auto;padding:16px}
-.card{background:#fff;border-radius:16px;padding:22px;margin:16px 0;box-shadow:0 4px 18px rgba(0,0,0,.08)}
-h1{text-align:center;margin:5px 0 8px;font-size:30px}
-h2{margin-top:30px}
-p{line-height:1.65}
-.label{font-weight:bold;margin:18px 0 7px;display:block}
-.input-row{display:flex;gap:8px;align-items:center}
-.input-row input{flex:1}
-.step{width:52px;padding:13px 5px;font-size:22px;font-weight:bold;border:1px solid #ccc;background:#f1f3f6;color:#172033;margin:0;flex:none}
-input,select{width:100%;padding:13px;border:1px solid #ccc;border-radius:9px;font-size:16px;background:white}
-.quick-title{font-weight:bold;margin:20px 0 8px}
-.quick-buttons{display:grid;grid-template-columns:repeat(6,1fr);gap:7px}
-.quick-buttons button{padding:10px 5px;margin:0;background:#eef3ff;color:#2454c6;border:1px solid #d5dff8;font-weight:bold}
-button{width:100%;padding:13px;border:0;border-radius:9px;font-size:16px;font-weight:bold;cursor:pointer;margin-top:14px;background:#2563eb;color:white}
-.reset{background:#555}
-.scale-buttons{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.scale-buttons button{margin:0;background:#eef3ff;color:#2454c6;border:1px solid #d5dff8}
-.scale-buttons button.active{background:#2563eb;color:white}
-.custom-box{display:none;margin-top:15px;padding:15px;background:#f7f9fc;border-radius:10px}
-.custom-box p{font-size:14px}
-.settings{margin-top:15px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.setting{background:white;border:1px solid #ddd;border-radius:10px;padding:12px}
-.setting label{font-size:14px;font-weight:bold;display:block;margin-bottom:7px}
-.check-row{display:flex;align-items:center;gap:10px;padding:5px 0}
-.check-row input{width:20px;height:20px}
-.result{display:none;margin-top:20px;padding:18px;border-radius:12px;background:#eef4ff}
-.result-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-.result-box{background:white;padding:14px;border-radius:10px;text-align:center}
-.result-label{font-size:13px;color:#666;margin-bottom:5px}
-.result-value{font-size:23px;font-weight:bold}
-.main-grade{font-size:38px}
-.pass{margin-top:14px;text-align:center;font-weight:bold;font-size:18px}
-.table-wrap{overflow-x:auto}
-table{width:100%;border-collapse:collapse;margin-top:15px}
-th,td{border:1px solid #ddd;padding:10px;text-align:center}
-th{background:#f1f4f8}
-.current-row{background:#e8f0ff;font-weight:bold}
-.faq{border-bottom:1px solid #ddd;padding:12px 0}
-.help-text{font-size:13px;color:#666;margin-top:6px}
+
+*{
+box-sizing:border-box;
+}
+
+body{
+margin:0;
+font-family:Arial,sans-serif;
+background:#f5f7fb;
+color:#172033;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+padding:16px;
+}
+
+.card{
+background:#fff;
+border-radius:16px;
+padding:22px;
+margin:16px 0;
+box-shadow:0 4px 18px rgba(0,0,0,.08);
+}
+
+h1{
+text-align:center;
+margin:5px 0 8px;
+font-size:30px;
+}
+
+h2{
+margin-top:30px;
+}
+
+p{
+line-height:1.65;
+}
+
+.label{
+font-weight:bold;
+margin:18px 0 7px;
+display:block;
+}
+
+.input-row{
+display:flex;
+gap:8px;
+align-items:center;
+}
+
+.input-row input{
+flex:1;
+}
+
+.step{
+width:52px;
+padding:13px 5px;
+font-size:22px;
+font-weight:bold;
+border:1px solid #ccc;
+background:#f1f3f6;
+color:#172033;
+margin:0;
+flex:none;
+}
+
+input,
+select{
+width:100%;
+padding:13px;
+border:1px solid #ccc;
+border-radius:9px;
+font-size:16px;
+background:white;
+}
+
+.quick-title{
+font-weight:bold;
+margin:20px 0 8px;
+}
+
+.quick-buttons{
+display:grid;
+grid-template-columns:repeat(6,1fr);
+gap:7px;
+}
+
+.quick-buttons button{
+padding:10px 5px;
+margin:0;
+background:#eef3ff;
+color:#2454c6;
+border:1px solid #d5dff8;
+font-weight:bold;
+}
+
+button{
+width:100%;
+padding:13px;
+border:0;
+border-radius:9px;
+font-size:16px;
+font-weight:bold;
+cursor:pointer;
+margin-top:14px;
+background:#2563eb;
+color:white;
+}
+
+button:active{
+transform:scale(.98);
+}
+
+.reset{
+background:#555;
+}
+
+.scale-buttons{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:8px;
+}
+
+.scale-buttons button{
+margin:0;
+background:#eef3ff;
+color:#2454c6;
+border:1px solid #d5dff8;
+}
+
+.scale-buttons button.active{
+background:#2563eb;
+color:white;
+}
+
+.custom-box{
+display:none;
+margin-top:15px;
+padding:15px;
+background:#f7f9fc;
+border-radius:10px;
+}
+
+.custom-box p{
+font-size:14px;
+}
+
+.settings{
+margin-top:15px;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:10px;
+}
+
+.setting{
+background:white;
+border:1px solid #ddd;
+border-radius:10px;
+padding:12px;
+}
+
+.setting label{
+font-size:14px;
+font-weight:bold;
+display:block;
+margin-bottom:7px;
+}
+
+.check-row{
+display:flex;
+align-items:center;
+gap:10px;
+padding:5px 0;
+}
+
+.check-row input{
+width:20px;
+height:20px;
+}
+
+.result{
+display:none;
+margin-top:20px;
+padding:18px;
+border-radius:12px;
+background:#eef4ff;
+}
+
+.result-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:10px;
+}
+
+.result-box{
+background:white;
+padding:14px;
+border-radius:10px;
+text-align:center;
+}
+
+.result-label{
+font-size:13px;
+color:#666;
+margin-bottom:5px;
+}
+
+.result-value{
+font-size:23px;
+font-weight:bold;
+}
+
+.main-grade{
+font-size:38px;
+}
+
+.pass{
+margin-top:14px;
+text-align:center;
+font-weight:bold;
+font-size:18px;
+}
+
+.table-wrap{
+overflow-x:auto;
+}
+
+table{
+width:100%;
+border-collapse:collapse;
+margin-top:15px;
+}
+
+th,
+td{
+border:1px solid #ddd;
+padding:10px;
+text-align:center;
+}
+
+th{
+background:#f1f4f8;
+}
+
+.current-row{
+background:#e8f0ff;
+font-weight:bold;
+}
+
+.faq{
+border-bottom:1px solid #ddd;
+padding:12px 0;
+}
+
+.help-text{
+font-size:13px;
+color:#666;
+margin-top:6px;
+}
 
 @media(max-width:600px){
-.container{padding:10px}
-.card{padding:17px}
-h1{font-size:27px}
-.quick-buttons{grid-template-columns:repeat(3,1fr)}
-.scale-buttons{grid-template-columns:1fr}
-.settings{grid-template-columns:1fr}
-.result-grid{grid-template-columns:repeat(2,1fr)}
-.step{width:48px}
+
+.container{
+padding:10px;
+}
+
+.card{
+padding:17px;
+}
+
+h1{
+font-size:27px;
+}
+
+.quick-buttons{
+grid-template-columns:repeat(3,1fr);
+}
+
+.scale-buttons{
+grid-template-columns:1fr;
+}
+
+.settings{
+grid-template-columns:1fr;
+}
+
+.result-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.step{
+width:48px;
+}
+
 }
 
 @media print{
-body{background:white}
-body *{visibility:hidden}
-#chartCard,#chartCard *{visibility:visible}
-#chartCard{position:absolute;left:0;top:0;width:100%;box-shadow:none}
-.no-print{display:none!important}
+
+body{
+background:white;
 }
+
+body *{
+visibility:hidden;
+}
+
+#chartCard,
+#chartCard *{
+visibility:visible;
+}
+
+#chartCard{
+position:absolute;
+left:0;
+top:0;
+width:100%;
+box-shadow:none;
+}
+
+.no-print{
+display:none!important;
+}
+
+}
+
 </style>
+
 </head>
 
 <body>
 
 <div class="container">
+
+<!-- MAIN CALCULATOR -->
 
 <div class="card">
 
@@ -85,11 +359,21 @@ Quickly calculate test grades using total questions and wrong answers.
 Generate a complete EZ Grader chart using the grading scale that matches your school.
 </p>
 
-<label class="label">Total Questions</label>
+
+<!-- TOTAL QUESTIONS -->
+
+<label class="label">
+Total Questions
+</label>
 
 <div class="input-row">
 
-<button class="step" onclick="changeTotal(-1)">−</button>
+<button
+type="button"
+class="step"
+onclick="changeTotal(-1)">
+−
+</button>
 
 <input
 type="number"
@@ -98,29 +382,69 @@ min="1"
 max="500"
 step="1"
 value="25"
+inputmode="numeric"
 oninput="handleTotalInput()"
 >
 
-<button class="step" onclick="changeTotal(1)">+</button>
+<button
+type="button"
+class="step"
+onclick="changeTotal(1)">
++
+</button>
 
 </div>
 
-<div class="quick-title">Quick Select</div>
+
+<!-- QUICK SELECT -->
+
+<div class="quick-title">
+Quick Select
+</div>
 
 <div class="quick-buttons">
-<button onclick="setTotal(10)">10</button>
-<button onclick="setTotal(20)">20</button>
-<button onclick="setTotal(25)">25</button>
-<button onclick="setTotal(30)">30</button>
-<button onclick="setTotal(50)">50</button>
-<button onclick="setTotal(100)">100</button>
+
+<button type="button" onclick="setTotal(10)">
+10
+</button>
+
+<button type="button" onclick="setTotal(20)">
+20
+</button>
+
+<button type="button" onclick="setTotal(25)">
+25
+</button>
+
+<button type="button" onclick="setTotal(30)">
+30
+</button>
+
+<button type="button" onclick="setTotal(50)">
+50
+</button>
+
+<button type="button" onclick="setTotal(100)">
+100
+</button>
+
 </div>
 
-<label class="label">Wrong Answers</label>
+
+<!-- WRONG ANSWERS -->
+
+<label class="label">
+Wrong Answers
+</label>
 
 <div class="input-row">
 
-<button class="step" onclick="changeWrong(-1)">−</button>
+<button
+type="button"
+class="step"
+onclick="changeWrong(-1)">
+−
+</button>
 
 <input
 type="number"
@@ -133,35 +457,63 @@ inputmode="decimal"
 oninput="handleWrongInput()"
 >
 
-<button class="step" onclick="changeWrong(1)">+</button>
+<button
+type="button"
+class="step"
+onclick="changeWrong(1)">
++
+</button>
 
 </div>
 
 <div class="help-text">
-Half Points ON hone par 0.5, 1.5, 2.5, 3.5 etc. manually enter kar sakte hain.
+You can manually enter decimal values such as 0.5, 1.5, 2.5 or 3.5.
+Turn on Allow Half Points when grading with half points.
 </div>
 
-<label class="label">Grading Scale</label>
+
+<!-- GRADING SCALE -->
+
+<label class="label">
+Grading Scale
+</label>
 
 <div class="scale-buttons">
 
-<button id="standardBtn" class="active" onclick="setScale('standard')">
+<button
+type="button"
+id="standardBtn"
+class="active"
+onclick="setScale('standard')">
 Standard
 </button>
 
-<button id="plusBtn" onclick="setScale('plus')">
+<button
+type="button"
+id="plusBtn"
+onclick="setScale('plus')">
 Plus / Minus
 </button>
 
-<button id="customBtn" onclick="setScale('custom')">
+<button
+type="button"
+id="customBtn"
+onclick="setScale('custom')">
 Custom
 </button>
 
 </div>
 
-<div class="custom-box" id="customBox">
 
-<strong>Custom Grading Scale</strong>
+<!-- CUSTOM SCALE -->
+
+<div
+class="custom-box"
+id="customBox">
+
+<strong>
+Custom Grading Scale
+</strong>
 
 <p>
 Enter the minimum percentage required for each grade.
@@ -179,7 +531,9 @@ placeholder="A 93, B 85, C 75, D 65, F 0"
 
 <div class="setting">
 
-<label>Passing Grade %</label>
+<label>
+Passing Grade %
+</label>
 
 <input
 type="number"
@@ -194,25 +548,44 @@ value="60"
 
 <div class="setting">
 
-<label>Percentage Decimals</label>
+<label>
+Percentage Decimals
+</label>
 
 <select id="rounding">
-<option value="2">2 Decimals</option>
-<option value="1">1 Decimal</option>
-<option value="0">Whole Number</option>
+
+<option value="2">
+2 Decimals
+</option>
+
+<option value="1">
+1 Decimal
+</option>
+
+<option value="0">
+Whole Number
+</option>
+
 </select>
 
 </div>
 
 </div>
 
-<button onclick="applyCustomScale()">
+<button
+type="button"
+onclick="applyCustomScale()">
 Apply Custom Scale
 </button>
 
 </div>
 
-<div class="setting" style="margin-top:15px">
+
+<!-- HALF POINTS -->
+
+<div
+class="setting"
+style="margin-top:15px">
 
 <div class="check-row">
 
@@ -230,49 +603,115 @@ Allow Half Points
 
 </div>
 
-<button onclick="calculateGrade()">
+
+<!-- CALCULATE -->
+
+<button
+type="button"
+onclick="calculateGrade()">
 Calculate Grade
 </button>
 
-<button class="reset" onclick="resetCalculator()">
+
+<!-- RESET -->
+
+<button
+type="button"
+class="reset"
+onclick="resetCalculator()">
 Reset
 </button>
 
-<div class="result" id="result">
+
+<!-- RESULT -->
+
+<div
+class="result"
+id="result">
 
 <div class="result-grid">
 
 <div class="result-box">
-<div class="result-label">Correct Answers</div>
-<div class="result-value" id="correct">0</div>
+
+<div class="result-label">
+Correct Answers
 </div>
+
+<div
+class="result-value"
+id="correct">
+0
+</div>
+
+</div>
+
 
 <div class="result-box">
-<div class="result-label">Wrong Answers</div>
-<div class="result-value" id="wrongResult">0</div>
+
+<div class="result-label">
+Wrong Answers
 </div>
+
+<div
+class="result-value"
+id="wrongResult">
+0
+</div>
+
+</div>
+
 
 <div class="result-box">
-<div class="result-label">Percentage</div>
-<div class="result-value" id="percentage">0%</div>
+
+<div class="result-label">
+Percentage
 </div>
+
+<div
+class="result-value"
+id="percentage">
+0%
+</div>
+
+</div>
+
 
 <div class="result-box">
-<div class="result-label">Letter Grade</div>
-<div class="result-value main-grade" id="grade">—</div>
+
+<div class="result-label">
+Letter Grade
+</div>
+
+<div
+class="result-value main-grade"
+id="grade">
+—
 </div>
 
 </div>
 
-<div class="pass" id="passFail">—</div>
+</div>
 
+<div
+class="pass"
+id="passFail">
+—
 </div>
 
 </div>
 
-<div class="card" id="chartCard">
+</div>
 
-<h2>EZ Grader Chart</h2>
+
+<!-- EZ GRADER CHART -->
+
+<div
+class="card"
+id="chartCard">
+
+<h2>
+EZ Grader Chart
+</h2>
 
 <p>
 Complete grading chart for your selected number of questions and grading scale.
@@ -283,41 +722,73 @@ Complete grading chart for your selected number of questions and grading scale.
 <table>
 
 <thead>
+
 <tr>
-<th>Wrong</th>
-<th>Correct</th>
-<th>Percentage</th>
-<th>Grade</th>
+
+<th>
+Wrong
+</th>
+
+<th>
+Correct
+</th>
+
+<th>
+Percentage
+</th>
+
+<th>
+Grade
+</th>
+
 </tr>
+
 </thead>
 
-<tbody id="chart"></tbody>
+<tbody id="chart">
+</tbody>
 
 </table>
 
 </div>
 
-<button class="no-print" onclick="window.print()">
+<button
+type="button"
+class="no-print"
+onclick="window.print()">
 Print Chart
 </button>
 
 </div>
 
+
+<!-- SEO CONTENT -->
+
 <div class="card">
 
-<h2>What Is an Easy Grader?</h2>
+<h2>
+What Is an Easy Grader?
+</h2>
 
 <p>
-An Easy Grader, also called an EZ Grader, converts the number of correct or wrong answers into a percentage and letter grade.
+An Easy Grader, also called an EZ Grader, converts the number of wrong or correct answers into a percentage and letter grade.
+It is useful for teachers, students and anyone who needs to quickly grade a test.
 </p>
 
-<h2>How to Use the Easy Grader</h2>
+
+<h2>
+How to Use the Easy Grader
+</h2>
 
 <p>
-Enter the total number of questions, enter the number of wrong answers, select your grading scale, and calculate the result.
+Enter the total number of questions, enter the number of wrong answers, select a grading scale and calculate the result.
+You can also generate a complete EZ Grader chart for the selected test size.
 </p>
 
-<h2>Easy Grader Formula</h2>
+
+<h2>
+Easy Grader Formula
+</h2>
 
 <p>
 Correct Answers = Total Questions − Wrong Answers
@@ -327,977 +798,1255 @@ Correct Answers = Total Questions − Wrong Answers
 Percentage = (Correct Answers ÷ Total Questions) × 100
 </p>
 
-<h2>Frequently Asked Questions</h2>
+
+<h2>
+Frequently Asked Questions
+</h2>
+
 
 <div class="faq">
-<strong>What is an Easy Grader?</strong>
-<p>An Easy Grader is a grading tool that converts the number of wrong answers into a percentage and letter grade.</p>
-</div>
 
-<div class="faq">
-<strong>Is Easy Grader the same as EZ Grader?</strong>
-<p>Yes. Easy Grader and EZ Grader are commonly used names for this type of grading calculator.</p>
-</div>
-
-<div class="faq">
-<strong>Can I use a custom grading scale?</strong>
-<p>Yes. Select Custom and enter the minimum percentage required for each letter grade.</p>
-</div>
-
-<div class="faq">
-<strong>Can I use half points?</strong>
-<p>Yes. Turn on Allow Half Points to grade tests where a partial answer counts as half a point.</p>
-</div>
-
-<div class="faq">
-<strong>Can I enter half points manually?</strong>
-<p>Yes. When Allow Half Points is enabled, you can manually enter values such as 0.5, 1.5, 2.5 or 3.5.</p>
-</div>
-
-<div class="faq">
-<strong>Can I choose decimal precision?</strong>
-<p>Yes. You can display percentages with zero, one, or two decimal places.</p>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
-<title>Easy Grader – Free EZ Grader Calculator Online</title>
-
-<meta name="description" content="Free Easy Grader calculator for test scores. Calculate percentage, letter grade and generate an EZ Grader chart using standard, plus-minus or custom grading scales.">
-
-<style>
-*{box-sizing:border-box}
-body{margin:0;font-family:Arial,sans-serif;background:#f5f7fb;color:#172033}
-.container{max-width:900px;margin:auto;padding:16px}
-.card{background:#fff;border-radius:16px;padding:22px;margin:16px 0;box-shadow:0 4px 18px rgba(0,0,0,.08)}
-h1{text-align:center;margin:5px 0 8px;font-size:30px}
-h2{margin-top:30px}
-p{line-height:1.65}
-.label{font-weight:bold;margin:18px 0 7px;display:block}
-.input-row{display:flex;gap:8px;align-items:center}
-.input-row input{flex:1}
-.step{width:52px;padding:13px 5px;font-size:22px;font-weight:bold;border:1px solid #ccc;background:#f1f3f6;color:#172033;margin:0;flex:none}
-input,select{width:100%;padding:13px;border:1px solid #ccc;border-radius:9px;font-size:16px;background:white}
-.quick-title{font-weight:bold;margin:20px 0 8px}
-.quick-buttons{display:grid;grid-template-columns:repeat(6,1fr);gap:7px}
-.quick-buttons button{padding:10px 5px;margin:0;background:#eef3ff;color:#2454c6;border:1px solid #d5dff8;font-weight:bold}
-button{width:100%;padding:13px;border:0;border-radius:9px;font-size:16px;font-weight:bold;cursor:pointer;margin-top:14px;background:#2563eb;color:white}
-.reset{background:#555}
-.scale-buttons{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.scale-buttons button{margin:0;background:#eef3ff;color:#2454c6;border:1px solid #d5dff8}
-.scale-buttons button.active{background:#2563eb;color:white}
-.custom-box{display:none;margin-top:15px;padding:15px;background:#f7f9fc;border-radius:10px}
-.custom-box p{font-size:14px}
-.settings{margin-top:15px;display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.setting{background:white;border:1px solid #ddd;border-radius:10px;padding:12px}
-.setting label{font-size:14px;font-weight:bold;display:block;margin-bottom:7px}
-.check-row{display:flex;align-items:center;gap:10px;padding:5px 0}
-.check-row input{width:20px;height:20px}
-.result{display:none;margin-top:20px;padding:18px;border-radius:12px;background:#eef4ff}
-.result-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
-.result-box{background:white;padding:14px;border-radius:10px;text-align:center}
-.result-label{font-size:13px;color:#666;margin-bottom:5px}
-.result-value{font-size:23px;font-weight:bold}
-.main-grade{font-size:38px}
-.pass{margin-top:14px;text-align:center;font-weight:bold;font-size:18px}
-.table-wrap{overflow-x:auto}
-table{width:100%;border-collapse:collapse;margin-top:15px}
-th,td{border:1px solid #ddd;padding:10px;text-align:center}
-th{background:#f1f4f8}
-.current-row{background:#e8f0ff;font-weight:bold}
-.faq{border-bottom:1px solid #ddd;padding:12px 0}
-.help-text{font-size:13px;color:#666;margin-top:6px}
-
-@media(max-width:600px){
-.container{padding:10px}
-.card{padding:17px}
-h1{font-size:27px}
-.quick-buttons{grid-template-columns:repeat(3,1fr)}
-.scale-buttons{grid-template-columns:1fr}
-.settings{grid-template-columns:1fr}
-.result-grid{grid-template-columns:repeat(2,1fr)}
-.step{width:48px}
-}
-
-@media print{
-body{background:white}
-body *{visibility:hidden}
-#chartCard,#chartCard *{visibility:visible}
-#chartCard{position:absolute;left:0;top:0;width:100%;box-shadow:none}
-.no-print{display:none!important}
-}
-</style>
-</head>
-
-<body>
-
-<div class="container">
-
-<div class="card">
-
-<h1>Easy Grader Calculator</h1>
+<strong>
+What is an Easy Grader?
+</strong>
 
 <p>
-Quickly calculate test grades using total questions and wrong answers.
-Generate a complete EZ Grader chart using the grading scale that matches your school.
+An Easy Grader is a grading tool that converts test answers into a percentage and letter grade.
 </p>
 
-<label class="label">Total Questions</label>
-
-<div class="input-row">
-
-<button class="step" onclick="changeTotal(-1)">−</button>
-
-<input
-type="number"
-id="total"
-min="1"
-max="500"
-step="1"
-value="25"
-oninput="handleTotalInput()"
->
-
-<button class="step" onclick="changeTotal(1)">+</button>
-
 </div>
 
-<div class="quick-title">Quick Select</div>
 
-<div class="quick-buttons">
-<button onclick="setTotal(10)">10</button>
-<button onclick="setTotal(20)">20</button>
-<button onclick="setTotal(25)">25</button>
-<button onclick="setTotal(30)">30</button>
-<button onclick="setTotal(50)">50</button>
-<button onclick="setTotal(100)">100</button>
-</div>
+<div class="faq">
 
-<label class="label">Wrong Answers</label>
-
-<div class="input-row">
-
-<button class="step" onclick="changeWrong(-1)">−</button>
-
-<input
-type="number"
-id="wrong"
-min="0"
-max="500"
-step="any"
-value="0"
-inputmode="decimal"
-oninput="handleWrongInput()"
->
-
-<button class="step" onclick="changeWrong(1)">+</button>
-
-</div>
-
-<div class="help-text">
-Half Points ON hone par 0.5, 1.5, 2.5, 3.5 etc. manually enter kar sakte hain.
-</div>
-
-<label class="label">Grading Scale</label>
-
-<div class="scale-buttons">
-
-<button id="standardBtn" class="active" onclick="setScale('standard')">
-Standard
-</button>
-
-<button id="plusBtn" onclick="setScale('plus')">
-Plus / Minus
-</button>
-
-<button id="customBtn" onclick="setScale('custom')">
-Custom
-</button>
-
-</div>
-
-<div class="custom-box" id="customBox">
-
-<strong>Custom Grading Scale</strong>
+<strong>
+Is Easy Grader the same as EZ Grader?
+</strong>
 
 <p>
-Enter the minimum percentage required for each grade.
-Example: A 93, B 85, C 75, D 65, F 0
+Yes. Easy Grader and EZ Grader are commonly used names for this type of grading calculator.
 </p>
 
-<input
-type="text"
-id="customScale"
-value="A 93, B 85, C 75, D 65, F 0"
-placeholder="A 93, B 85, C 75, D 65, F 0"
->
-
-<div class="settings">
-
-<div class="setting">
-
-<label>Passing Grade %</label>
-
-<input
-type="number"
-id="passingGrade"
-min="0"
-max="100"
-step="0.01"
-value="60"
->
-
 </div>
 
-<div class="setting">
 
-<label>Percentage Decimals</label>
+<div class="faq">
 
-<select id="rounding">
-<option value="2">2 Decimals</option>
-<option value="1">1 Decimal</option>
-<option value="0">Whole Number</option>
-</select>
-
-</div>
-
-</div>
-
-<button onclick="applyCustomScale()">
-Apply Custom Scale
-</button>
-
-</div>
-
-<div class="setting" style="margin-top:15px">
-
-<div class="check-row">
-
-<input
-type="checkbox"
-id="halfPoints"
-onchange="toggleHalfPoints()"
->
-
-<label for="halfPoints">
-Allow Half Points
-</label>
-
-</div>
-
-</div>
-
-<button onclick="calculateGrade()">
-Calculate Grade
-</button>
-
-<button class="reset" onclick="resetCalculator()">
-Reset
-</button>
-
-<div class="result" id="result">
-
-<div class="result-grid">
-
-<div class="result-box">
-<div class="result-label">Correct Answers</div>
-<div class="result-value" id="correct">0</div>
-</div>
-
-<div class="result-box">
-<div class="result-label">Wrong Answers</div>
-<div class="result-value" id="wrongResult">0</div>
-</div>
-
-<div class="result-box">
-<div class="result-label">Percentage</div>
-<div class="result-value" id="percentage">0%</div>
-</div>
-
-<div class="result-box">
-<div class="result-label">Letter Grade</div>
-<div class="result-value main-grade" id="grade">—</div>
-</div>
-
-</div>
-
-<div class="pass" id="passFail">—</div>
-
-</div>
-
-</div>
-
-<div class="card" id="chartCard">
-
-<h2>EZ Grader Chart</h2>
+<strong>
+Can I use a custom grading scale?
+</strong>
 
 <p>
-Complete grading chart for your selected number of questions and grading scale.
+Yes. Select Custom and enter the minimum percentage required for each letter grade.
 </p>
 
-<div class="table-wrap">
-
-<table>
-
-<thead>
-<tr>
-<th>Wrong</th>
-<th>Correct</th>
-<th>Percentage</th>
-<th>Grade</th>
-</tr>
-</thead>
-
-<tbody id="chart"></tbody>
-
-</table>
-
 </div>
 
-<button class="no-print" onclick="window.print()">
-Print Chart
-</button>
 
-</div>
+<div class="faq">
 
-<div class="card">
-
-<h2>What Is an Easy Grader?</h2>
+<strong>
+Can I use half points?
+</strong>
 
 <p>
-An Easy Grader, also called an EZ Grader, converts the number of correct or wrong answers into a percentage and letter grade.
+Yes. Turn on Allow Half Points to calculate tests where partial answers count as half points.
 </p>
 
-<h2>How to Use the Easy Grader</h2>
+</div>
+
+
+<div class="faq">
+
+<strong>
+Can I manually enter decimal wrong answers?
+</strong>
 
 <p>
-Enter the total number of questions, enter the number of wrong answers, select your grading scale, and calculate the result.
+Yes. You can manually enter decimal values such as 0.5, 1.5, 2.5 or 3.5.
 </p>
 
-<h2>Easy Grader Formula</h2>
+</div>
+
+
+<div class="faq">
+
+<strong>
+Can I choose percentage decimal precision?
+</strong>
 
 <p>
-Correct Answers = Total Questions − Wrong Answers
+Yes. Custom grading mode lets you display percentages with zero, one or two decimal places.
 </p>
+
+</div>
+
+
+<div class="faq">
+
+<strong>
+Can I print the EZ Grader chart?
+</strong>
 
 <p>
-Percentage = (Correct Answers ÷ Total Questions) × 100
+Yes. Click Print Chart to print the grading chart or save it as a PDF using your browser.
 </p>
 
-<h2>Frequently Asked Questions</h2>
-
-<div class="faq">
-<strong>What is an Easy Grader?</strong>
-<p>An Easy Grader is a grading tool that converts the number of wrong answers into a percentage and letter grade.</p>
-</div>
-
-<div class="faq">
-<strong>Is Easy Grader the same as EZ Grader?</strong>
-<p>Yes. Easy Grader and EZ Grader are commonly used names for this type of grading calculator.</p>
-</div>
-
-<div class="faq">
-<strong>Can I use a custom grading scale?</strong>
-<p>Yes. Select Custom and enter the minimum percentage required for each letter grade.</p>
-</div>
-
-<div class="faq">
-<strong>Can I use half points?</strong>
-<p>Yes. Turn on Allow Half Points to grade tests where a partial answer counts as half a point.</p>
-</div>
-
-<div class="faq">
-<strong>Can I enter half points manually?</strong>
-<p>Yes. When Allow Half Points is enabled, you can manually enter values such as 0.5, 1.5, 2.5 or 3.5.</p>
-</div>
-
-<div class="faq">
-<strong>Can I choose decimal precision?</strong>
-<p>Yes. You can display percentages with zero, one, or two decimal places.</p>
-</div>
-
-<div class="faq">
-<strong>Can I print the EZ Grader chart?</strong>
-<p>Yes. Click Print Chart to print the chart or save it as a PDF through your browser.</p>
 </div>
 
 </div>
 
 </div>
+
 
 <script>
-   
 
-<div class="faq">
-<strong>Can I print the EZ Grader chart?</strong>
-<p>Yes. Click Print Chart to print the chart or save it as a PDF through your browser.</p>
-</div>
+/* =========================
+   EASY GRADER JAVASCRIPT
+   ========================= */
 
-</div>
-
-</div>
-
-<script>
-   <script>
 
 let currentScale = "standard";
 
+
+/* STANDARD SCALE */
+
 const standardScale = [
-  ["A",90],
-  ["B",80],
-  ["C",70],
-  ["D",60],
-  ["F",0]
+["A",90],
+["B",80],
+["C",70],
+["D",60],
+["F",0]
 ];
+
+
+/* PLUS / MINUS SCALE */
 
 const plusScale = [
-  ["A+",97],
-  ["A",93],
-  ["A-",90],
-  ["B+",87],
-  ["B",83],
-  ["B-",80],
-  ["C+",77],
-  ["C",73],
-  ["C-",70],
-  ["D+",67],
-  ["D",63],
-  ["D-",60],
-  ["F",0]
+["A+",97],
+["A",93],
+["A-",90],
+
+["B+",87],
+["B",83],
+["B-",80],
+
+["C+",77],
+["C",73],
+["C-",70],
+
+["D+",67],
+["D",63],
+["D-",60],
+
+["F",0]
 ];
+
+
+/* DEFAULT CUSTOM SCALE */
 
 let customScaleData = [
-  ["A",93],
-  ["B",85],
-  ["C",75],
-  ["D",65],
-  ["F",0]
+["A",93],
+["B",85],
+["C",75],
+["D",65],
+["F",0]
 ];
 
+
+/* =========================
+   GET TOTAL
+   ========================= */
+
 function getTotal(){
-  let v = Number(document.getElementById("total").value);
-  if(!Number.isFinite(v) || v < 1) v = 1;
-  if(v > 500) v = 500;
-  return v;
+
+let input = document.getElementById("total");
+
+let value = Number(input.value);
+
+if(!Number.isFinite(value)){
+return 25;
 }
+
+value = Math.round(value);
+
+if(value < 1){
+value = 1;
+}
+
+if(value > 500){
+value = 500;
+}
+
+return value;
+
+}
+
+
+/* =========================
+   HALF POINT CHECK
+   ========================= */
 
 function halfEnabled(){
-  return document.getElementById("halfPoints").checked;
+
+return document.getElementById("halfPoints").checked;
+
 }
 
-function normalizeWrong(v){
-  if(!Number.isFinite(v)) return 0;
 
-  let total = getTotal();
-
-  if(v < 0) v = 0;
-  if(v > total) v = total;
-
-  if(halfEnabled()){
-    v = Math.round(v * 2) / 2;
-  }else{
-    v = Math.round(v);
-  }
-
-  if(v < 0) v = 0;
-  if(v > total) v = total;
-
-  return v;
-}
+/* =========================
+   GET WRONG ANSWERS
+   ========================= */
 
 function getWrong(){
-  let raw = document.getElementById("wrong").value.trim();
 
-  if(raw === "" || raw === "." || raw.endsWith(".")){
-    return null;
-  }
+let input = document.getElementById("wrong");
 
-  let v = Number(raw);
+let raw = input.value.trim();
 
-  if(!Number.isFinite(v)) return null;
 
-  let total = getTotal();
+/*
+Do not interfere while user is typing
+a decimal such as 2.5.
+*/
 
-  if(v < 0) v = 0;
-  if(v > total) v = total;
+if(
+raw === "" ||
+raw === "." ||
+raw.endsWith(".")
+){
 
-  return v;
+return null;
+
 }
+
+
+let value = Number(raw);
+
+if(!Number.isFinite(value)){
+return null;
+}
+
+
+let total = getTotal();
+
+
+if(value < 0){
+value = 0;
+}
+
+
+if(value > total){
+value = total;
+}
+
+
+return value;
+
+}
+
+
+/* =========================
+   TOTAL INPUT
+   ========================= */
 
 function handleTotalInput(){
-  let input = document.getElementById("total");
-  let v = Number(input.value);
 
-  if(!Number.isFinite(v)) return;
+let input = document.getElementById("total");
 
-  if(v < 1) v = 1;
-  if(v > 500) v = 500;
+let value = Number(input.value);
 
-  input.value = Math.round(v);
 
-  let wrong = getWrong();
-
-  if(wrong !== null && wrong > v){
-    document.getElementById("wrong").value = v;
-  }
-
-  calculateGrade();
-  generateChart();
+if(!Number.isFinite(value)){
+return;
 }
 
-function handleWrongInput(){
 
-  let input = document.getElementById("wrong");
-  let raw = input.value.trim();
+value = Math.round(value);
 
-  /*
-    Important:
-    While the user is typing "2.5", the browser briefly
-    has the value "2.".
-    We do NOT overwrite that value.
-  */
 
-  if(raw === "" || raw === "." || raw.endsWith(".")){
-    return;
-  }
-
-  let v = Number(raw);
-
-  if(!Number.isFinite(v)) return;
-
-  let total = getTotal();
-
-  if(v < 0){
-    input.value = "0";
-    v = 0;
-  }
-
-  if(v > total){
-    input.value = total;
-    v = total;
-  }
-
-  calculateGrade();
-  generateChart();
+if(value < 1){
+value = 1;
 }
 
-function changeTotal(amount){
 
-  let total = getTotal();
-  total += amount;
-
-  if(total < 1) total = 1;
-  if(total > 500) total = 500;
-
-  document.getElementById("total").value = total;
-
-  let wrong = getWrong();
-
-  if(wrong !== null && wrong > total){
-    document.getElementById("wrong").value = total;
-  }
-
-  calculateGrade();
-  generateChart();
+if(value > 500){
+value = 500;
 }
 
-function setTotal(value){
 
-  document.getElementById("total").value = value;
+input.value = value;
 
-  let wrong = getWrong();
 
-  if(wrong !== null && wrong > value){
-    document.getElementById("wrong").value = value;
-  }
+let wrong = getWrong();
 
-  calculateGrade();
-  generateChart();
-}
 
-function changeWrong(amount){
+if(
+wrong !== null &&
+wrong > value
+){
 
-  let current = getWrong();
-
-  if(current === null) current = 0;
-
-  let step = halfEnabled() ? 0.5 : 1;
-
-  current += amount * step;
-
-  current = normalizeWrong(current);
-
-  document.getElementById("wrong").value = current;
-
-  calculateGrade();
-  generateChart();
-}
-
-function getScale(){
-
-  if(currentScale === "plus"){
-    return plusScale;
-  }
-
-  if(currentScale === "custom"){
-    return customScaleData;
-  }
-
-  return standardScale;
-}
-
-function getGrade(percent){
-
-  let scale = getScale();
-
-  for(let i = 0; i < scale.length; i++){
-
-    if(percent >= scale[i][1]){
-      return scale[i][0];
-    }
-
-  }
-
-  return "F";
-}
-
-function getPassingGrade(){
-
-  if(currentScale === "custom"){
-    let v = Number(document.getElementById("passingGrade").value);
-
-    if(!Number.isFinite(v)) v = 60;
-
-    if(v < 0) v = 0;
-    if(v > 100) v = 100;
-
-    return v;
-  }
-
-  return 60;
-}
-
-function getDecimals(){
-
-  let v = Number(document.getElementById("rounding").value);
-
-  if(!Number.isFinite(v)) return 2;
-
-  return v;
-}
-
-function formatPercent(v){
-
-  return v.toFixed(getDecimals()) + "%";
+document.getElementById("wrong").value = value;
 
 }
 
-function calculateGrade(){
-
-  let total = getTotal();
-  let wrong = getWrong();
-
-  if(wrong === null){
-    return;
-  }
-
-  if(wrong < 0) wrong = 0;
-  if(wrong > total) wrong = total;
-
-  let correct = total - wrong;
-
-  let percentage = (correct / total) * 100;
-
-  let grade = getGrade(percentage);
-
-  let passing = getPassingGrade();
-
-  document.getElementById("correct").textContent =
-    Number.isInteger(correct) ? correct : correct.toFixed(1);
-
-  document.getElementById("wrongResult").textContent =
-    Number.isInteger(wrong) ? wrong : wrong.toFixed(1);
-
-  document.getElementById("percentage").textContent =
-    formatPercent(percentage);
-
-  document.getElementById("grade").textContent = grade;
-
-  let passBox = document.getElementById("passFail");
-
-  if(percentage >= passing){
-    passBox.textContent = "PASS";
-    passBox.style.color = "#16803c";
-  }else{
-    passBox.textContent = "FAIL";
-    passBox.style.color = "#c62828";
-  }
-
-  document.getElementById("result").style.display = "block";
-
-}
-
-function setScale(scale){
-
-  currentScale = scale;
-
-  document.getElementById("standardBtn").classList.remove("active");
-  document.getElementById("plusBtn").classList.remove("active");
-  document.getElementById("customBtn").classList.remove("active");
-
-  if(scale === "standard"){
-    document.getElementById("standardBtn").classList.add("active");
-    document.getElementById("customBox").style.display = "none";
-  }
-
-  if(scale === "plus"){
-    document.getElementById("plusBtn").classList.add("active");
-    document.getElementById("customBox").style.display = "none";
-  }
-
-  if(scale === "custom"){
-    document.getElementById("customBtn").classList.add("active");
-    document.getElementById("customBox").style.display = "block";
-  }
-
-  calculateGrade();
-  generateChart();
-}
-
-function parseCustomScale(){
-
-  let text = document.getElementById("customScale").value.trim();
-
-  if(!text){
-    return null;
-  }
-
-  let parts = text.split(",");
-
-  let data = [];
-
-  for(let part of parts){
-
-    let match = part.trim().match(/^(.+?)\s+(\d+(?:\.\d+)?)$/);
-
-    if(!match) continue;
-
-    let grade = match[1].trim();
-    let percent = Number(match[2]);
-
-    if(
-      grade &&
-      Number.isFinite(percent) &&
-      percent >= 0 &&
-      percent <= 100
-    ){
-      data.push([grade,percent]);
-    }
-
-  }
-
-  if(data.length === 0){
-    return null;
-  }
-
-  data.sort(function(a,b){
-    return b[1] - a[1];
-  });
-
-  return data;
-}
-
-function applyCustomScale(){
-
-  let data = parseCustomScale();
-
-  if(!data){
-    alert("Please enter a valid grading scale.");
-    return;
-  }
-
-  customScaleData = data;
-  currentScale = "custom";
-
-  setScale("custom");
-
-  alert("Custom grading scale applied.");
-
-}
-
-function toggleHalfPoints(){
-
-  let input = document.getElementById("wrong");
-  let raw = input.value.trim();
-
-  if(raw === "" || raw === "." || raw.endsWith(".")){
-    generateChart();
-    return;
-  }
-
-  let v = Number(raw);
-
-  if(Number.isFinite(v)){
-
-    v = normalizeWrong(v);
-
-    input.value = v;
-
-  }
-
-  calculateGrade();
-  generateChart();
-
-}
-
-function generateChart(){
-
-  let total = getTotal();
-  let chart = document.getElementById("chart");
-
-  chart.innerHTML = "";
-
-  let currentWrong = getWrong();
-
-  if(currentWrong === null){
-    currentWrong = 0;
-  }
-
-  let step = halfEnabled() ? 0.5 : 1;
-
-  for(
-    let wrong = 0;
-    wrong <= total + 0.0001;
-    wrong += step
-  ){
-
-    wrong = Math.round(wrong * 2) / 2;
-
-    let correct = total - wrong;
-
-    let percentage = (correct / total) * 100;
-
-    let grade = getGrade(percentage);
-
-    let tr = document.createElement("tr");
-
-    if(Math.abs(wrong - currentWrong) < 0.0001){
-      tr.className = "current-row";
-    }
-
-    let wrongText =
-      Number.isInteger(wrong)
-      ? wrong
-      : wrong.toFixed(1);
-
-    let correctText =
-      Number.isInteger(correct)
-      ? correct
-      : correct.toFixed(1);
-
-    tr.innerHTML =
-      "<td>" + wrongText + "</td>" +
-      "<td>" + correctText + "</td>" +
-      "<td>" + formatPercent(percentage) + "</td>" +
-      "<td>" + grade + "</td>";
-
-    chart.appendChild(tr);
-
-  }
-
-}
-
-function resetCalculator(){
-
-  currentScale = "standard";
-  customScaleData = [
-    ["A",93],
-    ["B",85],
-    ["C",75],
-    ["D",65],
-    ["F",0]
-  ];
-
-  document.getElementById("total").value = 25;
-  document.getElementById("wrong").value = 0;
-
-  document.getElementById("customScale").value =
-    "A 93, B 85, C 75, D 65, F 0";
-
-  document.getElementById("passingGrade").value = 60;
-  document.getElementById("rounding").value = 2;
-  document.getElementById("halfPoints").checked = false;
-
-  document.getElementById("customBox").style.display = "none";
-
-  document.getElementById("standardBtn").classList.add("active");
-  document.getElementById("plusBtn").classList.remove("active");
-  document.getElementById("customBtn").classList.remove("active");
-
-  document.getElementById("result").style.display = "none";
-
-  calculateGrade();
-  generateChart();
-
-}
-
-document.addEventListener("keydown",function(e){
-
-  let tag = document.activeElement.tagName;
-
-  if(
-    tag === "INPUT" ||
-    tag === "SELECT" ||
-    tag === "TEXTAREA"
-  ){
-    return;
-  }
-
-  if(e.key.toLowerCase() === "w"){
-    changeWrong(1);
-  }
-
-  if(e.key.toLowerCase() === "z"){
-    changeWrong(-1);
-  }
-
-});
-
-document.getElementById("rounding").addEventListener(
-  "change",
-  function(){
-    calculateGrade();
-    generateChart();
-  }
-);
-
-document.getElementById("passingGrade").addEventListener(
-  "input",
-  function(){
-    calculateGrade();
-    generateChart();
-  }
-);
-
-document.getElementById("customScale").addEventListener(
-  "input",
-  function(){
-    if(currentScale === "custom"){
-      let data = parseCustomScale();
-
-      if(data){
-        customScaleData = data;
-        calculateGrade();
-        generateChart();
-      }
-    }
-  }
-);
 
 calculateGrade();
 generateChart();
+
+}
+
+
+/* =========================
+   WRONG INPUT
+   ========================= */
+
+function handleWrongInput(){
+
+let input = document.getElementById("wrong");
+
+let raw = input.value.trim();
+
+
+/*
+IMPORTANT:
+When mobile user types 2.5,
+the browser temporarily creates 2.
+We must not replace it with 2.
+*/
+
+if(
+raw === "" ||
+raw === "." ||
+raw.endsWith(".")
+){
+
+return;
+
+}
+
+
+let value = Number(raw);
+
+
+if(!Number.isFinite(value)){
+return;
+}
+
+
+let total = getTotal();
+
+
+if(value < 0){
+
+input.value = "0";
+
+value = 0;
+
+}
+
+
+if(value > total){
+
+input.value = total;
+
+value = total;
+
+}
+
+
+calculateGrade();
+generateChart();
+
+}
+
+
+/* =========================
+   CHANGE TOTAL
+   ========================= */
+
+function changeTotal(amount){
+
+let total = getTotal();
+
+total += amount;
+
+
+if(total < 1){
+total = 1;
+}
+
+
+if(total > 500){
+total = 500;
+}
+
+
+document.getElementById("total").value = total;
+
+
+let wrong = getWrong();
+
+
+if(
+wrong !== null &&
+wrong > total
+){
+
+document.getElementById("wrong").value = total;
+
+}
+
+
+calculateGrade();
+generateChart();
+
+}
+
+
+/* =========================
+   QUICK SELECT
+   ========================= */
+
+function setTotal(value){
+
+document.getElementById("total").value = value;
+
+
+let wrong = getWrong();
+
+
+if(
+wrong !== null &&
+wrong > value
+){
+
+document.getElementById("wrong").value = value;
+
+}
+
+
+calculateGrade();
+generateChart();
+
+}
+
+
+/* =========================
+   CHANGE WRONG
+   ========================= */
+
+function changeWrong(amount){
+
+let current = getWrong();
+
+
+if(current === null){
+current = 0;
+}
+
+
+let step = halfEnabled() ? 0.5 : 1;
+
+
+current += amount * step;
+
+
+let total = getTotal();
+
+
+if(current < 0){
+current = 0;
+}
+
+
+if(current > total){
+current = total;
+}
+
+
+if(halfEnabled()){
+
+current = Math.round(current * 2) / 2;
+
+}else{
+
+current = Math.round(current);
+
+}
+
+
+document.getElementById("wrong").value = current;
+
+
+calculateGrade();
+generateChart();
+
+}
+
+
+/* =========================
+   GET ACTIVE SCALE
+   ========================= */
+
+function getScale(){
+
+if(currentScale === "plus"){
+
+return plusScale;
+
+}
+
+
+if(currentScale === "custom"){
+
+return customScaleData;
+
+}
+
+
+return standardScale;
+
+}
+
+
+/* =========================
+   GET LETTER GRADE
+   ========================= */
+
+function getGrade(percent){
+
+let scale = getScale();
+
+
+for(let i = 0; i < scale.length; i++){
+
+if(percent >= scale[i][1]){
+
+return scale[i][0];
+
+}
+
+}
+
+
+return "F";
+
+}
+
+
+/* =========================
+   PASSING GRADE
+   ========================= */
+
+function getPassingGrade(){
+
+if(currentScale === "custom"){
+
+let value = Number(
+document.getElementById("passingGrade").value
+);
+
+
+if(!Number.isFinite(value)){
+value = 60;
+}
+
+
+if(value < 0){
+value = 0;
+}
+
+
+if(value > 100){
+value = 100;
+}
+
+
+return value;
+
+}
+
+
+return 60;
+
+}
+
+
+/* =========================
+   DECIMAL DISPLAY
+   ========================= */
+
+function getDecimals(){
+
+let value = Number(
+document.getElementById("rounding").value
+);
+
+
+if(!Number.isFinite(value)){
+return 2;
+}
+
+
+return value;
+
+}
+
+
+/* =========================
+   FORMAT PERCENTAGE
+   ========================= */
+
+function formatPercent(value){
+
+return value.toFixed(getDecimals()) + "%";
+
+}
+
+
+/* =========================
+   CALCULATE GRADE
+   ========================= */
+
+function calculateGrade(){
+
+let total = getTotal();
+
+let wrong = getWrong();
+
+
+if(wrong === null){
+return;
+}
+
+
+if(wrong < 0){
+wrong = 0;
+}
+
+
+if(wrong > total){
+wrong = total;
+}
+
+
+let correct = total - wrong;
+
+
+let percentage =
+(correct / total) * 100;
+
+
+let grade =
+getGrade(percentage);
+
+
+let passing =
+getPassingGrade();
+
+
+/* CORRECT */
+
+document.getElementById("correct").textContent =
+Number.isInteger(correct)
+? correct
+: correct.toFixed(1);
+
+
+/* WRONG */
+
+document.getElementById("wrongResult").textContent =
+Number.isInteger(wrong)
+? wrong
+: wrong.toFixed(1);
+
+
+/* PERCENTAGE */
+
+document.getElementById("percentage").textContent =
+formatPercent(percentage);
+
+
+/* GRADE */
+
+document.getElementById("grade").textContent =
+grade;
+
+
+/* PASS / FAIL */
+
+let passBox =
+document.getElementById("passFail");
+
+
+if(percentage >= passing){
+
+passBox.textContent = "PASS";
+
+passBox.style.color = "#16803c";
+
+}else{
+
+passBox.textContent = "FAIL";
+
+passBox.style.color = "#c62828";
+
+}
+
+
+/* SHOW RESULT */
+
+document.getElementById("result").style.display =
+"block";
+
+}
+
+
+/* =========================
+   CHANGE SCALE
+   ========================= */
+
+function setScale(scale){
+
+currentScale = scale;
+
+
+document.getElementById("standardBtn")
+.classList.remove("active");
+
+document.getElementById("plusBtn")
+.classList.remove("active");
+
+document.getElementById("customBtn")
+.classList.remove("active");
+
+
+if(scale === "standard"){
+
+document.getElementById("standardBtn")
+.classList.add("active");
+
+document.getElementById("customBox")
+.style.display = "none";
+
+}
+
+
+if(scale === "plus"){
+
+document.getElementById("plusBtn")
+.classList.add("active");
+
+document.getElementById("customBox")
+.style.display = "none";
+
+}
+
+
+if(scale === "custom"){
+
+document.getElementById("customBtn")
+.classList.add("active");
+
+document.getElementById("customBox")
+.style.display = "block";
+
+}
+
+
+calculateGrade();
+generateChart();
+
+}
+
+
+/* =========================
+   PARSE CUSTOM SCALE
+   ========================= */
+
+function parseCustomScale(){
+
+let text =
+document.getElementById("customScale")
+.value
+.trim();
+
+
+if(!text){
+return null;
+}
+
+
+let parts =
+text.split(",");
+
+
+let data = [];
+
+
+for(let i = 0; i < parts.length; i++){
+
+let part =
+parts[i].trim();
+
+
+let match =
+part.match(
+/^(.+?)\s+(\d+(?:\.\d+)?)$/
+);
+
+
+if(!match){
+continue;
+}
+
+
+let grade =
+match[1].trim();
+
+
+let percent =
+Number(match[2]);
+
+
+if(
+grade &&
+Number.isFinite(percent) &&
+percent >= 0 &&
+percent <= 100
+){
+
+data.push([
+grade,
+percent
+]);
+
+}
+
+}
+
+
+if(data.length === 0){
+return null;
+}
+
+
+/* Highest percentage first */
+
+data.sort(function(a,b){
+
+return b[1] - a[1];
+
+});
+
+
+return data;
+
+}
+
+
+/* =========================
+   APPLY CUSTOM SCALE
+   ========================= */
+
+function applyCustomScale(){
+
+let data =
+parseCustomScale();
+
+
+if(!data){
+
+alert(
+"Please enter a valid grading scale."
+);
+
+return;
+
+}
+
+
+customScaleData = data;
+
+currentScale = "custom";
+
+
+document.getElementById("standardBtn")
+.classList.remove("active");
+
+document.getElementById("plusBtn")
+.classList.remove("active");
+
+document.getElementById("customBtn")
+.classList.add("active");
+
+
+document.getElementById("customBox")
+.style.display = "block";
+
+
+calculateGrade();
+generateChart();
+
+
+}
+
+
+/* =========================
+   HALF POINT TOGGLE
+   ========================= */
+
+function toggleHalfPoints(){
+
+let input =
+document.getElementById("wrong");
+
+
+let raw =
+input.value.trim();
+
+
+if(
+raw === "" ||
+raw === "." ||
+raw.endsWith(".")
+){
+
+generateChart();
+
+return;
+
+}
+
+
+let value =
+Number(raw);
+
+
+if(Number.isFinite(value)){
+
+if(value < 0){
+value = 0;
+}
+
+
+let total = getTotal();
+
+
+if(value > total){
+value = total;
+}
+
+
+if(halfEnabled()){
+
+value =
+Math.round(value * 2) / 2;
+
+}else{
+
+value =
+Math.round(value);
+
+}
+
+
+input.value = value;
+
+}
+
+
+calculateGrade();
+generateChart();
+
+}
+
+
+/* =========================
+   GENERATE CHART
+   ========================= */
+
+function generateChart(){
+
+let total =
+getTotal();
+
+
+let chart =
+document.getElementById("chart");
+
+
+chart.innerHTML = "";
+
+
+let currentWrong =
+getWrong();
+
+
+if(currentWrong === null){
+currentWrong = 0;
+}
+
+
+let step =
+halfEnabled()
+? 0.5
+: 1;
+
+
+for(
+let wrong = 0;
+wrong <= total + 0.0001;
+wrong += step
+){
+
+wrong =
+Math.round(wrong * 2) / 2;
+
+
+let correct =
+total - wrong;
+
+
+let percentage =
+(correct / total) * 100;
+
+
+let grade =
+getGrade(percentage);
+
+
+let tr =
+document.createElement("tr");
+
+
+if(
+Math.abs(wrong - currentWrong)
+< 0.0001
+){
+
+tr.className =
+"current-row";
+
+}
+
+
+let wrongText =
+Number.isInteger(wrong)
+? wrong
+: wrong.toFixed(1);
+
+
+let correctText =
+Number.isInteger(correct)
+? correct
+: correct.toFixed(1);
+
+
+tr.innerHTML =
+
+"<td>" +
+wrongText +
+"</td>" +
+
+"<td>" +
+correctText +
+"</td>" +
+
+"<td>" +
+formatPercent(percentage) +
+"</td>" +
+
+"<td>" +
+grade +
+"</td>";
+
+
+chart.appendChild(tr);
+
+}
+
+}
+
+
+/* =========================
+   RESET
+   ========================= */
+
+function resetCalculator(){
+
+currentScale = "standard";
+
+
+customScaleData = [
+
+["A",93],
+["B",85],
+["C",75],
+["D",65],
+["F",0]
+
+];
+
+
+document.getElementById("total").value = 25;
+
+document.getElementById("wrong").value = 0;
+
+
+document.getElementById("customScale").value =
+"A 93, B 85, C 75, D 65, F 0";
+
+
+document.getElementById("passingGrade").value =
+60;
+
+
+document.getElementById("rounding").value =
+2;
+
+
+document.getElementById("halfPoints").checked =
+false;
+
+
+document.getElementById("customBox")
+.style.display = "none";
+
+
+document.getElementById("standardBtn")
+.classList.add("active");
+
+document.getElementById("plusBtn")
+.classList.remove("active");
+
+document.getElementById("customBtn")
+.classList.remove("active");
+
+
+document.getElementById("result")
+.style.display = "none";
+
+
+generateChart();
+
+}
+
+
+/* =========================
+   KEYBOARD SHORTCUTS
+   ========================= */
+
+document.addEventListener(
+"keydown",
+function(event){
+
+let tag =
+document.activeElement.tagName;
+
+
+if(
+tag === "INPUT" ||
+tag === "SELECT" ||
+tag === "TEXTAREA"
+){
+
+return;
+
+}
+
+
+if(
+event.key.toLowerCase() === "w"
+){
+
+changeWrong(1);
+
+}
+
+
+if(
+event.key.toLowerCase() === "z"
+){
+
+changeWrong(-1);
+
+}
+
+}
+);
+
+
+/* =========================
+   ROUNDING CHANGE
+   ========================= */
+
+document.getElementById("rounding")
+.addEventListener(
+"change",
+function(){
+
+calculateGrade();
+generateChart();
+
+}
+);
+
+
+/* =========================
+   PASSING GRADE CHANGE
+   ========================= */
+
+document.getElementById("passingGrade")
+.addEventListener(
+"input",
+function(){
+
+calculateGrade();
+generateChart();
+
+}
+);
+
+
+/* =========================
+   CUSTOM SCALE CHANGE
+   ========================= */
+
+document.getElementById("customScale")
+.addEventListener(
+"input",
+function(){
+
+if(currentScale === "custom"){
+
+let data =
+parseCustomScale();
+
+
+if(data){
+
+customScaleData = data;
+
+calculateGrade();
+generateChart();
+
+}
+
+}
+
+}
+);
+
+
+/* =========================
+   INITIAL LOAD
+   ========================= */
+
+generateChart();
+
+calculateGrade();
 
 </script>
 
