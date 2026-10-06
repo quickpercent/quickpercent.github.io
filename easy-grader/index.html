@@ -4,16 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Easy Grader Calculator – Free EZ Grader Online | QuickPercent</title>
+<title>Easy Grader Calculator – Free EZ Grader Online</title>
 <meta name="description" content="Free Easy Grader Calculator & EZ Grader online for tests, quizzes, and exams. Calculate correct answers, percentages, letter grades, pass or fail results, and print grading charts.">
-<meta name="keywords" content="Easy Grader, EZ Grader, Easy Grader Calculator, Test Grade Calculator, Quiz Grade Calculator, Letter Grade Calculator, Printable Grade Chart, QuickPercent">
+<meta name="keywords" content="Easy Grader, EZ Grader, Easy Grader Calculator, Test Grade Calculator, Quiz Grade Calculator, Letter Grade Calculator, Printable Grade Chart">
 
 <meta name="robots" content="index, follow">
-<meta name="author" content="QuickPercent">
+<meta name="author" content="Easy Grader">
 <meta name="theme-color" content="#2563eb">
 <link rel="canonical" href="https://quickpercent.github.io/easy-grader/">
 
-<meta property="og:title" content="Easy Grader – Free EZ Grader Calculator Online | QuickPercent">
+<meta property="og:title" content="Easy Grader – Free EZ Grader Calculator Online">
 <meta property="og:description" content="Calculate test grades, percentages, letter grades and pass or fail results with this free Easy Grader calculator.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://quickpercent.github.io/easy-grader/">
@@ -46,6 +46,7 @@ header{
   position:sticky;
   top:0;
   z-index:100;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.02);
 }
 
 .header-container{
@@ -64,16 +65,18 @@ header{
 }
 
 .brand-icon{
-  width:36px;
-  height:36px;
-  background:#2563eb;
+  width:38px;
+  height:38px;
+  background:linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
   color:#ffffff;
   border-radius:10px;
   display:flex;
   align-items:center;
   justify-content:center;
   font-weight:800;
-  font-size:18px;
+  font-size:16px;
+  letter-spacing:-0.5px;
+  box-shadow: 0 2px 8px rgba(37,99,235,0.25);
 }
 
 .brand-name{
@@ -122,6 +125,12 @@ nav a:hover, nav a.active{
   cursor:pointer;
   color:#64748b;
   font-size:14px;
+  transition:all 0.2s;
+}
+
+.icon-btn:hover{
+  background:#f1f5f9;
+  color:#0f172a;
 }
 
 /* HERO SECTION */
@@ -129,6 +138,7 @@ nav a:hover, nav a.active{
   background: linear-gradient(180deg, #eff6ff 0%, #f8fafc 100%);
   padding:50px 20px 40px;
   text-align:center;
+  border-bottom: 1px solid #e2e8f0;
 }
 
 .hero-badge{
@@ -137,29 +147,31 @@ nav a:hover, nav a.active{
   color:#1e40af;
   font-size:12px;
   font-weight:700;
-  padding:5px 14px;
+  padding:6px 16px;
   border-radius:20px;
   margin-bottom:16px;
   letter-spacing:0.5px;
+  text-transform:uppercase;
 }
 
 .hero-title{
-  font-size:38px;
+  font-size:40px;
   font-weight:800;
   color:#0f172a;
-  margin:0 0 10px;
+  margin:0 0 12px;
+  letter-spacing:-0.5px;
 }
 
 .hero-subtitle{
   font-size:16px;
   color:#64748b;
-  max-width:600px;
+  max-width:620px;
   margin:0 auto 28px;
-  line-height:1.5;
+  line-height:1.6;
 }
 
 .search-box{
-  max-width:600px;
+  max-width:580px;
   margin:0 auto 35px;
   position:relative;
   display:flex;
@@ -174,6 +186,11 @@ nav a:hover, nav a.active{
   font-size:15px;
   box-shadow:0 4px 20px rgba(0,0,0,0.04);
   outline:none;
+  transition:border-color 0.2s;
+}
+
+.search-input:focus{
+  border-color:#2563eb;
 }
 
 .search-icon{
@@ -193,12 +210,17 @@ nav a:hover, nav a.active{
   border-radius:24px;
   font-weight:600;
   cursor:pointer;
+  transition:background 0.2s;
+}
+
+.search-btn:hover{
+  background:#1d4ed8;
 }
 
 .features-pills{
   display:flex;
   justify-content:center;
-  gap:20px;
+  gap:16px;
   flex-wrap:wrap;
   max-width:900px;
   margin:0 auto;
@@ -254,15 +276,18 @@ nav a:hover, nav a.active{
   border-radius:16px;
   padding:28px;
   margin-bottom:28px;
-  box-shadow:0 4px 20px rgba(0,0,0,0.04);
+  box-shadow:0 4px 20px rgba(0,0,0,0.03);
   border:1px solid #e2e8f0;
 }
 
 .section-title{
   font-size:22px;
   font-weight:800;
-  margin-bottom:20px;
+  margin-bottom:22px;
   color:#0f172a;
+  display:flex;
+  align-items:center;
+  gap:10px;
 }
 
 /* CALCULATOR STYLES */
@@ -299,6 +324,11 @@ input, select{
   background:#fff;
   color:#0f172a;
   font-family:inherit;
+  outline:none;
+}
+
+input:focus, select:focus{
+  border-color:#2563eb;
 }
 
 .small-btn{
@@ -365,6 +395,7 @@ input, select{
   font-weight:700;
   color:#334155;
   font-size:13px;
+  transition:all 0.2s;
 }
 
 .scale-btn.active{
@@ -415,6 +446,7 @@ input, select{
 .checkbox-row input{
   width:18px;
   height:18px;
+  cursor:pointer;
 }
 
 .calculate-btn{
@@ -508,6 +540,7 @@ input, select{
   cursor:pointer;
   white-space:nowrap;
   border:1px solid #cbd5e1;
+  transition:background 0.2s;
 }
 
 #printBtn:hover{
@@ -547,6 +580,7 @@ input, select{
   cursor:pointer;
   color:#334155;
   font-size:15px;
+  transition:background 0.2s;
 }
 
 .reset-btn:hover{
@@ -611,6 +645,7 @@ input, select{
   justify-content:space-between;
   align-items:center;
   margin-bottom:30px;
+  box-shadow: 0 4px 15px rgba(37,99,235,0.2);
 }
 
 .cta-text h3{
@@ -635,6 +670,11 @@ input, select{
   font-size:14px;
   cursor:pointer;
   white-space:nowrap;
+  transition:transform 0.2s;
+}
+
+.cta-btn:hover{
+  transform:translateY(-1px);
 }
 
 /* FOOTER */
@@ -789,14 +829,14 @@ footer{
 <header>
   <div class="header-container">
     <a href="#" class="brand-logo">
-      <div class="brand-icon">%</div>
-      <div class="brand-name">Quick<span>Percent</span></div>
+      <div class="brand-icon">EG</div>
+      <div class="brand-name">Easy<span>Grader</span></div>
     </a>
     <nav>
-      <a href="#" class="active">Home</a>
-      <a href="#calculator">Calculators</a>
-      <a href="#about">Tools</a>
-      <a href="#faq">About</a>
+      <a href="#" class="active">Calculator</a>
+      <a href="#chartCard">Grading Chart</a>
+      <a href="#about">About</a>
+      <a href="#faq">FAQs</a>
     </nav>
     <div class="header-actions">
       <button class="icon-btn" title="Search">&#128269;</button>
@@ -808,12 +848,12 @@ footer{
 <!-- HERO SECTION -->
 <section class="hero-section">
   <div class="hero-badge">Fast &bull; Accurate &bull; Free</div>
-  <h1 class="hero-title">QuickPercent</h1>
-  <p class="hero-subtitle">Your All-in-One Calculator & Tools Hub<br>Calculate percentages, convert units, check test grades, and much more — all in one place. Free and easy to use.</p>
+  <h1 class="hero-title">Easy Grader Calculator</h1>
+  <p class="hero-subtitle">Free EZ Grader online for tests, quizzes, and exams.<br>Calculate grades, percentages, and print grading charts instantly.</p>
   
   <div class="search-box">
     <span class="search-icon">&#128269;</span>
-    <input type="text" class="search-input" placeholder="Search for a calculator or tool...">
+    <input type="text" class="search-input" placeholder="Search for grading scales or calculator options...">
     <button class="search-btn">Search</button>
   </div>
 
@@ -822,28 +862,28 @@ footer{
       <div class="pill-icon" style="background:#dcfce7; color:#15803d;">&#10003;</div>
       <div class="pill-text">
         <h4>100% Free</h4>
-        <p>No registration needed</p>
+        <p>No registration required</p>
       </div>
     </div>
     <div class="pill">
       <div class="pill-icon" style="background:#fef9c3; color:#a16207;">&#9889;</div>
       <div class="pill-text">
         <h4>Instant Results</h4>
-        <p>Get results in seconds</p>
+        <p>Real-time calculation</p>
       </div>
     </div>
     <div class="pill">
       <div class="pill-icon" style="background:#dbeafe; color:#1d4ed8;">&#9755;</div>
       <div class="pill-text">
         <h4>Easy to Use</h4>
-        <p>Simple & clean interface</p>
+        <p>Clean & intuitive interface</p>
       </div>
     </div>
     <div class="pill">
       <div class="pill-icon" style="background:#f3e8ff; color:#7e22ce;">&#128187;</div>
       <div class="pill-text">
-        <h4>Works on All Devices</h4>
-        <p>Mobile, Tablet & Desktop</p>
+        <h4>All Devices</h4>
+        <p>Mobile, Tablet & PC</p>
       </div>
     </div>
   </div>
@@ -983,10 +1023,10 @@ footer{
 <!-- CTA BANNER -->
 <div class="cta-banner">
   <div class="cta-text">
-    <h3>Need something else?</h3>
-    <p>We're constantly adding new calculators and tools to make your life easier.</p>
+    <h3>Need extra grading options?</h3>
+    <p>We are continuously improving Easy Grader tools to make classroom scoring effortless.</p>
   </div>
-  <button class="cta-btn">Suggest a Tool &rarr;</button>
+  <button class="cta-btn">Suggest a Feature &rarr;</button>
 </div>
 
 <!-- SEO CONTENT -->
@@ -1211,38 +1251,38 @@ Different classrooms and institutions may use different grade boundaries. The cu
   <div class="footer-container">
     <div class="footer-brand">
       <a href="#" class="brand-logo">
-        <div class="brand-icon">%</div>
-        <div class="brand-name">Quick<span>Percent</span></div>
+        <div class="brand-icon">EG</div>
+        <div class="brand-name" style="color:#fff;">Easy<span>Grader</span></div>
       </a>
-      <p>Your ultimate free online calculator and utility hub. Calculate test grades, percentages, GPA, conversion factors, and more in seconds.</p>
+      <p>Free online Easy Grader and EZ Grader calculator. Easily calculate test grades, percentages, letter grades, and generate printable grading charts.</p>
     </div>
     <div class="footer-links">
-      <h4>Calculators</h4>
+      <h4>Navigation</h4>
       <ul>
-        <li><a href="#">Percentage Calculator</a></li>
-        <li><a href="#">Grade Calculator</a></li>
-        <li><a href="#">GPA Calculator</a></li>
-        <li><a href="#">Attendance Calculator</a></li>
+        <li><a href="#calculator">Easy Grader</a></li>
+        <li><a href="#chartCard">Grading Chart</a></li>
+        <li><a href="#about">About Tool</a></li>
+        <li><a href="#faq">FAQs</a></li>
       </ul>
     </div>
     <div class="footer-links">
       <h4>Quick Links</h4>
       <ul>
         <li><a href="#">Home</a></li>
-        <li><a href="#">Calculators</a></li>
-        <li><a href="#">Tools</a></li>
-        <li><a href="#">About Us</a></li>
+        <li><a href="#calculator">Calculator</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#faq">FAQs</a></li>
       </ul>
     </div>
   </div>
 
   <div class="footer-bottom">
-    <p>&copy; 2026 QuickPercent. All rights reserved.</p>
+    <p>&copy; 2026 Easy Grader. All rights reserved.</p>
     <div class="footer-nav">
       <a href="#">Home</a>
-      <a href="#">Calculators</a>
-      <a href="#">Tools</a>
-      <a href="#">About</a>
+      <a href="#calculator">Calculator</a>
+      <a href="#about">About</a>
+      <a href="#faq">FAQs</a>
     </div>
   </div>
 </footer>
