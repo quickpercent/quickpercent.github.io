@@ -2,32 +2,23 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Easy Grader Calculator – Free EZ Grader Online</title>
-
-<meta name="description" content="Free Easy Grader Calculator and EZ Grader for tests, quizzes and exams. Calculate correct answers, percentages, letter grades, pass or fail results, and view a printable grading chart.">
+<meta name="description" content="Free Easy Grader Calculator and EZ Grader online for tests, quizzes, and exams. Quickly calculate test grades, correct answers, percentages, letter grades, and print your custom grading scale chart.">
+<meta name="keywords" content="Easy Grader, EZ Grader, Easy Grader Calculator, Test Grade Calculator, Quiz Grade Calculator, Letter Grade Calculator, Grading Chart, EZ Grader Online, Printable Easy Grader">
 
 <meta name="robots" content="index, follow">
-
 <meta name="author" content="Easy Grader">
-
 <meta name="theme-color" content="#2563eb">
-
 <link rel="canonical" href="https://quickpercent.github.io/easy-grader/">
 
 <meta property="og:title" content="Easy Grader – Free EZ Grader Calculator Online">
-
 <meta property="og:description" content="Calculate test grades, percentages, letter grades and pass or fail results with this free Easy Grader calculator.">
-
 <meta property="og:type" content="website">
-
 <meta property="og:url" content="https://quickpercent.github.io/easy-grader/">
 
-
 <style>
-
 *{
   box-sizing:border-box;
 }
@@ -348,10 +339,14 @@ select{
   margin:8px 0 10px;
 }
 
-.seo-content p{
+.seo-content p, .seo-content ul, .seo-content ol{
   line-height:1.7;
   color:#475569;
   margin:0 0 20px;
+}
+
+.seo-content ul, .seo-content ol{
+  padding-left:20px;
 }
 
 .seo-content h2:not(:first-child){
@@ -359,7 +354,6 @@ select{
 }
 
 @media(max-width:650px){
-
   .container{
     padding:12px;
   }
@@ -402,7 +396,6 @@ select{
 }
 
 @media print{
-
   body *{
     visibility:hidden;
   }
@@ -424,7 +417,6 @@ select{
     display:none !important;
   }
 }
-
 </style>
 </head>
 
@@ -438,498 +430,156 @@ select{
 Free EZ Grader for tests, quizzes and exams
 </p>
 
-
 <div class="card">
-
-<div class="section-title">
-Test Details
-</div>
-
+<div class="section-title">Test Details</div>
 
 <div class="controls">
-
+<div class="field">
+<label for="totalQuestions">Total Questions</label>
+<div class="input-row">
+<button type="button" class="small-btn" id="totalMinus">-</button>
+<input type="number" id="totalQuestions" min="1" max="500" value="25">
+<button type="button" class="small-btn" id="totalPlus">+</button>
+</div>
+</div>
 
 <div class="field">
-
-<label for="totalQuestions">
-Total Questions
-</label>
-
+<label for="wrongAnswers">Wrong Answers</label>
 <div class="input-row">
-
-<button
-type="button"
-class="small-btn"
-id="totalMinus"
->
--
-</button>
-
-<input
-type="number"
-id="totalQuestions"
-min="1"
-max="500"
-value="25"
->
-
-<button
-type="button"
-class="small-btn"
-id="totalPlus"
->
-+
-</button>
-
+<button type="button" class="small-btn" id="wrongMinus">-</button>
+<input type="text" id="wrongAnswers" inputmode="decimal" value="0" autocomplete="off">
+<button type="button" class="small-btn" id="wrongPlus">+</button>
 </div>
-
 </div>
-
-
-<div class="field">
-
-<label for="wrongAnswers">
-Wrong Answers
-</label>
-
-<div class="input-row">
-
-<button
-type="button"
-class="small-btn"
-id="wrongMinus"
->
--
-</button>
-
-<input
-type="text"
-id="wrongAnswers"
-inputmode="decimal"
-value="0"
-autocomplete="off"
->
-
-<button
-type="button"
-class="small-btn"
-id="wrongPlus"
->
-+
-</button>
-
 </div>
-
-</div>
-
-</div>
-
 
 <div class="quick-select">
-
-<button type="button" data-total="10">
-10
-</button>
-
-<button type="button" data-total="20">
-20
-</button>
-
-<button type="button" data-total="25">
-25
-</button>
-
-<button type="button" data-total="30">
-30
-</button>
-
-<button type="button" data-total="50">
-50
-</button>
-
-<button type="button" data-total="100">
-100
-</button>
-
+<button type="button" data-total="10">10</button>
+<button type="button" data-total="20">20</button>
+<button type="button" data-total="25">25</button>
+<button type="button" data-total="30">30</button>
+<button type="button" data-total="50">50</button>
+<button type="button" data-total="100">100</button>
 </div>
-
 
 <div class="options">
-
-
 <div>
-
-<label>
-<strong>Grading Scale</strong>
-</label>
-
+<label><strong>Grading Scale</strong></label>
 <div class="scale-buttons">
-
-<button
-type="button"
-class="scale-btn active"
-data-scale="standard"
->
-Standard
-</button>
-
-<button
-type="button"
-class="scale-btn"
-data-scale="plus"
->
-Plus-Minus
-</button>
-
-<button
-type="button"
-class="scale-btn"
-data-scale="custom"
->
-Custom
-</button>
-
+<button type="button" class="scale-btn active" data-scale="standard">Standard</button>
+<button type="button" class="scale-btn" data-scale="plus">Plus-Minus</button>
+<button type="button" class="scale-btn" data-scale="custom">Custom</button>
 </div>
 
-
-<div
-id="customBox"
-class="custom-box"
->
-
+<div id="customBox" class="custom-box">
 <div class="custom-grid">
+<div><label>A</label><input type="number" id="customA" value="93"></div>
+<div><label>B</label><input type="number" id="customB" value="85"></div>
+<div><label>C</label><input type="number" id="customC" value="75"></div>
+<div><label>D</label><input type="number" id="customD" value="65"></div>
+<div><label>F</label><input type="number" id="customF" value="0"></div>
+</div>
+</div>
+</div>
 
 <div>
-
-<label>A</label>
-
-<input
-type="number"
-id="customA"
-value="93"
->
-
-</div>
-
-
-<div>
-
-<label>B</label>
-
-<input
-type="number"
-id="customB"
-value="85"
->
-
-</div>
-
-
-<div>
-
-<label>C</label>
-
-<input
-type="number"
-id="customC"
-value="75"
->
-
-</div>
-
-
-<div>
-
-<label>D</label>
-
-<input
-type="number"
-id="customD"
-value="65"
->
-
-</div>
-
-
-<div>
-
-<label>F</label>
-
-<input
-type="number"
-id="customF"
-value="0"
->
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-
-<div>
-
-<label for="passingGrade">
-<strong>Passing Grade</strong>
-</label>
-
+<label for="passingGrade"><strong>Passing Grade</strong></label>
 <select id="passingGrade">
-
-<option value="60">
-60%
-</option>
-
-<option value="65">
-65%
-</option>
-
-<option value="70">
-70%
-</option>
-
-<option value="75">
-75%
-</option>
-
-<option value="80">
-80%
-</option>
-
-<option value="85">
-85%
-</option>
-
-<option value="90">
-90%
-</option>
-
+<option value="60">60%</option>
+<option value="65">65%</option>
+<option value="70">70%</option>
+<option value="75">75%</option>
+<option value="80">80%</option>
+<option value="85">85%</option>
+<option value="90">90%</option>
 </select>
-
 </div>
-
 
 <div>
-
-<label for="decimals">
-<strong>Percentage Decimals</strong>
-</label>
-
+<label for="decimals"><strong>Percentage Decimals</strong></label>
 <select id="decimals">
-
-<option value="2">
-2 decimals
-</option>
-
-<option value="1">
-1 decimal
-</option>
-
-<option value="0">
-0 decimals
-</option>
-
+<option value="2">2 decimals</option>
+<option value="1">1 decimal</option>
+<option value="0">0 decimals</option>
 </select>
-
 </div>
-
 </div>
-
 
 <div class="checkbox-row">
-
-<input
-type="checkbox"
-id="halfPoints"
->
-
-<label for="halfPoints">
-Allow half points (0.5)
-</label>
-
+<input type="checkbox" id="halfPoints">
+<label for="halfPoints">Allow half points (0.5)</label>
 </div>
 
+<button type="button" class="calculate-btn" id="calculateBtn">Calculate Grade</button>
 
-<button
-type="button"
-class="calculate-btn"
-id="calculateBtn"
->
-Calculate Grade
-</button>
-
-
-<div
-class="result"
-id="result"
->
-
+<div class="result" id="result">
 <div class="result-grid">
-
-
 <div class="result-item">
-
-<div class="result-label">
-Correct
+<div class="result-label">Correct</div>
+<div class="result-value" id="correctResult">0</div>
 </div>
-
-<div
-class="result-value"
-id="correctResult"
->
-0
-</div>
-
-</div>
-
-
 <div class="result-item">
-
-<div class="result-label">
-Percentage
+<div class="result-label">Percentage</div>
+<div class="result-value" id="percentageResult">0%</div>
 </div>
-
-<div
-class="result-value"
-id="percentageResult"
->
-0%
-</div>
-
-</div>
-
-
 <div class="result-item">
-
-<div class="result-label">
-Grade
+<div class="result-label">Grade</div>
+<div class="result-value" id="gradeResult">F</div>
 </div>
-
-<div
-class="result-value"
-id="gradeResult"
->
-F
-</div>
-
-</div>
-
-
 <div class="result-item">
-
-<div class="result-label">
-Status
+<div class="result-label">Status</div>
+<div class="result-value" id="statusResult">Fail</div>
+</div>
+</div>
+</div>
 </div>
 
-<div
-class="result-value"
-id="statusResult"
->
-Fail
-</div>
-
-</div>
-
-
-</div>
-
-</div>
-
-</div>
-
-
-<div
-class="card"
-id="chartCard"
->
-
+<div class="card" id="chartCard">
 <div class="chart-header">
-
-<div class="chart-title">
-Easy Grader Chart
+<div class="chart-title">Easy Grader Chart</div>
+<button type="button" id="printBtn">Print Chart</button>
 </div>
-
-<button
-type="button"
-id="printBtn"
->
-Print Chart
-</button>
-
-</div>
-
 
 <table class="chart">
-
 <thead>
-
 <tr>
-
 <th>Wrong</th>
-
 <th>Correct</th>
-
 <th>Percentage</th>
-
 <th>Grade</th>
-
 <th>Status</th>
-
 </tr>
-
 </thead>
-
-<tbody id="chartBody">
-</tbody>
-
+<tbody id="chartBody"></tbody>
 </table>
-
 </div>
-
 
 <div class="card">
-
-<button
-type="button"
-class="reset-btn"
-id="resetBtn"
->
-Reset Calculator
-</button>
-
+<button type="button" class="reset-btn" id="resetBtn">Reset Calculator</button>
 </div>
 
-
+<!-- EXTENDED SEO CONTENT -->
 <div class="card seo-content">
-
 <h2>Free Easy Grader Calculator</h2>
-
 <p>
 Our free <strong>Easy Grader Calculator</strong> is a simple way to turn the number of questions and wrong answers on a test, quiz, or exam into a percentage, correct-answer count, letter grade, and pass-or-fail result. Instead of calculating every score by hand, enter the test details and get the result immediately.
 </p>
-
 <p>
 The calculator is designed for the common situation where you know how many questions are on an assessment and how many answers were incorrect. It can be used by teachers checking a class, students checking a test score, tutors reviewing practice work, or parents helping with schoolwork.
 </p>
 
 <h2>What Is an Easy Grader?</h2>
-
 <p>
 An <strong>Easy Grader</strong> is a grading reference and calculator that makes test scoring faster. You enter the total number of questions and the number of wrong answers. The tool determines how many answers were correct, calculates the percentage, and matches the percentage to the selected grading scale.
 </p>
-
 <p>
 You may also see this type of tool called an <strong>EZ Grader</strong>, <strong>EZ Grader Calculator</strong>, <strong>Easy Grading Calculator</strong>, or <strong>Test Grade Calculator</strong>. The basic purpose is the same: quickly convert test results into a useful grade.
 </p>
 
 <h2>How Does the EZ Grader Work?</h2>
-
 <p>
 The process is straightforward. First, enter the total number of questions. Next, enter how many questions were wrong. The calculator subtracts the wrong answers from the total to determine the correct answers. It then converts the correct-answer count into a percentage and applies the selected grading scale.
 </p>
-
 <ol>
 <li>Enter the total number of questions.</li>
 <li>Enter the number of wrong answers.</li>
@@ -938,139 +588,70 @@ The process is straightforward. First, enter the total number of questions. Next
 <li>Select <strong>Calculate Grade</strong> to see the result and grading chart.</li>
 </ol>
 
-<h2>Easy Grader Formula</h2>
-
+<h2>Easy Grader Formula & Calculation</h2>
 <p>
 The percentage calculation is based on the number of correct answers. The formula is: <strong>Percentage = (Correct Answers ÷ Total Questions) × 100</strong>. Correct answers are found by subtracting wrong answers from total questions.
 </p>
-
 <p>
 For example, if a test has 25 questions and 5 are wrong, the student has 20 correct answers. The calculation is 20 ÷ 25 × 100 = <strong>80%</strong>. The letter grade then depends on the selected grading scale.
 </p>
 
 <h2>Easy Grader Examples</h2>
-
 <p>
 On a 20-question test, 2 wrong answers means 18 correct answers. The score is 18 ÷ 20 × 100 = <strong>90%</strong>. On a 50-question test, 5 wrong answers means 45 correct answers, which is also <strong>90%</strong>.
 </p>
-
 <p>
-The same number of mistakes does not always produce the same percentage. Missing 3 questions on a 10-question test gives 70%, while missing 3 questions on a 100-question test gives 97%. That is why the total number of questions matters when grading a test.
+The same number of mistakes does not always produce the same percentage. Missing 3 questions on a 10-question test gives 70%, while missing 3 questions on a 10-question test gives 97%. That is why the total number of questions matters when grading a test.
 </p>
 
-<h2>Easy Grader Chart</h2>
-
+<h2>Easy Grader Chart & Printable Grading Table</h2>
 <p>
 The built-in <strong>Easy Grader Chart</strong> provides a quick reference for the selected test size. Each row shows the number of wrong answers, correct answers, percentage, letter grade, and pass-or-fail status. This can be useful when grading multiple papers with the same number of questions.
 </p>
-
 <p>
 You can also use the print option to create a paper reference for a test or quiz. Change the total number of questions and the chart updates to match the assessment.
 </p>
 
-<h2>Grading Scale and Letter Grades</h2>
+<h2>Key Supporting Tools & Features Included</h2>
+<p>
+This comprehensive <strong>Test Grade Calculator</strong> offers versatile options tailored to modern classroom needs:
+</p>
+<ul>
+<li><strong>EZ Grader Online:</strong> Instant calculation without installing additional software or mobile apps.</li>
+<li><strong>Quiz Grade Calculator:</strong> Perfect for small assessments ranging from 5 to 30 items.</li>
+<li><strong>Letter Grade Calculator:</strong> Supports Standard, Plus/Minus (A+, A-), and Custom letter grade boundaries.</li>
+<li><strong>Half-Point Partial Credit:</strong> Toggle 0.5-point step deductions for partial credit scoring.</li>
+<li><strong>Keyboard Shortcuts:</strong> Press <code>W</code> to add wrong answers and <code>Z</code> to subtract wrong answers for rapid paper grading.</li>
+</ul>
 
+<h2>Grading Scale and Letter Grades</h2>
 <p>
 A percentage does not automatically have the same letter grade at every school. Some schools use a simple A, B, C, D, F scale, while others use plus and minus grades. This calculator lets you choose a standard scale, a plus-minus scale, or a custom scale so the displayed letter grade can match the grading rules you are using.
 </p>
 
-<p>
-Always check your school, teacher, or institution's grading policy when an official grade is required. The calculator is a convenient scoring tool, but your school's grading rules determine the official grade.
-</p>
-
 <h2>How to Calculate a Test Grade from Wrong Answers</h2>
-
 <p>
 If you know the total number of questions and the number of incorrect answers, you can calculate the test grade without entering every individual question. Subtract wrong answers from total questions to find correct answers, then divide correct answers by total questions and multiply by 100.
 </p>
 
-<p>
-For example, a 40-question exam with 6 wrong answers has 34 correct answers. The percentage is 34 ÷ 40 × 100 = <strong>85%</strong>. The selected grading scale determines whether that percentage is shown as an A, B, or another letter grade.
-</p>
-
-<h2>Using Half Points in an Easy Grader</h2>
-
-<p>
-Some assessments use partial or half-point deductions. When <strong>Allow half points</strong> is enabled, the calculator can work with values such as 2.5 wrong answers. This is useful when a grading method allows a half-point or partial deduction instead of only whole-question errors.
-</p>
-
-<h2>Custom Grading Scales</h2>
-
+<h2>Custom Grading Scales for Teachers</h2>
 <p>
 Different classrooms and institutions may use different grade boundaries. The custom grading option lets you enter your own minimum percentage thresholds for the main letter grades. This is helpful when the standard scale does not match your class policy.
 </p>
 
-<h2>Easy Grader for Teachers</h2>
-
-<p>
-Teachers can use an <strong>Easy Grading Calculator</strong> to speed up routine test and quiz marking. Once the total number of questions is entered, the chart provides a quick reference for different numbers of wrong answers. This can reduce repetitive manual percentage calculations when many papers use the same test.
-</p>
-
-<h2>Easy Grader for Students</h2>
-
-<p>
-Students can use an <strong>EZ Grader</strong> to check what a test score means. Enter the total questions and wrong answers to see the percentage and letter grade according to the selected scale. It can also help students understand how much each missed question changes the final percentage on a short test.
-</p>
-
-<h2>Easy Grader for Tests, Quizzes, and Exams</h2>
-
-<p>
-The calculator works for different assessment sizes, so it can be used for short quizzes as well as longer tests and exams. Whether an assessment has 10 questions, 25 questions, 50 questions, or another number, the percentage is calculated from the actual total entered.
-</p>
-
 <h2>Why Use an Online Easy Grader?</h2>
-
 <ul>
-
 <li><strong>Fast:</strong> Get the percentage and grade without repeated manual calculations.</li>
-
 <li><strong>Simple:</strong> Enter total questions and wrong answers to get started.</li>
-
 <li><strong>Flexible:</strong> Use standard, plus-minus, or custom grading scales.</li>
-
 <li><strong>Useful for charts:</strong> See the possible scores for the selected test size.</li>
-
 <li><strong>Mobile friendly:</strong> Use the calculator from a phone, tablet, or computer browser.</li>
-
 <li><strong>Printable:</strong> Print the grading chart when a paper reference is useful.</li>
-
 </ul>
-
-<h2>Common Easy Grader Mistakes to Avoid</h2>
-
-<p>
-The most common mistake is entering the wrong total number of questions. A second common mistake is confusing wrong answers with correct answers. For example, if 4 answers are wrong on a 20-question test, the correct count is 16, not 4. It is also important to use the grading scale required by your class because letter-grade boundaries can vary.
-</p>
-
-<h2>Is an Easy Grader the Same as a Grade Calculator?</h2>
-
-<p>
-An Easy Grader is a type of grade calculator focused on question-based assessments. It is especially useful when you know the total number of questions and wrong answers. A broader grade calculator may also include assignments, category weights, GPA, or final-exam planning. This Easy Grader is focused on calculating grades from test and quiz questions.
-</p>
-
-<h2>Does This Easy Grader Calculate Weighted Course Grades?</h2>
-
-<p>
-No. This calculator is designed for question-based test, quiz, and exam grading. It does not claim to calculate a weighted semester or course grade. For an assessment score, however, it provides the percentage, letter grade, and grading chart directly from the test results.
-</p>
-
-<h2>Easy Grader on Mobile Devices</h2>
-
-<p>
-The calculator can be used directly in a mobile browser without installing a separate application. The responsive layout is designed to make the inputs, results, grading scale, and chart usable on smaller screens as well as desktop displays.
-</p>
-
-<h2>Important Note About Grading Policies</h2>
-
-<p>
-There is no single grading scale that applies to every school. A percentage that is an A under one policy may have a different letter designation under another. If you are calculating an official academic grade, use the grading policy provided by your teacher or institution and select the matching scale in the calculator.
-</p>
-
 </div>
 
-
+<!-- FAQs CARD -->
 <div class="card faq">
-
 <h2>Easy Grader Frequently Asked Questions</h2>
 
 <div class="faq-item">
@@ -1197,12 +778,9 @@ Because the total number of questions changes the value of each question. Three 
 <strong>25. Is the Easy Grader Calculator free?</strong>
 Yes. This Easy Grader Calculator is free to use in a web browser.
 </div>
-
 </div>
 
-
 <script type="application/ld+json">
-
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
@@ -1218,17 +796,13 @@ Yes. This Easy Grader Calculator is free to use in a web browser.
   },
   "description": "Free Easy Grader and EZ Grader calculator for tests, quizzes and exams."
 }
-
 </script>
 
-
 <script type="application/ld+json">
-
 {
   "@context": "https://schema.org",
   "@type": "FAQPage",
   "mainEntity": [
-
     {
       "@type": "Question",
       "name": "What is an Easy Grader?",
@@ -1237,7 +811,6 @@ Yes. This Easy Grader Calculator is free to use in a web browser.
         "text": "An Easy Grader is a calculator that converts total questions and wrong answers into correct answers, a percentage, a letter grade, and a pass-or-fail result."
       }
     },
-
     {
       "@type": "Question",
       "name": "What is an EZ Grader?",
@@ -1246,7 +819,6 @@ Yes. This Easy Grader Calculator is free to use in a web browser.
         "text": "EZ Grader is another common name for an easy grading calculator used to quickly score tests, quizzes, and exams."
       }
     },
-
     {
       "@type": "Question",
       "name": "How do I use the Easy Grader Calculator?",
@@ -1255,7 +827,6 @@ Yes. This Easy Grader Calculator is free to use in a web browser.
         "text": "Enter the total number of questions, enter the wrong answers, choose the grading options you need, and select Calculate Grade."
       }
     },
-
     {
       "@type": "Question",
       "name": "How do I calculate a grade from wrong answers?",
@@ -1264,7 +835,6 @@ Yes. This Easy Grader Calculator is free to use in a web browser.
         "text": "Subtract the number of wrong answers from the total questions to find correct answers. Divide correct answers by total questions and multiply by 100 to get the percentage."
       }
     },
-
     {
       "@type": "Question",
       "name": "What is the formula for an Easy Grader?",
@@ -1273,7 +843,6 @@ Yes. This Easy Grader Calculator is free to use in a web browser.
         "text": "The percentage formula is (Correct Answers ÷ Total Questions) × 100. Correct answers equal Total Questions − Wrong Answers."
       }
     },
-
     {
       "@type": "Question",
       "name": "What grade is 90 percent?",
@@ -1282,7 +851,6 @@ Yes. This Easy Grader Calculator is free to use in a web browser.
         "text": "On the standard scale used by this calculator, 90% falls in the A range. A different school or custom grading policy may use different boundaries."
       }
     },
-
     {
       "@type": "Question",
       "name": "What grade is 80 percent?",
@@ -1291,7 +859,6 @@ Yes. This Easy Grader Calculator is free to use in a web browser.
         "text": "On the standard scale used by this calculator, 80% falls in the B range. Check your school's grading policy if its boundaries are different."
       }
     },
-
     {
       "@type": "Question",
       "name": "What grade is 70 percent?",
@@ -1300,7 +867,6 @@ Yes. This Easy Grader Calculator is free to use in a web browser.
         "text": "On the standard scale used by this calculator, 70% falls in the C range."
       }
     },
-
     {
       "@type": "Question",
       "name": "Can I use an Easy Grader for a 10-question test?",
@@ -1309,7 +875,6 @@ Yes. This Easy Grader Calculator is free to use in a web browser.
         "text": "Yes. Enter 10 as the total number of questions. The chart will show the possible scores for that test size."
       }
     },
-
     {
       "@type": "Question",
       "name": "Can I use an Easy Grader for a 20-question test?",
@@ -1318,7 +883,6 @@ Yes. This Easy Grader Calculator is free to use in a web browser.
         "text": "Yes. Enter 20 total questions and the number of wrong answers. The calculator will calculate the percentage and grade."
       }
     },
-
     {
       "@type": "Question",
       "name": "Can I use an Easy Grader for a 50-question test?",
@@ -1327,7 +891,6 @@ Yes. This Easy Grader Calculator is free to use in a web browser.
         "text": "Yes. The calculator can be used for 50-question tests and other assessment sizes within the calculator's supported range."
       }
     },
-
     {
       "@type": "Question",
       "name": "Can I use half points?",
@@ -1336,7 +899,6 @@ Yes. This Easy Grader Calculator is free to use in a web browser.
         "text": "Yes. Turn on Allow half points to work with values such as 2.5 wrong answers."
       }
     },
-
     {
       "@type": "Question",
       "name": "Can I use a plus-minus grading scale?",
@@ -1345,7 +907,6 @@ Yes. This Easy Grader Calculator is free to use in a web browser.
         "text": "Yes. Select the Plus-Minus scale to display grades such as A+, A-, B+, B-, C+, C-, D+, and D-."
       }
     },
-
     {
       "@type": "Question",
       "name": "Can I create a custom grading scale?",
@@ -1354,7 +915,6 @@ Yes. This Easy Grader Calculator is free to use in a web browser.
         "text": "Yes. Select Custom and enter your own minimum percentage thresholds for A, B, C, D, and F."
       }
     },
-
     {
       "@type": "Question",
       "name": "Can I change the passing grade?",
@@ -1363,7 +923,6 @@ Yes. This Easy Grader Calculator is free to use in a web browser.
         "text": "Yes. Select the passing percentage that matches your test or classroom requirements."
       }
     },
-
     {
       "@type": "Question",
       "name": "Can I print the Easy Grader chart?",
@@ -1372,7 +931,6 @@ Yes. This Easy Grader Calculator is free to use in a web browser.
         "text": "Yes. Select Print Chart to print the grading chart for the selected number of questions and grading settings."
       }
     },
-
     {
       "@type": "Question",
       "name": "Can I use the Easy Grader on my phone?",
@@ -1381,7 +939,6 @@ Yes. This Easy Grader Calculator is free to use in a web browser.
         "text": "Yes. The calculator is designed to work in a mobile browser as well as on tablets and desktop computers."
       }
     },
-
     {
       "@type": "Question",
       "name": "Can teachers use the Easy Grader?",
@@ -1390,7 +947,6 @@ Yes. This Easy Grader Calculator is free to use in a web browser.
         "text": "Yes. Teachers can use it to quickly check percentages and letter grades for quizzes, tests, and exams."
       }
     },
-
     {
       "@type": "Question",
       "name": "Can students use the Easy Grader?",
@@ -1399,7 +955,6 @@ Yes. This Easy Grader Calculator is free to use in a web browser.
         "text": "Yes. Students can use it to understand what a test score means and check the percentage and letter grade."
       }
     },
-
     {
       "@type": "Question",
       "name": "Does the Easy Grader calculate correct answers?",
@@ -1408,7 +963,6 @@ Yes. This Easy Grader Calculator is free to use in a web browser.
         "text": "Yes. It subtracts wrong answers from total questions and displays the resulting number of correct answers."
       }
     },
-
     {
       "@type": "Question",
       "name": "Does the Easy Grader calculate test percentages?",
@@ -1417,7 +971,6 @@ Yes. This Easy Grader Calculator is free to use in a web browser.
         "text": "Yes. It calculates the percentage from correct answers and total questions."
       }
     },
-
     {
       "@type": "Question",
       "name": "Can I use this for quizzes and exams?",
@@ -1426,7 +979,6 @@ Yes. This Easy Grader Calculator is free to use in a web browser.
         "text": "Yes. It can be used for quizzes, classroom tests, exams, and other question-based assessments."
       }
     },
-
     {
       "@type": "Question",
       "name": "Does this calculator calculate weighted course grades?",
@@ -1435,7 +987,6 @@ Yes. This Easy Grader Calculator is free to use in a web browser.
         "text": "No. This Easy Grader is focused on question-based test, quiz, and exam scoring rather than weighted semester or course grades."
       }
     },
-
     {
       "@type": "Question",
       "name": "Why can the same number of wrong answers produce different percentages?",
@@ -1444,7 +995,6 @@ Yes. This Easy Grader Calculator is free to use in a web browser.
         "text": "Because the total number of questions changes the value of each question. Three wrong answers on a 10-question test have a much larger percentage impact than three wrong answers on a 100-question test."
       }
     },
-
     {
       "@type": "Question",
       "name": "Is the Easy Grader Calculator free?",
@@ -1453,467 +1003,157 @@ Yes. This Easy Grader Calculator is free to use in a web browser.
         "text": "Yes. This Easy Grader Calculator is free to use in a web browser."
       }
     }
-
   ]
 }
-
 </script>
 
-
 <script>
-
-
-const totalInput =
-document.getElementById("totalQuestions");
-
-const wrongInput =
-document.getElementById("wrongAnswers");
-
-const totalMinus =
-document.getElementById("totalMinus");
-
-const totalPlus =
-document.getElementById("totalPlus");
-
-const wrongMinus =
-document.getElementById("wrongMinus");
-
-const wrongPlus =
-document.getElementById("wrongPlus");
-
-const calculateBtn =
-document.getElementById("calculateBtn");
-
-const correctResult =
-document.getElementById("correctResult");
-
-const percentageResult =
-document.getElementById("percentageResult");
-
-const gradeResult =
-document.getElementById("gradeResult");
-
-const statusResult =
-document.getElementById("statusResult");
-
-const chartBody =
-document.getElementById("chartBody");
-
-const resetBtn =
-document.getElementById("resetBtn");
-
-const halfPoints =
-document.getElementById("halfPoints");
-
-const passingGrade =
-document.getElementById("passingGrade");
-
-const decimals =
-document.getElementById("decimals");
-
-const customBox =
-document.getElementById("customBox");
-
-const printBtn =
-document.getElementById("printBtn");
-
+const totalInput = document.getElementById("totalQuestions");
+const wrongInput = document.getElementById("wrongAnswers");
+const totalMinus = document.getElementById("totalMinus");
+const totalPlus = document.getElementById("totalPlus");
+const wrongMinus = document.getElementById("wrongMinus");
+const wrongPlus = document.getElementById("wrongPlus");
+const calculateBtn = document.getElementById("calculateBtn");
+const correctResult = document.getElementById("correctResult");
+const percentageResult = document.getElementById("percentageResult");
+const gradeResult = document.getElementById("gradeResult");
+const statusResult = document.getElementById("statusResult");
+const chartBody = document.getElementById("chartBody");
+const resetBtn = document.getElementById("resetBtn");
+const halfPoints = document.getElementById("halfPoints");
+const passingGrade = document.getElementById("passingGrade");
+const decimals = document.getElementById("decimals");
+const customBox = document.getElementById("customBox");
+const printBtn = document.getElementById("printBtn");
 
 const standardScale = [
-
   {grade:"A",min:90},
   {grade:"B",min:80},
   {grade:"C",min:70},
   {grade:"D",min:60},
   {grade:"F",min:0}
-
 ];
 
-
 const plusScale = [
-
   {grade:"A+",min:97},
   {grade:"A",min:93},
   {grade:"A-",min:90},
-
   {grade:"B+",min:87},
   {grade:"B",min:83},
   {grade:"B-",min:80},
-
   {grade:"C+",min:77},
   {grade:"C",min:73},
   {grade:"C-",min:70},
-
   {grade:"D+",min:67},
   {grade:"D",min:63},
   {grade:"D-",min:60},
-
   {grade:"F",min:0}
-
 ];
-
 
 let currentScale = "standard";
 
-
 function getTotal(){
-
-  let value =
-    parseInt(totalInput.value,10);
-
-  if(
-    isNaN(value) ||
-    value < 1
-  ){
-    value = 1;
-  }
-
-  if(value > 500){
-    value = 500;
-  }
-
+  let value = parseInt(totalInput.value,10);
+  if(isNaN(value) || value < 1){ value = 1; }
+  if(value > 500){ value = 500; }
   return value;
-
 }
-
 
 function getWrong(){
-
-  const raw =
-    wrongInput.value.trim();
-
-  if(
-    raw === "" ||
-    raw === "." ||
-    raw === "-"
-  ){
-    return 0;
-  }
-
-  let value =
-    parseFloat(raw);
-
-  if(isNaN(value)){
-    return 0;
-  }
-
-  const total =
-    getTotal();
-
-  if(value < 0){
-    value = 0;
-  }
-
-  if(value > total){
-    value = total;
-  }
-
+  const raw = wrongInput.value.trim();
+  if(raw === "" || raw === "." || raw === "-"){ return 0; }
+  let value = parseFloat(raw);
+  if(isNaN(value)){ return 0; }
+  const total = getTotal();
+  if(value < 0){ value = 0; }
+  if(value > total){ value = total; }
   return value;
-
 }
-
 
 function changeTotal(amount){
-
-  let total =
-    getTotal();
-
+  let total = getTotal();
   total += amount;
-
-  if(total < 1){
-    total = 1;
-  }
-
-  if(total > 500){
-    total = 500;
-  }
-
-  totalInput.value =
-    total;
-
-  const wrong =
-    getWrong();
-
-  if(wrong > total){
-
-    wrongInput.value =
-      String(total);
-
-  }
-
+  if(total < 1){ total = 1; }
+  if(total > 500){ total = 500; }
+  totalInput.value = total;
+  const wrong = getWrong();
+  if(wrong > total){ wrongInput.value = String(total); }
   calculate();
-
 }
 
+totalMinus.addEventListener("click", function(){ changeTotal(-1); });
+totalPlus.addEventListener("click", function(){ changeTotal(1); });
 
-totalMinus.addEventListener(
-  "click",
-  function(){
-
-    changeTotal(-1);
-
-  }
-);
-
-
-totalPlus.addEventListener(
-  "click",
-  function(){
-
-    changeTotal(1);
-
-  }
-);
-
-
-document
-.querySelectorAll("[data-total]")
-.forEach(
-  function(button){
-
-    button.addEventListener(
-      "click",
-      function(){
-
-        const total =
-          parseInt(
-            this.dataset.total,
-            10
-          );
-
-        totalInput.value =
-          total;
-
-        const wrong =
-          getWrong();
-
-        if(wrong > total){
-
-          wrongInput.value =
-            String(total);
-
-        }
-
-        calculate();
-
-      }
-    );
-
-  }
-);
-
+document.querySelectorAll("[data-total]").forEach(function(button){
+  button.addEventListener("click", function(){
+    const total = parseInt(this.dataset.total, 10);
+    totalInput.value = total;
+    const wrong = getWrong();
+    if(wrong > total){ wrongInput.value = String(total); }
+    calculate();
+  });
+});
 
 function changeWrong(amount){
-
-  let wrong =
-    getWrong();
-
+  let wrong = getWrong();
   wrong += amount;
-
-  if(wrong < 0){
-    wrong = 0;
-  }
-
-  const total =
-    getTotal();
-
-  if(wrong > total){
-    wrong = total;
-  }
-
-  wrongInput.value =
-    Number(
-      wrong.toFixed(2)
-    ).toString();
-
+  if(wrong < 0){ wrong = 0; }
+  const total = getTotal();
+  if(wrong > total){ wrong = total; }
+  wrongInput.value = Number(wrong.toFixed(2)).toString();
   calculate();
-
 }
 
+wrongMinus.addEventListener("click", function(){
+  const step = halfPoints.checked ? 0.5 : 1;
+  changeWrong(-step);
+});
 
-wrongMinus.addEventListener(
-  "click",
-  function(){
+wrongPlus.addEventListener("click", function(){
+  const step = halfPoints.checked ? 0.5 : 1;
+  changeWrong(step);
+});
 
-    const step =
-      halfPoints.checked
-      ? 0.5
-      : 1;
-
-    changeWrong(-step);
-
+wrongInput.addEventListener("input", function(){
+  let raw = this.value;
+  raw = raw.replace(/[^0-9.]/g, "");
+  const firstDot = raw.indexOf(".");
+  if(firstDot !== -1){
+    raw = raw.substring(0, firstDot + 1) + raw.substring(firstDot + 1).replace(/\./g,"");
   }
-);
+  this.value = raw;
+  if(raw === "" || raw === "."){ calculate(); return; }
+  const value = parseFloat(raw);
+  if(isNaN(value)){ return; }
+  const total = getTotal();
+  if(value > total){ this.value = String(total); }
+  calculate();
+});
 
-
-wrongPlus.addEventListener(
-  "click",
-  function(){
-
-    const step =
-      halfPoints.checked
-      ? 0.5
-      : 1;
-
-    changeWrong(step);
-
-  }
-);
-
-
-wrongInput.addEventListener(
-  "input",
-  function(){
-
-    let raw =
-      this.value;
-
-    raw =
-      raw.replace(
-        /[^0-9.]/g,
-        ""
-      );
-
-    const firstDot =
-      raw.indexOf(".");
-
-    if(firstDot !== -1){
-
-      raw =
-        raw.substring(
-          0,
-          firstDot + 1
-        ) +
-        raw
-        .substring(firstDot + 1)
-        .replace(/\./g,"");
-
-    }
-
-    this.value =
-      raw;
-
-    if(
-      raw === "" ||
-      raw === "."
-    ){
-
-      calculate();
-
-      return;
-
-    }
-
-    const value =
-      parseFloat(raw);
-
-    if(isNaN(value)){
-      return;
-    }
-
-    const total =
-      getTotal();
-
-    if(value > total){
-
-      this.value =
-        String(total);
-
-    }
-
-    calculate();
-
-  }
-);
-
-
-totalInput.addEventListener(
-  "input",
-  function(){
-
-    let value =
-      parseInt(
-        this.value,
-        10
-      );
-
-    if(isNaN(value)){
-      calculate();
-      return;
-    }
-
-    if(value < 1){
-      value = 1;
-    }
-
-    if(value > 500){
-      value = 500;
-    }
-
-    this.value =
-      value;
-
-    const wrong =
-      getWrong();
-
-    if(wrong > value){
-
-      wrongInput.value =
-        String(value);
-
-    }
-
-    calculate();
-
-  }
-);
-
+totalInput.addEventListener("input", function(){
+  let value = parseInt(this.value, 10);
+  if(isNaN(value)){ calculate(); return; }
+  if(value < 1){ value = 1; }
+  if(value > 500){ value = 500; }
+  this.value = value;
+  const wrong = getWrong();
+  if(wrong > value){ wrongInput.value = String(value); }
+  calculate();
+});
 
 function getScale(){
-
-  if(currentScale === "plus"){
-
-    return plusScale;
-
-  }
-
-  if(currentScale === "custom"){
-
-    return parseCustomScale();
-
-  }
-
+  if(currentScale === "plus"){ return plusScale; }
+  if(currentScale === "custom"){ return parseCustomScale(); }
   return standardScale;
-
 }
 
-
 function parseCustomScale(){
-
-  let A =
-    parseFloat(
-      document.getElementById("customA").value
-    );
-
-  let B =
-    parseFloat(
-      document.getElementById("customB").value
-    );
-
-  let C =
-    parseFloat(
-      document.getElementById("customC").value
-    );
-
-  let D =
-    parseFloat(
-      document.getElementById("customD").value
-    );
-
-  let F =
-    parseFloat(
-      document.getElementById("customF").value
-    );
-
+  let A = parseFloat(document.getElementById("customA").value);
+  let B = parseFloat(document.getElementById("customB").value);
+  let C = parseFloat(document.getElementById("customC").value);
+  let D = parseFloat(document.getElementById("customD").value);
+  let F = parseFloat(document.getElementById("customF").value);
 
   if(isNaN(A)) A = 93;
   if(isNaN(B)) B = 85;
@@ -1921,486 +1161,145 @@ function parseCustomScale(){
   if(isNaN(D)) D = 65;
   if(isNaN(F)) F = 0;
 
-
   return [
-
     {grade:"A",min:A},
     {grade:"B",min:B},
     {grade:"C",min:C},
     {grade:"D",min:D},
     {grade:"F",min:F}
-
-  ].sort(
-    function(a,b){
-
-      return b.min - a.min;
-
-    }
-  );
-
+  ].sort(function(a,b){ return b.min - a.min; });
 }
-
 
 function getGrade(percent){
-
-  const scale =
-    getScale();
-
-  for(
-    let i = 0;
-    i < scale.length;
-    i++
-  ){
-
-    if(
-      percent >= scale[i].min
-    ){
-
-      return scale[i].grade;
-
-    }
-
+  const scale = getScale();
+  for(let i = 0; i < scale.length; i++){
+    if(percent >= scale[i].min){ return scale[i].grade; }
   }
-
   return "F";
-
 }
-
 
 function getPassingGrade(){
-
-  const value =
-    parseFloat(
-      passingGrade.value
-    );
-
-  if(isNaN(value)){
-    return 60;
-  }
-
+  const value = parseFloat(passingGrade.value);
+  if(isNaN(value)){ return 60; }
   return value;
-
 }
-
 
 function getDecimals(){
-
-  const value =
-    parseInt(
-      decimals.value,
-      10
-    );
-
-  if(isNaN(value)){
-    return 2;
-  }
-
+  const value = parseInt(decimals.value, 10);
+  if(isNaN(value)){ return 2; }
   return value;
-
 }
-
 
 function formatPercent(value){
-
-  return value.toFixed(
-    getDecimals()
-  ) + "%";
-
+  return value.toFixed(getDecimals()) + "%";
 }
-
 
 function calculateGrade(){
+  const total = getTotal();
+  const wrong = getWrong();
+  const correct = total - wrong;
+  const percent = total > 0 ? (correct / total) * 100 : 0;
+  const grade = getGrade(percent);
+  const pass = percent >= getPassingGrade();
 
-  const total =
-    getTotal();
+  correctResult.textContent = Number(correct.toFixed(2)).toString();
+  percentageResult.textContent = formatPercent(percent);
+  gradeResult.textContent = grade;
+  statusResult.textContent = pass ? "Pass" : "Fail";
+  statusResult.className = "result-value " + (pass ? "pass" : "fail");
 
-  const wrong =
-    getWrong();
-
-  const correct =
-    total - wrong;
-
-  const percent =
-    total > 0
-    ? (correct / total) * 100
-    : 0;
-
-  const grade =
-    getGrade(percent);
-
-  const pass =
-    percent >= getPassingGrade();
-
-
-  correctResult.textContent =
-    Number(
-      correct.toFixed(2)
-    ).toString();
-
-  percentageResult.textContent =
-    formatPercent(percent);
-
-  gradeResult.textContent =
-    grade;
-
-  statusResult.textContent =
-    pass
-    ? "Pass"
-    : "Fail";
-
-
-  statusResult.className =
-    "result-value " +
-    (
-      pass
-      ? "pass"
-      : "fail"
-    );
-
-
-  generateChart(
-    total,
-    wrong
-  );
-
+  generateChart(total, wrong);
 }
 
+function calculate(){ calculateGrade(); }
 
-function calculate(){
-  calculateGrade();
-}
+calculateBtn.addEventListener("click", calculateGrade);
 
-
-calculateBtn.addEventListener(
-  "click",
-  calculateGrade
-);
-
-
-document
-.querySelectorAll(".scale-btn")
-.forEach(
-  function(button){
-
-    button.addEventListener(
-      "click",
-      function(){
-
-        document
-        .querySelectorAll(".scale-btn")
-        .forEach(
-          function(btn){
-
-            btn.classList.remove(
-              "active"
-            );
-
-          }
-        );
-
-        this.classList.add(
-          "active"
-        );
-
-        currentScale =
-          this.dataset.scale;
-
-        if(
-          currentScale === "custom"
-        ){
-
-          customBox.classList.add(
-            "show"
-          );
-
-        }else{
-
-          customBox.classList.remove(
-            "show"
-          );
-
-        }
-
-        calculate();
-
-      }
-    );
-
-  }
-);
-
-
-[
-  "customA",
-  "customB",
-  "customC",
-  "customD",
-  "customF"
-]
-.forEach(
-  function(id){
-
-    document
-    .getElementById(id)
-    .addEventListener(
-      "input",
-      function(){
-
-        calculate();
-
-      }
-    );
-
-  }
-);
-
-
-halfPoints.addEventListener(
-  "change",
-  function(){
-
+document.querySelectorAll(".scale-btn").forEach(function(button){
+  button.addEventListener("click", function(){
+    document.querySelectorAll(".scale-btn").forEach(function(btn){ btn.classList.remove("active"); });
+    this.classList.add("active");
+    currentScale = this.dataset.scale;
+    if(currentScale === "custom"){ customBox.classList.add("show"); }
+    else{ customBox.classList.remove("show"); }
     calculate();
+  });
+});
 
-  }
-);
+["customA","customB","customC","customD","customF"].forEach(function(id){
+  document.getElementById(id).addEventListener("input", function(){ calculate(); });
+});
 
+halfPoints.addEventListener("change", function(){ calculate(); });
+passingGrade.addEventListener("change", calculate);
+decimals.addEventListener("change", calculate);
 
-passingGrade.addEventListener(
-  "change",
-  calculate
-);
-
-decimals.addEventListener(
-  "change",
-  calculate
-);
-
-
-function generateChart(
-  total,
-  currentWrong
-){
-
+function generateChart(total, currentWrong){
   chartBody.innerHTML = "";
+  const step = halfPoints.checked ? 0.5 : 1;
 
-  const step =
-    halfPoints.checked
-    ? 0.5
-    : 1;
+  for(let wrong = 0; wrong <= total; wrong += step){
+    wrong = Number(wrong.toFixed(2));
+    const correct = total - wrong;
+    const percent = total > 0 ? (correct / total) * 100 : 0;
+    const grade = getGrade(percent);
+    const pass = percent >= getPassingGrade();
 
-
-  for(
-    let wrong = 0;
-    wrong <= total;
-    wrong += step
-  ){
-
-    wrong =
-      Number(
-        wrong.toFixed(2)
-      );
-
-    const correct =
-      total - wrong;
-
-    const percent =
-      total > 0
-      ? (correct / total) * 100
-      : 0;
-
-    const grade =
-      getGrade(percent);
-
-    const pass =
-      percent >= getPassingGrade();
-
-
-    const row =
-      document.createElement("tr");
-
-
-    if(
-      Math.abs(
-        wrong - currentWrong
-      ) < 0.001
-    ){
-
-      row.classList.add(
-        "current"
-      );
-
-    }
-
+    const row = document.createElement("tr");
+    if(Math.abs(wrong - currentWrong) < 0.001){ row.classList.add("current"); }
 
     row.innerHTML = `
-
       <td>${Number(wrong.toFixed(2))}</td>
-
       <td>${Number(correct.toFixed(2))}</td>
-
       <td>${formatPercent(percent)}</td>
-
       <td>${grade}</td>
-
-      <td class="${pass ? "pass" : "fail"}">
-        ${pass ? "Pass" : "Fail"}
-      </td>
-
+      <td class="${pass ? "pass" : "fail"}">${pass ? "Pass" : "Fail"}</td>
     `;
-
-
     chartBody.appendChild(row);
-
   }
-
 }
-
 
 function resetCalculator(){
+  totalInput.value = 25;
+  wrongInput.value = 0;
+  passingGrade.value = 60;
+  decimals.value = 2;
+  halfPoints.checked = false;
 
-  totalInput.value =
-    25;
+  document.getElementById("customA").value = 93;
+  document.getElementById("customB").value = 85;
+  document.getElementById("customC").value = 75;
+  document.getElementById("customD").value = 65;
+  document.getElementById("customF").value = 0;
 
-  wrongInput.value =
-    0;
-
-  passingGrade.value =
-    60;
-
-  decimals.value =
-    2;
-
-  halfPoints.checked =
-    false;
-
-
-  document.getElementById(
-    "customA"
-  ).value = 93;
-
-  document.getElementById(
-    "customB"
-  ).value = 85;
-
-  document.getElementById(
-    "customC"
-  ).value = 75;
-
-  document.getElementById(
-    "customD"
-  ).value = 65;
-
-  document.getElementById(
-    "customF"
-  ).value = 0;
-
-
-  currentScale =
-    "standard";
-
-
-  document
-  .querySelectorAll(".scale-btn")
-  .forEach(
-    function(btn){
-
-      btn.classList.remove(
-        "active"
-      );
-
-    }
-  );
-
-
-  document
-  .querySelector(
-    '[data-scale="standard"]'
-  )
-  .classList.add(
-    "active"
-  );
-
-
-  customBox.classList.remove(
-    "show"
-  );
-
+  currentScale = "standard";
+  document.querySelectorAll(".scale-btn").forEach(function(btn){ btn.classList.remove("active"); });
+  document.querySelector('[data-scale="standard"]').classList.add("active");
+  customBox.classList.remove("show");
 
   calculate();
-
 }
 
+resetBtn.addEventListener("click", resetCalculator);
+printBtn.addEventListener("click", function(){ window.print(); });
 
-resetBtn.addEventListener(
-  "click",
-  resetCalculator
-);
+document.addEventListener("keydown", function(event){
+  const tag = document.activeElement.tagName;
+  if(tag === "INPUT" || tag === "SELECT" || tag === "TEXTAREA"){ return; }
 
-
-printBtn.addEventListener(
-  "click",
-  function(){
-
-    window.print();
-
+  if(event.key === "w" || event.key === "W"){
+    const step = halfPoints.checked ? 0.5 : 1;
+    changeWrong(step);
   }
-);
-
-
-document.addEventListener(
-  "keydown",
-  function(event){
-
-    const tag =
-      document.activeElement.tagName;
-
-    if(
-      tag === "INPUT" ||
-      tag === "SELECT" ||
-      tag === "TEXTAREA"
-    ){
-
-      return;
-
-    }
-
-
-    if(
-      event.key === "w" ||
-      event.key === "W"
-    ){
-
-      const step =
-        halfPoints.checked
-        ? 0.5
-        : 1;
-
-      changeWrong(step);
-
-    }
-
-
-    if(
-      event.key === "z" ||
-      event.key === "Z"
-    ){
-
-      const step =
-        halfPoints.checked
-        ? 0.5
-        : 1;
-
-      changeWrong(-step);
-
-    }
-
+  if(event.key === "z" || event.key === "Z"){
+    const step = halfPoints.checked ? 0.5 : 1;
+    changeWrong(-step);
   }
-);
-
+});
 
 calculateGrade();
-
 </script>
 
+</div>
 </body>
 </html>
