@@ -130,23 +130,33 @@ footer{background:#0f172a;color:#94a3b8;padding:40px 20px;margin-top:auto;}
   </div>
 
   <!-- FAQS CARD -->
-  <div class="card faq">
+  <div class="card faq" id="faq">
     <h2>Attendance Calculator Frequently Asked Questions</h2>
 
-    <div class="faq-item">
-      <strong>1. How does the safe bunk calculator feature work?</strong>
-      <p>If your current attendance percentage is higher than your target goal (e.g., 75%), the calculator computes how many future lectures you can miss without dropping below your target percentage threshold.</p>
-    </div>
+    <details style="background: #ffffff; border: 1px solid #e2e8f0; padding: 16px; border-radius: 10px; margin-bottom: 12px; cursor: pointer;">
+      <summary style="font-weight: 700; font-size: 16px; color: #0f172a;">1. How does the safe bunk calculator feature work?</summary>
+      <p style="margin-top: 10px; color: #475569; line-height: 1.6; font-size: 14px;">If your current attendance percentage is higher than your target goal (e.g., 75%), the calculator computes exactly how many future lectures you can miss without dropping below your required percentage threshold.</p>
+    </details>
 
-    <div class="faq-item">
-      <strong>2. What should I do if my attendance is below 75%?</strong>
-      <p>If your score is below 75%, our calculator automatically determines the exact number of future consecutive classes you must attend continuously to recover your target percentage.</p>
-    </div>
+    <details style="background: #ffffff; border: 1px solid #e2e8f0; padding: 16px; border-radius: 10px; margin-bottom: 12px; cursor: pointer;">
+      <summary style="font-weight: 700; font-size: 16px; color: #0f172a;">2. What should I do if my attendance is below 75%?</summary>
+      <p style="margin-top: 10px; color: #475569; line-height: 1.6; font-size: 14px;">If your score is below 75%, our calculator automatically determines the exact number of future consecutive classes you must attend continuously to recover and meet your target requirement.</p>
+    </details>
 
-    <div class="faq-item">
-      <strong>3. What is the standard minimum attendance required in college?</strong>
-      <p>Most universities and colleges mandate a minimum of 75% attendance to qualify for semester examinations.</p>
-    </div>
+    <details style="background: #ffffff; border: 1px solid #e2e8f0; padding: 16px; border-radius: 10px; margin-bottom: 12px; cursor: pointer;">
+      <summary style="font-weight: 700; font-size: 16px; color: #0f172a;">3. What formula is used to calculate class attendance percentage?</summary>
+      <p style="margin-top: 10px; color: #475569; line-height: 1.6; font-size: 14px;">The formula used is: <strong>Attendance (%) = (Classes Attended ÷ Total Classes Held) × 100</strong>.</p>
+    </details>
+
+    <details style="background: #ffffff; border: 1px solid #e2e8f0; padding: 16px; border-radius: 10px; margin-bottom: 12px; cursor: pointer;">
+      <summary style="font-weight: 700; font-size: 16px; color: #0f172a;">4. What is the standard minimum attendance required in college?</summary>
+      <p style="margin-top: 10px; color: #475569; line-height: 1.6; font-size: 14px;">Most colleges and universities mandate a minimum of 75% or 80% attendance to qualify for semester final examinations.</p>
+    </details>
+
+    <details style="background: #ffffff; border: 1px solid #e2e8f0; padding: 16px; border-radius: 10px; margin-bottom: 12px; cursor: pointer;">
+      <summary style="font-weight: 700; font-size: 16px; color: #0f172a;">5. Is this attendance calculator free and mobile-friendly?</summary>
+      <p style="margin-top: 10px; color: #475569; line-height: 1.6; font-size: 14px;">Yes, this calculator is 100% free to use on any mobile, tablet, or desktop browser with no sign-up needed.</p>
+    </details>
   </div>
 </div>
 
@@ -187,7 +197,9 @@ footer{background:#0f172a;color:#94a3b8;padding:40px 20px;margin-top:auto;}
   "mainEntity": [
     {"@type": "Question", "name": "How does the safe bunk calculator feature work?", "acceptedAnswer": {"@type": "Answer", "text": "It calculates how many upcoming lectures you can safely skip while staying above your target percentage."}},
     {"@type": "Question", "name": "What should I do if my attendance is below 75%?", "acceptedAnswer": {"@type": "Answer", "text": "The calculator displays how many consecutive classes you must attend continuously to recover."}},
-    {"@type": "Question", "name": "What is the standard minimum attendance required in college?", "acceptedAnswer": {"@type": "Answer", "text": "Most colleges require a minimum of 75% attendance to appear in final exams."}}
+    {"@type": "Question", "name": "What formula is used to calculate class attendance percentage?", "acceptedAnswer": {"@type": "Answer", "text": "Attendance (%) = (Classes Attended ÷ Total Classes Held) × 100."}},
+    {"@type": "Question", "name": "What is the standard minimum attendance required in college?", "acceptedAnswer": {"@type": "Answer", "text": "Most colleges require a minimum of 75% attendance to appear in final exams."}},
+    {"@type": "Question", "name": "Is this attendance calculator free to use?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, 100% free with full mobile and desktop support."}}
   ]
 }
 </script>
