@@ -5,901 +5,861 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Easy Grader Calculator – Free EZ Grader Online</title>
-<meta name="description" content="Free Easy Grader Calculator & EZ Grader online for tests, quizzes, and exams. Calculate correct answers, percentages, letter grades, pass or fail results, and print grading charts.">
-<meta name="keywords" content="Easy Grader, EZ Grader, Easy Grader Calculator, Test Grade Calculator, Quiz Grade Calculator, Letter Grade Calculator, Printable Grade Chart">
+
+<meta name="description" content="Free Easy Grader Calculator and EZ Grader online for tests, quizzes, and exams. Calculate correct answers, percentages, letter grades, pass or fail results, and print grading charts.">
+
+<meta name="keywords" content="Easy Grader, EZ Grader, Easy Grader Calculator, EZ Grader Calculator, Test Grade Calculator, Quiz Grade Calculator, Grade Calculator, Letter Grade Calculator, Printable Grade Chart, Test Score Calculator">
 
 <meta name="robots" content="index, follow">
 <meta name="author" content="Easy Grader">
 <meta name="theme-color" content="#2563eb">
+
 <link rel="canonical" href="https://quickpercent.github.io/">
 
-<meta property="og:title" content="Easy Grader – Free EZ Grader Calculator Online">
+<meta property="og:title" content="Easy Grader Calculator – Free EZ Grader Online">
 <meta property="og:description" content="Calculate test grades, percentages, letter grades and pass or fail results with this free Easy Grader calculator.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://quickpercent.github.io/">
 
-<!-- Google Fonts (Inter) -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
-*{
-  box-sizing:border-box;
-}
+*{box-sizing:border-box}
+
+html{scroll-behavior:smooth}
 
 body{
-  margin:0;
-  font-family:'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  background:#f8fafc;
-  color:#1e293b;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+margin:0;
+font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+background:#f8fafc;
+color:#1e293b;
+min-height:100vh
 }
 
-/* HEADER STYLES */
 header{
-  background:#ffffff;
-  border-bottom:1px solid #e2e8f0;
-  padding:14px 24px;
-  position:sticky;
-  top:0;
-  z-index:100;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.02);
+background:#fff;
+border-bottom:1px solid #e2e8f0;
+padding:14px 24px;
+position:sticky;
+top:0;
+z-index:100;
+box-shadow:0 1px 3px rgba(0,0,0,.02)
 }
 
 .header-container{
-  max-width:1200px;
-  margin:0 auto;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
+max-width:1200px;
+margin:auto;
+display:flex;
+justify-content:space-between;
+align-items:center
 }
 
 .brand-logo{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  text-decoration:none;
+display:flex;
+align-items:center;
+gap:10px;
+text-decoration:none
 }
 
 .brand-icon{
-  width:38px;
-  height:38px;
-  background:linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-  color:#ffffff;
-  border-radius:10px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-weight:800;
-  font-size:16px;
-  letter-spacing:-0.5px;
-  box-shadow: 0 2px 8px rgba(37,99,235,0.25);
+width:38px;
+height:38px;
+background:linear-gradient(135deg,#2563eb,#1d4ed8);
+color:#fff;
+border-radius:10px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:800;
+font-size:16px
 }
 
 .brand-name{
-  font-size:22px;
-  font-weight:800;
-  color:#0f172a;
+font-size:22px;
+font-weight:800;
+color:#0f172a
 }
 
-.brand-name span{
-  color:#2563eb;
-}
+.brand-name span{color:#2563eb}
 
 nav{
-  display:flex;
-  align-items:center;
-  gap:24px;
+display:flex;
+gap:24px;
+align-items:center
 }
 
 nav a{
-  color:#475569;
-  text-decoration:none;
-  font-weight:600;
-  font-size:14px;
-  transition:color 0.2s;
+color:#475569;
+text-decoration:none;
+font-weight:600;
+font-size:14px
 }
 
-nav a:hover, nav a.active{
-  color:#2563eb;
+nav a:hover,
+nav a.active{
+color:#2563eb
 }
 
 .header-actions{
-  display:flex;
-  align-items:center;
-  gap:12px;
+display:flex;
+gap:12px
 }
 
 .icon-btn{
-  width:38px;
-  height:38px;
-  border-radius:50%;
-  border:1px solid #e2e8f0;
-  background:#fff;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  cursor:pointer;
-  color:#64748b;
-  font-size:14px;
-  transition:all 0.2s;
+width:38px;
+height:38px;
+border-radius:50%;
+border:1px solid #e2e8f0;
+background:#fff;
+cursor:pointer;
+color:#64748b
 }
 
-.icon-btn:hover{
-  background:#f1f5f9;
-  color:#0f172a;
-}
-
-/* HERO SECTION */
 .hero-section{
-  background: linear-gradient(180deg, #eff6ff 0%, #f8fafc 100%);
-  padding:50px 20px 40px;
-  text-align:center;
-  border-bottom: 1px solid #e2e8f0;
+background:linear-gradient(180deg,#eff6ff,#f8fafc);
+padding:50px 20px 40px;
+text-align:center;
+border-bottom:1px solid #e2e8f0
 }
 
 .hero-badge{
-  display:inline-block;
-  background:#dbeafe;
-  color:#1e40af;
-  font-size:12px;
-  font-weight:700;
-  padding:6px 16px;
-  border-radius:20px;
-  margin-bottom:16px;
-  letter-spacing:0.5px;
-  text-transform:uppercase;
+display:inline-block;
+background:#dbeafe;
+color:#1e40af;
+font-size:12px;
+font-weight:700;
+padding:6px 16px;
+border-radius:20px;
+margin-bottom:16px;
+letter-spacing:.5px;
+text-transform:uppercase
 }
 
 .hero-title{
-  font-size:40px;
-  font-weight:800;
-  color:#0f172a;
-  margin:0 0 12px;
-  letter-spacing:-0.5px;
+font-size:40px;
+font-weight:800;
+color:#0f172a;
+margin:0 0 12px
 }
 
 .hero-subtitle{
-  font-size:16px;
-  color:#64748b;
-  max-width:620px;
-  margin:0 auto 28px;
-  line-height:1.6;
+font-size:16px;
+color:#64748b;
+max-width:680px;
+margin:0 auto 28px;
+line-height:1.6
 }
 
 .search-box{
-  max-width:580px;
-  margin:0 auto 35px;
-  position:relative;
-  display:flex;
-  align-items:center;
+max-width:580px;
+margin:0 auto 35px;
+position:relative;
+display:flex;
+align-items:center
 }
 
 .search-input{
-  width:100%;
-  padding:16px 20px 16px 48px;
-  border-radius:30px;
-  border:1px solid #cbd5e1;
-  font-size:15px;
-  box-shadow:0 4px 20px rgba(0,0,0,0.04);
-  outline:none;
-  transition:border-color 0.2s;
+width:100%;
+padding:16px 90px 16px 48px;
+border-radius:30px;
+border:1px solid #cbd5e1;
+font-size:15px;
+box-shadow:0 4px 20px rgba(0,0,0,.04);
+outline:none
 }
 
 .search-input:focus{
-  border-color:#2563eb;
+border-color:#2563eb
 }
 
 .search-icon{
-  position:absolute;
-  left:18px;
-  color:#94a3b8;
-  font-size:16px;
+position:absolute;
+left:18px;
+color:#94a3b8
 }
 
 .search-btn{
-  position:absolute;
-  right:6px;
-  background:#2563eb;
-  color:#fff;
-  border:0;
-  padding:10px 22px;
-  border-radius:24px;
-  font-weight:600;
-  cursor:pointer;
-  transition:background 0.2s;
-}
-
-.search-btn:hover{
-  background:#1d4ed8;
+position:absolute;
+right:6px;
+background:#2563eb;
+color:#fff;
+border:0;
+padding:10px 22px;
+border-radius:24px;
+font-weight:600;
+cursor:pointer
 }
 
 .features-pills{
-  display:flex;
-  justify-content:center;
-  gap:16px;
-  flex-wrap:wrap;
-  max-width:900px;
-  margin:0 auto;
+display:flex;
+justify-content:center;
+gap:16px;
+flex-wrap:wrap;
+max-width:900px;
+margin:auto
 }
 
 .pill{
-  background:#ffffff;
-  border:1px solid #e2e8f0;
-  padding:10px 18px;
-  border-radius:12px;
-  display:flex;
-  align-items:center;
-  gap:10px;
-  box-shadow:0 2px 6px rgba(0,0,0,0.02);
+background:#fff;
+border:1px solid #e2e8f0;
+padding:10px 18px;
+border-radius:12px;
+display:flex;
+align-items:center;
+gap:10px;
+box-shadow:0 2px 6px rgba(0,0,0,.02)
 }
 
 .pill-icon{
-  width:24px;
-  height:24px;
-  border-radius:6px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:12px;
-  font-weight:bold;
+width:24px;
+height:24px;
+border-radius:6px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:12px;
+font-weight:bold
 }
 
 .pill-text h4{
-  margin:0;
-  font-size:13px;
-  font-weight:700;
-  color:#0f172a;
-  text-align:left;
+margin:0;
+font-size:13px;
+color:#0f172a;
+text-align:left
 }
 
 .pill-text p{
-  margin:0;
-  font-size:11px;
-  color:#64748b;
-  text-align:left;
+margin:0;
+font-size:11px;
+color:#64748b;
+text-align:left
 }
 
-/* MAIN CONTENT */
 .container{
-  max-width:1000px;
-  margin:40px auto;
-  padding:0 20px;
-  flex:1;
+max-width:1000px;
+margin:40px auto;
+padding:0 20px
 }
 
 .card{
-  background:#ffffff;
-  border-radius:16px;
-  padding:28px;
-  margin-bottom:28px;
-  box-shadow:0 4px 20px rgba(0,0,0,0.03);
-  border:1px solid #e2e8f0;
+background:#fff;
+border-radius:16px;
+padding:28px;
+margin-bottom:28px;
+box-shadow:0 4px 20px rgba(0,0,0,.03);
+border:1px solid #e2e8f0
 }
 
 .section-title{
-  font-size:22px;
-  font-weight:800;
-  margin-bottom:22px;
-  color:#0f172a;
-  display:flex;
-  align-items:center;
-  gap:10px;
+font-size:22px;
+font-weight:800;
+margin-bottom:22px;
+color:#0f172a
 }
 
-/* CALCULATOR STYLES */
-.controls{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:20px;
+.controls,
+.options{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:20px
 }
 
 .field{
-  display:flex;
-  flex-direction:column;
+display:flex;
+flex-direction:column
 }
 
 .field label{
-  font-weight:700;
-  margin-bottom:8px;
-  color:#334155;
-  font-size:14px;
+font-weight:700;
+margin-bottom:8px;
+color:#334155;
+font-size:14px
 }
 
 .input-row{
-  display:flex;
-  align-items:center;
-  gap:8px;
+display:flex;
+align-items:center;
+gap:8px
 }
 
-input, select{
-  width:100%;
-  padding:12px 14px;
-  border:1px solid #cbd5e1;
-  border-radius:10px;
-  font-size:15px;
-  background:#fff;
-  color:#0f172a;
-  font-family:inherit;
-  outline:none;
+input,
+select{
+width:100%;
+padding:12px 14px;
+border:1px solid #cbd5e1;
+border-radius:10px;
+font-size:15px;
+background:#fff;
+color:#0f172a;
+font-family:inherit;
+outline:none
 }
 
-input:focus, select:focus{
-  border-color:#2563eb;
+input:focus,
+select:focus{
+border-color:#2563eb
 }
 
 .small-btn{
-  width:44px;
-  min-width:44px;
-  height:44px;
-  border:0;
-  border-radius:10px;
-  background:#f1f5f9;
-  font-size:20px;
-  font-weight:bold;
-  cursor:pointer;
-  color:#334155;
-  transition:background 0.2s;
-}
-
-.small-btn:hover{
-  background:#e2e8f0;
+width:44px;
+min-width:44px;
+height:44px;
+border:0;
+border-radius:10px;
+background:#f1f5f9;
+font-size:20px;
+font-weight:bold;
+cursor:pointer;
+color:#334155
 }
 
 .quick-select{
-  display:flex;
-  flex-wrap:wrap;
-  gap:10px;
-  margin-top:18px;
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin-top:18px
 }
 
 .quick-select button{
-  border:0;
-  padding:10px 16px;
-  border-radius:10px;
-  background:#f1f5f9;
-  cursor:pointer;
-  font-weight:700;
-  color:#334155;
-  font-size:14px;
-  transition:all 0.2s;
-}
-
-.quick-select button:hover{
-  background:#2563eb;
-  color:#ffffff;
+border:0;
+padding:10px 16px;
+border-radius:10px;
+background:#f1f5f9;
+cursor:pointer;
+font-weight:700;
+color:#334155
 }
 
 .options{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:20px;
-  margin-top:22px;
+margin-top:22px
 }
 
 .scale-buttons{
-  display:flex;
-  flex-wrap:wrap;
-  gap:8px;
+display:flex;
+flex-wrap:wrap;
+gap:8px
 }
 
 .scale-btn{
-  border:1px solid #cbd5e1;
-  background:#fff;
-  padding:10px 16px;
-  border-radius:10px;
-  cursor:pointer;
-  font-weight:700;
-  color:#334155;
-  font-size:13px;
-  transition:all 0.2s;
+border:1px solid #cbd5e1;
+background:#fff;
+padding:10px 16px;
+border-radius:10px;
+cursor:pointer;
+font-weight:700;
+color:#334155;
+font-size:13px
 }
 
 .scale-btn.active{
-  background:#0f172a;
-  color:#fff;
-  border-color:#0f172a;
+background:#0f172a;
+color:#fff;
+border-color:#0f172a
 }
 
 .custom-box{
-  display:none;
-  margin-top:15px;
-  padding:16px;
-  border-radius:12px;
-  background:#f8fafc;
-  border:1px solid #e2e8f0;
+display:none;
+margin-top:15px;
+padding:16px;
+border-radius:12px;
+background:#f8fafc;
+border:1px solid #e2e8f0
 }
 
 .custom-box.show{
-  display:block;
+display:block
 }
 
 .custom-grid{
-  display:grid;
-  grid-template-columns:repeat(5,1fr);
-  gap:8px;
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:8px
 }
 
 .custom-grid label{
-  font-size:12px;
-  font-weight:700;
+font-size:12px;
+font-weight:700
 }
 
 .custom-grid input{
-  margin-top:4px;
-  padding:8px;
+margin-top:4px;
+padding:8px
 }
 
 .checkbox-row{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  margin-top:20px;
-  color:#334155;
-  font-weight:600;
-  font-size:14px;
+display:flex;
+align-items:center;
+gap:10px;
+margin-top:20px;
+color:#334155;
+font-weight:600;
+font-size:14px
 }
 
 .checkbox-row input{
-  width:18px;
-  height:18px;
-  cursor:pointer;
+width:18px;
+height:18px
 }
 
 .calculate-btn{
-  width:100%;
-  border:0;
-  padding:15px;
-  border-radius:12px;
-  background:#2563eb;
-  color:#fff;
-  font-size:16px;
-  font-weight:700;
-  cursor:pointer;
-  margin-top:22px;
-  box-shadow:0 4px 12px rgba(37,99,235,0.25);
-  transition:background 0.2s;
-}
-
-.calculate-btn:hover{
-  background:#1d4ed8;
+width:100%;
+border:0;
+padding:15px;
+border-radius:12px;
+background:#2563eb;
+color:#fff;
+font-size:16px;
+font-weight:700;
+cursor:pointer;
+margin-top:22px;
+box-shadow:0 4px 12px rgba(37,99,235,.25)
 }
 
 .result{
-  margin-top:22px;
-  padding:20px;
-  border-radius:14px;
-  background:#f8fafc;
-  border:1px solid #e2e8f0;
-  text-align:center;
+margin-top:22px;
+padding:20px;
+border-radius:14px;
+background:#f8fafc;
+border:1px solid #e2e8f0;
+text-align:center
 }
 
 .result-grid{
-  display:grid;
-  grid-template-columns:repeat(4,1fr);
-  gap:12px;
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:12px
 }
 
 .result-item{
-  padding:14px;
-  background:#fff;
-  border-radius:10px;
-  border:1px solid #e2e8f0;
+padding:14px;
+background:#fff;
+border-radius:10px;
+border:1px solid #e2e8f0
 }
 
 .result-label{
-  font-size:12px;
-  color:#64748b;
-  margin-bottom:6px;
-  font-weight:600;
-  text-transform:uppercase;
-  letter-spacing:0.5px;
+font-size:12px;
+color:#64748b;
+margin-bottom:6px;
+font-weight:600;
+text-transform:uppercase
 }
 
 .result-value{
-  font-size:24px;
-  font-weight:800;
+font-size:24px;
+font-weight:800
 }
 
-.pass{
-  color:#16a34a;
-}
+.pass{color:#16a34a}
+.fail{color:#dc2626}
 
-.fail{
-  color:#dc2626;
-}
-
-/* CHART TABLE */
 .chart-header{
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  gap:15px;
-  margin-bottom:18px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:15px;
+margin-bottom:18px
 }
 
 .chart-title{
-  font-size:20px;
-  font-weight:800;
-  color:#0f172a;
+font-size:20px;
+font-weight:800;
+color:#0f172a
 }
 
 #printBtn{
-  display:inline-block !important;
-  visibility:visible !important;
-  opacity:1 !important;
-  background:#f1f5f9;
-  color:#1e293b;
-  padding:10px 18px;
-  border-radius:10px;
-  font-size:14px;
-  font-weight:700;
-  cursor:pointer;
-  white-space:nowrap;
-  border:1px solid #cbd5e1;
-  transition:background 0.2s;
-}
-
-#printBtn:hover{
-  background:#e2e8f0;
+background:#f1f5f9;
+color:#1e293b;
+padding:10px 18px;
+border-radius:10px;
+font-size:14px;
+font-weight:700;
+cursor:pointer;
+white-space:nowrap;
+border:1px solid #cbd5e1
 }
 
 .chart{
-  width:100%;
-  border-collapse:collapse;
+width:100%;
+border-collapse:collapse
 }
 
-.chart th, .chart td{
-  border:1px solid #e2e8f0;
-  padding:11px;
-  text-align:center;
-  font-size:14px;
+.chart th,
+.chart td{
+border:1px solid #e2e8f0;
+padding:11px;
+text-align:center;
+font-size:14px
 }
 
 .chart th{
-  background:#f8fafc;
-  color:#334155;
-  font-weight:700;
+background:#f8fafc;
+color:#334155;
+font-weight:700
 }
 
 .chart tr.current{
-  background:#eff6ff;
-  font-weight:bold;
+background:#eff6ff;
+font-weight:bold
 }
 
 .reset-btn{
-  width:100%;
-  padding:14px;
-  border:0;
-  border-radius:10px;
-  background:#f1f5f9;
-  font-weight:700;
-  cursor:pointer;
-  color:#334155;
-  font-size:15px;
-  transition:background 0.2s;
+width:100%;
+padding:14px;
+border:0;
+border-radius:10px;
+background:#f1f5f9;
+font-weight:700;
+cursor:pointer;
+color:#334155;
+font-size:15px
 }
 
-.reset-btn:hover{
-  background:#e2e8f0;
-}
-
-/* SEO CONTENT & FAQS */
-.seo-content h2, .faq h2{
-  font-size:22px;
-  margin:10px 0 14px;
-  color:#0f172a;
-  font-weight:800;
-}
-
-.seo-content p, .seo-content ul, .seo-content ol{
-  line-height:1.7;
-  color:#475569;
-  margin:0 0 18px;
-  font-size:15px;
-}
-
-.seo-content ul, .seo-content ol{
-  padding-left:22px;
-}
-
-.seo-content h2:not(:first-child){
-  margin-top:28px;
-}
-
-.faq-item{
-  margin-bottom:18px;
-  padding-bottom:16px;
-  border-bottom:1px solid #f1f5f9;
-}
-
-.faq-item:last-child{
-  border-bottom:none;
-}
-
-.faq-item strong{
-  display:block;
-  margin-bottom:8px;
-  color:#0f172a;
-  font-size:16px;
-  font-weight:700;
-}
-
-.faq-item p{
-  margin:0;
-  color:#475569;
-  line-height:1.6;
-  font-size:14px;
-}
-
-/* PROMOTIONAL CTA BANNER */
 .cta-banner{
-  background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
-  border-radius:16px;
-  padding:24px 30px;
-  color:#ffffff;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  margin-bottom:30px;
-  box-shadow: 0 4px 15px rgba(37,99,235,0.2);
+background:linear-gradient(135deg,#1d4ed8,#2563eb);
+border-radius:16px;
+padding:24px 30px;
+color:#fff;
+display:flex;
+justify-content:space-between;
+align-items:center;
+margin-bottom:30px
 }
 
 .cta-text h3{
-  margin:0 0 6px;
-  font-size:18px;
-  font-weight:800;
+margin:0 0 6px;
+font-size:18px
 }
 
 .cta-text p{
-  margin:0;
-  font-size:13px;
-  opacity:0.9;
+margin:0;
+font-size:13px;
+opacity:.9
 }
 
 .cta-btn{
-  background:#ffffff;
-  color:#2563eb;
-  border:0;
-  padding:12px 20px;
-  border-radius:10px;
-  font-weight:700;
-  font-size:14px;
-  cursor:pointer;
-  white-space:nowrap;
-  transition:transform 0.2s;
+background:#fff;
+color:#2563eb;
+border:0;
+padding:12px 20px;
+border-radius:10px;
+font-weight:700;
+cursor:pointer
 }
 
-.cta-btn:hover{
-  transform:translateY(-1px);
+.seo-content h2,
+.faq h2{
+font-size:22px;
+margin:10px 0 14px;
+color:#0f172a;
+font-weight:800
 }
 
-/* FOOTER */
+.seo-content p,
+.seo-content ul,
+.seo-content ol{
+line-height:1.7;
+color:#475569;
+margin:0 0 18px;
+font-size:15px
+}
+
+.seo-content ul,
+.seo-content ol{
+padding-left:22px
+}
+
+.seo-content h2:not(:first-child){
+margin-top:28px
+}
+
+.faq-item{
+margin-bottom:12px
+}
+
+.faq details{
+background:#fff;
+border:1px solid #e2e8f0;
+padding:16px;
+border-radius:10px;
+cursor:pointer
+}
+
+.faq summary{
+font-weight:700;
+font-size:16px;
+color:#0f172a
+}
+
+.faq details p{
+margin:10px 0 0;
+color:#475569;
+line-height:1.6;
+font-size:14px
+}
+
 footer{
-  background:#0f172a;
-  color:#94a3b8;
-  padding:50px 20px 24px;
-  margin-top:auto;
+background:#0f172a;
+color:#94a3b8;
+padding:50px 20px 24px;
+margin-top:auto
 }
 
 .footer-container{
-  max-width:1100px;
-  margin:0 auto;
-  display:grid;
-  grid-template-columns:2fr 1fr 1fr;
-  gap:40px;
-}
-
-.footer-brand .brand-name{
-  color:#ffffff;
-  margin-bottom:12px;
+max-width:1100px;
+margin:auto;
+display:grid;
+grid-template-columns:2fr 1fr 1fr;
+gap:40px
 }
 
 .footer-brand p{
-  line-height:1.6;
-  font-size:14px;
-  color:#94a3b8;
-  margin-top:10px;
+line-height:1.6;
+font-size:14px
 }
 
 .footer-links h4{
-  color:#ffffff;
-  font-size:15px;
-  margin:0 0 16px;
-  font-weight:700;
+color:#fff;
+font-size:15px;
+margin:0 0 16px
 }
 
 .footer-links ul{
-  list-style:none;
-  padding:0;
-  margin:0;
+list-style:none;
+padding:0;
+margin:0
 }
 
 .footer-links li{
-  margin-bottom:10px;
+margin-bottom:10px
 }
 
-.footer-links a{
-  color:#94a3b8;
-  text-decoration:none;
-  font-size:14px;
-  transition:color 0.2s;
-}
-
-.footer-links a:hover{
-  color:#38bdf8;
+.footer-links a,
+.footer-nav a{
+color:#94a3b8;
+text-decoration:none;
+font-size:14px
 }
 
 .footer-bottom{
-  max-width:1100px;
-  margin:40px auto 0;
-  padding-top:24px;
-  border-top:1px solid #1e293b;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  font-size:13px;
+max-width:1100px;
+margin:40px auto 0;
+padding-top:24px;
+border-top:1px solid #1e293b;
+display:flex;
+justify-content:space-between;
+align-items:center;
+font-size:13px
 }
 
 .footer-nav a{
-  color:#94a3b8;
-  text-decoration:none;
-  margin-left:18px;
+margin-left:18px
 }
 
 @media(max-width:768px){
-  .footer-container{
-    grid-template-columns:1fr;
-    gap:30px;
-  }
-  .footer-bottom{
-    flex-direction:column;
-    gap:12px;
-    text-align:center;
-  }
-  .cta-banner{
-    flex-direction:column;
-    text-align:center;
-    gap:18px;
-  }
+.footer-container{
+grid-template-columns:1fr;
+gap:30px
+}
+
+.footer-bottom{
+flex-direction:column;
+gap:12px;
+text-align:center
+}
+
+.cta-banner{
+flex-direction:column;
+text-align:center;
+gap:18px
+}
 }
 
 @media(max-width:650px){
-  .container{
-    padding:0 12px;
-  }
-  .hero-title{
-    font-size:28px;
-  }
-  .controls, .options{
-    grid-template-columns:1fr;
-  }
-  .result-grid{
-    grid-template-columns:1fr 1fr;
-  }
-  .custom-grid{
-    grid-template-columns:1fr 1fr;
-  }
-  .chart-header{
-    flex-direction:column;
-    align-items:stretch;
-  }
-  #printBtn{
-    width:100%;
-  }
-  nav{
-    display:none;
-  }
+.container{
+padding:0 12px
+}
+
+.hero-title{
+font-size:28px
+}
+
+.controls,
+.options{
+grid-template-columns:1fr
+}
+
+.result-grid{
+grid-template-columns:1fr 1fr
+}
+
+.custom-grid{
+grid-template-columns:1fr 1fr
+}
+
+.chart-header{
+flex-direction:column;
+align-items:stretch
+}
+
+#printBtn{
+width:100%
+}
+
+nav{
+display:none
+}
+
+.card{
+padding:20px
+}
+
+.chart{
+font-size:12px
+}
+
+.chart th,
+.chart td{
+padding:8px
+}
+
+.search-btn{
+padding:10px 16px
+}
 }
 
 @media print{
-  header, footer, nav, .hero-section, .seo-content, .faq, .reset-btn, .cta-banner{
-    display:none !important;
-  }
+header,
+footer,
+nav,
+.hero-section,
+.seo-content,
+.faq,
+.reset-btn,
+.cta-banner{
+display:none!important
+}
 
-  body *{
-    visibility:hidden;
-  }
+body *{
+visibility:hidden
+}
 
-  #chartCard, #chartCard *{
-    visibility:visible;
-  }
+#chartCard,
+#chartCard *{
+visibility:visible
+}
 
-  #chartCard{
-    position:absolute;
-    left:0;
-    top:0;
-    width:100%;
-    box-shadow:none;
-  }
+#chartCard{
+position:absolute;
+left:0;
+top:0;
+width:100%;
+box-shadow:none
+}
 
-  #printBtn{
-    display:none !important;
-  }
+#printBtn{
+display:none!important
+}
 }
 </style>
 </head>
 
 <body>
 
-<!-- HEADER -->
 <header>
-  <div class="header-container">
-    <a href="https://quickpercent.github.io/" class="brand-logo">
-      <div class="brand-icon">EG</div>
-      <div class="brand-name">Easy<span>Grader</span></div>
-    </a>
-    <nav>
-      <a href="https://quickpercent.github.io/" class="active">Easy Grader</a>
-      <a href="https://quickpercent.github.io/gpa-calculator/">GPA Calculator</a>
-      <a href="https://quickpercent.github.io/cgpa-calculator/">CGPA Calculator</a>
-      <a href="https://quickpercent.github.io/attendance-calculator/">Attendance Calculator</a>
-    </nav>
-    <div class="header-actions">
-      <button class="icon-btn" title="Search">&#128269;</button>
-      <button class="icon-btn" title="Theme">&#9728;</button>
-    </div>
-  </div>
+<div class="header-container">
+
+<a href="https://quickpercent.github.io/" class="brand-logo">
+<div class="brand-icon">EG</div>
+<div class="brand-name">Easy<span>Grader</span></div>
+</a>
+
+<nav>
+<a href="https://quickpercent.github.io/" class="active">Easy Grader</a>
+<a href="https://quickpercent.github.io/gpa-calculator/">GPA Calculator</a>
+<a href="https://quickpercent.github.io/cgpa-calculator/">CGPA Calculator</a>
+<a href="https://quickpercent.github.io/attendance-calculator/">Attendance Calculator</a>
+</nav>
+
+<div class="header-actions">
+<button class="icon-btn" id="topSearch" title="Search">⌕</button>
+<button class="icon-btn" id="topTheme" title="Theme">☀</button>
+</div>
+
+</div>
 </header>
 
-<!-- HERO SECTION -->
 <section class="hero-section">
-  <div class="hero-badge">Fast &bull; Accurate &bull; Free</div>
-  <h1 class="hero-title">Easy Grader Calculator</h1>
-  <p class="hero-subtitle">Free EZ Grader online for tests, quizzes, and exams.<br>Calculate grades, percentages, and print grading charts instantly.</p>
-  
-  <div class="search-box">
-    <span class="search-icon">&#128269;</span>
-    <input type="text" class="search-input" placeholder="Search for grading scales or calculator options...">
-    <button class="search-btn">Search</button>
-  </div>
 
-  <div class="features-pills">
-    <div class="pill">
-      <div class="pill-icon" style="background:#dcfce7; color:#15803d;">&#10003;</div>
-      <div class="pill-text">
-        <h4>100% Free</h4>
-        <p>No registration required</p>
-      </div>
-    </div>
-    <div class="pill">
-      <div class="pill-icon" style="background:#fef9c3; color:#a16207;">&#9889;</div>
-      <div class="pill-text">
-        <h4>Instant Results</h4>
-        <p>Real-time calculation</p>
-      </div>
-    </div>
-    <div class="pill">
-      <div class="pill-icon" style="background:#dbeafe; color:#1d4ed8;">&#9755;</div>
-      <div class="pill-text">
-        <h4>Easy to Use</h4>
-        <p>Clean & intuitive interface</p>
-      </div>
-    </div>
-    <div class="pill">
-      <div class="pill-icon" style="background:#f3e8ff; color:#7e22ce;">&#128187;</div>
-      <div class="pill-text">
-        <h4>All Devices</h4>
-        <p>Mobile, Tablet & PC</p>
-      </div>
-    </div>
-  </div>
+<div class="hero-badge">Fast • Accurate • Free</div>
+
+<h1 class="hero-title">Easy Grader Calculator</h1>
+
+<p class="hero-subtitle">
+Free EZ Grader online for tests, quizzes, and exams.<br>
+Calculate grades, percentages, and print grading charts instantly.
+</p>
+
+<div class="search-box">
+<span class="search-icon">⌕</span>
+<input type="text" id="siteSearch" class="search-input" placeholder="Search for grading scales or calculator options...">
+<button class="search-btn" id="searchBtn">Search</button>
+</div>
+
+<div class="features-pills">
+
+<div class="pill">
+<div class="pill-icon" style="background:#dcfce7;color:#15803d">✓</div>
+<div class="pill-text">
+<h4>100% Free</h4>
+<p>No registration required</p>
+</div>
+</div>
+
+<div class="pill">
+<div class="pill-icon" style="background:#fef9c3;color:#a16207">ϟ</div>
+<div class="pill-text">
+<h4>Instant Results</h4>
+<p>Fast calculation</p>
+</div>
+</div>
+
+<div class="pill">
+<div class="pill-icon" style="background:#dbeafe;color:#1d4ed8">➜</div>
+<div class="pill-text">
+<h4>Easy to Use</h4>
+<p>Clean & intuitive</p>
+</div>
+</div>
+
+<div class="pill">
+<div class="pill-icon" style="background:#f3e8ff;color:#7e22ce">▣</div>
+<div class="pill-text">
+<h4>All Devices</h4>
+<p>Mobile, tablet & PC</p>
+</div>
+</div>
+
+</div>
 </section>
 
-<!-- MAIN CONTAINER -->
-<div class="container">
+<main class="container">
 
 <div class="card" id="calculator">
-<div class="section-title">Easy Grader Calculator – Free EZ Grader</div>
+
+<div class="section-title">
+Easy Grader Calculator – Free EZ Grader
+</div>
 
 <div class="controls">
+
 <div class="field">
 <label for="totalQuestions">Total Questions</label>
+
 <div class="input-row">
-<button type="button" class="small-btn" id="totalMinus">-</button>
+<button type="button" class="small-btn" id="totalMinus">−</button>
 <input type="number" id="totalQuestions" min="1" max="500" value="25">
 <button type="button" class="small-btn" id="totalPlus">+</button>
 </div>
@@ -907,45 +867,74 @@ footer{
 
 <div class="field">
 <label for="wrongAnswers">Wrong Answers</label>
+
 <div class="input-row">
-<button type="button" class="small-btn" id="wrongMinus">-</button>
+<button type="button" class="small-btn" id="wrongMinus">−</button>
 <input type="text" id="wrongAnswers" inputmode="decimal" value="0" autocomplete="off">
 <button type="button" class="small-btn" id="wrongPlus">+</button>
 </div>
 </div>
+
 </div>
 
 <div class="quick-select">
-<button type="button" data-total="10">10</button>
-<button type="button" data-total="20">20</button>
-<button type="button" data-total="25">25</button>
-<button type="button" data-total="30">30</button>
-<button type="button" data-total="50">50</button>
-<button type="button" data-total="100">100</button>
+<button type="button" data-total="10">10 Questions</button>
+<button type="button" data-total="20">20 Questions</button>
+<button type="button" data-total="25">25 Questions</button>
+<button type="button" data-total="50">50 Questions</button>
+<button type="button" data-total="100">100 Questions</button>
 </div>
 
 <div class="options">
+
 <div>
-<label><strong>Grading Scale</strong></label>
-<div class="scale-buttons">
+<strong>Grading Scale</strong>
+
+<div class="scale-buttons" style="margin-top:10px">
 <button type="button" class="scale-btn active" data-scale="standard">Standard</button>
 <button type="button" class="scale-btn" data-scale="plus">Plus-Minus</button>
 <button type="button" class="scale-btn" data-scale="custom">Custom</button>
 </div>
 
-<div id="customBox" class="custom-box">
+<div class="custom-box" id="customBox">
+
 <div class="custom-grid">
-<div><label>A</label><input type="number" id="customA" value="93"></div>
-<div><label>B</label><input type="number" id="customB" value="85"></div>
-<div><label>C</label><input type="number" id="customC" value="75"></div>
-<div><label>D</label><input type="number" id="customD" value="65"></div>
-<div><label>F</label><input type="number" id="customF" value="0"></div>
+
+<label>
+A
+<input id="customA" type="number" value="93">
+</label>
+
+<label>
+B
+<input id="customB" type="number" value="85">
+</label>
+
+<label>
+C
+<input id="customC" type="number" value="75">
+</label>
+
+<label>
+D
+<input id="customD" type="number" value="65">
+</label>
+
+<label>
+F
+<input id="customF" type="number" value="0">
+</label>
+
 </div>
 </div>
 </div>
 
 <div>
-<label for="passingGrade"><strong>Passing Grade</strong></label>
+
+<label for="passingGrade">
+<strong>Passing Grade</strong>
+</label>
+
 <select id="passingGrade">
 <option value="60">60%</option>
 <option value="65">65%</option>
@@ -955,16 +944,19 @@ footer{
 <option value="85">85%</option>
 <option value="90">90%</option>
 </select>
-</div>
 
-<div>
-<label for="decimals"><strong>Percentage Decimals</strong></label>
+<label for="decimals" style="display:block;margin-top:14px">
+<strong>Percentage Decimals</strong>
+</label>
+
 <select id="decimals">
 <option value="2">2 decimals</option>
 <option value="1">1 decimal</option>
 <option value="0">0 decimals</option>
 </select>
+
 </div>
+
 </div>
 
 <div class="checkbox-row">
@@ -972,37 +964,50 @@ footer{
 <label for="halfPoints">Allow half points (0.5)</label>
 </div>
 
-<button type="button" class="calculate-btn" id="calculateBtn">Calculate Grade</button>
+<button type="button" class="calculate-btn" id="calculateBtn">
+Calculate Grade
+</button>
 
-<div class="result" id="result">
+<div class="result">
+
 <div class="result-grid">
+
 <div class="result-item">
 <div class="result-label">Correct</div>
-<div class="result-value" id="correctResult">0</div>
+<div class="result-value" id="correctResult">25</div>
 </div>
+
 <div class="result-item">
 <div class="result-label">Percentage</div>
-<div class="result-value" id="percentageResult">0%</div>
+<div class="result-value" id="percentageResult">100%</div>
 </div>
+
 <div class="result-item">
 <div class="result-label">Grade</div>
-<div class="result-value" id="gradeResult">F</div>
+<div class="result-value" id="gradeResult">A</div>
 </div>
+
 <div class="result-item">
 <div class="result-label">Status</div>
-<div class="result-value" id="statusResult">Fail</div>
+<div class="result-value pass" id="statusResult">Pass</div>
+</div>
+
 </div>
 </div>
-</div>
+
 </div>
 
 <div class="card" id="chartCard">
+
 <div class="chart-header">
 <div class="chart-title">Easy Grader Chart</div>
 <button type="button" id="printBtn">Print Chart</button>
 </div>
 
+<div style="overflow-x:auto">
+
 <table class="chart">
+
 <thead>
 <tr>
 <th>Wrong</th>
@@ -1012,501 +1017,967 @@ footer{
 <th>Status</th>
 </tr>
 </thead>
+
 <tbody id="chartBody"></tbody>
+
 </table>
+
+</div>
 </div>
 
 <div class="card">
-<button type="button" class="reset-btn" id="resetBtn">Reset Calculator</button>
+<button type="button" class="reset-btn" id="resetBtn">
+Reset Calculator
+</button>
 </div>
 
-<!-- CTA BANNER -->
 <div class="cta-banner">
-  <div class="cta-text">
-    <h3>Need extra grading options?</h3>
-    <p>We are continuously improving Easy Grader tools to make classroom scoring effortless.</p>
-  </div>
-  <button class="cta-btn">Suggest a Feature &rarr;</button>
+
+<div class="cta-text">
+<h3>Need extra grading options?</h3>
+<p>Easy Grader is continuously improved for faster classroom and test scoring.</p>
 </div>
 
-<!-- SEO CONTENT WITH CONTEXTUAL INTERLINKS -->
-<div class="card seo-content" id="about">
+<button class="cta-btn" id="featureBtn">
+Suggest a Feature →
+</button>
+
+</div>
+
+<section class="card seo-content" id="about">
+
 <h2>Free Easy Grader Calculator</h2>
+
 <p>
-Our free <strong>Easy Grader Calculator</strong> is a simple way to turn the number of questions and wrong answers on a test, quiz, or exam into a percentage, correct-answer count, letter grade, and pass-or-fail result. Instead of calculating every score by hand, enter the test details and get the result immediately.
-</p>
-<p>
-The calculator is designed for the common situation where you know how many questions are on an assessment and how many answers were incorrect. It can be used by teachers checking a class, students checking a test score, tutors reviewing practice work, or parents helping with schoolwork. If you need to convert overall course credit hours into semester scores, try our <a href="https://quickpercent.github.io/gpa-calculator/" style="color:#2563eb; font-weight:600; text-decoration:none;">GPA Calculator</a> and <a href="https://quickpercent.github.io/cgpa-calculator/" style="color:#2563eb; font-weight:600; text-decoration:none;">CGPA Calculator</a>.
+Our free <strong>Easy Grader Calculator</strong> is an online
+<strong>EZ Grader</strong> that turns total questions and wrong answers
+into correct answers, percentages, letter grades, and pass-or-fail results.
+It is useful for tests, quizzes, exams, homework, practice papers, and classroom grading.
 </p>
 
-<h2>What Is an Easy Grader?</h2>
 <p>
-An <strong>Easy Grader</strong> is a grading reference and calculator that makes test scoring faster. You enter the total number of questions and the number of wrong answers. The tool determines how many answers were correct, calculates the percentage, and matches the percentage to the selected grading scale.
-</p>
-<p>
-You may also see this type of tool called an <strong>EZ Grader</strong>, <strong>EZ Grader Calculator</strong>, <strong>Easy Grading Calculator</strong>, or <strong>Test Grade Calculator</strong>. The basic purpose is the same: quickly convert test results into a useful grade.
+Teachers can use the calculator to grade papers quickly, while students and tutors
+can check test scores without doing repeated manual calculations.
+Choose a standard, plus-minus, or custom grading scale and generate a printable grading chart.
 </p>
 
-<h2>How Does the EZ Grader Work?</h2>
+<h2>What Is an Easy Grader or EZ Grader?</h2>
+
 <p>
-The process is straightforward. First, enter the total number of questions. Next, enter how many questions were wrong. The calculator subtracts the wrong answers from the total to determine the correct answers. It then converts the correct-answer count into a percentage and applies the selected grading scale.
+An Easy Grader is a grading reference and <strong>test grade calculator</strong>
+that makes scoring faster. You enter the total number of questions and the number of wrong answers.
+The calculator finds the correct answers, converts the score into a percentage,
+and matches it to the selected grading scale.
 </p>
+
+<p>
+You may also see this type of tool called an
+<strong>EZ Grader Calculator</strong>, Easy Grading Calculator,
+Quiz Grade Calculator, Test Score Calculator, or Letter Grade Calculator.
+The purpose is to make test scoring simple and consistent.
+</p>
+
+<h2>How to Use the Easy Grader Calculator</h2>
+
 <ol>
-<li>Enter the total number of questions.</li>
+<li>Enter the total number of questions on the test.</li>
 <li>Enter the number of wrong answers.</li>
-<li>Choose a grading scale if you want something other than the default scale.</li>
-<li>Choose a passing percentage when your class uses a different pass mark.</li>
-<li>Select <strong>Calculate Grade</strong> to see the result and grading chart.</li>
+<li>Choose Standard, Plus-Minus, or Custom grading.</li>
+<li>Select the passing percentage used by your class or school.</li>
+<li>Allow half points if partial-credit wrong answers are needed.</li>
+<li>Click <strong>Calculate Grade</strong> to view the score and grading chart.</li>
 </ol>
 
 <h2>Easy Grader Formula</h2>
+
 <p>
-The percentage calculation is based on the number of correct answers. The formula is: <strong>Percentage = (Correct Answers ÷ Total Questions) × 100</strong>. Correct answers are found by subtracting wrong answers from total questions.
+The basic formula is
+<strong>Percentage = (Correct Answers ÷ Total Questions) × 100</strong>.
+Correct answers are calculated as
+<strong>Total Questions − Wrong Answers</strong>.
 </p>
+
 <p>
-For example, if a test has 25 questions and 5 are wrong, the student has 20 correct answers. The calculation is 20 ÷ 25 × 100 = <strong>80%</strong>. The letter grade then depends on the selected grading scale.
+For example, if a test has 25 questions and 5 wrong answers,
+there are 20 correct answers. The score is 20 ÷ 25 × 100 =
+<strong>80%</strong>. The letter grade depends on the grading scale selected.
 </p>
 
 <h2>Easy Grader Examples</h2>
+
 <p>
-On a 20-question test, 2 wrong answers means 18 correct answers. The score is 18 ÷ 20 × 100 = <strong>90%</strong>. On a 50-question test, 5 wrong answers means 45 correct answers, which is also <strong>90%</strong>.
+On a 10-question test, 1 wrong answer gives 9 correct answers and a score of 90%.
+On a 20-question test, 2 wrong answers also gives 90%.
+On a 50-question test, 5 wrong answers gives 90% as well.
 </p>
+
 <p>
-The same number of mistakes does not always produce the same percentage. Missing 3 questions on a 10-question test gives 70%, while missing 3 questions on a 100-question test gives 97%. That is why the total number of questions matters when grading a test.
+The total number of questions matters because the same number of mistakes
+can produce different percentages. Three wrong answers on a 10-question test
+gives 70%, while three wrong answers on a 100-question test gives 97%.
 </p>
 
 <h2>Easy Grader Chart</h2>
+
 <p>
-The built-in <strong>Easy Grader Chart</strong> provides a quick reference for the selected test size. Each row shows the number of wrong answers, correct answers, percentage, letter grade, and pass-or-fail status. This can be useful when grading multiple papers with the same number of questions.
+The built-in <strong>Easy Grader Chart</strong> shows wrong answers,
+correct answers, percentage, letter grade, and pass/fail status for the selected test size.
+The chart is especially useful when grading multiple papers with the same number of questions.
+You can also print the chart as a reference sheet.
 </p>
 
-<h2>Grading Scale and Letter Grades</h2>
+<h2>Standard and Plus-Minus Grading Scales</h2>
+
 <p>
-A percentage does not automatically have the same letter grade at every school. Some schools use a simple A, B, C, D, F scale, while others use plus and minus grades. This calculator lets you choose a standard scale, a plus-minus scale, or a custom scale so the displayed letter grade can match the grading rules you are using.
+Different schools and instructors use different grading policies.
+The Standard scale commonly uses A, B, C, D, and F.
+The Plus-Minus scale adds grades such as A+, A−, B+, B−, and C+.
+Because grading policies vary, this calculator also includes a Custom scale
+so you can enter your own percentage thresholds.
 </p>
 
-<h2>Why Use an Online Easy Grader?</h2>
+<h2>What Grade Is 90%, 80%, or 70%?</h2>
+
+<p>
+On the Standard scale used by this calculator, 90% or higher is A,
+80%–89% is B, 70%–79% is C, 60%–69% is D, and below 60% is F.
+You can change the scale if your school uses different thresholds.
+</p>
+
+<h2>Who Can Use an EZ Grader?</h2>
+
 <ul>
-<li><strong>Fast:</strong> Get percentages and grades without repeated manual calculations.</li>
-<li><strong>Simple:</strong> Enter total questions and wrong answers to get started immediately.</li>
-<li><strong>Flexible:</strong> Supports Standard, Plus-Minus, and Custom grading scales.</li>
-<li><strong>Mobile friendly:</strong> Fully responsive design on phones, tablets, and computers.</li>
-<li><strong>Printable:</strong> Generate and print grading reference charts in seconds.</li>
-<li><strong>All-in-one suite:</strong> Easily manage class attendance with our <a href="https://quickpercent.github.io/attendance-calculator/" style="color:#2563eb; font-weight:600; text-decoration:none;">Attendance Calculator</a>.</li>
+<li><strong>Teachers:</strong> grade quizzes, tests, and classroom assessments faster.</li>
+<li><strong>Students:</strong> check test percentages and likely letter grades.</li>
+<li><strong>Tutors:</strong> score practice worksheets and mock exams.</li>
+<li><strong>Parents:</strong> help review school assignments and test results.</li>
+<li><strong>Instructors:</strong> create quick reference charts for repeated grading.</li>
 </ul>
-</div>
 
-<!-- FAQS CARD (ACCORDIONS WITH CONTEXTUAL INTERLINKS) -->
-<div class="card faq" id="faq">
+<h2>Why Use This Free Test Grade Calculator?</h2>
+
+<ul>
+<li>Fast percentage and grade calculations.</li>
+<li>No registration required.</li>
+<li>Works with different test sizes, including 10, 20, 25, 50, and 100 questions.</li>
+<li>Supports decimal and half-point wrong answers.</li>
+<li>Includes Standard, Plus-Minus, and Custom grading scales.</li>
+<li>Includes a printable grading chart.</li>
+<li>Works on mobile phones, tablets, and desktop computers.</li>
+<li>
+Connects naturally with our
+<a href="https://quickpercent.github.io/gpa-calculator/" style="color:#2563eb;font-weight:600">GPA Calculator</a>,
+<a href="https://quickpercent.github.io/cgpa-calculator/" style="color:#2563eb;font-weight:600">CGPA Calculator</a>,
+and
+<a href="https://quickpercent.github.io/attendance-calculator/" style="color:#2563eb;font-weight:600">Attendance Calculator</a>.
+</li>
+</ul>
+
+<h2>Easy Grader vs. Manual Grade Calculation</h2>
+
+<p>
+Manual grading requires subtracting mistakes, calculating the percentage,
+and checking the correct letter-grade range.
+An online Easy Grader combines these steps into one workflow,
+reducing repetitive arithmetic and making it easier to check many papers
+with the same test size.
+</p>
+
+<h2>Important Note About Grading Policies</h2>
+
+<p>
+Letter-grade boundaries are not universal.
+A school, teacher, college, or testing program may use its own grading rules.
+Always compare the calculator's selected scale with the grading policy
+that applies to your assessment.
+</p>
+
+</section>
+
+<section class="card faq" id="faq">
+
 <h2>Easy Grader Frequently Asked Questions</h2>
 
-<details style="background: #ffffff; border: 1px solid #e2e8f0; padding: 16px; border-radius: 10px; margin-bottom: 12px; cursor: pointer;">
-  <summary style="font-weight: 700; font-size: 16px; color: #0f172a;">1. What is an Easy Grader (EZ Grader) Calculator?</summary>
-  <p style="margin-top: 10px; color: #475569; line-height: 1.6; font-size: 14px;">An Easy Grader (EZ Grader) is a free online tool designed for teachers, tutors, and students to quickly convert total test questions and wrong answers into accurate percentages, letter grades, and pass/fail results.</p>
-</details>
-
-<details style="background: #ffffff; border: 1px solid #e2e8f0; padding: 16px; border-radius: 10px; margin-bottom: 12px; cursor: pointer;">
-  <summary style="font-weight: 700; font-size: 16px; color: #0f172a;">2. How do I use the Easy Grader Calculator?</summary>
-  <p style="margin-top: 10px; color: #475569; line-height: 1.6; font-size: 14px;">Enter the total number of questions and the number of wrong answers. Choose your preferred grading scale (Standard, Plus-Minus, or Custom), set the passing percentage, and click <strong>Calculate Grade</strong> to view instant results and a complete grading chart.</p>
-</details>
-
-<details style="background: #ffffff; border: 1px solid #e2e8f0; padding: 16px; border-radius: 10px; margin-bottom: 12px; cursor: pointer;">
-  <summary style="font-weight: 700; font-size: 16px; color: #0f172a;">3. What is the Easy Grader formula?</summary>
-  <p style="margin-top: 10px; color: #475569; line-height: 1.6; font-size: 14px;">The formula used to calculate test percentage is: <strong>Percentage = [(Total Questions − Wrong Answers) ÷ Total Questions] × 100</strong>.</p>
-</details>
-
-<details style="background: #ffffff; border: 1px solid #e2e8f0; padding: 16px; border-radius: 10px; margin-bottom: 12px; cursor: pointer;">
-  <summary style="font-weight: 700; font-size: 16px; color: #0f172a;">4. How can I calculate my overall semester grade point average?</summary>
-  <p style="margin-top: 10px; color: #475569; line-height: 1.6; font-size: 14px;">Once you have scored your individual tests, you can easily compute your overall term scores using our <a href="https://quickpercent.github.io/gpa-calculator/" style="color:#2563eb; font-weight:600; text-decoration:none;">Semester GPA Calculator</a> or track your long-term standing with the <a href="https://quickpercent.github.io/cgpa-calculator/" style="color:#2563eb; font-weight:600; text-decoration:none;">Cumulative CGPA Calculator</a>.</p>
-</details>
-
-<details style="background: #ffffff; border: 1px solid #e2e8f0; padding: 16px; border-radius: 10px; margin-bottom: 12px; cursor: pointer;">
-  <summary style="font-weight: 700; font-size: 16px; color: #0f172a;">5. Can I use this EZ Grader for any test size (e.g., 10, 20, 50, or 100 questions)?</summary>
-  <p style="margin-top: 10px; color: #475569; line-height: 1.6; font-size: 14px;">Yes. Whether your test has 5, 10, 20, 50, or 100+ questions, simply enter the total count to generate precise percentages, letter grades, and printable reference charts.</p>
-</details>
-
-<details style="background: #ffffff; border: 1px solid #e2e8f0; padding: 16px; border-radius: 10px; margin-bottom: 12px; cursor: pointer;">
-  <summary style="font-weight: 700; font-size: 16px; color: #0f172a;">6. What letter grade corresponds to 90%, 80%, or 70%?</summary>
-  <p style="margin-top: 10px; color: #475569; line-height: 1.6; font-size: 14px;">On the standard scale: 90% and above is an <strong>A</strong>, 80% to 89% is a <strong>B</strong>, and 70% to 79% is a <strong>C</strong>. You can also switch to Plus-Minus scale (A+, A-, B+, etc.) or enter Custom percentage thresholds.</p>
-</details>
-
-<details style="background: #ffffff; border: 1px solid #e2e8f0; padding: 16px; border-radius: 10px; margin-bottom: 12px; cursor: pointer;">
-  <summary style="font-weight: 700; font-size: 16px; color: #0f172a;">7. Does it support half points (0.5) or decimal wrong answers?</summary>
-  <p style="margin-top: 10px; color: #475569; line-height: 1.6; font-size: 14px;">Yes. Check the "Allow half points (0.5)" option to calculate partial credit scores (such as 1.5 or 2.5 wrong answers) accurately.</p>
-</details>
-
-<details style="background: #ffffff; border: 1px solid #e2e8f0; padding: 16px; border-radius: 10px; margin-bottom: 12px; cursor: pointer;">
-  <summary style="font-weight: 700; font-size: 16px; color: #0f172a;">8. Can I customize grading scales or passing grade thresholds?</summary>
-  <p style="margin-top: 10px; color: #475569; line-height: 1.6; font-size: 14px;">Yes. You can choose between Standard, Plus-Minus, or Custom grading scales and set passing criteria anywhere from 60% to 90% to align with your school's grading policy.</p>
-</details>
-
-<details style="background: #ffffff; border: 1px solid #e2e8f0; padding: 16px; border-radius: 10px; margin-bottom: 12px; cursor: pointer;">
-  <summary style="font-weight: 700; font-size: 16px; color: #0f172a;">9. Can I print the Easy Grader grading chart?</summary>
-  <p style="margin-top: 10px; color: #475569; line-height: 1.6; font-size: 14px;">Yes! Click the <strong>Print Chart</strong> button above the table to print a clean reference sheet for grading papers efficiently off-screen.</p>
-</details>
-
-<details style="background: #ffffff; border: 1px solid #e2e8f0; padding: 16px; border-radius: 10px; margin-bottom: 12px; cursor: pointer;">
-  <summary style="font-weight: 700; font-size: 16px; color: #0f172a;">10. Is the Easy Grader Calculator free and mobile friendly?</summary>
-  <p style="margin-top: 10px; color: #475569; line-height: 1.6; font-size: 14px;">Yes, it is 100% free with no registration required, and fully responsive across smartphones, tablets, and desktop computers.</p>
+<div class="faq-item">
+<details>
+<summary>1. What is an Easy Grader Calculator?</summary>
+<p>
+An Easy Grader Calculator is a free online tool that converts total questions
+and wrong answers into correct answers, percentages, letter grades, and pass/fail results.
+</p>
 </details>
 </div>
 
+<div class="faq-item">
+<details>
+<summary>2. What is an EZ Grader?</summary>
+<p>
+EZ Grader is another common name for an Easy Grader.
+It is used to quickly score tests, quizzes, and exams based on the number of questions and incorrect answers.
+</p>
+</details>
 </div>
 
-<!-- FOOTER -->
+<div class="faq-item">
+<details>
+<summary>3. How do I use the Easy Grader Calculator?</summary>
+<p>
+Enter the total questions, enter wrong answers, choose a grading scale and passing percentage,
+then select Calculate Grade to see the result and chart.
+</p>
+</details>
+</div>
+
+<div class="faq-item">
+<details>
+<summary>4. What is the Easy Grader formula?</summary>
+<p>
+The percentage formula is (Correct Answers ÷ Total Questions) × 100.
+Correct answers equal Total Questions minus Wrong Answers.
+</p>
+</details>
+</div>
+
+<div class="faq-item">
+<details>
+<summary>5. How do I calculate a test percentage from wrong answers?</summary>
+<p>
+Subtract wrong answers from total questions to find correct answers,
+then divide correct answers by total questions and multiply by 100.
+</p>
+</details>
+</div>
+
+<div class="faq-item">
+<details>
+<summary>6. Can I use this calculator for a 10-question test?</summary>
+<p>
+Yes. Enter 10 as the total number of questions and enter the number of wrong answers
+to calculate the percentage and grade.
+</p>
+</details>
+</div>
+
+<div class="faq-item">
+<details>
+<summary>7. Can I use the EZ Grader for a 20-question test?</summary>
+<p>
+Yes. The calculator supports 20-question tests and can also handle many other test sizes.
+</p>
+</details>
+</div>
+
+<div class="faq-item">
+<details>
+<summary>8. Can I use the Easy Grader for a 50-question test?</summary>
+<p>
+Yes. Enter 50 total questions and the number of wrong answers.
+The calculator will generate the percentage, letter grade, and status.
+</p>
+</details>
+</div>
+
+<div class="faq-item">
+<details>
+<summary>9. Can I use the Easy Grader for a 100-question test?</summary>
+<p>
+Yes. The calculator supports test sizes up to 500 questions,
+so a 100-question exam can be scored easily.
+</p>
+</details>
+</div>
+
+<div class="faq-item">
+<details>
+<summary>10. What grade is 90 percent?</summary>
+<p>
+On the Standard scale, 90% or higher is an A.
+Your school may use different boundaries, so select a custom scale when necessary.
+</p>
+</details>
+</div>
+
+<div class="faq-item">
+<details>
+<summary>11. What grade is 80 percent?</summary>
+<p>
+On the Standard scale, 80% to 89% is a B.
+The Plus-Minus and Custom scales can produce different results.
+</p>
+</details>
+</div>
+
+<div class="faq-item">
+<details>
+<summary>12. What grade is 70 percent?</summary>
+<p>
+On the Standard scale, 70% to 79% is a C.
+Check your school's grading policy if it uses different thresholds.
+</p>
+</details>
+</div>
+
+<div class="faq-item">
+<details>
+<summary>13. Does the calculator support half points?</summary>
+<p>
+Yes. Turn on Allow half points (0.5) to work with partial-credit wrong-answer values such as 1.5 or 2.5.
+</p>
+</details>
+</div>
+
+<div class="faq-item">
+<details>
+<summary>14. Can I enter decimal wrong answers?</summary>
+<p>
+Yes. Decimal wrong-answer values can be entered,
+and the half-point option makes common partial-credit values easy to adjust.
+</p>
+</details>
+</div>
+
+<div class="faq-item">
+<details>
+<summary>15. Can I customize the grading scale?</summary>
+<p>
+Yes. Choose Custom and enter your own percentage thresholds for A, B, C, D, and F.
+</p>
+</details>
+</div>
+
+<div class="faq-item">
+<details>
+<summary>16. Does Easy Grader have a Plus-Minus grading scale?</summary>
+<p>
+Yes. The Plus-Minus option includes grades such as A+, A, A−, B+, B, B−,
+C+, C, C−, D+, D, D−, and F.
+</p>
+</details>
+</div>
+
+<div class="faq-item">
+<details>
+<summary>17. Can I change the passing grade?</summary>
+<p>
+Yes. You can choose a passing threshold from 60% through 90%
+using the Passing Grade setting.
+</p>
+</details>
+</div>
+
+<div class="faq-item">
+<details>
+<summary>18. Can I print the Easy Grader chart?</summary>
+<p>
+Yes. Click Print Chart to create a clean printable version of the grading chart
+for reference or classroom use.
+</p>
+</details>
+</div>
+
+<div class="faq-item">
+<details>
+<summary>19. Is the Easy Grader Calculator free?</summary>
+<p>
+Yes. This Easy Grader is free to use and does not require registration.
+</p>
+</details>
+</div>
+
+<div class="faq-item">
+<details>
+<summary>20. Is the EZ Grader mobile friendly?</summary>
+<p>
+Yes. The interface is responsive and designed to work on smartphones,
+tablets, and desktop computers.
+</p>
+</details>
+</div>
+
+<div class="faq-item">
+<details>
+<summary>21. Can teachers use this Easy Grader?</summary>
+<p>
+Yes. Teachers can use it to score quizzes, tests, worksheets,
+and classroom assessments quickly.
+</p>
+</details>
+</div>
+
+<div class="faq-item">
+<details>
+<summary>22. Can students use the Easy Grader to check test scores?</summary>
+<p>
+Yes. Students can enter their test size and incorrect answers
+to estimate their percentage and letter grade.
+</p>
+</details>
+</div>
+
+<div class="faq-item">
+<details>
+<summary>23. Does Easy Grader calculate correct answers?</summary>
+<p>
+Yes. Correct answers are calculated by subtracting wrong answers
+from the total number of questions.
+</p>
+</details>
+</div>
+
+<div class="faq-item">
+<details>
+<summary>24. What if my school uses a different grading scale?</summary>
+<p>
+Use the Custom grading option and enter the percentage thresholds
+required by your school, teacher, or course.
+</p>
+</details>
+</div>
+
+<div class="faq-item">
+<details>
+<summary>25. Can I use Easy Grader for quizzes and exams?</summary>
+<p>
+Yes. The calculator can be used for quizzes, tests, exams,
+practice papers, worksheets, and other assessments where a percentage
+or letter grade is needed.
+</p>
+</details>
+</div>
+
+</section>
+
+</main>
+
 <footer>
-  <div class="footer-container">
-    <div class="footer-brand">
-      <a href="https://quickpercent.github.io/" class="brand-logo">
-        <div class="brand-icon">EG</div>
-        <div class="brand-name" style="color:#fff;">Easy<span>Grader</span></div>
-      </a>
-      <p>Free online Easy Grader and EZ Grader calculator. Easily calculate test grades, percentages, letter grades, and generate printable grading charts.</p>
-    </div>
-    <div class="footer-links">
-      <h4>Calculators</h4>
-      <ul>
-        <li><a href="https://quickpercent.github.io/">Easy Grader</a></li>
-        <li><a href="https://quickpercent.github.io/gpa-calculator/">GPA Calculator</a></li>
-        <li><a href="https://quickpercent.github.io/cgpa-calculator/">CGPA Calculator</a></li>
-        <li><a href="https://quickpercent.github.io/attendance-calculator/">Attendance Calculator</a></li>
-      </ul>
-    </div>
-    <div class="footer-links">
-      <h4>Legal & Support</h4>
-      <ul>
-        <li><a href="https://quickpercent.github.io/privacy-policy/">Privacy Policy</a></li>
-        <li><a href="https://quickpercent.github.io/terms/">Terms of Service</a></li>
-        <li><a href="https://quickpercent.github.io/contact/">Contact Us</a></li>
-      </ul>
-    </div>
-  </div>
 
-  <div class="footer-bottom">
-    <p>&copy; 2026 Easy Grader. All rights reserved.</p>
-    <div class="footer-nav">
-      <a href="https://quickpercent.github.io/">Home</a>
-      <a href="https://quickpercent.github.io/privacy-policy/">Privacy Policy</a>
-      <a href="https://quickpercent.github.io/terms/">Terms</a>
-      <a href="https://quickpercent.github.io/contact/">Contact</a>
-    </div>
-  </div>
+<div class="footer-container">
+
+<div class="footer-brand">
+
+<a href="https://quickpercent.github.io/" class="brand-logo">
+<div class="brand-icon">EG</div>
+<div class="brand-name" style="color:#fff">
+Easy<span>Grader</span>
+</div>
+</a>
+
+<p>
+Free online Easy Grader and EZ Grader calculator for test percentages,
+letter grades, pass/fail results, and printable grading charts.
+</p>
+
+</div>
+
+<div class="footer-links">
+
+<h4>Calculators</h4>
+
+<ul>
+<li><a href="https://quickpercent.github.io/">Easy Grader</a></li>
+<li><a href="https://quickpercent.github.io/gpa-calculator/">GPA Calculator</a></li>
+<li><a href="https://quickpercent.github.io/cgpa-calculator/">CGPA Calculator</a></li>
+<li><a href="https://quickpercent.github.io/attendance-calculator/">Attendance Calculator</a></li>
+</ul>
+
+</div>
+
+<div class="footer-links">
+
+<h4>Legal & Support</h4>
+
+<ul>
+<li><a href="https://quickpercent.github.io/privacy-policy/">Privacy Policy</a></li>
+<li><a href="https://quickpercent.github.io/terms/">Terms of Service</a></li>
+<li><a href="https://quickpercent.github.io/contact/">Contact Us</a></li>
+</ul>
+
+</div>
+
+</div>
+
+<div class="footer-bottom">
+
+<p>© 2026 Easy Grader. All rights reserved.</p>
+
+<div class="footer-nav">
+<a href="https://quickpercent.github.io/">Home</a>
+<a href="https://quickpercent.github.io/privacy-policy/">Privacy</a>
+<a href="https://quickpercent.github.io/terms/">Terms</a>
+<a href="https://quickpercent.github.io/contact/">Contact</a>
+</div>
+
+</div>
+
 </footer>
 
-<!-- JSON-LD SCHEMA MARKUP -->
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "Easy Grader Calculator",
-  "alternateName": "EZ Grader Online",
-  "url": "https://quickpercent.github.io/",
-  "applicationCategory": "EducationalApplication",
-  "operatingSystem": "Any",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  },
-  "description": "Free Easy Grader and EZ Grader calculator for tests, quizzes and exams."
+"@context":"https://schema.org",
+"@type":"WebApplication",
+"name":"Easy Grader Calculator",
+"alternateName":[
+"EZ Grader Online",
+"EZ Grader Calculator",
+"Easy Grading Calculator",
+"Test Grade Calculator"
+],
+"url":"https://quickpercent.github.io/",
+"applicationCategory":"EducationalApplication",
+"operatingSystem":"Any",
+"offers":{
+"@type":"Offer",
+"price":"0",
+"priceCurrency":"USD"
+},
+"description":"Free Easy Grader and EZ Grader calculator for tests, quizzes and exams."
 }
 </script>
 
 <script type="application/ld+json">
 {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {"@type": "Question", "name": "What is an Easy Grader (EZ Grader) Calculator?", "acceptedAnswer": {"@type": "Answer", "text": "An Easy Grader (EZ Grader) is a free online tool designed for teachers, tutors, and students to quickly convert total test questions and wrong answers into accurate percentages, letter grades, and pass/fail results."}},
-    {"@type": "Question", "name": "How do I use the Easy Grader Calculator?", "acceptedAnswer": {"@type": "Answer", "text": "Enter total questions and wrong answers, select grading scale options, and click Calculate Grade to view instant results and a complete chart."}},
-    {"@type": "Question", "name": "What is the Easy Grader formula?", "acceptedAnswer": {"@type": "Answer", "text": "Percentage = [(Total Questions − Wrong Answers) ÷ Total Questions] × 100."}},
-    {"@type": "Question", "name": "How can I calculate my overall semester grade point average?", "acceptedAnswer": {"@type": "Answer", "text": "Use our GPA Calculator or CGPA Calculator to determine your overall term scores."}},
-    {"@type": "Question", "name": "Can I use this EZ Grader for any test size?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, it supports any total question count including 10, 20, 50, and 100 question tests."}},
-    {"@type": "Question", "name": "Does it support half points (0.5) or decimal wrong answers?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Enable 'Allow half points' to calculate decimal wrong answers like 1.5 or 2.5."}},
-    {"@type": "Question", "name": "Can I customize grading scales or passing thresholds?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, select Standard, Plus-Minus, or Custom scale and adjust passing limits."}},
-    {"@type": "Question", "name": "Can I print the Easy Grader grading chart?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, click Print Chart to generate a clean printable reference sheet."}},
-    {"@type": "Question", "name": "Is the Easy Grader Calculator free and mobile friendly?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, 100% free with full mobile and desktop support."}}
-  ]
+"@context":"https://schema.org",
+"@type":"FAQPage",
+"mainEntity":[
+
+{"@type":"Question","name":"What is an Easy Grader Calculator?","acceptedAnswer":{"@type":"Answer","text":"An Easy Grader Calculator is a free online tool that converts total questions and wrong answers into correct answers, percentages, letter grades, and pass/fail results."}},
+
+{"@type":"Question","name":"What is an EZ Grader?","acceptedAnswer":{"@type":"Answer","text":"EZ Grader is another common name for an Easy Grader used to quickly score tests, quizzes, and exams."}},
+
+{"@type":"Question","name":"How do I use the Easy Grader Calculator?","acceptedAnswer":{"@type":"Answer","text":"Enter total questions and wrong answers, choose a grading scale and passing percentage, then select Calculate Grade."}},
+
+{"@type":"Question","name":"What is the Easy Grader formula?","acceptedAnswer":{"@type":"Answer","text":"Percentage equals correct answers divided by total questions, multiplied by 100. Correct answers equal total questions minus wrong answers."}},
+
+{"@type":"Question","name":"How do I calculate a test percentage from wrong answers?","acceptedAnswer":{"@type":"Answer","text":"Subtract wrong answers from total questions, divide correct answers by total questions, and multiply by 100."}},
+
+{"@type":"Question","name":"Can I use this calculator for a 10-question test?","acceptedAnswer":{"@type":"Answer","text":"Yes. Enter 10 total questions and the number of wrong answers."}},
+
+{"@type":"Question","name":"Can I use the EZ Grader for a 20-question test?","acceptedAnswer":{"@type":"Answer","text":"Yes. The calculator supports 20-question tests and many other test sizes."}},
+
+{"@type":"Question","name":"Can I use the Easy Grader for a 50-question test?","acceptedAnswer":{"@type":"Answer","text":"Yes. Enter 50 total questions and the number of wrong answers."}},
+
+{"@type":"Question","name":"Can I use the Easy Grader for a 100-question test?","acceptedAnswer":{"@type":"Answer","text":"Yes. The calculator supports test sizes up to 500 questions."}},
+
+{"@type":"Question","name":"What grade is 90 percent?","acceptedAnswer":{"@type":"Answer","text":"On the Standard scale, 90% or higher is an A."}},
+
+{"@type":"Question","name":"What grade is 80 percent?","acceptedAnswer":{"@type":"Answer","text":"On the Standard scale, 80% to 89% is a B."}},
+
+{"@type":"Question","name":"What grade is 70 percent?","acceptedAnswer":{"@type":"Answer","text":"On the Standard scale, 70% to 79% is a C."}},
+
+{"@type":"Question","name":"Does the calculator support half points?","acceptedAnswer":{"@type":"Answer","text":"Yes. Enable Allow half points to work with partial-credit values such as 1.5 or 2.5."}},
+
+{"@type":"Question","name":"Can I enter decimal wrong answers?","acceptedAnswer":{"@type":"Answer","text":"Yes. Decimal wrong-answer values can be entered."}},
+
+{"@type":"Question","name":"Can I customize the grading scale?","acceptedAnswer":{"@type":"Answer","text":"Yes. Choose Custom and enter your own percentage thresholds."}},
+
+{"@type":"Question","name":"Does Easy Grader have a Plus-Minus grading scale?","acceptedAnswer":{"@type":"Answer","text":"Yes. The Plus-Minus option includes A+, A, A−, B+, B, B− and other plus-minus grades."}},
+
+{"@type":"Question","name":"Can I change the passing grade?","acceptedAnswer":{"@type":"Answer","text":"Yes. You can choose a passing threshold from 60% through 90%."}},
+
+{"@type":"Question","name":"Can I print the Easy Grader chart?","acceptedAnswer":{"@type":"Answer","text":"Yes. Click Print Chart to create a printable grading chart."}},
+
+{"@type":"Question","name":"Is the Easy Grader Calculator free?","acceptedAnswer":{"@type":"Answer","text":"Yes. The Easy Grader is free to use and does not require registration."}},
+
+{"@type":"Question","name":"Is the EZ Grader mobile friendly?","acceptedAnswer":{"@type":"Answer","text":"Yes. The interface is responsive for smartphones, tablets, and desktop computers."}},
+
+{"@type":"Question","name":"Can teachers use this Easy Grader?","acceptedAnswer":{"@type":"Answer","text":"Yes. Teachers can use it to score quizzes, tests, worksheets, and classroom assessments."}},
+
+{"@type":"Question","name":"Can students use the Easy Grader to check test scores?","acceptedAnswer":{"@type":"Answer","text":"Yes. Students can enter test size and incorrect answers to estimate their percentage and letter grade."}},
+
+{"@type":"Question","name":"Does Easy Grader calculate correct answers?","acceptedAnswer":{"@type":"Answer","text":"Yes. Correct answers equal total questions minus wrong answers."}},
+
+{"@type":"Question","name":"What if my school uses a different grading scale?","acceptedAnswer":{"@type":"Answer","text":"Use the Custom grading option and enter the percentage thresholds required by your school or teacher."}},
+
+{"@type":"Question","name":"Can I use Easy Grader for quizzes and exams?","acceptedAnswer":{"@type":"Answer","text":"Yes. It can be used for quizzes, tests, exams, practice papers, worksheets, and other assessments."}}
+
+]
 }
 </script>
 
 <script>
-const totalInput = document.getElementById("totalQuestions");
-const wrongInput = document.getElementById("wrongAnswers");
-const totalMinus = document.getElementById("totalMinus");
-const totalPlus = document.getElementById("totalPlus");
-const wrongMinus = document.getElementById("wrongMinus");
-const wrongPlus = document.getElementById("wrongPlus");
-const calculateBtn = document.getElementById("calculateBtn");
-const correctResult = document.getElementById("correctResult");
-const percentageResult = document.getElementById("percentageResult");
-const gradeResult = document.getElementById("gradeResult");
-const statusResult = document.getElementById("statusResult");
-const chartBody = document.getElementById("chartBody");
-const resetBtn = document.getElementById("resetBtn");
-const halfPoints = document.getElementById("halfPoints");
-const passingGrade = document.getElementById("passingGrade");
-const decimals = document.getElementById("decimals");
-const customBox = document.getElementById("customBox");
-const printBtn = document.getElementById("printBtn");
 
-const standardScale = [
-  {grade:"A",min:90},
-  {grade:"B",min:80},
-  {grade:"C",min:70},
-  {grade:"D",min:60},
-  {grade:"F",min:0}
+const totalInput=document.getElementById("totalQuestions"),
+wrongInput=document.getElementById("wrongAnswers");
+
+const totalMinus=document.getElementById("totalMinus"),
+totalPlus=document.getElementById("totalPlus");
+
+const wrongMinus=document.getElementById("wrongMinus"),
+wrongPlus=document.getElementById("wrongPlus");
+
+const calculateBtn=document.getElementById("calculateBtn"),
+correctResult=document.getElementById("correctResult");
+
+const percentageResult=document.getElementById("percentageResult"),
+gradeResult=document.getElementById("gradeResult"),
+statusResult=document.getElementById("statusResult");
+
+const chartBody=document.getElementById("chartBody"),
+resetBtn=document.getElementById("resetBtn"),
+halfPoints=document.getElementById("halfPoints");
+
+const passingGrade=document.getElementById("passingGrade"),
+decimals=document.getElementById("decimals"),
+customBox=document.getElementById("customBox");
+
+const printBtn=document.getElementById("printBtn"),
+siteSearch=document.getElementById("siteSearch");
+
+const standardScale=[
+{grade:"A",min:90},
+{grade:"B",min:80},
+{grade:"C",min:70},
+{grade:"D",min:60},
+{grade:"F",min:0}
 ];
 
-const plusScale = [
-  {grade:"A+",min:97},
-  {grade:"A",min:93},
-  {grade:"A-",min:90},
-  {grade:"B+",min:87},
-  {grade:"B",min:83},
-  {grade:"B-",min:80},
-  {grade:"C+",min:77},
-  {grade:"C",min:73},
-  {grade:"C-",min:70},
-  {grade:"D+",min:67},
-  {grade:"D",min:63},
-  {grade:"D-",min:60},
-  {grade:"F",min:0}
+const plusScale=[
+{grade:"A+",min:97},
+{grade:"A",min:93},
+{grade:"A-",min:90},
+{grade:"B+",min:87},
+{grade:"B",min:83},
+{grade:"B-",min:80},
+{grade:"C+",min:77},
+{grade:"C",min:73},
+{grade:"C-",min:70},
+{grade:"D+",min:67},
+{grade:"D",min:63},
+{grade:"D-",min:60},
+{grade:"F",min:0}
 ];
 
-let currentScale = "standard";
+let currentScale="standard";
 
 function getTotal(){
-  let value = parseInt(totalInput.value,10);
-  if(isNaN(value) || value < 1){ value = 1; }
-  if(value > 500){ value = 500; }
-  return value;
+
+let v=parseInt(totalInput.value,10);
+
+if(isNaN(v)||v<1)v=1;
+
+if(v>500)v=500;
+
+return v;
 }
 
 function getWrong(){
-  const raw = wrongInput.value.trim();
-  if(raw === "" || raw === "." || raw === "-"){ return 0; }
-  let value = parseFloat(raw);
-  if(isNaN(value)){ return 0; }
-  const total = getTotal();
-  if(value < 0){ value = 0; }
-  if(value > total){ value = total; }
-  return value;
+
+let raw=wrongInput.value.trim();
+
+if(raw===""||raw===".")return 0;
+
+let v=parseFloat(raw);
+
+if(isNaN(v))return 0;
+
+let t=getTotal();
+
+if(v<0)v=0;
+
+if(v>t)v=t;
+
+return v;
 }
-
-function changeTotal(amount){
-  let total = getTotal();
-  total += amount;
-  if(total < 1){ total = 1; }
-  if(total > 500){ total = 500; }
-  totalInput.value = total;
-  const wrong = getWrong();
-  if(wrong > total){ wrongInput.value = String(total); }
-  calculate();
-}
-
-totalMinus.addEventListener("click", function(){ changeTotal(-1); });
-totalPlus.addEventListener("click", function(){ changeTotal(1); });
-
-document.querySelectorAll("[data-total]").forEach(function(button){
-  button.addEventListener("click", function(){
-    const total = parseInt(this.dataset.total, 10);
-    totalInput.value = total;
-    const wrong = getWrong();
-    if(wrong > total){ wrongInput.value = String(total); }
-    calculate();
-  });
-});
-
-function changeWrong(amount){
-  let wrong = getWrong();
-  wrong += amount;
-  if(wrong < 0){ wrong = 0; }
-  const total = getTotal();
-  if(wrong > total){ wrong = total; }
-  wrongInput.value = Number(wrong.toFixed(2)).toString();
-  calculate();
-}
-
-wrongMinus.addEventListener("click", function(){
-  const step = halfPoints.checked ? 0.5 : 1;
-  changeWrong(-step);
-});
-
-wrongPlus.addEventListener("click", function(){
-  const step = halfPoints.checked ? 0.5 : 1;
-  changeWrong(step);
-});
-
-wrongInput.addEventListener("input", function(){
-  let raw = this.value;
-  raw = raw.replace(/[^0-9.]/g, "");
-  const firstDot = raw.indexOf(".");
-  if(firstDot !== -1){
-    raw = raw.substring(0, firstDot + 1) + raw.substring(firstDot + 1).replace(/\./g,"");
-  }
-  this.value = raw;
-  if(raw === "" || raw === "."){ calculate(); return; }
-  const value = parseFloat(raw);
-  if(isNaN(value)){ return; }
-  const total = getTotal();
-  if(value > total){ this.value = String(total); }
-  calculate();
-});
-
-totalInput.addEventListener("input", function(){
-  let value = parseInt(this.value, 10);
-  if(isNaN(value)){ calculate(); return; }
-  if(value < 1){ value = 1; }
-  if(value > 500){ value = 500; }
-  this.value = value;
-  const wrong = getWrong();
-  if(wrong > value){ wrongInput.value = String(value); }
-  calculate();
-});
 
 function getScale(){
-  if(currentScale === "plus"){ return plusScale; }
-  if(currentScale === "custom"){ return parseCustomScale(); }
-  return standardScale;
+
+if(currentScale==="plus")
+return plusScale;
+
+if(currentScale==="custom"){
+
+let A=parseFloat(document.getElementById("customA").value);
+let B=parseFloat(document.getElementById("customB").value);
+let C=parseFloat(document.getElementById("customC").value);
+let D=parseFloat(document.getElementById("customD").value);
+let F=parseFloat(document.getElementById("customF").value);
+
+if(isNaN(A))A=93;
+if(isNaN(B))B=85;
+if(isNaN(C))C=75;
+if(isNaN(D))D=65;
+if(isNaN(F))F=0;
+
+return [
+{grade:"A",min:A},
+{grade:"B",min:B},
+{grade:"C",min:C},
+{grade:"D",min:D},
+{grade:"F",min:F}
+].sort((a,b)=>b.min-a.min);
 }
 
-function parseCustomScale(){
-  let A = parseFloat(document.getElementById("customA").value);
-  let B = parseFloat(document.getElementById("customB").value);
-  let C = parseFloat(document.getElementById("customC").value);
-  let D = parseFloat(document.getElementById("customD").value);
-  let F = parseFloat(document.getElementById("customF").value);
-
-  if(isNaN(A)) A = 93;
-  if(isNaN(B)) B = 85;
-  if(isNaN(C)) C = 75;
-  if(isNaN(D)) D = 65;
-  if(isNaN(F)) F = 0;
-
-  return [
-    {grade:"A",min:A},
-    {grade:"B",min:B},
-    {grade:"C",min:C},
-    {grade:"D",min:D},
-    {grade:"F",min:F}
-  ].sort(function(a,b){ return b.min - a.min; });
+return standardScale;
 }
 
-function getGrade(percent){
-  const scale = getScale();
-  for(let i = 0; i < scale.length; i++){
-    if(percent >= scale[i].min){ return scale[i].grade; }
-  }
-  return "F";
+function getGrade(p){
+
+const s=getScale();
+
+for(const x of s){
+
+if(p>=x.min)
+return x.grade;
+
 }
 
-function getPassingGrade(){
-  const value = parseFloat(passingGrade.value);
-  if(isNaN(value)){ return 60; }
-  return value;
+return "F";
 }
 
-function getDecimals(){
-  const value = parseInt(decimals.value, 10);
-  if(isNaN(value)){ return 2; }
-  return value;
+function fmt(p){
+
+return p.toFixed(parseInt(decimals.value,10)||0)+"%";
+
 }
 
-function formatPercent(value){
-  return value.toFixed(getDecimals()) + "%";
+function calculate(){
+
+const total=getTotal(),
+wrong=getWrong(),
+correct=Math.max(0,total-wrong),
+percent=total?correct/total*100:0,
+grade=getGrade(percent),
+pass=percent>=parseFloat(passingGrade.value);
+
+correctResult.textContent=
+Number.isInteger(correct)?correct:correct.toFixed(2);
+
+percentageResult.textContent=fmt(percent);
+
+gradeResult.textContent=grade;
+
+statusResult.textContent=pass?"Pass":"Fail";
+
+statusResult.className=
+"result-value "+(pass?"pass":"fail");
+
+buildChart(total);
+
 }
 
-function calculateGrade(){
-  const total = getTotal();
-  const wrong = getWrong();
-  const correct = total - wrong;
-  const percent = total > 0 ? (correct / total) * 100 : 0;
-  const grade = getGrade(percent);
-  const pass = percent >= getPassingGrade();
+function buildChart(total){
 
-  correctResult.textContent = Number(correct.toFixed(2)).toString();
-  percentageResult.textContent = formatPercent(percent);
-  gradeResult.textContent = grade;
-  statusResult.textContent = pass ? "Pass" : "Fail";
-  statusResult.className = "result-value " + (pass ? "pass" : "fail");
+chartBody.innerHTML="";
 
-  generateChart(total, wrong);
+const currentWrong=getWrong();
+
+for(let i=0;i<=total;i++){
+
+const correct=total-i,
+percent=correct/total*100,
+grade=getGrade(percent),
+pass=percent>=parseFloat(passingGrade.value);
+
+const tr=document.createElement("tr");
+
+if(Math.abs(i-currentWrong)<0.001)
+tr.className="current";
+
+tr.innerHTML=
+"<td>"+i+"</td>"+
+"<td>"+correct+"</td>"+
+"<td>"+fmt(percent)+"</td>"+
+"<td>"+grade+"</td>"+
+"<td class='"+(pass?"pass":"fail")+"'>"+
+(pass?"Pass":"Fail")+
+"</td>";
+
+chartBody.appendChild(tr);
+
 }
 
-function calculate(){ calculateGrade(); }
+}
 
-calculateBtn.addEventListener("click", calculateGrade);
+function changeTotal(n){
 
-document.querySelectorAll(".scale-btn").forEach(function(button){
-  button.addEventListener("click", function(){
-    document.querySelectorAll(".scale-btn").forEach(function(btn){ btn.classList.remove("active"); });
-    this.classList.add("active");
-    currentScale = this.dataset.scale;
-    if(currentScale === "custom"){ customBox.classList.add("show"); }
-    else{ customBox.classList.remove("show"); }
-    calculate();
-  });
+let v=getTotal()+n;
+
+if(v<1)v=1;
+
+if(v>500)v=500;
+
+totalInput.value=v;
+
+if(getWrong()>v)
+wrongInput.value=v;
+
+calculate();
+
+}
+
+function changeWrong(n){
+
+let v=getWrong()+n;
+
+if(v<0)v=0;
+
+if(v>getTotal())v=getTotal();
+
+wrongInput.value=String(Number(v.toFixed(2)));
+
+calculate();
+
+}
+
+totalMinus.onclick=()=>changeTotal(-1);
+
+totalPlus.onclick=()=>changeTotal(1);
+
+wrongMinus.onclick=()=>
+changeWrong(halfPoints.checked?-0.5:-1);
+
+wrongPlus.onclick=()=>
+changeWrong(halfPoints.checked?0.5:1);
+
+document.querySelectorAll("[data-total]").forEach(b=>{
+
+b.onclick=()=>{
+
+totalInput.value=b.dataset.total;
+
+calculate();
+
+};
+
 });
 
-["customA","customB","customC","customD","customF"].forEach(function(id){
-  document.getElementById(id).addEventListener("input", function(){ calculate(); });
+document.querySelectorAll("[data-scale]").forEach(b=>{
+
+b.onclick=()=>{
+
+currentScale=b.dataset.scale;
+
+document.querySelectorAll(".scale-btn")
+.forEach(x=>x.classList.remove("active"));
+
+b.classList.add("active");
+
+customBox.classList.toggle(
+"show",
+currentScale==="custom"
+);
+
+calculate();
+
+};
+
 });
 
-halfPoints.addEventListener("change", function(){ calculate(); });
-passingGrade.addEventListener("change", calculate);
-decimals.addEventListener("change", calculate);
+wrongInput.addEventListener("input",()=>{
 
-function generateChart(total, currentWrong){
-  chartBody.innerHTML = "";
-  const step = halfPoints.checked ? 0.5 : 1;
+let r=wrongInput.value.replace(/[^0-9.]/g,"");
 
-  for(let wrong = 0; wrong <= total; wrong += step){
-    wrong = Number(wrong.toFixed(2));
-    const correct = total - wrong;
-    const percent = total > 0 ? (correct / total) * 100 : 0;
-    const grade = getGrade(percent);
-    const pass = percent >= getPassingGrade();
+let d=r.indexOf(".");
 
-    const row = document.createElement("tr");
-    if(Math.abs(wrong - currentWrong) < 0.001){ row.classList.add("current"); }
+if(d!==-1)
+r=r.slice(0,d+1)+r.slice(d+1).replace(/\./g,"");
 
-    row.innerHTML = `
-      <td>${Number(wrong.toFixed(2))}</td>
-      <td>${Number(correct.toFixed(2))}</td>
-      <td>${formatPercent(percent)}</td>
-      <td>${grade}</td>
-      <td class="${pass ? "pass" : "fail"}">${pass ? "Pass" : "Fail"}</td>
-    `;
-    chartBody.appendChild(row);
-  }
+wrongInput.value=r;
+
+if(parseFloat(r)>getTotal())
+wrongInput.value=getTotal();
+
+calculate();
+
+});
+
+totalInput.addEventListener("input",calculate);
+
+[
+passingGrade,
+decimals,
+halfPoints,
+document.getElementById("customA"),
+document.getElementById("customB"),
+document.getElementById("customC"),
+document.getElementById("customD"),
+document.getElementById("customF")
+].forEach(x=>x.addEventListener("input",calculate));
+
+calculateBtn.onclick=calculate;
+
+printBtn.onclick=()=>window.print();
+
+resetBtn.onclick=()=>{
+
+totalInput.value=25;
+wrongInput.value=0;
+
+passingGrade.value=60;
+decimals.value=2;
+
+halfPoints.checked=false;
+
+currentScale="standard";
+
+document.querySelectorAll(".scale-btn")
+.forEach(x=>
+x.classList.toggle(
+"active",
+x.dataset.scale==="standard"
+)
+);
+
+customBox.classList.remove("show");
+
+calculate();
+
+};
+
+document.getElementById("searchBtn").onclick=()=>{
+
+const q=siteSearch.value.trim().toLowerCase();
+
+if(!q){
+
+document.getElementById("faq")
+.scrollIntoView();
+
+return;
+
 }
 
-function resetCalculator(){
-  totalInput.value = 25;
-  wrongInput.value = 0;
-  passingGrade.value = 60;
-  decimals.value = 2;
-  halfPoints.checked = false;
+const target=[
+...document.querySelectorAll("h2,summary,p")
+].find(x=>
+x.textContent.toLowerCase().includes(q)
+);
 
-  document.getElementById("customA").value = 93;
-  document.getElementById("customB").value = 85;
-  document.getElementById("customC").value = 75;
-  document.getElementById("customD").value = 65;
-  document.getElementById("customF").value = 0;
+if(target)
+target.scrollIntoView({
+behavior:"smooth",
+block:"center"
+});
 
-  currentScale = "standard";
-  document.querySelectorAll(".scale-btn").forEach(function(btn){ btn.classList.remove("active"); });
-  document.querySelector('[data-scale="standard"]').classList.add("active");
-  customBox.classList.remove("show");
+else
+document.getElementById("faq")
+.scrollIntoView({
+behavior:"smooth"
+});
 
-  calculate();
-}
+};
 
-resetBtn.addEventListener("click", resetCalculator);
-printBtn.addEventListener("click", function(){ window.print(); });
+document.getElementById("topSearch").onclick=()=>{
 
-calculateGrade();
+siteSearch.focus();
+
+siteSearch.scrollIntoView({
+behavior:"smooth",
+block:"center"
+});
+
+};
+
+document.getElementById("featureBtn").onclick=()=>{
+
+alert(
+"Thanks for the suggestion! You can use the Contact page to send feedback."
+);
+
+};
+
+calculate();
+
 </script>
 
 </body>
