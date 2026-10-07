@@ -552,28 +552,6 @@ margin:0 0 18px;
 .seo-content ul,
 .seo-content ol{padding-left:22px}
 
-.faq-item{
-margin-bottom:17px;
-padding:16px;
-border:1px solid #e2e8f0;
-border-radius:10px;
-background:#fff;
-}
-
-.faq-item strong{
-display:block;
-color:#0f172a;
-font-size:15px;
-margin-bottom:7px;
-}
-
-.faq-item p{
-margin:0;
-color:#475569;
-font-size:14px;
-line-height:1.65;
-}
-
 .keyword-section{
 background:#f8fafc;
 border:1px solid #e2e8f0;
@@ -758,6 +736,70 @@ display:none!important;
 }
 
 }
+
+/* Accordion / Expandable FAQ Styling */
+.faq-item {
+    margin-bottom: 12px;
+    padding: 0;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    background: #fff;
+    overflow: hidden;
+}
+
+.faq-toggle {
+    width: 100%;
+    padding: 16px;
+    background: #fff;
+    border: none;
+    text-align: left;
+    font-size: 15px;
+    font-weight: 700;
+    color: #0f172a;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: background-color 0.2s ease;
+    font-family: inherit;
+}
+
+.faq-toggle:hover {
+    background-color: #f8fafc;
+}
+
+.faq-toggle::after {
+    content: '+';
+    font-size: 18px;
+    font-weight: bold;
+    color: #2563eb;
+    margin-left: 10px;
+    transition: transform 0.2s ease;
+}
+
+.faq-item.active .faq-toggle::after {
+    content: '−';
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+    padding: 0 16px;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 500px;
+    padding: 0 16px 16px 16px;
+}
+
+.faq-answer p {
+    margin: 0;
+    color: #475569;
+    font-size: 14px;
+    line-height: 1.65;
+}
+
 </style>
 </head>
 
@@ -1200,128 +1242,178 @@ easy grader online, ez grader online, calculate test grade, calculate quiz grade
 <h2>Easy Grader Frequently Asked Questions</h2>
 
 <div class="faq-item">
-<strong>1. What is an Easy Grader Calculator?</strong>
+<button class="faq-toggle" type="button">1. What is an Easy Grader Calculator?</button>
+<div class="faq-answer">
 <p>An Easy Grader Calculator is a free online tool that converts total questions and wrong answers into correct answers, percentages, letter grades, and pass/fail results.</p>
 </div>
+</div>
 
 <div class="faq-item">
-<strong>2. What is an EZ Grader?</strong>
+<button class="faq-toggle" type="button">2. What is an EZ Grader?</button>
+<div class="faq-answer">
 <p>EZ Grader is another common name for an Easy Grader. It helps quickly score tests, quizzes, and exams based on incorrect answers.</p>
 </div>
+</div>
 
 <div class="faq-item">
-<strong>3. How do I use the Easy Grader Calculator?</strong>
+<button class="faq-toggle" type="button">3. How do I use the Easy Grader Calculator?</button>
+<div class="faq-answer">
 <p>Enter the total number of questions, enter wrong answers, choose a grading scale and passing percentage, then calculate your grade.</p>
 </div>
+</div>
 
 <div class="faq-item">
-<strong>4. What is the Easy Grader formula?</strong>
+<button class="faq-toggle" type="button">4. What is the Easy Grader formula?</button>
+<div class="faq-answer">
 <p>The percentage formula is Correct Answers divided by Total Questions multiplied by 100. Correct answers equal Total Questions minus Wrong Answers.</p>
 </div>
+</div>
 
 <div class="faq-item">
-<strong>5. How do I calculate a test percentage from wrong answers?</strong>
+<button class="faq-toggle" type="button">5. How do I calculate a test percentage from wrong answers?</button>
+<div class="faq-answer">
 <p>Subtract wrong answers from total questions to find correct answers, then divide correct answers by total questions and multiply by 100.</p>
 </div>
+</div>
 
 <div class="faq-item">
-<strong>6. Can I use this calculator for a 10-question test?</strong>
+<button class="faq-toggle" type="button">6. Can I use this calculator for a 10-question test?</button>
+<div class="faq-answer">
 <p>Yes. Enter 10 as the total number of questions and enter the number of wrong answers to calculate the percentage and grade.</p>
 </div>
+</div>
 
 <div class="faq-item">
-<strong>7. Can I use the EZ Grader for a 20-question test?</strong>
+<button class="faq-toggle" type="button">7. Can I use the EZ Grader for a 20-question test?</button>
+<div class="faq-answer">
 <p>Yes. The calculator supports 20-question tests and many other test sizes.</p>
 </div>
+</div>
 
 <div class="faq-item">
-<strong>8. Can I use the Easy Grader for a 50-question test?</strong>
+<button class="faq-toggle" type="button">8. Can I use the Easy Grader for a 50-question test?</button>
+<div class="faq-answer">
 <p>Yes. Enter 50 total questions and the number of wrong answers to generate the percentage, letter grade, and pass/fail status.</p>
 </div>
+</div>
 
 <div class="faq-item">
-<strong>9. Can I use the Easy Grader for a 100-question test?</strong>
+<button class="faq-toggle" type="button">9. Can I use the Easy Grader for a 100-question test?</button>
+<div class="faq-answer">
 <p>Yes. The calculator supports test sizes up to 500 questions, including 100-question exams.</p>
 </div>
+</div>
 
 <div class="faq-item">
-<strong>10. What grade is 90 percent?</strong>
+<button class="faq-toggle" type="button">10. What grade is 90 percent?</button>
+<div class="faq-answer">
 <p>On the Standard grading scale, 90% or higher is an A. Schools may use different grading boundaries.</p>
 </div>
+</div>
 
 <div class="faq-item">
-<strong>11. What grade is 80 percent?</strong>
+<button class="faq-toggle" type="button">11. What grade is 80 percent?</button>
+<div class="faq-answer">
 <p>On the Standard grading scale, 80% to 89% is a B.</p>
 </div>
+</div>
 
 <div class="faq-item">
-<strong>12. What grade is 70 percent?</strong>
+<button class="faq-toggle" type="button">12. What grade is 70 percent?</button>
+<div class="faq-answer">
 <p>On the Standard grading scale, 70% to 79% is a C.</p>
 </div>
+</div>
 
 <div class="faq-item">
-<strong>13. Does the calculator support half points?</strong>
+<button class="faq-toggle" type="button">13. Does the calculator support half points?</button>
+<div class="faq-answer">
 <p>Yes. Enable the Allow half points option to work with partial-credit values such as 1.5 or 2.5.</p>
 </div>
+</div>
 
 <div class="faq-item">
-<strong>14. Can I enter decimal wrong answers?</strong>
+<button class="faq-toggle" type="button">14. Can I enter decimal wrong answers?</button>
+<div class="faq-answer">
 <p>Yes. Decimal wrong-answer values can be entered when partial credit is required.</p>
 </div>
+</div>
 
 <div class="faq-item">
-<strong>15. Can I customize the grading scale?</strong>
+<button class="faq-toggle" type="button">15. Can I customize the grading scale?</button>
+<div class="faq-answer">
 <p>Yes. Select Custom grading and enter your own percentage thresholds for A, B, C, D, and F.</p>
 </div>
+</div>
 
 <div class="faq-item">
-<strong>16. Does Easy Grader have a Plus-Minus grading scale?</strong>
+<button class="faq-toggle" type="button">16. Does Easy Grader have a Plus-Minus grading scale?</button>
+<div class="faq-answer">
 <p>Yes. The Plus-Minus option includes grades such as A+, A, A-, B+, B, B-, C+, C, C-, D+, D, D-, and F.</p>
 </div>
+</div>
 
 <div class="faq-item">
-<strong>17. Can I change the passing grade?</strong>
+<button class="faq-toggle" type="button">17. Can I change the passing grade?</button>
+<div class="faq-answer">
 <p>Yes. You can choose a passing threshold from 60% through 90%.</p>
 </div>
+</div>
 
 <div class="faq-item">
-<strong>18. Can I print the Easy Grader chart?</strong>
+<button class="faq-toggle" type="button">18. Can I print the Easy Grader chart?</button>
+<div class="faq-answer">
 <p>Yes. Use the Print Chart button to create a printable grading chart for classroom or test scoring.</p>
 </div>
+</div>
 
 <div class="faq-item">
-<strong>19. Is the Easy Grader Calculator free?</strong>
+<button class="faq-toggle" type="button">19. Is the Easy Grader Calculator free?</button>
+<div class="faq-answer">
 <p>Yes. This Easy Grader is free to use and does not require registration.</p>
 </div>
+</div>
 
 <div class="faq-item">
-<strong>20. Is the EZ Grader mobile friendly?</strong>
+<button class="faq-toggle" type="button">20. Is the EZ Grader mobile friendly?</button>
+<div class="faq-answer">
 <p>Yes. The calculator is responsive and works on smartphones, tablets, and desktop computers.</p>
 </div>
+</div>
 
 <div class="faq-item">
-<strong>21. Can teachers use this Easy Grader?</strong>
+<button class="faq-toggle" type="button">21. Can teachers use this Easy Grader?</button>
+<div class="faq-answer">
 <p>Yes. Teachers can use it to score quizzes, tests, worksheets, and classroom assessments quickly.</p>
 </div>
+</div>
 
 <div class="faq-item">
-<strong>22. Can students use the Easy Grader to check test scores?</strong>
+<button class="faq-toggle" type="button">22. Can students use the Easy Grader to check test scores?</button>
+<div class="faq-answer">
 <p>Yes. Students can enter their test size and incorrect answers to estimate their percentage and letter grade.</p>
 </div>
+</div>
 
 <div class="faq-item">
-<strong>23. Does Easy Grader calculate correct answers?</strong>
+<button class="faq-toggle" type="button">23. Does Easy Grader calculate correct answers?</button>
+<div class="faq-answer">
 <p>Yes. Correct answers are calculated by subtracting wrong answers from the total number of questions.</p>
 </div>
-
-<div class="faq-item">
-<strong>24. What if my school uses a different grading scale?</strong>
-<p>Use the Custom grading option and enter the percentage thresholds required by your school, teacher, or course.</p>
 </div>
 
 <div class="faq-item">
-<strong>25. Can I use Easy Grader for quizzes and exams?</strong>
+<button class="faq-toggle" type="button">24. What if my school uses a different grading scale?</button>
+<div class="faq-answer">
+<p>Use the Custom grading option and enter the percentage thresholds required by your school, teacher, or course.</p>
+</div>
+</div>
+
+<div class="faq-item">
+<button class="faq-toggle" type="button">25. Can I use Easy Grader for quizzes and exams?</button>
+<div class="faq-answer">
 <p>Yes. The calculator can be used for quizzes, tests, exams, practice papers, worksheets, and other assessments.</p>
+</div>
 </div>
 
 </div>
@@ -2087,6 +2179,20 @@ document.getElementById("searchBtn").click();
 });
 
 calculate();
+
+// FAQ Accordion Toggle Script
+document.querySelectorAll('.faq-toggle').forEach(button => {
+    button.addEventListener('click', () => {
+        const faqItem = button.parentElement;
+        const isActive = faqItem.classList.contains('active');
+        
+        if (!isActive) {
+            faqItem.classList.add('active');
+        } else {
+            faqItem.classList.remove('active');
+        }
+    });
+});
 
 </script>
 
