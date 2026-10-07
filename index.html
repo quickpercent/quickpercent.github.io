@@ -610,6 +610,31 @@ input:focus, select:focus{
   margin-top:28px;
 }
 
+.faq-item{
+  margin-bottom:18px;
+  padding-bottom:16px;
+  border-bottom:1px solid #f1f5f9;
+}
+
+.faq-item:last-child{
+  border-bottom:none;
+}
+
+.faq-item strong{
+  display:block;
+  margin-bottom:8px;
+  color:#0f172a;
+  font-size:16px;
+  font-weight:700;
+}
+
+.faq-item p{
+  margin:0;
+  color:#475569;
+  line-height:1.6;
+  font-size:14px;
+}
+
 /* PROMOTIONAL CTA BANNER */
 .cta-banner{
   background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
@@ -1004,14 +1029,14 @@ footer{
   <button class="cta-btn">Suggest a Feature &rarr;</button>
 </div>
 
-<!-- SEO CONTENT -->
+<!-- SEO CONTENT WITH CONTEXTUAL INTERLINKS -->
 <div class="card seo-content" id="about">
 <h2>Free Easy Grader Calculator</h2>
 <p>
 Our free <strong>Easy Grader Calculator</strong> is a simple way to turn the number of questions and wrong answers on a test, quiz, or exam into a percentage, correct-answer count, letter grade, and pass-or-fail result. Instead of calculating every score by hand, enter the test details and get the result immediately.
 </p>
 <p>
-The calculator is designed for the common situation where you know how many questions are on an assessment and how many answers were incorrect. It can be used by teachers checking a class, students checking a test score, tutors reviewing practice work, or parents helping with schoolwork.
+The calculator is designed for the common situation where you know how many questions are on an assessment and how many answers were incorrect. It can be used by teachers checking a class, students checking a test score, tutors reviewing practice work, or parents helping with schoolwork. If you need to convert overall course credit hours into semester scores, try our <a href="https://quickpercent.github.io/gpa-calculator/" style="color:#2563eb; font-weight:600; text-decoration:none;">GPA Calculator</a> and <a href="https://quickpercent.github.io/cgpa-calculator/" style="color:#2563eb; font-weight:600; text-decoration:none;">CGPA Calculator</a>.
 </p>
 
 <h2>What Is an Easy Grader?</h2>
@@ -1067,10 +1092,11 @@ A percentage does not automatically have the same letter grade at every school. 
 <li><strong>Flexible:</strong> Supports Standard, Plus-Minus, and Custom grading scales.</li>
 <li><strong>Mobile friendly:</strong> Fully responsive design on phones, tablets, and computers.</li>
 <li><strong>Printable:</strong> Generate and print grading reference charts in seconds.</li>
+<li><strong>All-in-one suite:</strong> Easily manage class attendance with our <a href="https://quickpercent.github.io/attendance-calculator/" style="color:#2563eb; font-weight:600; text-decoration:none;">Attendance Calculator</a>.</li>
 </ul>
 </div>
 
-<!-- FAQS CARD (COLLAPSIBLE ACCORDION FAQS) -->
+<!-- FAQS CARD (ACCORDIONS WITH CONTEXTUAL INTERLINKS) -->
 <div class="card faq" id="faq">
 <h2>Easy Grader Frequently Asked Questions</h2>
 
@@ -1090,32 +1116,37 @@ A percentage does not automatically have the same letter grade at every school. 
 </details>
 
 <details style="background: #ffffff; border: 1px solid #e2e8f0; padding: 16px; border-radius: 10px; margin-bottom: 12px; cursor: pointer;">
-  <summary style="font-weight: 700; font-size: 16px; color: #0f172a;">4. Can I use this EZ Grader for any test size (e.g., 10, 20, 50, or 100 questions)?</summary>
+  <summary style="font-weight: 700; font-size: 16px; color: #0f172a;">4. How can I calculate my overall semester grade point average?</summary>
+  <p style="margin-top: 10px; color: #475569; line-height: 1.6; font-size: 14px;">Once you have scored your individual tests, you can easily compute your overall term scores using our <a href="https://quickpercent.github.io/gpa-calculator/" style="color:#2563eb; font-weight:600; text-decoration:none;">Semester GPA Calculator</a> or track your long-term standing with the <a href="https://quickpercent.github.io/cgpa-calculator/" style="color:#2563eb; font-weight:600; text-decoration:none;">Cumulative CGPA Calculator</a>.</p>
+</details>
+
+<details style="background: #ffffff; border: 1px solid #e2e8f0; padding: 16px; border-radius: 10px; margin-bottom: 12px; cursor: pointer;">
+  <summary style="font-weight: 700; font-size: 16px; color: #0f172a;">5. Can I use this EZ Grader for any test size (e.g., 10, 20, 50, or 100 questions)?</summary>
   <p style="margin-top: 10px; color: #475569; line-height: 1.6; font-size: 14px;">Yes. Whether your test has 5, 10, 20, 50, or 100+ questions, simply enter the total count to generate precise percentages, letter grades, and printable reference charts.</p>
 </details>
 
 <details style="background: #ffffff; border: 1px solid #e2e8f0; padding: 16px; border-radius: 10px; margin-bottom: 12px; cursor: pointer;">
-  <summary style="font-weight: 700; font-size: 16px; color: #0f172a;">5. What letter grade corresponds to 90%, 80%, or 70%?</summary>
+  <summary style="font-weight: 700; font-size: 16px; color: #0f172a;">6. What letter grade corresponds to 90%, 80%, or 70%?</summary>
   <p style="margin-top: 10px; color: #475569; line-height: 1.6; font-size: 14px;">On the standard scale: 90% and above is an <strong>A</strong>, 80% to 89% is a <strong>B</strong>, and 70% to 79% is a <strong>C</strong>. You can also switch to Plus-Minus scale (A+, A-, B+, etc.) or enter Custom percentage thresholds.</p>
 </details>
 
 <details style="background: #ffffff; border: 1px solid #e2e8f0; padding: 16px; border-radius: 10px; margin-bottom: 12px; cursor: pointer;">
-  <summary style="font-weight: 700; font-size: 16px; color: #0f172a;">6. Does it support half points (0.5) or decimal wrong answers?</summary>
+  <summary style="font-weight: 700; font-size: 16px; color: #0f172a;">7. Does it support half points (0.5) or decimal wrong answers?</summary>
   <p style="margin-top: 10px; color: #475569; line-height: 1.6; font-size: 14px;">Yes. Check the "Allow half points (0.5)" option to calculate partial credit scores (such as 1.5 or 2.5 wrong answers) accurately.</p>
 </details>
 
 <details style="background: #ffffff; border: 1px solid #e2e8f0; padding: 16px; border-radius: 10px; margin-bottom: 12px; cursor: pointer;">
-  <summary style="font-weight: 700; font-size: 16px; color: #0f172a;">7. Can I customize grading scales or passing grade thresholds?</summary>
+  <summary style="font-weight: 700; font-size: 16px; color: #0f172a;">8. Can I customize grading scales or passing grade thresholds?</summary>
   <p style="margin-top: 10px; color: #475569; line-height: 1.6; font-size: 14px;">Yes. You can choose between Standard, Plus-Minus, or Custom grading scales and set passing criteria anywhere from 60% to 90% to align with your school's grading policy.</p>
 </details>
 
 <details style="background: #ffffff; border: 1px solid #e2e8f0; padding: 16px; border-radius: 10px; margin-bottom: 12px; cursor: pointer;">
-  <summary style="font-weight: 700; font-size: 16px; color: #0f172a;">8. Can I print the Easy Grader grading chart?</summary>
+  <summary style="font-weight: 700; font-size: 16px; color: #0f172a;">9. Can I print the Easy Grader grading chart?</summary>
   <p style="margin-top: 10px; color: #475569; line-height: 1.6; font-size: 14px;">Yes! Click the <strong>Print Chart</strong> button above the table to print a clean reference sheet for grading papers efficiently off-screen.</p>
 </details>
 
 <details style="background: #ffffff; border: 1px solid #e2e8f0; padding: 16px; border-radius: 10px; margin-bottom: 12px; cursor: pointer;">
-  <summary style="font-weight: 700; font-size: 16px; color: #0f172a;">9. Is the Easy Grader Calculator free and mobile friendly?</summary>
+  <summary style="font-weight: 700; font-size: 16px; color: #0f172a;">10. Is the Easy Grader Calculator free and mobile friendly?</summary>
   <p style="margin-top: 10px; color: #475569; line-height: 1.6; font-size: 14px;">Yes, it is 100% free with no registration required, and fully responsive across smartphones, tablets, and desktop computers.</p>
 </details>
 </div>
@@ -1189,6 +1220,7 @@ A percentage does not automatically have the same letter grade at every school. 
     {"@type": "Question", "name": "What is an Easy Grader (EZ Grader) Calculator?", "acceptedAnswer": {"@type": "Answer", "text": "An Easy Grader (EZ Grader) is a free online tool designed for teachers, tutors, and students to quickly convert total test questions and wrong answers into accurate percentages, letter grades, and pass/fail results."}},
     {"@type": "Question", "name": "How do I use the Easy Grader Calculator?", "acceptedAnswer": {"@type": "Answer", "text": "Enter total questions and wrong answers, select grading scale options, and click Calculate Grade to view instant results and a complete chart."}},
     {"@type": "Question", "name": "What is the Easy Grader formula?", "acceptedAnswer": {"@type": "Answer", "text": "Percentage = [(Total Questions − Wrong Answers) ÷ Total Questions] × 100."}},
+    {"@type": "Question", "name": "How can I calculate my overall semester grade point average?", "acceptedAnswer": {"@type": "Answer", "text": "Use our GPA Calculator or CGPA Calculator to determine your overall term scores."}},
     {"@type": "Question", "name": "Can I use this EZ Grader for any test size?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, it supports any total question count including 10, 20, 50, and 100 question tests."}},
     {"@type": "Question", "name": "Does it support half points (0.5) or decimal wrong answers?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. Enable 'Allow half points' to calculate decimal wrong answers like 1.5 or 2.5."}},
     {"@type": "Question", "name": "Can I customize grading scales or passing thresholds?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, select Standard, Plus-Minus, or Custom scale and adjust passing limits."}},
