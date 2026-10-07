@@ -132,28 +132,38 @@ footer{background:#0f172a;color:#94a3b8;padding:40px 20px;margin-top:auto;}
   </div>
 
   <!-- FAQS CARD -->
-  <div class="card faq">
+  <div class="card faq" id="faq">
     <h2>CGPA Calculator Frequently Asked Questions</h2>
 
-    <div class="faq-item">
-      <strong>1. What is the difference between GPA and CGPA?</strong>
-      <p>GPA (Grade Point Average) measures academic performance for a single semester or term. CGPA (Cumulative Grade Point Average) measures your overall average across all completed semesters combined.</p>
-    </div>
+    <details style="background: #ffffff; border: 1px solid #e2e8f0; padding: 16px; border-radius: 10px; margin-bottom: 12px; cursor: pointer;">
+      <summary style="font-weight: 700; font-size: 16px; color: #0f172a;">1. What is the difference between GPA and CGPA?</summary>
+      <p style="margin-top: 10px; color: #475569; line-height: 1.6; font-size: 14px;">GPA (Grade Point Average) measures academic performance for a single semester or term. CGPA (Cumulative Grade Point Average) measures your cumulative overall average across all completed semesters combined.</p>
+    </details>
 
-    <div class="faq-item">
-      <strong>2. How do I convert CGPA to percentage?</strong>
-      <p>Different universities follow different conversion rules. In standard 4.0 systems, multiplying your CGPA by 25 gives an approximate percentage (e.g., 3.2 CGPA × 25 = 80%).</p>
-    </div>
+    <details style="background: #ffffff; border: 1px solid #e2e8f0; padding: 16px; border-radius: 10px; margin-bottom: 12px; cursor: pointer;">
+      <summary style="font-weight: 700; font-size: 16px; color: #0f172a;">2. How do I convert CGPA to percentage?</summary>
+      <p style="margin-top: 10px; color: #475569; line-height: 1.6; font-size: 14px;">In standard 4.0 grading systems, multiplying your CGPA by 25 gives an approximate percentage (e.g., 3.2 CGPA × 25 = 80%). Some Indian and international university systems use custom formulas like (CGPA × 9.5).</p>
+    </details>
 
-    <div class="faq-item">
-      <strong>3. Why do credit hours matter in calculating CGPA?</strong>
-      <p>Semesters with more credit hours carry higher weight in your overall CGPA. For instance, a semester with 18 credits impacts your overall CGPA significantly more than a semester with 12 credits.</p>
-    </div>
+    <details style="background: #ffffff; border: 1px solid #e2e8f0; padding: 16px; border-radius: 10px; margin-bottom: 12px; cursor: pointer;">
+      <summary style="font-weight: 700; font-size: 16px; color: #0f172a;">3. Why do credit hours matter in calculating CGPA?</summary>
+      <p style="margin-top: 10px; color: #475569; line-height: 1.6; font-size: 14px;">Semesters with more total credit hours carry higher mathematical weight in your CGPA calculation. For instance, a 18-credit semester influences your overall CGPA more significantly than a 12-credit semester.</p>
+    </details>
 
-    <div class="faq-item">
-      <strong>4. What is considered a good CGPA for graduation?</strong>
-      <p>A CGPA of 3.0 or higher is generally considered good for graduation, while a CGPA of 3.5+ often qualifies students for honors, awards, and graduate school admission.</p>
-    </div>
+    <details style="background: #ffffff; border: 1px solid #e2e8f0; padding: 16px; border-radius: 10px; margin-bottom: 12px; cursor: pointer;">
+      <summary style="font-weight: 700; font-size: 16px; color: #0f172a;">4. What formula does this CGPA calculator use?</summary>
+      <p style="margin-top: 10px; color: #475569; line-height: 1.6; font-size: 14px;">The calculator uses the standard formula: <strong>CGPA = Total Quality Points (Sum of [Semester GPA × Semester Credits]) ÷ Total Credit Hours Completed</strong>.</p>
+    </details>
+
+    <details style="background: #ffffff; border: 1px solid #e2e8f0; padding: 16px; border-radius: 10px; margin-bottom: 12px; cursor: pointer;">
+      <summary style="font-weight: 700; font-size: 16px; color: #0f172a;">5. What is considered a good CGPA for university graduation?</summary>
+      <p style="margin-top: 10px; color: #475569; line-height: 1.6; font-size: 14px;">A CGPA of 3.0 or higher is generally considered good for college graduation, while a CGPA of 3.5+ qualifies students for academic honors, awards, and competitive master's/PhD admissions.</p>
+    </details>
+
+    <details style="background: #ffffff; border: 1px solid #e2e8f0; padding: 16px; border-radius: 10px; margin-bottom: 12px; cursor: pointer;">
+      <summary style="font-weight: 700; font-size: 16px; color: #0f172a;">6. Is this CGPA calculator free to use?</summary>
+      <p style="margin-top: 10px; color: #475569; line-height: 1.6; font-size: 14px;">Yes, this cumulative GPA calculator is 100% free with unlimited semester additions and instant real-time calculations.</p>
+    </details>
   </div>
 </div>
 
@@ -193,9 +203,11 @@ footer{background:#0f172a;color:#94a3b8;padding:40px 20px;margin-top:auto;}
   "@type": "FAQPage",
   "mainEntity": [
     {"@type": "Question", "name": "What is the difference between GPA and CGPA?", "acceptedAnswer": {"@type": "Answer", "text": "GPA measures a single semester, while CGPA measures cumulative overall performance across all terms combined."}},
-    {"@type": "Question", "name": "How do I convert CGPA to percentage?", "acceptedAnswer": {"@type": "Answer", "text": "In standard systems, multiplying your 4.0 scale CGPA by 25 gives an approximate percentage."}},
+    {"@type": "Question", "name": "How do I convert CGPA to percentage?", "acceptedAnswer": {"@type": "Answer", "text": "In standard 4.0 systems, multiplying your CGPA by 25 gives an approximate percentage."}},
     {"@type": "Question", "name": "Why do credit hours matter in calculating CGPA?", "acceptedAnswer": {"@type": "Answer", "text": "Semesters with more credit hours carry higher weight in your overall CGPA calculation."}},
-    {"@type": "Question", "name": "What is a good CGPA for graduation?", "acceptedAnswer": {"@type": "Answer", "text": "A CGPA of 3.0 or higher is generally considered good, while 3.5+ qualifies for honors."}}
+    {"@type": "Question", "name": "What formula does this CGPA calculator use?", "acceptedAnswer": {"@type": "Answer", "text": "CGPA = Total Quality Points (Sum of [Semester GPA × Semester Credits]) ÷ Total Credit Hours Completed."}},
+    {"@type": "Question", "name": "What is considered a good CGPA for university graduation?", "acceptedAnswer": {"@type": "Answer", "text": "A CGPA of 3.0 or higher is generally considered good, while 3.5+ qualifies for academic honors."}},
+    {"@type": "Question", "name": "Is this CGPA calculator free to use?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, this online CGPA calculator is 100% free with unlimited semester calculations."}}
   ]
 }
 </script>
